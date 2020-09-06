@@ -1,0 +1,116 @@
+{
+    "ShortName": "Anibal Guerra",
+    "Name": "Anibal Jose Guerra Zapata",
+    "Phone": "3186875411",
+    "Email": "inganibalguerra@gmail.com",
+    "Age": 23,
+    "City":"Valledupar - Cesar",
+    "Country":"Colombia",
+    "About": {
+        "Title":"Ingeniero de sistemas con 3 años de experiencia certificada como desarrollador de software",
+        "Description":"Soy una persona proactiva, dinámica, con habilidad para manejo de personal, capacidad de análisis, iniciativa, dispuesto a escuchar y a trabajar en equipo, a trabajar bajo presión y a interrelacionarme con miembros de diferentes niveles jerárquicos.\nIngeniero de Sistemas, con amplios conocimientos en el desarrollo de aplicaciones Web, Móviles y de Escritorio, basadas en las mejores arquitecturas y calidad de software. Manejo los siguientes lenguajes de programación y herramientas de trabajo: .net (c#, vb.net), Javascript, C/C++, AngularJS, Angular8, Jquery, Java, Android Studio, PHP, Laravel, Node.js, Sails.js, MySql, Sql Server, Oracle, Mongo DB, SCRUM, Git, Jenkins, Internet Information Server (IIS), Azure DevOps, Integración Continua y Slack; adicionalmente me desempeño como Desarrollador e ingeniero de Tester y QA, razón por la que continuamente me encuentro aprendiendo paradigmas de programación y diseñando arquitecturas de software que prometan alcanzar estándares de calidad."
+    },
+    "SocialNetworks":[
+        {
+            "Name":"Facebook",
+            "Fa-Icon":"fa-facebook",
+            "ProfileUrl":""
+        }
+    ],
+    "Languages":[
+        {
+            "Language":"Español",
+            "Description":"Nativo"
+        }
+    ],
+    "Education":[
+        {
+            "Title":"Ingeniero De Sistemas",
+            "Entity":"Universidad Popular Del Cesar",
+            "Dates":{
+                "Start":"2017-01-01",
+                "End":"2017-01-01"
+            }
+        }
+    ],
+    "Experience":[
+        {
+            "Name":"B&A Systems",
+            "JobTitle":"Desarrollador",
+            "Description":"Desarrollador FullStack",
+            "Dates":{
+                "Start":"2017-01-01",
+                "End":"2017-01-01"
+            }
+        }
+    ],
+    "Achievements":"Tesis Meritoria - Universidad Popular Del Cesar",
+    "Skills": [
+        {
+            "Name":"Vue",
+            "Percentage":80
+        },
+        {
+            "Name":"AngularJs",
+            "Percentage":100
+        },
+        {
+            "Name":"Angular 9+",
+            "Percentage":100
+        },
+        {
+            "Name":"C#",
+            "Percentage":100
+        },
+        {
+            "Name":"PHP - Laravel",
+            "Percentage":98
+        },
+        {
+            "Name":"Go",
+            "Percentage":85
+        },
+        {
+            "Name":"Docker",
+            "Percentage":70
+        },
+        {
+            "Name":"Kubernetes",
+            "Percentage":20
+        }
+    ],
+    "OtherSkills": [
+        {
+            "Name":"Sql Server",
+            "Percentage":98
+        },
+        {
+            "Name":"Mysql",
+            "Percentage":98
+        },
+        {
+            "Name":"Jquery",
+            "Percentage":94
+        },
+        {
+            "Name":"Unit Testing",
+            "Percentage":100
+        },
+        {
+            "Name":"CI/CD",
+            "Percentage":90
+        },
+        {
+            "Name":"Postgres",
+            "Percentage":90
+        },
+        {
+            "Name":"Jenkins",
+            "Percentage":90
+        },
+        {
+            "Name":"Azure DevOps",
+            "Percentage":85
+        }
+    ]
+}
