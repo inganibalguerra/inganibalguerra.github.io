@@ -13,14 +13,28 @@
     "SocialNetworks": [
         {
             "Name": "Facebook",
-            "Fa-Icon": "fa-facebook",
-            "ProfileUrl": ""
+            "Icon": "https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico",
+            "ProfileUrl": "https://www.facebook.com/AnibalDoctor"
+        },
+        {
+            "Name": "Instagram",
+            "Icon": "https://www.instagram.com/static/images/ico/apple-touch-icon-76x76-precomposed.png/666282be8229.png",
+            "ProfileUrl": "https://www.instagram.com/anibalguerraz"
+        },
+        {
+            "Name": "LinkedIn",
+            "Icon": "https://static-exp1.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico",
+            "ProfileUrl": "https://www.linkedin.com/in/anibal-jose-guerra-zapata-2673a610a"
         }
     ],
     "Languages": [
         {
             "Language": "Español",
             "Description": "Nativo"
+        },
+        {
+            "Language": "Ingles",
+            "Description": "Basico"
         }
     ],
     "Education": [
