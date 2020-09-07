@@ -25,6 +25,11 @@
             "Name": "LinkedIn",
             "Icon": "https://static-exp1.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico",
             "ProfileUrl": "https://www.linkedin.com/in/anibal-jose-guerra-zapata-2673a610a"
+        },
+        {
+            "Name": "Github",
+            "Icon": "https://github.githubassets.com/pinned-octocat.svg",
+            "ProfileUrl": "https://github.com/inganibalguerra"
         }
     ],
     "Languages": [
