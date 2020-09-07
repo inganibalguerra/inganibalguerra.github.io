@@ -138,5 +138,5 @@
             "Percentage": 20
         }
     ],
-    "OtherSkills": ["AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"]
+    "OtherSkills": ["Clean Architecture","Design Patterns","Solid","AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"]
 }
