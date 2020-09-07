@@ -88,10 +88,6 @@
     "Achievements": "Tesis Meritoria - Universidad Popular Del Cesar",
     "Skills": [
         {
-            "Name": "Vue",
-            "Percentage": 80
-        },
-        {
             "Name": "AngularJs",
             "Percentage": 100
         },
@@ -112,46 +108,25 @@
             "Percentage": 85
         },
         {
+            "Name": "Azure DevOps",
+            "Percentage": 85
+        },
+        {
+            "Name": "Vue",
+            "Percentage": 80
+        },
+        {
             "Name": "Docker",
             "Percentage": 70
+        },
+        {
+            "Name": "Google Cloud Platform",
+            "Percentage": 25
         },
         {
             "Name": "Kubernetes",
             "Percentage": 20
         }
     ],
-    "OtherSkills": [
-        {
-            "Name": "Sql Server",
-            "Percentage": 98
-        },
-        {
-            "Name": "Mysql",
-            "Percentage": 98
-        },
-        {
-            "Name": "Jquery",
-            "Percentage": 94
-        },
-        {
-            "Name": "Unit Testing",
-            "Percentage": 100
-        },
-        {
-            "Name": "CI/CD",
-            "Percentage": 90
-        },
-        {
-            "Name": "Postgres",
-            "Percentage": 90
-        },
-        {
-            "Name": "Jenkins",
-            "Percentage": 90
-        },
-        {
-            "Name": "Azure DevOps",
-            "Percentage": 85
-        }
-    ]
+    "OtherSkills": ["Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins"]
 }
