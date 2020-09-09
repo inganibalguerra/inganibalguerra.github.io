@@ -60,6 +60,15 @@
                 "End": "2017-02"
             },
             "Icon":"https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
+        },
+        {
+            "Title": "Técnico En Contabilidad",
+            "Entity": "SENA",
+            "Dates": {
+                "Start": "2012-01",
+                "End": "2012-02"
+            },
+            "Icon":"https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"
         }
     ],
     "Experiences": [
