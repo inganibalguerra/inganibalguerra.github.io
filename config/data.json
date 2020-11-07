@@ -225,7 +225,7 @@
                     "Description":"El sistema permite a usuarios admisionistas administrar las citas agendadas por los pacientes estudiantes, de modo que estos puedan controlar el acceso a las oficinas de la ips y tambien cancelar las citas en el caso en que se requiera."
                 },
                 {
-                    "Path":"briefcases/ipsinformegeneral.png",
+                    "Path":"briefcases/ipsinformesgenerales.png",
                     "Description":"Cada usuario administrador, admisionista, odontologo, psicologo o de PYP cuenta con un informe general del historico de citas de modo que se pueda tener idea de la atenciones realizadas al mes o a lo largo de la historia de la IPS."
                 },
                 {
