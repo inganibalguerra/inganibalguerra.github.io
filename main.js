@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"footer\" *ngIf=\"!Summary.HideCopyright\">\n  <div class=\"row align-items-center justify-content-xl-between\">\n    <div class=\"col-xl-6\">\n      <div class=\"copyright text-center text-xl-left text-muted\">\n        &copy; {{ test | date: \"yyyy\" }} <a href=\"https://inganibalguerra.github.io\" class=\"font-weight-bold ml-1\" target=\"_blank\">Anibal Guerra</a>\n      </div>\n    </div>\n    <!-- <div class=\"col-xl-6\">\n      <ul class=\"nav nav-footer justify-content-center justify-content-xl-end\">\n        <li class=\"nav-item\">\n          <a href=\"https://www.creative-tim.com?ref=ada-footer-admin-layout\" class=\"nav-link\" target=\"_blank\">Creative Tim</a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"https://www.creative-tim.com/presentation?ref=ada-footer-admin-layout\" class=\"nav-link\" target=\"_blank\">About Us</a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"http://blog.creative-tim.com?ref=ada-footer-admin-layout\" class=\"nav-link\" target=\"_blank\">Blog</a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"https://github.com/creativetimofficial/argon-dashboard-angular/blob/master/LICENSE.md\" class=\"nav-link\" target=\"_blank\">MIT License</a>\n        </li>\n      </ul>\n    </div> -->\n  </div>\n</footer>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"footer\" *ngIf=\"Summary && !Summary.HideCopyright\">\n  <div class=\"row align-items-center justify-content-xl-between\">\n    <div class=\"col-xl-6\">\n      <div class=\"copyright text-center text-xl-left text-muted\">\n        &copy; {{ test | date: \"yyyy\" }} <a href=\"https://inganibalguerra.github.io\" class=\"font-weight-bold ml-1\" target=\"_blank\">Anibal Guerra</a>\n      </div>\n    </div>\n    <!-- <div class=\"col-xl-6\">\n      <ul class=\"nav nav-footer justify-content-center justify-content-xl-end\">\n        <li class=\"nav-item\">\n          <a href=\"https://www.creative-tim.com?ref=ada-footer-admin-layout\" class=\"nav-link\" target=\"_blank\">Creative Tim</a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"https://www.creative-tim.com/presentation?ref=ada-footer-admin-layout\" class=\"nav-link\" target=\"_blank\">About Us</a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"http://blog.creative-tim.com?ref=ada-footer-admin-layout\" class=\"nav-link\" target=\"_blank\">Blog</a>\n        </li>\n        <li class=\"nav-item\">\n          <a href=\"https://github.com/creativetimofficial/argon-dashboard-angular/blob/master/LICENSE.md\" class=\"nav-link\" target=\"_blank\">MIT License</a>\n        </li>\n      </ul>\n    </div> -->\n  </div>\n</footer>\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-top navbar-expand-md navbar-dark\" id=\"navbar-main\">\n  <div class=\"container-fluid\">\n    <!-- Brand -->\n    <a class=\"h4 mb-0 text-white text-uppercase d-none d-lg-inline-block\" routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\">{{getTitle()}}</a>\n    <!-- Form -->\n    <!-- <form class=\"navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto\">\n      <div class=\"form-group mb-0\" [ngClass]=\"{ 'focused': focus === true }\">\n        <div class=\"input-group input-group-alternative\">\n          <div class=\"input-group-prepend\">\n            <span class=\"input-group-text\"><i class=\"fas fa-search\"></i></span>\n          </div>\n          <input class=\"form-control\" placeholder=\"Search\" type=\"text\" (focus)=\"focus = true\"\n          (blur)=\"focus = false\">\n        </div>\n      </div>\n    </form> -->\n    <!-- User -->\n    <ul class=\"navbar-nav align-items-center d-none d-md-flex\">\n      <li class=\"nav-item\" ngbDropdown placement=\"bottom-right\">\n        <a class=\"nav-link pr-0\" role=\"button\" ngbDropdownToggle>\n          <div class=\"media align-items-center\">\n            <span class=\"avatar avatar-sm rounded-circle\">\n              <img alt=\"Image placeholder\" src=\"config/profile.png\">\n            </span>\n            <div class=\"media-body ml-2 d-none d-lg-block\">\n              <span class=\"mb-0 text-sm  font-weight-bold\">{{Summary.ShortName}}</span>\n            </div>\n          </div>\n        </a>\n        <div class=\"dropdown-menu-arrow dropdown-menu-right\" ngbDropdownMenu>\n          <div class=\" dropdown-header noti-title\">\n            <h6 class=\"text-overflow m-0\">Bienvenido!</h6>\n          </div>\n          <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-single-02\"></i>\n            <span>Mi Perfil</span>\n          </a>\n          <!-- <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-settings-gear-65\"></i>\n            <span>Settings</span>\n          </a>\n          <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-calendar-grid-58\"></i>\n            <span>Activity</span>\n          </a>\n          <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-support-16\"></i>\n            <span>Support</span>\n          </a>\n          <div class=\"dropdown-divider\"></div>\n          <a href=\"#!\" class=\"dropdown-item\">\n            <i class=\"ni ni-user-run\"></i>\n            <span>Logout</span>\n          </a> -->\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-top navbar-expand-md navbar-dark\" id=\"navbar-main\" *ngIf=\"Summary\">\n  <div class=\"container-fluid\">\n    <!-- Brand -->\n    <a class=\"h4 mb-0 text-white text-uppercase d-none d-lg-inline-block\" routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\">{{getTitle()}}</a>\n    <!-- Form -->\n    <!-- <form class=\"navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto\">\n      <div class=\"form-group mb-0\" [ngClass]=\"{ 'focused': focus === true }\">\n        <div class=\"input-group input-group-alternative\">\n          <div class=\"input-group-prepend\">\n            <span class=\"input-group-text\"><i class=\"fas fa-search\"></i></span>\n          </div>\n          <input class=\"form-control\" placeholder=\"Search\" type=\"text\" (focus)=\"focus = true\"\n          (blur)=\"focus = false\">\n        </div>\n      </div>\n    </form> -->\n    <!-- User -->\n    <ul class=\"navbar-nav align-items-center d-none d-md-flex\">\n      <li class=\"nav-item\" ngbDropdown placement=\"bottom-right\">\n        <a class=\"nav-link pr-0\" role=\"button\" ngbDropdownToggle>\n          <div class=\"media align-items-center\">\n            <span class=\"avatar avatar-sm rounded-circle\">\n              <img alt=\"Image placeholder\" src=\"config/profile.png\">\n            </span>\n            <div class=\"media-body ml-2 d-none d-lg-block\">\n              <span class=\"mb-0 text-sm  font-weight-bold\">{{Summary.ShortName}}</span>\n            </div>\n          </div>\n        </a>\n        <div class=\"dropdown-menu-arrow dropdown-menu-right\" ngbDropdownMenu>\n          <div class=\" dropdown-header noti-title\">\n            <h6 class=\"text-overflow m-0\">Bienvenido!</h6>\n          </div>\n          <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-single-02\"></i>\n            <span>Mi Perfil</span>\n          </a>\n          <!-- <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-settings-gear-65\"></i>\n            <span>Settings</span>\n          </a>\n          <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-calendar-grid-58\"></i>\n            <span>Activity</span>\n          </a>\n          <a routerLinkActive=\"active\" [routerLink]=\"['/user-profile']\" class=\"dropdown-item\">\n            <i class=\"ni ni-support-16\"></i>\n            <span>Support</span>\n          </a>\n          <div class=\"dropdown-divider\"></div>\n          <a href=\"#!\" class=\"dropdown-item\">\n            <i class=\"ni ni-user-run\"></i>\n            <span>Logout</span>\n          </a> -->\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header bg-gradient-danger pb-8 pt-5 pt-md-8\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-7 col-md-10\">\n                    <h1 class=\"display-2 text-white\">{{Summary.ShortName}}</h1>\n                    <p class=\"text-white\">{{Summary.About.Title}}</p>\n                    <p>\n                        <span class=\"ml-1\" *ngFor=\"let socialNetwork of Summary.SocialNetworks\">\n                            <a target=\"_blank\" href=\"{{socialNetwork.ProfileUrl}}\" title=\"{{socialNetwork.Name}}\"><img\n                                    class=\"rounded-circle\" height=\"25px\" src=\"{{socialNetwork.Icon}}\"> </a>\n                        </span>\n                    </p>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row\">\n        <div class=\"col-xl-12\" *ngFor=\"let briefcase of Summary.Briefcases\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-transparent\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">{{briefcase.Name}}</h6>\n                            <h2 class=\"mb-0\">{{briefcase.Tittle}}</h2>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-lg-4 col-md-6 col-xs-12\" *ngFor=\"let image of briefcase.Images\">\n                        <div class=\"card-body\" >\n                            <div class=\"card\">\n                                <img class=\"card-img-top\" src=\"config/{{image.Path}}\" alt=\"Card image cap\">\n                                <div class=\"card-body\">\n                                    <!-- <h5 class=\"card-title\">{{image.}}</h5> -->\n                                    <p class=\"card-text\">{{image.Description}}</p>\n                                    <!-- <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a> -->\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header bg-gradient-danger pb-8 pt-5 pt-md-8\" *ngIf=\"Summary\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-7 col-md-10\">\n                    <h1 class=\"display-2 text-white\">{{Summary.ShortName}}</h1>\n                    <p class=\"text-white\">{{Summary.About.Title}}</p>\n                    <p>\n                        <span class=\"ml-1\" *ngFor=\"let socialNetwork of Summary.SocialNetworks\">\n                            <a target=\"_blank\" href=\"{{socialNetwork.ProfileUrl}}\" title=\"{{socialNetwork.Name}}\"><img\n                                    class=\"rounded-circle\" height=\"25px\" src=\"{{socialNetwork.Icon}}\"> </a>\n                        </span>\n                    </p>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\" *ngIf=\"Summary\">\n    <div class=\"row\">\n        <div class=\"col-xl-12\" *ngFor=\"let briefcase of Summary.Briefcases\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-transparent\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">{{briefcase.Name}}</h6>\n                            <h2 class=\"mb-0\">{{briefcase.Tittle}}</h2>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">\n                    <p class=\"card-text\">{{briefcase.Description}}</p>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-lg-4 col-md-6 col-xs-12\" *ngFor=\"let image of briefcase.Images\">\n                        <div class=\"card-body\">\n                            <div class=\"card\">\n                                <img class=\"card-img-top\" style=\"cursor: pointer;\" (click)=\"openGallery(image.Index-1)\"\n                                    src=\"config/{{image.Path}}\" alt=\"Card image cap\">\n                                <div class=\"card-body\">\n                                    <!-- <h5 class=\"card-title\">{{image.}}</h5> -->\n                                    <p class=\"card-text\">{{image.Description}}</p>\n                                    <!-- <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a> -->\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<ngx-image-gallery [images]=\"images\" [conf]=\"conf\" (onDelete)=\"deleteImage($event)\"></ngx-image-gallery>");
 
 /***/ }),
 
@@ -96,37 +96,21 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
   \**********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var map = {
-	"./layouts/admin-layout/admin-layout.module": [
-		"./src/app/layouts/admin-layout/admin-layout.module.ts",
-		"layouts-admin-layout-admin-layout-module"
-	],
-	"./layouts/auth-layout/auth-layout.module": [
-		"./src/app/layouts/auth-layout/auth-layout.module.ts",
-		"layouts-auth-layout-auth-layout-module"
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(function() {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(id);
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncaught exception popping up in devtools
+	return Promise.resolve().then(function() {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
 	});
 }
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
-module.exports = webpackAsyncContext;
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
@@ -204,6 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
 /* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/components.module */ "./src/app/components/components.module.ts");
 /* harmony import */ var _pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/briefcases/briefcases.component */ "./src/app/pages/briefcases/briefcases.component.ts");
+/* harmony import */ var ngx_image_gallery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-image-gallery */ "./node_modules/ngx-image-gallery/__ivy_ngcc__/fesm5/ngx-image-gallery.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -213,6 +198,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -237,7 +223,8 @@ var AppModule = /** @class */ (function () {
                 _components_components_module__WEBPACK_IMPORTED_MODULE_10__["ComponentsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],
-                _app_routing__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"]
+                _app_routing__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
+                ngx_image_gallery__WEBPACK_IMPORTED_MODULE_12__["NgxImageGalleryModule"]
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
@@ -272,6 +259,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
 /* harmony import */ var _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layouts/admin-layout/admin-layout.component */ "./src/app/layouts/admin-layout/admin-layout.component.ts");
 /* harmony import */ var _layouts_auth_layout_auth_layout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./layouts/auth-layout/auth-layout.component */ "./src/app/layouts/auth-layout/auth-layout.component.ts");
+/* harmony import */ var _pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/briefcases/briefcases.component */ "./src/app/pages/briefcases/briefcases.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -281,6 +269,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -299,7 +288,8 @@ var routes = [
             {
                 path: '',
                 loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-            }
+            },
+            { path: 'briefcases', component: _pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_6__["BriefcasesComponent"] },
         ]
     }, {
         path: '',
@@ -802,7 +792,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BriefcasesComponent", function() { return BriefcasesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/summary-resume/summary-resume.service */ "./src/app/services/summary-resume/summary-resume.service.ts");
+/* harmony import */ var ngx_image_gallery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-image-gallery */ "./node_modules/ngx-image-gallery/__ivy_ngcc__/fesm5/ngx-image-gallery.js");
+/* harmony import */ var src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/summary-resume/summary-resume.service */ "./src/app/services/summary-resume/summary-resume.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -817,9 +808,31 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
+
 var BriefcasesComponent = /** @class */ (function () {
     function BriefcasesComponent(_summaryResumeService) {
         this._summaryResumeService = _summaryResumeService;
+        // gallery configuration
+        this.conf = {
+            imageOffset: '0px',
+            showDeleteControl: false,
+            showImageTitle: false,
+        };
+        // gallery images
+        this.images = [
+            {
+                url: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=1260",
+                altText: 'woman-in-black-blazer-holding-blue-cup',
+                title: 'woman-in-black-blazer-holding-blue-cup',
+                thumbnailUrl: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=60"
+            },
+            {
+                url: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=1260",
+                altText: 'two-woman-standing-on-the-ground-and-staring-at-the-mountain',
+                extUrl: 'https://www.pexels.com/photo/two-woman-standing-on-the-ground-and-staring-at-the-mountain-669006/',
+                thumbnailUrl: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=60"
+            },
+        ];
     }
     BriefcasesComponent.prototype.ngOnInit = function () {
         this.getData();
@@ -828,18 +841,60 @@ var BriefcasesComponent = /** @class */ (function () {
         var _this = this;
         this._summaryResumeService.GetProfile().subscribe(function (data) {
             _this.Summary = data;
+            var contador = 0;
+            _this.images = [];
+            _this.Summary.Briefcases.forEach(function (Briefcase) {
+                Briefcase.Images.forEach(function (image) {
+                    image.Index = ++contador;
+                    _this.images.push({
+                        url: "config/" + image.Path,
+                        altText: 'image.Path',
+                        title: 'image.Path',
+                        thumbnailUrl: "config/" + image.Path
+                    });
+                });
+            });
         });
     };
+    // METHODS
+    // open gallery
+    BriefcasesComponent.prototype.openGallery = function (index) {
+        if (index === void 0) { index = 0; }
+        this.ngxImageGallery.open(index);
+    };
+    // close gallery
+    BriefcasesComponent.prototype.closeGallery = function () {
+        this.ngxImageGallery.close();
+    };
+    // set new active(visible) image in gallery
+    BriefcasesComponent.prototype.newImage = function (index) {
+        if (index === void 0) { index = 0; }
+        this.ngxImageGallery.setActiveImage(index);
+    };
+    // next image in gallery
+    BriefcasesComponent.prototype.nextImage = function (index) {
+        if (index === void 0) { index = 0; }
+        this.ngxImageGallery.next();
+    };
+    // prev image in gallery
+    BriefcasesComponent.prototype.prevImage = function (index) {
+        if (index === void 0) { index = 0; }
+        this.ngxImageGallery.prev();
+    };
     BriefcasesComponent.ctorParameters = function () { return [
-        { type: src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__["SummaryResumeService"] }
+        { type: src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_2__["SummaryResumeService"] }
     ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ngx_image_gallery__WEBPACK_IMPORTED_MODULE_1__["NgxImageGalleryComponent"]),
+        __metadata("design:type", ngx_image_gallery__WEBPACK_IMPORTED_MODULE_1__["NgxImageGalleryComponent"])
+    ], BriefcasesComponent.prototype, "ngxImageGallery", void 0);
     BriefcasesComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-briefcases',
             template: __importDefault(__webpack_require__(/*! raw-loader!./briefcases.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/briefcases/briefcases.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./briefcases.component.css */ "./src/app/pages/briefcases/briefcases.component.css")).default]
         }),
-        __metadata("design:paramtypes", [src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__["SummaryResumeService"]])
+        __metadata("design:paramtypes", [src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_2__["SummaryResumeService"]])
     ], BriefcasesComponent);
     return BriefcasesComponent;
 }());
@@ -1007,10 +1062,12 @@ var environment = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/__ivy_ngcc__/fesm5/platform-browser-dynamic.js");
-/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
+/* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/__ivy_ngcc__/fesm5/platform-browser-dynamic.js");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -1035,11 +1092,16 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
-if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
+
+if (_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production) {
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
 }
-Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
+Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
     .catch(function (err) { return console.error(err); });
+document.addEventListener('DOMContentLoaded', function () {
+    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
+        .catch(function (err) { return console.log(err); });
+});
 
 
 /***/ }),
