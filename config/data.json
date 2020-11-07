@@ -70,7 +70,7 @@
         {
             "Name": "IPCOM Colombia S.A.S",
             "JobTitle": "Ingeniero Desarrollador",
-            "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por IPCOM Colombia S.A.S.\nAdministrar el proceso de CI/CD (Integración continua / Despliegue Continuo) implementando kubernetes alojados en una plataforma en un cluster en la nube (AWS,GCP,Azure, etc...).",
+            "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por IPCOM Colombia S.A.S.\nAdministrar el proceso de CI/CD (Integración continua / Despliegue Continuo) de los productos software alojados en clusters de kubernetes (AWS,GCP y Azure).",
             "Outstandings": [
                 "Despliegue usando cluster de kubernet",
                 "Micro servicios",
