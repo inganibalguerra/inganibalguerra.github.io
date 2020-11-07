@@ -183,6 +183,30 @@
             ]
         },
         {
+            "Name": "IPS",
+            "Tittle": "IPS - UPC",
+            "Url": "http://ips.unicesar.edu.co/",
+            "Description":"Sistema de información que permite gestionar los procesos de la IPS de la universidad popular del cesar, logrando generar informes que se envian a la supersalud con base en la atención de citas en las areas de medicina general, psicologia, odontologia y PYP, ademas cuenta con una historia de clinica por estudiante de modo que cualquier proceso que se le realice al estudiante se vera reflejado en la historia clinica del estudiante.\nEs importante recalcar la implementación de un modulo de odontologia que cuenta con la aplicación digital de un odontograma el cual permite a los odontologos diligenciar el odontograma de manera facil, asi mismo el modulo de medicina general implementa todos los codigo CIE10 suministrado por la secretaria de salud, de modo que en cada cita general de un estudiante, se le establece un diagnostico con base en la norma.",
+            "Images":[
+                {
+                    "Path":"briefcases/ipsregistrocita.png",
+                    "Description":"El sistema permite a cada uno de los estudiantes registrados en la plataforma apartar su cita, de modo que no existan aglomeraciones en los pasillos de la IPS y de este modo exista un ambiente agradable en las oficinas."
+                },
+                {
+                    "Path":"briefcases/ipshistorialcitas.png",
+                    "Description":"El sistema permite a usuarios admisionistas administrar las citas agendadas por los pacientes estudiantes, de modo que estos puedan controlar el acceso a las oficinas de la ips y tambien cancelar las citas en el caso en que se requiera."
+                },
+                {
+                    "Path":"briefcases/ipsinformegeneral.png",
+                    "Description":"Cada usuario administrador, admisionista, odontologo, psicologo o de PYP cuenta con un informe general del historico de citas de modo que se pueda tener idea de la atenciones realizadas al mes o a lo largo de la historia de la IPS."
+                },
+                {
+                    "Path":"briefcases/ipsinformeodontologia.png",
+                    "Description":"Cada usuario administrador y admisionista tiene acceso a diferentes informes generales por area, de modo que puedan enviar informes a la supersalud o tomar decisiones frente a las citas atendidas en las oficinas."
+                }
+            ]
+        },
+        {
             "Name": "Wintukwa",
             "Tittle": "Wintukwa I.P.S.I",
             "Url": "http://www.wintukwaipsi.com/",
