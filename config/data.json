@@ -7,15 +7,10 @@
     "City": "Valledupar - Cesar",
     "Country": "Colombia",
     "About": {
-        "Title": "Ingeniero de sistemas con 5 años de experiencia como Desarrollador y Arquitecto de software",
-        "Description": "Soy una persona proactiva, dinámica, con habilidad para manejo de personal, capacidad de análisis, iniciativa, dispuesto a escuchar y a trabajar en equipo, a trabajar bajo presión y a interrelacionarme con miembros de diferentes niveles jerárquicos.\nIngeniero de Sistemas, con amplios conocimientos en el desarrollo de aplicaciones Web, Móviles y de Escritorio, basadas en las mejores arquitecturas y calidad de software. Manejo los siguientes lenguajes de programación y herramientas de trabajo: .net (c#, vb.net), Javascript, C/C++, AngularJS, Angular8, Jquery, Java, Android Studio, PHP, Laravel, Node.js, Sails.js, MySql, Sql Server, Oracle, Mongo DB, SCRUM, Git, Jenkins, Internet Information Server (IIS), Azure DevOps, Integración Continua y Slack; adicionalmente me desempeño como Desarrollador e ingeniero de Tester y QA, razón por la que continuamente me encuentro aprendiendo paradigmas de programación y diseñando arquitecturas de software que prometan alcanzar estándares de calidad."
+        "Title": "Ingeniero de sistemas con 5 años de experiencia como Desarrollador y/o Arquitecto de software",
+        "Description": "Soy una persona proactiva, dinámica, con habilidad para manejo de personal, capacidad de análisis, iniciativa, dispuesto a escuchar y a trabajar en equipo, a trabajar bajo presión y a interrelacionarme con miembros de diferentes niveles jerárquicos.\nIngeniero de Sistemas, con amplios conocimientos en el desarrollo de aplicaciones Web, Móviles y de Escritorio, basadas en las mejores arquitecturas y calidad de software.\nHe tenido la oportunidad de trabajar con sistemas que soporten grandes cantidades de información (GB y TB), lo cual me ha permitido desarrollar productos de software bajo micro servicios implementando las mejores practicas para escalar y mantener un software a lo largo del tiempo, razón por la que continuamente me encuentro aprendiendo paradigmas de programación y diseñando arquitecturas de software que prometan alcanzar estándares de calidad."
     },
     "SocialNetworks": [
-        {
-            "Name": "Facebook",
-            "Icon": "https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico",
-            "ProfileUrl": "https://www.facebook.com/AnibalDoctor"
-        },
         {
             "Name": "Instagram",
             "Icon": "https://www.instagram.com/static/images/ico/apple-touch-icon-76x76-precomposed.png/666282be8229.png",
@@ -75,7 +70,14 @@
         {
             "Name": "IPCOM Colombia S.A.S",
             "JobTitle": "Ingeniero Desarrollador",
-            "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por IPCOM Colombia S.A.S.\n Administrar el proceso de CI/CD (Integración continua / Despliegue Continuo) implementando kubernets alojados en una plataforma en la nube (AWS,GCP,Azure, etc...).",
+            "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por IPCOM Colombia S.A.S.\nAdministrar el proceso de CI/CD (Integración continua / Despliegue Continuo) implementando kubernetes alojados en una plataforma en un cluster en la nube (AWS,GCP,Azure, etc...).",
+            "Outstandings": [
+                "Despliegue usando cluster de kubernet",
+                "Micro servicios",
+                "CI/CD - Github Actions",
+                "Metricas - Prometheus, Grafana",
+                "Google Cloud Platform"
+            ],
             "Dates": {
                 "Start": "2020-06-01",
                 "End": null
@@ -86,70 +88,56 @@
             "Name": "B&A Systems S.A.S",
             "JobTitle": "Ingeniero Desarrollador",
             "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por B&A Systems.",
+            "Outstandings": [
+                "ETL - Migración de bases de datos de hasta 40 GB",
+                "CI - Jenkins",
+                "Generación de documentos pdf masivos",
+                "Azure DevOps"
+            ],
             "Dates": {
                 "Start": "2017-03-01",
                 "End": "2020-02-29"
             },
             "Icon":"https://www.byasystems.com.co/images/favicon.ico"
-        },
-        {
-            "Name": "Universidad Popular Del Cesar",
-            "JobTitle": "Monitor de salones",
-            "Description": "Brindar atención a los docentes de la institución suministrando las herramientas necesarias para que sus clases se desarrollen sin problemas, para ello administraba los diferentes dispositivos tecnologicos de los salones de clase como Computadores, Video-Beams, etc...\n Ademas realizaba mantemiento de equipos de computos a nivel de hardware y software.",
-            "Dates": {
-                "Start": "2016-03",
-                "End": "2026-06"
-            },
-            "Icon":"https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
-        },
-        {
-            "Name": "Fundación Festival De La Leyenda Vallenata",
-            "JobTitle": "Digitador",
-            "Description": "Cada año la Fundación Festival de la Leyenda Vallenata realiza en abril el evento durante 6 dias en los cuales se realizan diferentes concursos en el ambito vallenato, por tanto he tenido la oportunidad desde 2016 hasta 2019 de digitalizar las puntuaciones de los concursos de acordeoneros.",
-            "Dates": {
-                "Start": "2016-04",
-                "End": "2019-04"
-            },
-            "Icon":"https://festivalvallenato.com/wp-content/uploads/2019/03/cropped-icon-150x150.png"
         }
     ],
-    "Achievements": "Tesis Meritoria - Universidad Popular Del Cesar",
+    "Achievements": ["Tesis Meritoria - Universidad Popular Del Cesar"],
     "Skills": [
-        {
-            "Name": "Angular 9+",
-            "Percentage": 100
-        },
         {
             "Name": "C#",
             "Percentage": 100
         },
         {
-            "Name": "PHP - Laravel",
-            "Percentage": 98
+            "Name": "Go",
+            "Percentage": 100
         },
         {
-            "Name": "Go",
-            "Percentage": 85
+            "Name": "PHP - Laravel",
+            "Percentage": 100
+        },
+        {
+            "Name": "Angular 10+",
+            "Percentage": 100
+        },
+        {
+            "Name": "Vue",
+            "Percentage": 90
         },
         {
             "Name": "Azure DevOps",
             "Percentage": 85
         },
         {
-            "Name": "Vue",
+            "Name": "Docker",
             "Percentage": 80
         },
         {
-            "Name": "Docker",
-            "Percentage": 70
+            "Name": "Kubernetes",
+            "Percentage": 50
         },
         {
             "Name": "Google Cloud Platform",
-            "Percentage": 25
-        },
-        {
-            "Name": "Kubernetes",
-            "Percentage": 20
+            "Percentage": 45
         }
     ],
     "OtherSkills": ["Clean Architecture","Design Patterns","Solid","AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"]
