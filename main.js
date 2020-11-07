@@ -287,7 +287,7 @@ var routes = [
         children: [
             {
                 path: '',
-                loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+                loadChildren: function () { return __webpack_require__.e(/*! import() | layouts-admin-layout-admin-layout-module */ "layouts-admin-layout-admin-layout-module").then(__webpack_require__.bind(null, /*! ./layouts/admin-layout/admin-layout.module */ "./src/app/layouts/admin-layout/admin-layout.module.ts")).then(function (m) { return m.AdminLayoutModule; }); }
             },
             { path: 'briefcases', component: _pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_6__["BriefcasesComponent"] },
         ]
@@ -297,7 +297,7 @@ var routes = [
         children: [
             {
                 path: '',
-                loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
+                loadChildren: function () { return __webpack_require__.e(/*! import() | layouts-auth-layout-auth-layout-module */ "layouts-auth-layout-auth-layout-module").then(__webpack_require__.bind(null, /*! ./layouts/auth-layout/auth-layout.module */ "./src/app/layouts/auth-layout/auth-layout.module.ts")).then(function (m) { return m.AuthLayoutModule; }); }
             }
         ]
     }, {
