@@ -143,6 +143,46 @@
     "OtherSkills": ["Clean Architecture","Design Patterns","Solid","AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"],
     "Briefcases": [
         {
+            "Name": "Sistema Escolar",
+            "Tittle": "Soluciones Educativas (SOED)",
+            "Url": "http://www.semillitasdelreino.com/",
+            "Description":"Sistema de información que permite gestionar los P.Q.R.S de colegios y/o instituciones educativas de forma centralizada y controlada, logrando adminstrar los proceso de pagos de pensiones de alumnos, matricula de estudiante, generación de boletines académicos, notificación de pago de pensiones, asignación acádemica y demas modulos que en conjunto permiten organizar todos los procesos que se llevan a cabo en estas instituciones, ademas permite llevar una trazabilidad de todos los estudiantes de modo que cada uno cuenta con su propio espacio en la aplicación permitiendo visualizar de manera rapida y precisa todos aquellos procesos que se le realiza al estudiante, desde la matricula, registro de notas, hasta los pagos de pensiones e informes que se le realizan.\nAdemas cuenta con un modulo de configuración en donde se adapta a los diferentes modelos de notas (homologación) que existen actualmente en colombia, de modo que de manera rapida y sencilla se puede configurar el sistema por vigencia sin importar si la norma o estandares de educación cambian.",
+            "Images":[
+                {
+                    "Path":"briefcases/soedconfiguracioninicial.png",
+                    "Description":"Permite configurar toda la información del colegio o institución de forma personalizada, logrando que el sistema se adapte a las necesidades propias de la institución."
+                },
+                {
+                    "Path":"briefcases/soedparametros.png",
+                    "Description":"Permite administrar la configuración de las plantillas de los informes que se generan en la plataforma, ademas de un sin numero de opciones o parametros que se pueden ajustar a las necesidades propias de la institución."
+                },
+                {
+                    "Path":"briefcases/soedasignacionacademica.png",
+                    "Description":"SOED cuenta con esta opción que permite establecer la asignación académica de los docentes de modo que por cada vigencia se pueda configurar y/o modificar su carga académica."
+                },
+                {
+                    "Path":"briefcases/soedboletinacademico.png",
+                    "Description":"SOED permite ademas de el registro de notas la generación de los informes de boletines académicos de forma rapida, permitiendo generar todo un lote de boletines por grupos o cursos, agilizando el proceso debido a que cuenta con la opción de asignar la firma del director de grupo de manera que el director no tendra que firmar uno a uno los boletines."
+                },
+                {
+                    "Path":"briefcases/soeddetalleestudiante.png",
+                    "Description":"Este es el espacio que cuentan todos los estudiantes, permitiendo visualizar de manera rapida toda la trazabilidad que este ha tenido en la institución, ademas cuenta con diferentes opciones que permiten gestionar los estados y acciones que se le realizan al estudiante, como modificación de notas, anulación de matricula y demas, todo esto bajo un control de permisos que el usuario debe tener para realizar dichas opciones."
+                },
+                {
+                    "Path":"briefcases/soedinforme1.png",
+                    "Description":"SOED cuenta con diferentes informes que permiten a los docentes y directivos obtener información a traves de documentos en formato pdf, uno de ellos y los mas usados es el listado de estudiantes por grupo."
+                },
+                {
+                    "Path":"briefcases/soedmatricula.png",
+                    "Description":"SOED permite matricular a los estudiantes, ademas de establecer las tarifas personalizadas junto con descuentos que se le pueden establecer al estudiante al momento de realizar la matricula, con lo cual se permite integrar con el modulo de pagos, en donde se administrara el proceso de cobro de pensiones a los acudientes de los estudiantes."
+                },
+                {
+                    "Path":"briefcases/soedregistronotas.png",
+                    "Description":"Este sistema cuenta demas con un espacio para los docentes, en donde podran obtener diferentes informes como el listado de sus estudiantes o tambien la opción para el registro de notas en donde podra visualizar los logros configurados previamente en el modulo de configuración."
+                }
+            ]
+        },
+        {
             "Name": "Wintukwa",
             "Tittle": "Wintukwa I.P.S.I",
             "Url": "http://www.wintukwaipsi.com/",
