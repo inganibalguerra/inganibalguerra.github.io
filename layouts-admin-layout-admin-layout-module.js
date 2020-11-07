@@ -37069,6 +37069,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_maps_maps_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/maps/maps.component */ "./src/app/pages/maps/maps.component.ts");
 /* harmony import */ var _pages_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../pages/user-profile/user-profile.component */ "./src/app/pages/user-profile/user-profile.component.ts");
 /* harmony import */ var _pages_tables_tables_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../pages/tables/tables.component */ "./src/app/pages/tables/tables.component.ts");
+/* harmony import */ var src_app_pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/pages/briefcases/briefcases.component */ "./src/app/pages/briefcases/briefcases.component.ts");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -37077,8 +37078,10 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AdminLayoutRoutes = [
     { path: 'dashboard', component: _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["DashboardComponent"] },
+    { path: 'briefcases', component: src_app_pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_5__["BriefcasesComponent"] },
     { path: 'user-profile', component: _pages_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_3__["UserProfileComponent"] },
     { path: 'tables', component: _pages_tables_tables_component__WEBPACK_IMPORTED_MODULE_4__["TablesComponent"] },
     { path: 'icons', component: _pages_icons_icons_component__WEBPACK_IMPORTED_MODULE_1__["IconsComponent"] },

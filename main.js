@@ -78,6 +78,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/briefcases/briefcases.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/briefcases/briefcases.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header bg-gradient-danger pb-8 pt-5 pt-md-8\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-7 col-md-10\">\n                    <h1 class=\"display-2 text-white\">{{Summary.ShortName}}</h1>\n                    <p class=\"text-white\">{{Summary.About.Title}}</p>\n                    <p>\n                        <span class=\"ml-1\" *ngFor=\"let socialNetwork of Summary.SocialNetworks\">\n                            <a target=\"_blank\" href=\"{{socialNetwork.ProfileUrl}}\" title=\"{{socialNetwork.Name}}\"><img\n                                    class=\"rounded-circle\" height=\"25px\" src=\"{{socialNetwork.Icon}}\"> </a>\n                        </span>\n                    </p>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row\">\n        <div class=\"col-xl-12\" *ngFor=\"let briefcase of Summary.Briefcases\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-transparent\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">{{briefcase.Name}}</h6>\n                            <h2 class=\"mb-0\">{{briefcase.Tittle}}</h2>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-lg-4 col-md-6 col-xs-12\" *ngFor=\"let image of briefcase.Images\">\n                        <div class=\"card-body\" >\n                            <div class=\"card\">\n                                <img class=\"card-img-top\" src=\"config/{{image.Path}}\" alt=\"Card image cap\">\n                                <div class=\"card-body\">\n                                    <!-- <h5 class=\"card-title\">{{image.}}</h5> -->\n                                    <p class=\"card-text\">{{image.Description}}</p>\n                                    <!-- <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a> -->\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -190,6 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
 /* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.ts");
 /* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/components.module */ "./src/app/components/components.module.ts");
+/* harmony import */ var _pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/briefcases/briefcases.component */ "./src/app/pages/briefcases/briefcases.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -199,6 +213,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -227,7 +242,8 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
                 _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_6__["AdminLayoutComponent"],
-                _layouts_auth_layout_auth_layout_component__WEBPACK_IMPORTED_MODULE_7__["AuthLayoutComponent"]
+                _layouts_auth_layout_auth_layout_component__WEBPACK_IMPORTED_MODULE_7__["AuthLayoutComponent"],
+                _pages_briefcases_briefcases_component__WEBPACK_IMPORTED_MODULE_11__["BriefcasesComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -594,6 +610,7 @@ var ROUTES = [
     // { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
     { path: '/user-profile', title: 'Perfil', icon: 'ni-single-02 text-yellow', class: '' },
+    { path: '/briefcases', title: 'Portafolio', icon: 'ni-tv-2 text-primary', class: '' },
 ];
 var SidebarComponent = /** @class */ (function () {
     function SidebarComponent(router) {
@@ -755,6 +772,76 @@ var AuthLayoutComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], AuthLayoutComponent);
     return AuthLayoutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/briefcases/briefcases.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/pages/briefcases/briefcases.component.css ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2JyaWVmY2FzZXMvYnJpZWZjYXNlcy5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/pages/briefcases/briefcases.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/pages/briefcases/briefcases.component.ts ***!
+  \**********************************************************/
+/*! exports provided: BriefcasesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BriefcasesComponent", function() { return BriefcasesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/summary-resume/summary-resume.service */ "./src/app/services/summary-resume/summary-resume.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var BriefcasesComponent = /** @class */ (function () {
+    function BriefcasesComponent(_summaryResumeService) {
+        this._summaryResumeService = _summaryResumeService;
+    }
+    BriefcasesComponent.prototype.ngOnInit = function () {
+        this.getData();
+    };
+    BriefcasesComponent.prototype.getData = function () {
+        var _this = this;
+        this._summaryResumeService.GetProfile().subscribe(function (data) {
+            _this.Summary = data;
+        });
+    };
+    BriefcasesComponent.ctorParameters = function () { return [
+        { type: src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__["SummaryResumeService"] }
+    ]; };
+    BriefcasesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-briefcases',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./briefcases.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/briefcases/briefcases.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./briefcases.component.css */ "./src/app/pages/briefcases/briefcases.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__["SummaryResumeService"]])
+    ], BriefcasesComponent);
+    return BriefcasesComponent;
 }());
 
 

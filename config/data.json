@@ -140,5 +140,35 @@
             "Percentage": 45
         }
     ],
-    "OtherSkills": ["Clean Architecture","Design Patterns","Solid","AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"]
+    "OtherSkills": ["Clean Architecture","Design Patterns","Solid","AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"],
+    "Briefcases": [
+        {
+            "Name": "Wintukwa",
+            "Tittle": "Wintukwa I.P.S.I",
+            "Url": "http://www.wintukwaipsi.com/",
+            "Description":"Sistema de información que permite gestionar los P.Q.R.S de Wintukwa I.P.S.I, ademas de administrar el sitio web principal en donde se publican las noticias y archivos multimedias que deben cumplir la normativa de la DIAN, ademas cuenta con un modulo de SIPA que permite administrar las familias indigenas, permitiendo caracterizarlas y hacerles seguimiento de manera controlada con el objetivo de arrojar informes que mejores la toma de decision.",
+            "Images":[
+                {
+                    "Path":"briefcases/wintukwawebsite.png",
+                    "Description":"Sitio web que suministra toda la información de Wintukwa I.P.S.I, permitiendo evidenciar las noticias e informes supersalud que son publicas y que la sociedad debe conocer, ademas de cumplir con la norma de la DIAN publicando la documentación e información que la DIAN exige que se detalle en la pagina web."
+                },
+                {
+                    "Path":"briefcases/wintukwapqrs.png",
+                    "Description":"Modulo que permite a la sociedad y en especial a la comunidad indigena radicar P.Q.R.S de manera que permita a los funcionarios dar pronta respuesta a dichos P.Q.R.S."
+                },
+                {
+                    "Path":"briefcases/wintukwafamilias.png",
+                    "Description":"Modulo SIPA que permite la adminstración de las familias indigenas que se encuentran en vigililancia de Wintukwa I.P.S.I."
+                },
+                {
+                    "Path":"briefcases/wintukwaunafamilia.png",
+                    "Description":"Información que se suministra por cada familia indigena, es decir que permite caracterizar y diagnosticar una familia indigena de modo que se pueda realizar un control y vigilancia a traves de seguimientos que se deben registrar en la plataforma y que posteriormente arrojan información en informes que permiten la toma de decision de manera oportuna."
+                },
+                {
+                    "Path":"briefcases/wintukwainforme.png",
+                    "Description":"Informe grafico y detallado que permite a la junta directiva y funcionarios encargados tomar decisiones y evidenciar el trabajo realizado a lo largo del tiempo sobre las familias indigenas."
+                }
+            ]
+        }
+    ]
 }
