@@ -45,7 +45,7 @@
                 "Start": "2020-01",
                 "End": null
             },
-            "Icon":"https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
+            "Icon": "https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
         },
         {
             "Title": "Ingeniero De Sistemas",
@@ -54,7 +54,7 @@
                 "Start": "2013-01",
                 "End": "2017-02"
             },
-            "Icon":"https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
+            "Icon": "https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
         },
         {
             "Title": "Técnico En Contabilidad",
@@ -63,45 +63,163 @@
                 "Start": "2012-01",
                 "End": "2012-02"
             },
-            "Icon":"https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"
+            "Icon": "https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"
         }
     ],
     "Experiences": [
         {
             "Name": "IPCOM Colombia S.A.S",
             "JobTitle": "Ingeniero Desarrollador",
-            "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por IPCOM Colombia S.A.S.\nAdministrar el proceso de CI/CD (Integración continua / Despliegue Continuo) de los productos software alojados en clusters de kubernetes (AWS,GCP y Azure).",
+            "Description": "Desarrollar Software como servicio (SaaS), orientados a clientes dentro del ecosistema de las telecomunicaciones, que requieran aplicaciones administradas para gestionar y auditar llamadas telefónicas y/o mensajes de textos.\nImplementar las mejores prácticas de desarrollo de software, para construir productos utilizando micro servicios bajo unas arquitecturas limpias, que permitan tener código de calidad y escalable en el tiempo.",
             "Outstandings": [
-                "Despliegue usando cluster de kubernet",
-                "Micro servicios",
+                "Cluster de kubernetes con GKE",
+                "Flujos de datos - Terabytes/Mes",
+                "Servicios Administrados de Cloud - (GCP, AWS y AZURE)",
                 "CI/CD - Github Actions",
                 "Metricas - Prometheus, Grafana",
-                "Google Cloud Platform"
+                "ARGO CI/CD - Workflows in Background",
+                "Arquitectura orientada a eventos",
+                "GO (Golang)",
+                "Unit/Integration Test",
+                "Vue 3x",
+                "Postgrest",
+                "Redis",
+                "Mysql"
             ],
             "Dates": {
                 "Start": "2020-06-01",
                 "End": null
             },
-            "Icon":"https://secureservercdn.net/198.71.233.184/60a.d55.myftpupload.com/wp-content/themes/ipcom/assets/images/logo.svg"
+            "Icon": "https://media-exp1.licdn.com/dms/image/C4E0BAQExgzuWA2YxGg/company-logo_200_200/0/1604580849153?e=1631145600&v=beta&t=yPdNdtxnySe75JkTbetJCQ_m9tfSVNtBq4K7Iiv2Unw",
+            "Job": true
+        },
+        {
+            "Name": "INTRADERS",
+            "JobTitle": "Desarrollador",
+            "Description": "Construir un sistema que permita la configuración y administración de cursos de trading que permitan a potenciales usuarios aprender del mundo del trading, además de contar con un sistema de referidos que incentiven a los usuarios a adquirir más productos ofrecidos por intraders.",
+            "Outstandings": [
+                "Moodle",
+                "Clean Architecture",
+                "CI/CD - Azure DevOps",
+                "C#",
+                "Unit/Integration Test",
+                ".Net Framework",
+                "Angular 10+",
+                "Sql Server",
+                "HangFire"
+            ],
+            "Dates": {
+                "Start": "2019-12",
+                "End": "+"
+            },
+            "Icon": "https://scontent.fctg1-3.fna.fbcdn.net/v/t1.6435-9/142172611_106844338087250_1391538177671796177_n.png?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=yKFpF7vgfkgAX-0WfMv&_nc_ht=scontent.fctg1-3.fna&oh=52ce4133d62ff27ac0c49d1d7c4c845a&oe=60E5CA4F",
+            "Job": false
+        },
+        {
+            "Name": "WINTUKWA IPSI",
+            "JobTitle": "Desarrollador",
+            "Description": "Elaborar un sistema de información que permita a wintukwa ipsi, radicar PQRS a través de su sitio web y además llevar un historial detallado por cada una de las familias indígenas de los resguardos que tiene control y vigilancia.",
+            "Outstandings": [
+                "Clean Architecture",
+                "CI/CD - Azure DevOps",
+                "C#",
+                "Unit/Integration Test",
+                ".Net Framework",
+                "Angular 10+",
+                "Sql Server",
+                "HangFire"
+            ],
+            "Dates": {
+                "Start": "2019-03",
+                "End": "+"
+            },
+            "Icon": "https://www.semillitasdelreino.com/favicon.ico",
+            "Job": false
+        },
+        {
+            "Name": "SISTEMA ESCOLAR",
+            "JobTitle": "Propietario",
+            "Description": "Elaborar un sistema de información que permita a los colegios e instituciones educativas llevar un control de las matrículas y pensiones de los estudiantes, de tal forma que, se pueda cobrar las pensiones de manera eficiente, además de generar los boletines e informes masivamente para cada uno de los grados que se compone en la institución.\nPermitir que el sistema sea totalmente personalizado a las normas y directrices de la institución de modo que tanto los informes como los parámetros para el módulo de notas se ajuste a la entidad.",
+            "Outstandings": [
+                "Clean Architecture",
+                "Generación de documentos pdf masivos (Boletines)",
+                "CI/CD - Azure DevOps",
+                "C#",
+                "Unit/Integration Test",
+                ".Net Framework",
+                "Angular 10+",
+                "Sql Server",
+                "HangFire"
+            ],
+            "Dates": {
+                "Start": "2019-03",
+                "End": "+"
+            },
+            "Icon": "https://www.semillitasdelreino.com/favicon.ico",
+            "Job": false
         },
         {
             "Name": "B&A Systems S.A.S",
             "JobTitle": "Ingeniero Desarrollador",
-            "Description": "Análisis de procesos, requerimientos, diseño, programación, pruebas y documentación de software dentro de las políticas, practicas, técnicas, herramientas y metodologías de fabricación de software definidas por B&A Systems.",
+            "Description": "Desarrollar Software como servicio (SaaS), orientados a entidades del estado, como alcaldías o gobernaciones de Colombia, que requieran aplicaciones administradas para gestionar el cobro de impuestos (PREDIAL, Industria y comercio, etc.) de manera eficiente.\nConstrucción de un módulo de software completo de Cobro Coactivo para los contribuyentes morosos de los diferentes impuestos de una alcaldía municipal de Colombia.",
             "Outstandings": [
-                "ETL - Migración de bases de datos de hasta 40 GB",
+                "Servidores Windows Server (IIS)",
+                "ETL - Migración de bases de datos de hasta 40 GB (SSDT)",
                 "CI - Jenkins",
-                "Generación de documentos pdf masivos",
-                "Azure DevOps"
+                "Generación de documentos pdf masivos (Cobro coactivo)",
+                "Azure DevOps",
+                "C#",
+                "Unit/Integration Test",
+                ".Net Core",
+                ".Net Framework",
+                "AngulaJS",
+                "Angular 8+",
+                "Sql Server",
+                "Oracle"
             ],
             "Dates": {
                 "Start": "2017-03-01",
                 "End": "2020-02-29"
             },
-            "Icon":"https://www.byasystems.com.co/images/favicon.ico"
+            "Icon": "https://www.byasystems.com.co/images/favicon.ico",
+            "Job": true
+        },
+        {
+            "Name": "IPS - UNIVERSIDAD POPULAR DEL CESAR",
+            "JobTitle": "Desarrollador",
+            "Description": "Desarrollar un sistema para gestionar el historial clínico de los estudiantes que acceden al servicio de IPS de la universidad popular del cesar.\nConstruir los módulos de Medicina General, Odontología, Psicología, PYP y Administración para facilitar la labor del personal de salud a la hora de atender las citas médicas agendadas a través de la plataforma por los pacientes estudiantes.",
+            "Outstandings": [
+                "MVC",
+                "Cpanel",
+                "PHP - Laravel, Mysql Server"
+            ],
+            "Dates": {
+                "Start": "2016-12",
+                "End": "2017-03"
+            },
+            "Icon": "http://proyectoips.unicesar.edu.co/img/favicon.png",
+            "Job": false
+        },
+        {
+            "Name": "NOMINA - AGRICOLA LA TORINA",
+            "JobTitle": "Desarrollador",
+            "Description": "Desarrollar un sistema para administrar la nómina de los empleados de una granja productora de tomates en el país de Chile.\nGenerar reportes gráficos y en PDF que den información de los gastos de nómina por cada uno de los empleados y la productividad de cada uno.",
+            "Outstandings": [
+                "MVC",
+                "Cpanel",
+                "PHP - Laravel, Mysql Server"
+            ],
+            "Dates": {
+                "Start": "2016-01",
+                "End": "2016-03"
+            },
+            "Icon": "http://www.agricolalatorina.cl/favicon.png",
+            "Job": false
         }
     ],
-    "Achievements": ["Tesis Meritoria - Universidad Popular Del Cesar"],
+    "Achievements": [
+        "Tesis Meritoria - Universidad Popular Del Cesar"
+    ],
     "Skills": [
         {
             "Name": "C#",
@@ -110,6 +228,22 @@
         {
             "Name": "Go",
             "Percentage": 100
+        },
+        {
+            "Name": "Docker",
+            "Percentage": 100
+        },
+        {
+            "Name": "Azure DevOps",
+            "Percentage": 85
+        },
+        {
+            "Name": "Kubernetes",
+            "Percentage": 85
+        },
+        {
+            "Name": "Google Cloud Platform",
+            "Percentage": 85
         },
         {
             "Name": "PHP - Laravel",
@@ -122,63 +256,70 @@
         {
             "Name": "Vue",
             "Percentage": 90
-        },
-        {
-            "Name": "Azure DevOps",
-            "Percentage": 85
-        },
-        {
-            "Name": "Docker",
-            "Percentage": 80
-        },
-        {
-            "Name": "Kubernetes",
-            "Percentage": 50
-        },
-        {
-            "Name": "Google Cloud Platform",
-            "Percentage": 45
         }
     ],
-    "OtherSkills": ["Clean Architecture","Design Patterns","Solid","AngularJs","Jquery","Unit Testing","Mysql","CI/CD","Postgres","Sql Server","Jenkins","Oracle","Android Studio","SCRUM","Jira","Internet Information Server (IIS)","Git","Node.js","TypeScript","JavaScript","Java"],
+    "OtherSkills": [
+        "Clean Architecture",
+        "Design Patterns",
+        "CI/CD",
+        "Solid",
+        "AngularJs",
+        "Angular 10+",
+        "Unit Testing",
+        "Jquery",
+        "Mysql",
+        "Postgres",
+        "Sql Server",
+        "Jenkins",
+        "Oracle",
+        "Android Studio",
+        "SCRUM",
+        "Jira",
+        "Internet Information Server (IIS)",
+        "Git",
+        "Node.js",
+        "TypeScript",
+        "JavaScript",
+        "Java"
+    ],
     "Briefcases": [
         {
             "Name": "Sistema Escolar",
             "Tittle": "Soluciones Educativas (SOED)",
             "Url": "http://www.semillitasdelreino.com/",
-            "Description":"Sistema de información que permite gestionar los procesos de colegios y/o instituciones educativas de forma centralizada y controlada, entre los cuales se encuentran: pagos de pensiones de alumnos, matricula de estudiante, generación de boletines académicos, notificación de pago de pensiones, asignación acádemica y demas modulos que facilitan la diligencia de los maestros con los estudiantes;\nadicionalmente cuenta con un modulo de configuración que se establece deacuedo a las condiciones de la institución, en donde se pueden adptar los diferentes modelos de notas Colombianos por vigencia, sin importar si la norma o estandares de educación cambian.",
-            "Images":[
+            "Description": "Sistema de información que permite gestionar los procesos de colegios y/o instituciones educativas de forma centralizada y controlada, entre los cuales se encuentran: pagos de pensiones de alumnos, matricula de estudiante, generación de boletines académicos, notificación de pago de pensiones, asignación acádemica y demas modulos que facilitan la diligencia de los maestros con los estudiantes;\nadicionalmente cuenta con un modulo de configuración que se establece deacuedo a las condiciones de la institución, en donde se pueden adptar los diferentes modelos de notas Colombianos por vigencia, sin importar si la norma o estandares de educación cambian.",
+            "Images": [
                 {
-                    "Path":"briefcases/soedconfiguracioninicial.png",
-                    "Description":"Permite configurar toda la información del colegio o institución de forma personalizada, logrando que el sistema se adapte a las necesidades propias de la institución."
+                    "Path": "briefcases/soedconfiguracioninicial.png",
+                    "Description": "Permite configurar toda la información del colegio o institución de forma personalizada, logrando que el sistema se adapte a las necesidades propias de la institución."
                 },
                 {
-                    "Path":"briefcases/soedparametros.png",
-                    "Description":"Permite administrar la configuración de las plantillas de los informes que se generan en la plataforma, ademas de un sin numero de opciones o parametros que se pueden ajustar a las necesidades propias de la institución."
+                    "Path": "briefcases/soedparametros.png",
+                    "Description": "Permite administrar la configuración de las plantillas de los informes que se generan en la plataforma, ademas de un sin numero de opciones o parametros que se pueden ajustar a las necesidades propias de la institución."
                 },
                 {
-                    "Path":"briefcases/soedasignacionacademica.png",
-                    "Description":"SOED cuenta con esta opción que permite establecer la asignación académica de los docentes de modo que por cada vigencia se pueda configurar y/o modificar su carga académica."
+                    "Path": "briefcases/soedasignacionacademica.png",
+                    "Description": "SOED cuenta con esta opción que permite establecer la asignación académica de los docentes de modo que por cada vigencia se pueda configurar y/o modificar su carga académica."
                 },
                 {
-                    "Path":"briefcases/soedboletinacademico.png",
-                    "Description":"SOED permite ademas de el registro de notas la generación de los informes de boletines académicos de forma rapida, permitiendo generar todo un lote de boletines por grupos o cursos, agilizando el proceso debido a que cuenta con la opción de asignar la firma del director de grupo de manera que el director no tendra que firmar uno a uno los boletines."
+                    "Path": "briefcases/soedboletinacademico.png",
+                    "Description": "SOED permite ademas de el registro de notas la generación de los informes de boletines académicos de forma rapida, permitiendo generar todo un lote de boletines por grupos o cursos, agilizando el proceso debido a que cuenta con la opción de asignar la firma del director de grupo de manera que el director no tendra que firmar uno a uno los boletines."
                 },
                 {
-                    "Path":"briefcases/soeddetalleestudiante.png",
-                    "Description":"Este es el espacio que cuentan todos los estudiantes, permitiendo visualizar de manera rapida toda la trazabilidad que este ha tenido en la institución, ademas cuenta con diferentes opciones que permiten gestionar los estados y acciones que se le realizan al estudiante, como modificación de notas, anulación de matricula y demas, todo esto bajo un control de permisos que el usuario debe tener para realizar dichas opciones."
+                    "Path": "briefcases/soeddetalleestudiante.png",
+                    "Description": "Este es el espacio que cuentan todos los estudiantes, permitiendo visualizar de manera rapida toda la trazabilidad que este ha tenido en la institución, ademas cuenta con diferentes opciones que permiten gestionar los estados y acciones que se le realizan al estudiante, como modificación de notas, anulación de matricula y demas, todo esto bajo un control de permisos que el usuario debe tener para realizar dichas opciones."
                 },
                 {
-                    "Path":"briefcases/soedinforme1.png",
-                    "Description":"SOED cuenta con diferentes informes que permiten a los docentes y directivos obtener información a traves de documentos en formato pdf, uno de ellos y los mas usados es el listado de estudiantes por grupo."
+                    "Path": "briefcases/soedinforme1.png",
+                    "Description": "SOED cuenta con diferentes informes que permiten a los docentes y directivos obtener información a traves de documentos en formato pdf, uno de ellos y los mas usados es el listado de estudiantes por grupo."
                 },
                 {
-                    "Path":"briefcases/soedmatricula.png",
-                    "Description":"SOED permite matricular a los estudiantes, ademas de establecer las tarifas personalizadas junto con descuentos que se le pueden establecer al estudiante al momento de realizar la matricula, con lo cual se permite integrar con el modulo de pagos, en donde se administrara el proceso de cobro de pensiones a los acudientes de los estudiantes."
+                    "Path": "briefcases/soedmatricula.png",
+                    "Description": "SOED permite matricular a los estudiantes, ademas de establecer las tarifas personalizadas junto con descuentos que se le pueden establecer al estudiante al momento de realizar la matricula, con lo cual se permite integrar con el modulo de pagos, en donde se administrara el proceso de cobro de pensiones a los acudientes de los estudiantes."
                 },
                 {
-                    "Path":"briefcases/soedregistronotas.png",
-                    "Description":"Este sistema cuenta demas con un espacio para los docentes, en donde podran obtener diferentes informes como el listado de sus estudiantes o tambien la opción para el registro de notas en donde podra visualizar los logros configurados previamente en el modulo de configuración."
+                    "Path": "briefcases/soedregistronotas.png",
+                    "Description": "Este sistema cuenta demas con un espacio para los docentes, en donde podran obtener diferentes informes como el listado de sus estudiantes o tambien la opción para el registro de notas en donde podra visualizar los logros configurados previamente en el modulo de configuración."
                 }
             ]
         },
@@ -186,27 +327,27 @@
             "Name": "Wintukwa",
             "Tittle": "Wintukwa I.P.S.I",
             "Url": "http://www.wintukwaipsi.com/",
-            "Description":"Sistema de información que permite gestionar los P.Q.R.S de Wintukwa I.P.S.I, ademas de administrar el sitio web principal en donde se publican las noticias y archivos multimedias que deben cumplir la normativa de la DIAN, ademas cuenta con un modulo de SIPA que permite administrar las familias indigenas, permitiendo caracterizarlas y hacerles seguimiento de manera controlada con el objetivo de arrojar informes que mejores la toma de decision.",
-            "Images":[
+            "Description": "Sistema de información que permite gestionar los P.Q.R.S de Wintukwa I.P.S.I, ademas de administrar el sitio web principal en donde se publican las noticias y archivos multimedias que deben cumplir la normativa de la DIAN, ademas cuenta con un modulo de SIPA que permite administrar las familias indigenas, permitiendo caracterizarlas y hacerles seguimiento de manera controlada con el objetivo de arrojar informes que mejores la toma de decision.",
+            "Images": [
                 {
-                    "Path":"briefcases/wintukwawebsite.png",
-                    "Description":"Sitio web que suministra toda la información de Wintukwa I.P.S.I, permitiendo evidenciar las noticias e informes supersalud que son publicas y que la sociedad debe conocer, ademas de cumplir con la norma de la DIAN publicando la documentación e información que la DIAN exige que se detalle en la pagina web."
+                    "Path": "briefcases/wintukwawebsite.png",
+                    "Description": "Sitio web que suministra toda la información de Wintukwa I.P.S.I, permitiendo evidenciar las noticias e informes supersalud que son publicas y que la sociedad debe conocer, ademas de cumplir con la norma de la DIAN publicando la documentación e información que la DIAN exige que se detalle en la pagina web."
                 },
                 {
-                    "Path":"briefcases/wintukwapqrs.png",
-                    "Description":"Modulo que permite a la sociedad y en especial a la comunidad indigena radicar P.Q.R.S de manera que permita a los funcionarios dar pronta respuesta a dichos P.Q.R.S."
+                    "Path": "briefcases/wintukwapqrs.png",
+                    "Description": "Modulo que permite a la sociedad y en especial a la comunidad indigena radicar P.Q.R.S de manera que permita a los funcionarios dar pronta respuesta a dichos P.Q.R.S."
                 },
                 {
-                    "Path":"briefcases/wintukwafamilias.png",
-                    "Description":"Modulo SIPA que permite la adminstración de las familias indigenas que se encuentran en vigililancia de Wintukwa I.P.S.I."
+                    "Path": "briefcases/wintukwafamilias.png",
+                    "Description": "Modulo SIPA que permite la adminstración de las familias indigenas que se encuentran en vigililancia de Wintukwa I.P.S.I."
                 },
                 {
-                    "Path":"briefcases/wintukwaunafamilia.png",
-                    "Description":"Información que se suministra por cada familia indigena, es decir que permite caracterizar y diagnosticar una familia indigena de modo que se pueda realizar un control y vigilancia a traves de seguimientos que se deben registrar en la plataforma y que posteriormente arrojan información en informes que permiten la toma de decision de manera oportuna."
+                    "Path": "briefcases/wintukwaunafamilia.png",
+                    "Description": "Información que se suministra por cada familia indigena, es decir que permite caracterizar y diagnosticar una familia indigena de modo que se pueda realizar un control y vigilancia a traves de seguimientos que se deben registrar en la plataforma y que posteriormente arrojan información en informes que permiten la toma de decision de manera oportuna."
                 },
                 {
-                    "Path":"briefcases/wintukwainforme.png",
-                    "Description":"Informe grafico y detallado que permite a la junta directiva y funcionarios encargados tomar decisiones y evidenciar el trabajo realizado a lo largo del tiempo sobre las familias indigenas."
+                    "Path": "briefcases/wintukwainforme.png",
+                    "Description": "Informe grafico y detallado que permite a la junta directiva y funcionarios encargados tomar decisiones y evidenciar el trabajo realizado a lo largo del tiempo sobre las familias indigenas."
                 }
             ]
         },
@@ -214,23 +355,23 @@
             "Name": "IPS",
             "Tittle": "IPS - UPC",
             "Url": "http://ips.unicesar.edu.co/",
-            "Description":"Sistema de información que permite gestionar los procesos de la IPS de la universidad popular del cesar, logrando generar informes que se envian a la supersalud con base en la atención de citas en las areas de medicina general, psicologia, odontologia y PYP, ademas cuenta con una historia de clinica por estudiante de modo que cualquier proceso que se le realice al estudiante se vera reflejado en la historia clinica del estudiante.\nEs importante recalcar la implementación de un modulo de odontologia que cuenta con la aplicación digital de un odontograma el cual permite a los odontologos diligenciar el odontograma de manera facil, asi mismo el modulo de medicina general implementa todos los codigo CIE10 suministrado por la secretaria de salud, de modo que en cada cita general de un estudiante, se le establece un diagnostico con base en la norma.",
-            "Images":[
+            "Description": "Sistema de información que permite gestionar los procesos de la IPS de la universidad popular del cesar, logrando generar informes que se envian a la supersalud con base en la atención de citas en las areas de medicina general, psicologia, odontologia y PYP, ademas cuenta con una historia de clinica por estudiante de modo que cualquier proceso que se le realice al estudiante se vera reflejado en la historia clinica del estudiante.\nEs importante recalcar la implementación de un modulo de odontologia que cuenta con la aplicación digital de un odontograma el cual permite a los odontologos diligenciar el odontograma de manera facil, asi mismo el modulo de medicina general implementa todos los codigo CIE10 suministrado por la secretaria de salud, de modo que en cada cita general de un estudiante, se le establece un diagnostico con base en la norma.",
+            "Images": [
                 {
-                    "Path":"briefcases/ipsregistrocita.png",
-                    "Description":"El sistema permite a cada uno de los estudiantes registrados en la plataforma apartar su cita, de modo que no existan aglomeraciones en los pasillos de la IPS y de este modo exista un ambiente agradable en las oficinas."
+                    "Path": "briefcases/ipsregistrocita.png",
+                    "Description": "El sistema permite a cada uno de los estudiantes registrados en la plataforma apartar su cita, de modo que no existan aglomeraciones en los pasillos de la IPS y de este modo exista un ambiente agradable en las oficinas."
                 },
                 {
-                    "Path":"briefcases/ipshistorialcitas.png",
-                    "Description":"El sistema permite a usuarios admisionistas administrar las citas agendadas por los pacientes estudiantes, de modo que estos puedan controlar el acceso a las oficinas de la ips y tambien cancelar las citas en el caso en que se requiera."
+                    "Path": "briefcases/ipshistorialcitas.png",
+                    "Description": "El sistema permite a usuarios admisionistas administrar las citas agendadas por los pacientes estudiantes, de modo que estos puedan controlar el acceso a las oficinas de la ips y tambien cancelar las citas en el caso en que se requiera."
                 },
                 {
-                    "Path":"briefcases/ipsinformesgenerales.png",
-                    "Description":"Cada usuario administrador, admisionista, odontologo, psicologo o de PYP cuenta con un informe general del historico de citas de modo que se pueda tener idea de la atenciones realizadas al mes o a lo largo de la historia de la IPS."
+                    "Path": "briefcases/ipsinformesgenerales.png",
+                    "Description": "Cada usuario administrador, admisionista, odontologo, psicologo o de PYP cuenta con un informe general del historico de citas de modo que se pueda tener idea de la atenciones realizadas al mes o a lo largo de la historia de la IPS."
                 },
                 {
-                    "Path":"briefcases/ipsinformeodontologia.png",
-                    "Description":"Cada usuario administrador y admisionista tiene acceso a diferentes informes generales por area, de modo que puedan enviar informes a la supersalud o tomar decisiones frente a las citas atendidas en las oficinas."
+                    "Path": "briefcases/ipsinformeodontologia.png",
+                    "Description": "Cada usuario administrador y admisionista tiene acceso a diferentes informes generales por area, de modo que puedan enviar informes a la supersalud o tomar decisiones frente a las citas atendidas en las oficinas."
                 }
             ]
         },
@@ -238,23 +379,23 @@
             "Name": "Intraders",
             "Tittle": "INTRADERS",
             "Url": "https://test.intraders.com.co/",
-            "Description":"Sistema de información que permite administrar los productos ofertados por intraders, tales como cursos, torneos, sorteos, compra de bitcoins, asesorias y noticias sobre el traiding, ademas cuenta con un algoritmo avanzado que permite bonificar a los usuarios cuando refieren a otros usuarios y consumen los productos mensionados.",
-            "Images":[
+            "Description": "Sistema de información que permite administrar los productos ofertados por intraders, tales como cursos, torneos, sorteos, compra de bitcoins, asesorias y noticias sobre el traiding, ademas cuenta con un algoritmo avanzado que permite bonificar a los usuarios cuando refieren a otros usuarios y consumen los productos mensionados.",
+            "Images": [
                 {
-                    "Path":"briefcases/intraderswebsite.png",
-                    "Description":"Sitio web de Intraders, en donde se publican las noticias o blogs informativos para la comunidad del traiding, ademas permite el registro de nuevos usuarios que quieran pertenecer a la red de Intraders."
+                    "Path": "briefcases/intraderswebsite.png",
+                    "Description": "Sitio web de Intraders, en donde se publican las noticias o blogs informativos para la comunidad del traiding, ademas permite el registro de nuevos usuarios que quieran pertenecer a la red de Intraders."
                 },
                 {
-                    "Path":"briefcases/intradersred.png",
-                    "Description":"El sistema cuenta con un algoritmo avanzado de bonificación a sus usuarios registrados, de modo que cuando un usuario refiere a otro puede ganar bonificaciones en dolares cuando sus referidos compran o comsumen algun producto ofertado por Intraders."
+                    "Path": "briefcases/intradersred.png",
+                    "Description": "El sistema cuenta con un algoritmo avanzado de bonificación a sus usuarios registrados, de modo que cuando un usuario refiere a otro puede ganar bonificaciones en dolares cuando sus referidos compran o comsumen algun producto ofertado por Intraders."
                 },
                 {
-                    "Path":"briefcases/intradersmovimientos.png",
-                    "Description":"El aplicativo cuenta con un sistema de auditoria de movimientos de cada uno de los bonos que se generan en la Red de Intraders, de modo que la transparencia de los usuarios es real y se puede evidenciar en su espacio que cuenta en la aplicación."
+                    "Path": "briefcases/intradersmovimientos.png",
+                    "Description": "El aplicativo cuenta con un sistema de auditoria de movimientos de cada uno de los bonos que se generan en la Red de Intraders, de modo que la transparencia de los usuarios es real y se puede evidenciar en su espacio que cuenta en la aplicación."
                 },
                 {
-                    "Path":"briefcases/intraderscursos.png",
-                    "Description":"Un modulo importante de Intraders es la administración de los cursos ofertados, por lo cual un micro servicio o sistema que se comunica con Intraders es el de cursos realizado en Moodle en donde todos los usuarios que compran un curso tienen acceso al material suministrado en la plataforma."
+                    "Path": "briefcases/intraderscursos.png",
+                    "Description": "Un modulo importante de Intraders es la administración de los cursos ofertados, por lo cual un micro servicio o sistema que se comunica con Intraders es el de cursos realizado en Moodle en donde todos los usuarios que compran un curso tienen acceso al material suministrado en la plataforma."
                 }
             ]
         }
