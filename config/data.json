@@ -84,6 +84,7 @@
                 "Vue 3x",
                 "Postgrest",
                 "Redis",
+                "Azure AD B2C",
                 "Mysql"
             ],
             "Dates": {
