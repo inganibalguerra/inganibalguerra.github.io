@@ -242,6 +242,10 @@
             "Percentage": 85
         },
         {
+            "Name": "Terraform",
+            "Percentage": 80
+        },
+        {
             "Name": "Google Cloud Platform",
             "Percentage": 85
         },
