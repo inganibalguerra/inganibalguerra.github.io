@@ -269,7 +269,6 @@
         "CI/CD",
         "Solid",
         "AngularJs",
-        "Angular 10+",
         "Testing",
         "Mysql",
         "Postgres",
@@ -285,6 +284,11 @@
         "TypeScript",
         "JavaScript",
         "Azure AD B2C",
+        "ARGO CI/CD",
+        "Terraform",
+        "Jasmine SMS Gateway",
+        "Envoy Proxy",
+        "Istio",
         "Java"
     ],
     "Briefcases": [
