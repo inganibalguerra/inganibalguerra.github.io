@@ -84,6 +84,7 @@
                 "Vue 3x",
                 "Postgrest",
                 "Redis",
+                "OPA",
                 "Azure AD B2C",
                 "Mysql"
             ],
@@ -289,6 +290,7 @@
         "Jasmine SMS Gateway",
         "Envoy Proxy",
         "Istio",
+        "OPA",
         "Java"
     ],
     "Briefcases": [
