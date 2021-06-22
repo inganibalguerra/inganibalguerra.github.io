@@ -193,7 +193,8 @@
             "Outstandings": [
                 "MVC",
                 "Cpanel",
-                "PHP - Laravel, Mysql Server"
+                "PHP - Laravel",
+                "Mysql"
             ],
             "Dates": {
                 "Start": "2016-10",
@@ -209,7 +210,8 @@
             "Outstandings": [
                 "MVC",
                 "Cpanel",
-                "PHP - Laravel, Mysql Server"
+                "PHP - Laravel",
+                "Mysql"
             ],
             "Dates": {
                 "Start": "2016-01",
