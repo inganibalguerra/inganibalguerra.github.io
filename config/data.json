@@ -85,6 +85,7 @@
                 "Postgrest",
                 "Redis",
                 "OPA",
+                "Linux",
                 "Azure AD B2C",
                 "Mysql"
             ],
