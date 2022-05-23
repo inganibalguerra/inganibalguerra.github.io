@@ -1,14 +1,14 @@
 {
     "ShortName": "Anibal Guerra",
     "Name": "Anibal Jose Guerra Zapata",
-    "Phone": "3186875411",
+    "Phone": "+57 3186875411",
     "Email": "inganibalguerra@gmail.com",
     "BirthdayDate": "1996-07-30",
     "City": "Valledupar - Cesar",
     "Country": "Colombia",
     "About": {
-        "Title": "Ingeniero de sistemas con más de 6 años de experiencia profesional, me apasiona el Desarrollo de Software y me gusta aplicar buenas prácticas para tener un código limpio y arquitecturas limpias. Además, cuento con la experiencia necesaria para construir y alojar sistemas en la nube, como en Google Cloud Platform.",
-        "Description": "Soy una persona proactiva, dinámica, con habilidad para manejo de personal, capacidad de análisis, iniciativa, dispuesto a escuchar y a trabajar en equipo.\nIngeniero de Sistemas, con amplios conocimientos en el desarrollo de aplicaciones Web, Móviles y de Escritorio, basadas en las mejores arquitecturas y calidad de software.\nHe tenido la oportunidad de trabajar con sistemas que soporten grandes cantidades de información (GB y TB), lo cual me ha permitido desarrollar productos de software bajo micro servicios implementando las mejores practicas para escalar y mantener un software a lo largo del tiempo, razón por la que continuamente me encuentro aprendiendo paradigmas de programación y diseñando arquitecturas de software que prometan alcanzar estándares de calidad."
+        "Title": "Ingeniero de sistemas con más de 9 años de experiencia profesional, me apasiona el Desarrollo de Software, me gusta aplicar buenas prácticas y tecnologías a la vanguardia para tener un software de calidad. Además, cuento con la experiencia para construir sistemas orientados al Cloud.",
+        "Description": "Ingeniero de Sistemas y especialista en ingeniería de software, con amplios conocimientos en el desarrollo de aplicaciones Web, basadas en las mejores practicas, arquitecturas y tecnologías a la vanguardia.\nHe tenido la oportunidad de trabajar con sistemas que soporten grandes cantidades de información (GB y TB), lo cual me ha permitido desarrollar productos de software bajo micro servicios implementando las mejores practicas para escalar y mantener un software a lo largo del tiempo, razón por la que continuamente me encuentro aprendiendo tecnologías y diseñando Arquitecturas de Software orientadas a Cloud que prometan alcanzar estándares de calidad."
     },
     "SocialNetworks": [
         {
@@ -39,11 +39,11 @@
     ],
     "Education": [
         {
-            "Title": "Estudiante De Especialización En Ingenieria De Software",
+            "Title": "Especialista En Ingeniería De Software",
             "Entity": "Universidad Popular Del Cesar",
             "Dates": {
                 "Start": "2020-01",
-                "End": null
+                "End": "2021-12"
             },
             "Icon": "https://www.unicesar.edu.co/templates/rt_fresco/images/community-a/logo/logo.png"
         },
@@ -69,8 +69,31 @@
     "Experiences": [
         {
             "Name": "IPCOM Colombia S.A.S",
+            "JobTitle": "Lider de desarrollo",
+            "Description": "Dirigir varios equipos de desarrollo, diseñando e implementando arquitecturas robustas que permitan construir servicios de calidad y escalables según el tráfico.\nRevisar el código planteado por los desarrolladores, con el objetivo de proponer mejores soluciones frente a problemas específicos y refinar detalles técnicos, que den lugar a un código escalable en el tiempo.",
+            "Outstandings": [
+                "Diseño e implementación de arquitecturas orientadas a Cloud",
+                "Habilidades blandas",
+                "Revisión de código (Pull Request)",
+                "Desarrollo de pipelines para automatizar procesos",
+                "JointJs",
+                "Asterisk",
+                "Kamailio",
+                "Liderar proyectos",
+                "Refinamiento de HU",
+                "Cumplimiento de OKR"
+            ],
+            "Dates": {
+                "Start": "2021-07-01",
+                "End": null
+            },
+            "Icon": "https://ipcom.ai/favicon.svg",
+            "Job": true
+        },
+        {
+            "Name": "IPCOM Colombia S.A.S",
             "JobTitle": "Ingeniero Desarrollador",
-            "Description": "Desarrollar Software como servicio (SaaS), orientados a clientes dentro del ecosistema de las telecomunicaciones, que requieran aplicaciones administradas para gestionar y auditar llamadas telefónicas y/o mensajes de textos.\nImplementar las mejores prácticas de desarrollo de software, para construir productos utilizando micro servicios bajo unas arquitecturas limpias, que permitan tener código de calidad y escalable en el tiempo.",
+            "Description": "Desarrollar Software como servicio (SaaS), orientados a clientes dentro del ecosistema de las telecomunicaciones que requieran aplicaciones administradas para gestionar, auditar y lanzar campañas de llamadas telefónicas y/o mensajes de textos.\nImplementar las mejores prácticas de desarrollo de software para construir productos utilizando micro servicios bajo arquitecturas orientadas al Cloud, que permitan tener productos de calidad y escalables en el tiempo.",
             "Outstandings": [
                 "Cluster de kubernetes con GKE",
                 "Flujos de datos - Terabytes/Mes",
@@ -91,10 +114,10 @@
             ],
             "Dates": {
                 "Start": "2020-06-01",
-                "End": null
+                "End": "2021-07-01"
             },
-            "Icon": "https://media-exp1.licdn.com/dms/image/C4E0BAQExgzuWA2YxGg/company-logo_200_200/0/1604580849153?e=1631145600&v=beta&t=yPdNdtxnySe75JkTbetJCQ_m9tfSVNtBq4K7Iiv2Unw",
-            "Job": true
+            "Icon": "https://ipcom.ai/favicon.svg",
+            "Job": false
         },
         {
             "Name": "INTRADERS",
@@ -115,7 +138,7 @@
                 "Start": "2019-10",
                 "End": "2020-11"
             },
-            "Icon": "https://scontent.fctg1-3.fna.fbcdn.net/v/t1.6435-9/142172611_106844338087250_1391538177671796177_n.png?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=yKFpF7vgfkgAX-0WfMv&_nc_ht=scontent.fctg1-3.fna&oh=52ce4133d62ff27ac0c49d1d7c4c845a&oe=60E5CA4F",
+            "Icon": "https://intraders.com.co/favicon.ico",
             "Job": false
         },
         {
@@ -240,19 +263,19 @@
         },
         {
             "Name": "Azure DevOps",
-            "Percentage": 85
+            "Percentage": 90
         },
         {
             "Name": "Kubernetes",
-            "Percentage": 85
+            "Percentage": 100
         },
         {
             "Name": "Terraform",
-            "Percentage": 80
+            "Percentage": 100
         },
         {
             "Name": "Google Cloud Platform",
-            "Percentage": 85
+            "Percentage": 95
         },
         {
             "Name": "PHP - Laravel",
@@ -264,7 +287,7 @@
         },
         {
             "Name": "Vue",
-            "Percentage": 90
+            "Percentage": 100
         }
     ],
     "OtherSkills": [
