@@ -7,8 +7,8 @@
     "City": "Valledupar - Cesar",
     "Country": "Colombia",
     "About": {
-        "Title": "Ingeniero de sistemas con más de 9 años de experiencia profesional, me apasiona el Desarrollo de Software, me gusta aplicar buenas prácticas y tecnologías a la vanguardia para tener un software de calidad. Además, cuento con la experiencia para construir sistemas orientados al Cloud.",
-        "Description": "Ingeniero de Sistemas y especialista en ingeniería de software, con amplios conocimientos en el desarrollo de aplicaciones Web, basadas en las mejores practicas, arquitecturas y tecnologías a la vanguardia.\nHe tenido la oportunidad de trabajar con sistemas que soporten grandes cantidades de información (GB y TB), lo cual me ha permitido desarrollar productos de software bajo micro servicios implementando las mejores practicas para escalar y mantener un software a lo largo del tiempo, razón por la que continuamente me encuentro aprendiendo tecnologías y diseñando Arquitecturas de Software orientadas a Cloud que prometan alcanzar estándares de calidad."
+        "Title": "Ingeniero de Sistemas y especialista en Ingeniería de Software con más de 9 años de experiencia en desarrollo de software y arquitecturas orientadas al Cloud. Especializado en tecnologías de vanguardia como Node.js, Go (Golang), .Net Core y Kubernetes, aplico buenas prácticas para asegurar la creación de software de alta calidad y escalabilidad. Con una sólida trayectoria en la gestión de sistemas distribuidos y la automatización de procesos CI/CD, me dedico a diseñar soluciones robustas y eficientes para entornos empresariales complejos. Mi enfoque profesional y detallado garantiza la entrega de productos tecnológicos innovadores y sostenibles.",
+        "Description": "Soy Ingeniero de Sistemas y especialista en Ingeniería de Software con amplios conocimientos en el desarrollo de aplicaciones web, empleando las mejores prácticas, arquitecturas modernas y tecnologías de vanguardia. Mi experiencia incluye trabajar con sistemas que manejan grandes volúmenes de datos (GB y TB), lo que me ha permitido desarrollar productos de software basados en microservicios, implementando estrategias para asegurar la escalabilidad y el mantenimiento a largo plazo del software.\nHe liderado equipos técnicos en la implementación de soluciones cloud en AWS, Azure y Google Cloud, aplicando metodologías de CI/CD y gestionando sistemas distribuidos. Continuamente busco actualizarme en nuevas tecnologías y diseño arquitecturas de software orientadas al Cloud, siempre con el objetivo de alcanzar y mantener los más altos estándares de calidad en los proyectos que desarrollo."
     },
     "SocialNetworks": [
         {
@@ -34,7 +34,7 @@
         },
         {
             "Language": "Ingles",
-            "Description": "Basico"
+            "Description": "Medio"
         }
     ],
     "Education": [
@@ -68,32 +68,46 @@
     ],
     "Experiences": [
         {
-            "Name": "IPCOM Colombia S.A.S",
-            "JobTitle": "Lider de desarrollo",
-            "Description": "Dirigir varios equipos de desarrollo, diseñando e implementando arquitecturas robustas que permitan construir servicios de calidad y escalables según el tráfico.\nRevisar el código planteado por los desarrolladores, con el objetivo de proponer mejores soluciones frente a problemas específicos y refinar detalles técnicos, que den lugar a un código escalable en el tiempo.",
+            "Name": "Puntos Colombia S.A.S",
+            "JobTitle": "Líder Técnico",
+            "Description": "Diseñé y desarrollé una plataforma de autogestión para empresas que desean integrarse al ecosistema de Puntos Colombia. Esta plataforma permite a las empresas administrar sus servicios y productos, así como gestionar sus campañas de puntos y promociones de manera eficiente.\nAdemás, construí arquitecturas robustas capaces de soportar grandes volúmenes de transacciones, lo que garantiza que los clientes puedan acumular y redimir puntos en cualquier canal digital ofrecido por Puntos Colombia. Implementé métricas clave para monitorear el rendimiento del sistema y facilitar la toma de decisiones estratégicas, asegurando así una experiencia fluida y satisfactoria para los usuarios finales",
             "Outstandings": [
-                "Diseño e implementación de arquitecturas orientadas a Cloud",
-                "Habilidades blandas",
-                "Revisión de código (Pull Request)",
-                "Desarrollo de pipelines para automatizar procesos",
-                "JointJs",
-                "Asterisk",
-                "Kamailio",
-                "Liderar proyectos",
-                "Refinamiento de HU",
-                "Cumplimiento de OKR"
+                "Kubernetes EKS",
+                "ROSA",
+                "Dynatrace",
+                "NewRelic",
+                "Splunk",
+                "Metricas - Prometheus, Grafana",
+                "AWS",
+                "Azure",
+                "CI/CD",
+                "Node.js",
+                "Angular",
+                "PostgreSQL",
+                "Azure AD B2C",
+                "Azure Pipelines",
+                "AWS SNS",
+                "SQS",
+                "RDS",
+                "EC2",
+                "express",
+                "API Gateway",
+                "Lambda",
+                "Sonar Cloud",
+                "Cumplimiento de OKR",
+                "Liderar proyectos"
             ],
             "Dates": {
-                "Start": "2021-07-01",
+                "Start": "2022-07-18",
                 "End": null
             },
-            "Icon": "https://ipcom.ai/favicon.svg",
+            "Icon": "https://www.puntoscolombia.com/favicon-new.ico",
             "Job": true
         },
         {
             "Name": "IPCOM Colombia S.A.S",
-            "JobTitle": "Ingeniero Desarrollador",
-            "Description": "Desarrollar Software como servicio (SaaS), orientados a clientes dentro del ecosistema de las telecomunicaciones que requieran aplicaciones administradas para gestionar, auditar y lanzar campañas de llamadas telefónicas y/o mensajes de textos.\nImplementar las mejores prácticas de desarrollo de software para construir productos utilizando micro servicios bajo arquitecturas orientadas al Cloud, que permitan tener productos de calidad y escalables en el tiempo.",
+            "JobTitle": "Líder Técnico",
+            "Description": "Desarrollar Software como Servicio (SaaS) orientado a clientes del ecosistema de telecomunicaciones, proporcionando aplicaciones administradas para gestionar, auditar y lanzar campañas de llamadas telefónicas y/o mensajes de texto. Implementar las mejores prácticas de desarrollo de software utilizando microservicios y arquitecturas orientadas al Cloud, asegurando productos de alta calidad y escalabilidad.\nDirigir varios equipos de desarrollo, diseñando e implementando arquitecturas robustas que soporten un tráfico creciente. Revisar el código de los desarrolladores para proponer soluciones optimizadas y refinar detalles técnicos, garantizando un código eficiente y escalable en el tiempo.",
             "Outstandings": [
                 "Cluster de kubernetes con GKE",
                 "Flujos de datos - Terabytes/Mes",
@@ -110,14 +124,23 @@
                 "OPA",
                 "Linux",
                 "Azure AD B2C",
-                "Mysql"
+                "Mysql",
+                "Diseño e implementación de arquitecturas orientadas a Cloud",
+                "Habilidades blandas",
+                "Revisión de código (Pull Request)",
+                "Desarrollo de pipelines para automatizar procesos",
+                "JointJs",
+                "Asterisk",
+                "Kamailio",
+                "Liderar proyectos",
+                "Cumplimiento de OKR"
             ],
             "Dates": {
                 "Start": "2020-06-01",
-                "End": "2021-07-01"
+                "End": "2022-07-01"
             },
             "Icon": "https://ipcom.ai/favicon.svg",
-            "Job": false
+            "Job": true
         },
         {
             "Name": "INTRADERS",
@@ -258,12 +281,12 @@
             "Percentage": 100
         },
         {
-            "Name": "Docker",
+            "Name": "Node.Js",
             "Percentage": 100
         },
         {
-            "Name": "Azure DevOps",
-            "Percentage": 90
+            "Name": "Docker",
+            "Percentage": 100
         },
         {
             "Name": "Kubernetes",
@@ -278,11 +301,23 @@
             "Percentage": 95
         },
         {
-            "Name": "PHP - Laravel",
-            "Percentage": 100
+            "Name": "AWS",
+            "Percentage": 95
         },
         {
-            "Name": "Angular 10+",
+            "Name": "Dynatrace",
+            "Percentage": 60
+        },
+        {
+            "Name": "NewRelic",
+            "Percentage": 80
+        },
+        {
+            "Name": "Splunk",
+            "Percentage": 80
+        },
+        {
+            "Name": "Angular 19+",
             "Percentage": 100
         },
         {
