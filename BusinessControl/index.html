@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobante de Pago</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 100px;
+        }
+        .header table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .header th, .header td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+        .header td img {
+            display: block;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .section p {
+            margin: 5px 0;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .header table, .header tr, .header th, .header td {
+                display: block;
+                width: 100%;
+            }
+            .header td {
+                text-align: center;
+                border: none;
+            }
+            .header tr td:last-child {
+                margin-top: 10px;
+            }
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+            .table-container {
+                overflow-x: visible;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Comprobante de Pago</div>
+        <div class="header">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <strong>Código Único:</strong> 12345<br>
+                        <strong>Fecha de Generación:</strong> 2024-07-21<br>
+                        <strong>Período Comprendido:</strong> 2024-07-01 a 2024-07-31<br>
+                    </td>
+                    <td>
+                        <img src="https://via.placeholder.com/100" alt="Código QR">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>Nombre:</strong> Juan Pérez<br>
+                        <strong>Cédula:</strong> 12345678<br>
+                        <strong>Teléfono:</strong> 555-1234<br>
+                        <strong>Correo:</strong> juan.perez@example.com<br>
+                    </td>
+                    <td>
+                        <strong>Dirección:</strong> Calle Falsa 123<br>
+                        <strong>Barrio:</strong> Centro<br>
+                        <strong>Ciudad:</strong> Ciudad de Ejemplo<br>
+                        <strong>Departamento:</strong> Departamento de Ejemplo<br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="section">
+            <h2>Conceptos</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Renta</td>
+                            <td>Pago mensual de la renta</td>
+                            <td>$500.00</td>
+                        </tr>
+                        <tr>
+                            <td>Mantenimiento</td>
+                            <td>Servicios de mantenimiento</td>
+                            <td>$50.00</td>
+                        </tr>
+                        <tr>
+                            <td>Agua</td>
+                            <td>Consumo de agua</td>
+                            <td>$30.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="total">Total: $580.00</p>
+        </div>
+        <div class="section">
+            <h2>Método de Pago</h2>
+            <p>Método de Pago: Efectivo</p>
+        </div>
+        <div class="footer">
+            <p><a href="https://example.com/verificar?codigo=12345">Verificar la autenticidad del comprobante</a></p>
+        </div>
+    </div>
+</body>
+</html>
