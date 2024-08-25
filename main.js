@@ -1513,12 +1513,14 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
         reader.onload = function (e) {
             try {
                 var json = JSON.parse(reader.result);
-                _this.comprobantesService.saveConfiguracion(json);
-                alert('Archivo JSON cargado correctamente.');
-                _this.ngOnInit();
+                if (json) {
+                    _this.comprobantesService.saveConfiguracion(json);
+                    alert('Archivo JSON cargado correctamente.');
+                    _this.ngOnInit();
+                }
             }
             catch (error) {
-                alert(_this.isProcessingFile + ': Error al procesar el archivo JSON - ' + JSON.stringify(error));
+                alert(_this.isProcessingFile + ': Error al procesar el archivo JSON - ' + JSON.stringify(error) + ' | ' + JSON.stringify(reader.result));
             }
             finally {
                 _this.isProcessingFile = false; // Reinicia la variable de control
