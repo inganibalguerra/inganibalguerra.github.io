@@ -1361,6 +1361,7 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
         this.registrarNuevaBien = false;
         this.registrarNuevoContrato = false;
         this.tipoBien = 'Arrendamiento';
+        this.isProcessingFile = false;
         this.configuracionForm = this.fb.group({
             contratanteCedula: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
             contratanteNombre: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
@@ -1495,6 +1496,10 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     };
     // Método para manejar el cambio de archivo
     BusinessControlSettingsComponent.prototype.onFileChange = function (event) {
+        if (this.isProcessingFile) {
+            return; // Si ya se está procesando un archivo, salir
+        }
+        this.isProcessingFile = true;
         var input = event.target;
         if (input.files && input.files.length) {
             var file = input.files[0];
@@ -1509,12 +1514,14 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
             try {
                 var json = JSON.parse(reader.result);
                 _this.comprobantesService.saveConfiguracion(json);
-                // Si el JSON es válido, guardarlo en localStorage
                 alert('Archivo JSON cargado correctamente.');
                 _this.ngOnInit();
             }
             catch (error) {
                 alert('Error al procesar el archivo JSON.');
+            }
+            finally {
+                _this.isProcessingFile = false; // Reinicia la variable de control
             }
         };
         reader.readAsText(file);
