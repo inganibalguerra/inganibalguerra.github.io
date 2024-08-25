@@ -1518,7 +1518,7 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
                 _this.ngOnInit();
             }
             catch (error) {
-                alert('Error al procesar el archivo JSON.');
+                alert(_this.isProcessingFile + ': Error al procesar el archivo JSON - ' + JSON.stringify(error));
             }
             finally {
                 _this.isProcessingFile = false; // Reinicia la variable de control
