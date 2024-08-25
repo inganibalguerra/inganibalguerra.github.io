@@ -369,7 +369,7 @@ if (content.locals) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!************************************************************!*\
   !*** multi ./src/styles.scss ./src/assets/scss/argon.scss ***!
   \************************************************************/
@@ -382,5 +382,5 @@ module.exports = __webpack_require__(/*! /home/runner/work/SummaryResume/Summary
 
 /***/ })
 
-},[[3,"runtime"]]]);
+},[[4,"runtime"]]]);
 //# sourceMappingURL=styles.js.map
