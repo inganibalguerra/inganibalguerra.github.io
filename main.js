@@ -1520,10 +1520,11 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
                 }
             }
             catch (error) {
-                alert(_this.isProcessingFile + ': Error al procesar el archivo JSON - ' + JSON.stringify(error) + ' | ' + JSON.stringify(reader.result));
+                alert(_this.isProcessingFile + ': Error al procesar el archivo JSON v2 - ' + JSON.stringify(error) + ' | ' + JSON.stringify(reader.result));
             }
             finally {
                 _this.isProcessingFile = false; // Reinicia la variable de control
+                reader.onload = null; // Limpiar el evento onload para evitar dobles ejecuciones
             }
         };
         reader.readAsText(file);
