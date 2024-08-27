@@ -2107,11 +2107,13 @@ var BusinessControlComponent = /** @class */ (function () {
         var _this = this;
         this.comprobanteToPdf = comprobante;
         setTimeout(function () { return __awaiter(_this, void 0, void 0, function () {
+            var prefijo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!this.pdfContent) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.pdfService.generatePDF(comprobante.id, this.pdfContent.nativeElement)];
+                        prefijo = "del " + this.comprobantesService.formatoInternacional(comprobante.periodo.inicio) + " al " + this.comprobantesService.formatoInternacional(comprobante.periodo.fin);
+                        return [4 /*yield*/, this.pdfService.generatePDF("Comprobante " + prefijo + ".pdf", this.pdfContent.nativeElement)];
                     case 1:
                         _a.sent();
                         comprobante.generandoPdf = false;
@@ -2127,23 +2129,29 @@ var BusinessControlComponent = /** @class */ (function () {
     };
     BusinessControlComponent.prototype._shareByAppsFromSO = function (comprobante) {
         var _this = this;
-        this.comprobanteToPdf = comprobante;
-        setTimeout(function () {
-            if (_this.pdfContent) {
-                // this.pdfService.generatePDF(comprobante.id, this.pdfContent.nativeElement);
-                _this.pdfService.getPdfInBlob(comprobante.id, _this.pdfContent.nativeElement).then(function (pdfBlob) {
-                    _this._sharedPdf(pdfBlob, comprobante);
-                    comprobante.compartiendoPdf = false;
-                });
-            }
-            else {
-                _this.toastr.error('El contenido del PDF no está disponible.', 'Business Control!');
-            }
-        }, 0);
+        try {
+            this.comprobanteToPdf = comprobante;
+            setTimeout(function () {
+                if (_this.pdfContent) {
+                    // this.pdfService.generatePDF(comprobante.id, this.pdfContent.nativeElement);
+                    _this.pdfService.getPdfInBlob(comprobante.id, _this.pdfContent.nativeElement).then(function (pdfBlob) {
+                        _this._sharedPdf(pdfBlob, comprobante);
+                        comprobante.compartiendoPdf = false;
+                    });
+                }
+                else {
+                    _this.toastr.error('El contenido del PDF no está disponible.', 'Business Control!');
+                }
+            }, 0);
+        }
+        catch (error) {
+            this.toastr.error('El contenido del PDF no está disponible : ' + JSON.stringify(error), 'Business Control!');
+        }
     };
     BusinessControlComponent.prototype._sharedPdf = function (pdfBlob, comprobante) {
         var _this = this;
-        var file = new File([pdfBlob], comprobante.id + '.pdf', { type: 'application/pdf' });
+        var prefijo = "del " + this.comprobantesService.formatoInternacional(comprobante.periodo.inicio) + " al " + this.comprobantesService.formatoInternacional(comprobante.periodo.fin);
+        var file = new File([pdfBlob], "Comprobante " + prefijo + ".pdf", { type: 'application/pdf' });
         if (navigator.share) {
             navigator.share({
                 title: "Comprobante de pago Nro " + comprobante.id,
