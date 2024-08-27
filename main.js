@@ -2148,7 +2148,7 @@ var BusinessControlComponent = /** @class */ (function () {
     };
     BusinessControlComponent.prototype._sharedPdf = function (pdfBlob, comprobante) {
         var _this = this;
-        var file = new File([pdfBlob], "Comprobante de pago Nro " + comprobante.id, { type: 'application/pdf' });
+        var file = new File([pdfBlob], "Comprobante de pago Nro " + comprobante.id + ".pdf", { type: 'application/pdf' });
         if (navigator.share) {
             navigator.share({
                 title: "Comprobante de pago Nro " + comprobante.id,
@@ -2157,7 +2157,7 @@ var BusinessControlComponent = /** @class */ (function () {
             }).then(function () {
                 _this.toastr.info('Pdf generado con exíto, compartelo!', 'Business Control!');
             }).catch(function (error) {
-                console.error('Error al compartir:', error);
+                _this.toastr.error('Error al compartir: ' + JSON.stringify(error), 'Business Control!');
             });
         }
         else {
