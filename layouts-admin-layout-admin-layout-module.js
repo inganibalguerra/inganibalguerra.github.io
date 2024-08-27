@@ -501,7 +501,6 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
-// import { ToastrModule } from 'ngx-toastr';
 var AdminLayoutModule = /** @class */ (function () {
     function AdminLayoutModule() {
     }
