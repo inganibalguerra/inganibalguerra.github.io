@@ -2003,7 +2003,7 @@ var BusinessControlComponent = /** @class */ (function () {
         var labelsMap = new Map();
         // Procesar comprobantes para agrupar ingresos por mes
         selectedBien.comprobantes.forEach(function (comprobante) {
-            var monthYear = new Date(comprobante.fechaGeneracion).toLocaleString('default', { month: 'short', year: 'numeric' });
+            var monthYear = new Date(comprobante.fechaGeneracion).toLocaleString('default', { month: '2-digit', year: 'numeric' });
             if (!labelsMap.has(monthYear)) {
                 labelsMap.set(monthYear, { ingresos: 0, aguagastos: 0, luzgastos: 0, gasgastos: 0, internetgastos: 0, otrosgastos: 0 });
             }
@@ -2012,7 +2012,7 @@ var BusinessControlComponent = /** @class */ (function () {
         });
         // Procesar servicios públicos para agrupar gastos por tipo y mes
         selectedBien.serviciosPublicos.forEach(function (servicio) {
-            var monthYear = new Date(servicio.fechaGeneracion).toLocaleString('default', { month: 'short', year: 'numeric' });
+            var monthYear = new Date(servicio.fechaGeneracion).toLocaleString('default', { month: '2-digit', year: 'numeric' });
             if (!labelsMap.has(monthYear)) {
                 labelsMap.set(monthYear, { ingresos: 0, aguagastos: 0, luzgastos: 0, gasgastos: 0, internetgastos: 0, otrosgastos: 0 });
             }
