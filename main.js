@@ -1975,7 +1975,6 @@ var BusinessControlComponent = /** @class */ (function () {
             }
         }
         this.firmaDigital = this.config.contratante.firmaDigital;
-        this.onConceptoSelected(this.config.conceptos[0].descripcion);
         this.InicializarComprobante();
         this.observacionComprobante = "";
         this.metodoPagoComprobante = this.config.mediosPago[0];
@@ -1986,6 +1985,7 @@ var BusinessControlComponent = /** @class */ (function () {
         if (this.selectedBien) {
             console.log(this.selectedBien);
             this.conceptosByContrato = this.config.conceptos.filter(function (t) { return t.tipo == _this.selectedBien.contratoActivo.tipo; });
+            this.onConceptoSelected(this.conceptosByContrato[0].descripcion);
         }
         this.comprobanteToPdf = null;
         setTimeout(function () {
