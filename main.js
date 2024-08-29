@@ -2470,7 +2470,7 @@ var BusinessControlService = /** @class */ (function () {
                         comprobante.contratoId = bien.contratoActivo.id;
                         comprobante.bien = bien;
                         //Aquí la seteamos manualmente para que en el encriptado quede la url corta y el QR se vea igual
-                        comprobante.urlCorta = this._getDomainForShortUrl() + "/" + this._getAliasForShortUrl(comprobante);
+                        comprobante.urlCorta = "https://" + this._getDomainForShortUrl() + "/" + this._getAliasForShortUrl(comprobante);
                         startDate = new Date(comprobante.fechaGeneracion.getFullYear(), comprobante.fechaGeneracion.getMonth(), bien.contratoActivo.inicio.getDate());
                         endDate = new Date(comprobante.fechaGeneracion.getFullYear(), comprobante.fechaGeneracion.getMonth(), bien.contratoActivo.inicio.getDate());
                         endDate.setMonth(endDate.getMonth() + 1);
