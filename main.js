@@ -2469,6 +2469,8 @@ var BusinessControlService = /** @class */ (function () {
                         comprobante.id = new Date().getTime().toString();
                         comprobante.contratoId = bien.contratoActivo.id;
                         comprobante.bien = bien;
+                        //Aquí la seteamos manualmente para que en el encriptado quede la url corta y el QR se vea igual
+                        comprobante.urlCorta = this._getDomainForShortUrl() + "/" + this._getAliasForShortUrl(comprobante);
                         startDate = new Date(comprobante.fechaGeneracion.getFullYear(), comprobante.fechaGeneracion.getMonth(), bien.contratoActivo.inicio.getDate());
                         endDate = new Date(comprobante.fechaGeneracion.getFullYear(), comprobante.fechaGeneracion.getMonth(), bien.contratoActivo.inicio.getDate());
                         endDate.setMonth(endDate.getMonth() + 1);
@@ -2495,9 +2497,11 @@ var BusinessControlService = /** @class */ (function () {
                         if (!config) return [3 /*break*/, 2];
                         bien = config.bienes.find(function (v) { return v.id === bienId; });
                         comprobante = bien.comprobantes.find(function (t) { return t.id = comprobanteId; });
+                        //Aquí se llama directamente al servicio de shorturl para crear la url y en caso tal que funcione correctamente deberian coincidir los valores, de haber un error quedaria en el json en blanco y no abria problema ya que si no hay una url corta el sistema seguira funcionando normal
                         _a = comprobante;
                         return [4 /*yield*/, this.shortUrl(this.generateUrlFirmada(comprobante), comprobante)];
                     case 1:
+                        //Aquí se llama directamente al servicio de shorturl para crear la url y en caso tal que funcione correctamente deberian coincidir los valores, de haber un error quedaria en el json en blanco y no abria problema ya que si no hay una url corta el sistema seguira funcionando normal
                         _a.urlCorta = _b.sent();
                         this.saveConfiguracion(config);
                         _b.label = 2;
@@ -2589,7 +2593,6 @@ var BusinessControlService = /** @class */ (function () {
         return this.cryptService.encrypt(jsonString);
     };
     BusinessControlService.prototype.generateUrlFirmada = function (comprobante) {
-        var cache = new Set();
         comprobante.contratante.firmaDigital = null;
         return window.location.origin + "/#/business-control-verify?comprobante=" + encodeURIComponent(this.cryptComprobante(comprobante));
     };
@@ -2640,9 +2643,9 @@ var BusinessControlService = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         body = {
-                            alias: "C" + comprobante.bien.contratoActivo.identificacion + "CP" + comprobante.id,
+                            alias: this._getAliasForShortUrl(comprobante),
                             description: "CP del periodo " + this.formatoInternacional(comprobante.periodo.inicio) + " al " + this.formatoInternacional(comprobante.periodo.fin),
-                            domain: 'tinyurl.com',
+                            domain: this._getDomainForShortUrl(),
                             url: url
                         };
                         return [4 /*yield*/, this._httpService.post('https://api.tinyurl.com/create', body, {
@@ -2664,6 +2667,12 @@ var BusinessControlService = /** @class */ (function () {
                 }
             });
         });
+    };
+    BusinessControlService.prototype._getDomainForShortUrl = function () {
+        return 'tinyurl.com';
+    };
+    BusinessControlService.prototype._getAliasForShortUrl = function (comprobante) {
+        return "C" + comprobante.bien.contratoActivo.identificacion + "CP" + comprobante.id;
     };
     BusinessControlService.ctorParameters = function () { return [
         { type: _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"] },
