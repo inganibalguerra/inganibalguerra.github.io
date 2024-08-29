@@ -2489,22 +2489,25 @@ var BusinessControlService = /** @class */ (function () {
     };
     BusinessControlService.prototype._updateShortUrl = function (bienId, comprobanteId) {
         return __awaiter(this, void 0, void 0, function () {
-            var config, bien, comprobante, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var tempConfig, bienTemp, comprobanteTemp, urlCorta, Config, bien, comprobante;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        config = this.getConfiguracion();
-                        if (!config) return [3 /*break*/, 2];
-                        bien = config.bienes.find(function (v) { return v.id === bienId; });
-                        comprobante = bien.comprobantes.find(function (t) { return t.id = comprobanteId; });
-                        //Aquí se llama directamente al servicio de shorturl para crear la url y en caso tal que funcione correctamente deberian coincidir los valores, de haber un error quedaria en el json en blanco y no abria problema ya que si no hay una url corta el sistema seguira funcionando normal
-                        _a = comprobante;
-                        return [4 /*yield*/, this.shortUrl(this.generateUrlFirmada(comprobante), comprobante)];
+                        tempConfig = this.getConfiguracion();
+                        if (!tempConfig) return [3 /*break*/, 2];
+                        bienTemp = tempConfig.bienes.find(function (v) { return v.id === bienId; });
+                        comprobanteTemp = bienTemp.comprobantes.find(function (t) { return t.id = comprobanteId; });
+                        return [4 /*yield*/, this.shortUrl(this.generateUrlFirmada(comprobanteTemp), comprobanteTemp)];
                     case 1:
-                        //Aquí se llama directamente al servicio de shorturl para crear la url y en caso tal que funcione correctamente deberian coincidir los valores, de haber un error quedaria en el json en blanco y no abria problema ya que si no hay una url corta el sistema seguira funcionando normal
-                        _a.urlCorta = _b.sent();
-                        this.saveConfiguracion(config);
-                        _b.label = 2;
+                        urlCorta = _a.sent();
+                        Config = this.getConfiguracion();
+                        if (Config) {
+                            bien = tempConfig.bienes.find(function (v) { return v.id === bienId; });
+                            comprobante = bienTemp.comprobantes.find(function (t) { return t.id = comprobanteId; });
+                            comprobante.urlCorta = urlCorta;
+                            this.saveConfiguracion(Config);
+                        }
+                        _a.label = 2;
                     case 2: return [2 /*return*/];
                 }
             });
