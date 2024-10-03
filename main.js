@@ -2959,30 +2959,36 @@ var GoogleDriveService = /** @class */ (function () {
     };
     GoogleDriveService.prototype.loadGapiClient = function () {
         var _this = this;
-        return new Promise(function (resolve, reject) {
-            gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () {
-                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.init({
-                    // apiKey: this.API_KEY,
-                    clientId: _this.CLIENT_ID,
-                    discoveryDocs: _this.DISCOVERY_DOCS,
-                    scope: _this.SCOPES
-                }).then(function () {
-                    _this.gapiLoaded$.next(true);
-                    resolve();
-                }).catch(function (error) {
-                    _this.toastr.error("Error al inicializar Google Drive" + JSON.stringify(error), 'Business Control!');
-                    _this.gapiLoaded$.next(false);
-                    reject(error);
+        try {
+            return new Promise(function (resolve, reject) {
+                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () {
+                    gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.init({
+                        // apiKey: this.API_KEY,
+                        clientId: _this.CLIENT_ID,
+                        discoveryDocs: _this.DISCOVERY_DOCS,
+                        scope: _this.SCOPES
+                    }).then(function () {
+                        _this.gapiLoaded$.next(true);
+                        resolve();
+                    }).catch(function (error) {
+                        _this.toastr.error("Error al inicializar Google Drive" + JSON.stringify(error), 'Business Control!');
+                        _this.gapiLoaded$.next(false);
+                        reject(error);
+                    });
                 });
             });
-        });
+        }
+        catch (error) {
+            this.toastr.error("Control de error al inicializar Google Drive: " + JSON.stringify(error), 'Business Control!');
+        }
     };
     GoogleDriveService.prototype.signIn = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user, data, config;
+            var user, data, config, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        _a.trys.push([0, 5, , 6]);
                         if (!!this.gapiLoaded$.getValue()) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.loadGapiClient()];
                     case 1:
@@ -3009,6 +3015,11 @@ var GoogleDriveService = /** @class */ (function () {
                                     username: user.getBasicProfile().getName(),
                                 }
                             }];
+                    case 5:
+                        error_1 = _a.sent();
+                        this.toastr.error("Control de error en login: " + JSON.stringify(error_1), 'Business Control!');
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
@@ -3200,7 +3211,7 @@ var GoogleDriveService = /** @class */ (function () {
     };
     GoogleDriveService.prototype.downloadFirstJsonFileFromBusinessControlFolder = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var accessToken, folderId, fileId, error_1;
+            var accessToken, folderId, fileId, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3225,8 +3236,8 @@ var GoogleDriveService = /** @class */ (function () {
                         // Descargar el contenido del archivo
                         return [2 /*return*/, this.downloadFileContent(fileId, accessToken)];
                     case 4:
-                        error_1 = _a.sent();
-                        console.error('Error al descargar el archivo:', error_1);
+                        error_2 = _a.sent();
+                        console.error('Error al descargar el archivo:', error_2);
                         return [2 /*return*/, null];
                     case 5: return [2 /*return*/];
                 }
