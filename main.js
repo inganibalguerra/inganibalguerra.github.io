@@ -2950,6 +2950,7 @@ var GoogleDriveService = /** @class */ (function () {
         this.API_KEY = 'TU_API_KEY'; // Opcional si solo usas OAuth
         this.DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
         this.SCOPES = "https://www.googleapis.com/auth/drive.file";
+        this.FOLDER_NAME = 'business-control';
         this.gapiLoaded$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](false);
         this.loadGapiClient();
     }
@@ -2959,20 +2960,17 @@ var GoogleDriveService = /** @class */ (function () {
     GoogleDriveService.prototype.loadGapiClient = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.toastr.info("inicializando", 'Business Control!');
             gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () {
-                _this.toastr.info("entro", 'Business Control!');
                 gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.init({
                     // apiKey: this.API_KEY,
                     clientId: _this.CLIENT_ID,
                     discoveryDocs: _this.DISCOVERY_DOCS,
                     scope: _this.SCOPES
                 }).then(function () {
-                    _this.toastr.info("cargo", 'Business Control!');
                     _this.gapiLoaded$.next(true);
                     resolve();
                 }).catch(function (error) {
-                    _this.toastr.error("error" + error, 'Business Control!');
+                    _this.toastr.error("Error al inicializar Google Drive" + JSON.stringify(error), 'Business Control!');
                     _this.gapiLoaded$.next(false);
                     reject(error);
                 });
@@ -3002,8 +3000,7 @@ var GoogleDriveService = /** @class */ (function () {
                         data = _a.sent();
                         config = data ? JSON.parse(data) : undefined;
                         if (config) {
-                            console.log(config);
-                            this.toastr.info("Si existe data", 'Business Control!');
+                            this.toastr.info("Si existe data para sincronizar...", 'Business Control!');
                         }
                         return [2 /*return*/, {
                                 data: config,
@@ -3086,7 +3083,7 @@ var GoogleDriveService = /** @class */ (function () {
         })
             .then(function (response) { return response.json(); })
             .then(function (data) {
-            _this.toastr.info('Archivo subido:' + data, 'Business Control!');
+            _this.toastr.info('Archivo subido:' + JSON.stringify(data), 'Business Control!');
         })
             .catch(function (error) {
             console.error('Error al subir el archivo:', error);
@@ -3126,7 +3123,7 @@ var GoogleDriveService = /** @class */ (function () {
         })
             .then(function (response) { return response.json(); })
             .then(function (data) {
-            _this.toastr.info('Archivo actualizado:' + data, 'Business Control!');
+            _this.toastr.info('Archivo actualizado:' + JSON.stringify(data), 'Business Control!');
         })
             .catch(function (error) {
             console.error('Error al actualizar el archivo:', error);
@@ -3134,9 +3131,8 @@ var GoogleDriveService = /** @class */ (function () {
     };
     GoogleDriveService.prototype.uploadFileWithFolderDetection = function (blob, filename) {
         var _this = this;
-        var folderName = 'business-control';
         var accessToken = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
-        this.findFolderByName(folderName, accessToken)
+        this.findFolderByName(this.FOLDER_NAME, accessToken)
             .then(function (folderId) {
             if (folderId) {
                 _this.toastr.info('Carpeta encontrada, ID:' + folderId, 'Business Control!');
@@ -3158,7 +3154,7 @@ var GoogleDriveService = /** @class */ (function () {
             else {
                 // La carpeta no existe, la creamos
                 _this.toastr.info('Carpeta no encontrada, creando nueva carpeta...', 'Business Control!');
-                return _this.createFolder(folderName, accessToken)
+                return _this.createFolder(_this.FOLDER_NAME, accessToken)
                     .then(function (newFolderId) {
                     _this.toastr.info('Nueva carpeta creada, ID:' + newFolderId, 'Business Control!');
                     return _this.uploadBlobToFolder(blob, filename, newFolderId, accessToken);
@@ -3204,16 +3200,15 @@ var GoogleDriveService = /** @class */ (function () {
     };
     GoogleDriveService.prototype.downloadFirstJsonFileFromBusinessControlFolder = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var folderName, accessToken, folderId, fileId, error_1;
+            var accessToken, folderId, fileId, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        folderName = 'business-control';
                         accessToken = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);
-                        return [4 /*yield*/, this.findFolderByName(folderName, accessToken)];
+                        return [4 /*yield*/, this.findFolderByName(this.FOLDER_NAME, accessToken)];
                     case 2:
                         folderId = _a.sent();
                         if (!folderId) {
