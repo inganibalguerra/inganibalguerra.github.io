@@ -1444,6 +1444,13 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     }
     BusinessControlSettingsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.initialiceComponent();
+        setTimeout(function () {
+            _this.getUserLogget();
+        }, 300);
+        this.getUserLogget();
+    };
+    BusinessControlSettingsComponent.prototype.initialiceComponent = function () {
         this.isConfigured = false;
         this.selectedBien = null;
         this.config = this.comprobantesService.getConfiguracion();
@@ -1460,17 +1467,12 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
         this.configuracionForm.reset();
         this.bienform.reset();
         this.contratoForm.reset();
-        setTimeout(function () {
-            _this.getUserLogget();
-        }, 300);
-        this.getUserLogget();
     };
     BusinessControlSettingsComponent.prototype.Login = function () {
         var _this = this;
         this.googleService.signIn().then(function (config) {
             _this.userLogger = config.user;
             if (config.data) {
-                _this.comprobantesService.saveConfiguracion(config.data, false);
                 _this.ngOnInit();
             }
         });
@@ -1481,8 +1483,8 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     };
     BusinessControlSettingsComponent.prototype.getUserLogget = function () {
         var _this = this;
-        this.googleService.getUser().then(function (user) {
-            _this.userLogger = user;
+        this.googleService.getUser().then(function (config) {
+            _this.userLogger = config.user;
         });
     };
     BusinessControlSettingsComponent.prototype.onSubmitInitial = function () {
@@ -2042,7 +2044,10 @@ var BusinessControlComponent = /** @class */ (function () {
         };
     };
     BusinessControlComponent.prototype.ngOnInit = function () {
-        var _this = this;
+        this.initialiceComponent();
+        this.getUserLogget();
+    };
+    BusinessControlComponent.prototype.initialiceComponent = function () {
         this.config = this.comprobantesService.getConfiguracion();
         if (!this.config || this.config.bienes.length == 0) {
             this.router.navigate(['/business-control-settings']);
@@ -2060,17 +2065,12 @@ var BusinessControlComponent = /** @class */ (function () {
         this.InicializarComprobante();
         this.observacionComprobante = "";
         this.metodoPagoComprobante = this.config.mediosPago[0];
-        setTimeout(function () {
-            _this.getUserLogget();
-        }, 300);
-        this.getUserLogget();
     };
     BusinessControlComponent.prototype.Login = function () {
         var _this = this;
         this.googleService.signIn().then(function (config) {
             _this.userLogger = config.user;
             if (config.data) {
-                _this.comprobantesService.saveConfiguracion(config.data, false);
                 _this.ngOnInit();
             }
         });
@@ -2081,8 +2081,8 @@ var BusinessControlComponent = /** @class */ (function () {
     };
     BusinessControlComponent.prototype.getUserLogget = function () {
         var _this = this;
-        this.googleService.getUser().then(function (user) {
-            _this.userLogger = user;
+        this.googleService.getUser().then(function (config) {
+            _this.userLogger = config.user;
         });
     };
     BusinessControlComponent.prototype.onBienSelect = function (bienId) {
@@ -2411,6 +2411,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../crypt/crypt.service */ "./src/app/services/crypt/crypt.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
 /* harmony import */ var _google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../google-drive/google-drive.service */ "./src/app/services/google-drive/google-drive.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2463,13 +2464,16 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var BusinessControlService = /** @class */ (function () {
-    function BusinessControlService(googleService, cryptService, _httpService) {
+    function BusinessControlService(toastr, googleService, cryptService, _httpService) {
+        this.toastr = toastr;
         this.googleService = googleService;
         this.cryptService = cryptService;
         this._httpService = _httpService;
         this.storageKey = 'configuracion';
     }
+    BusinessControlService_1 = BusinessControlService;
     BusinessControlService.prototype.getConfiguracion = function () {
         var data = this._getConfigFromLocalStorage();
         if (data) {
@@ -2515,9 +2519,53 @@ var BusinessControlService = /** @class */ (function () {
                 });
                 bien.contratos.sort(function (a, b) { return a.activo > b.activo ? -1 : 1; });
                 bien.comprobantes.sort(function (a, b) { return a.fechaGeneracion > b.fechaGeneracion ? -1 : 1; });
+                if (data.ultimaModificacion) {
+                    data.ultimaModificacion = new Date(data.ultimaModificacion);
+                }
+                else {
+                    data.ultimaModificacion = new Date();
+                }
             });
         }
+        this.syncWithGoogleDrive(data);
         return data;
+    };
+    BusinessControlService.prototype.syncWithGoogleDrive = function (configLocalStorage) {
+        return __awaiter(this, void 0, void 0, function () {
+            var userLogged, uploadConfigInGoogle;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!!BusinessControlService_1.isSync) return [3 /*break*/, 2];
+                        BusinessControlService_1.isSync = true;
+                        return [4 /*yield*/, this.googleService.getUser()];
+                    case 1:
+                        userLogged = _a.sent();
+                        if (userLogged) {
+                            uploadConfigInGoogle = false;
+                            if (userLogged.data && !userLogged.data.ultimaModificacion) {
+                                userLogged.data.ultimaModificacion = new Date();
+                                //se manda a subir la data nuevamente a google drive ya que en google drive no hay fecha de modificacion en el json
+                                uploadConfigInGoogle = true;
+                            }
+                            //existe data en google y no hay fecha de modificacion o la fecha de modificacion de localstorage es menor a la de google entonces bajo y almaceno los datos en local
+                            if (userLogged.data && (!configLocalStorage || !configLocalStorage.ultimaModificacion || configLocalStorage.ultimaModificacion < userLogged.data.ultimaModificacion)) {
+                                this.saveConfiguracion(userLogged.data, uploadConfigInGoogle);
+                                this.toastr.success('Información syncronizada correctamente desde google drive', 'Business Control!');
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 1500);
+                            }
+                            //si no hay data en google entonces subimos la que esta en localstorage
+                            if (!userLogged.data) {
+                                this.uploadConfigWithGoogleDrive();
+                            }
+                        }
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
     };
     BusinessControlService.prototype._getConfigFromLocalStorage = function () {
         var data = this._readConfig();
@@ -2540,6 +2588,7 @@ var BusinessControlService = /** @class */ (function () {
                                 comprobante.bien = null;
                             });
                         });
+                        config.ultimaModificacion = new Date();
                         localStorage.setItem(this.storageKey, JSON.stringify(config));
                         return [4 /*yield*/, this.googleService.isUserLogged()];
                     case 1:
@@ -2793,7 +2842,7 @@ var BusinessControlService = /** @class */ (function () {
                         return [2 /*return*/, null];
                     case 2:
                         error_1 = _a.sent();
-                        console.log("Error generando url corta", JSON.stringify(error_1));
+                        this.toastr.error("Error generando url corta: " + JSON.stringify(error_1), 'Business Control!');
                         return [2 /*return*/, null];
                     case 3: return [2 /*return*/];
                 }
@@ -2806,16 +2855,19 @@ var BusinessControlService = /** @class */ (function () {
     BusinessControlService.prototype._getAliasForShortUrl = function (comprobante) {
         return "C" + comprobante.bien.contratoActivo.identificacion + "CP" + comprobante.id;
     };
+    var BusinessControlService_1;
+    BusinessControlService.isSync = false;
     BusinessControlService.ctorParameters = function () { return [
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
         { type: _google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__["GoogleDriveService"] },
         { type: _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"] },
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
     ]; };
-    BusinessControlService = __decorate([
+    BusinessControlService = BusinessControlService_1 = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__["GoogleDriveService"], _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__["GoogleDriveService"], _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], BusinessControlService);
     return BusinessControlService;
 }());
@@ -2951,6 +3003,7 @@ var GoogleDriveService = /** @class */ (function () {
         this.DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
         this.SCOPES = "https://www.googleapis.com/auth/drive.file";
         this.FOLDER_NAME = 'business-control';
+        this.countGetConfig = 0;
         this.gapiLoaded$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](false);
         this.loadGapiClient();
     }
@@ -2984,7 +3037,7 @@ var GoogleDriveService = /** @class */ (function () {
     };
     GoogleDriveService.prototype.signIn = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user, data, config, error_1;
+            var user, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3001,15 +3054,11 @@ var GoogleDriveService = /** @class */ (function () {
                         return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signIn()];
                     case 3:
                         user = _a.sent();
-                        return [4 /*yield*/, this.downloadFirstJsonFileFromBusinessControlFolder()];
+                        return [4 /*yield*/, this.getConfigFromUser()];
                     case 4:
-                        data = _a.sent();
-                        config = data ? JSON.parse(data) : undefined;
-                        if (config) {
-                            this.toastr.info("Si existe data para sincronizar...", 'Business Control!');
-                        }
+                        _a.sent();
                         return [2 /*return*/, {
-                                data: config,
+                                data: this.config,
                                 user: {
                                     email: user.getBasicProfile().getEmail(),
                                     username: user.getBasicProfile().getName(),
@@ -3020,6 +3069,30 @@ var GoogleDriveService = /** @class */ (function () {
                         this.toastr.error("Control de error en login: " + JSON.stringify(error_1), 'Business Control!');
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GoogleDriveService.prototype.getConfigFromUser = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(!this.config && this.countGetConfig == 0)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.downloadFirstJsonFileFromBusinessControlFolder()];
+                    case 1:
+                        data = _a.sent();
+                        this.config = data ? JSON.parse(data) : undefined;
+                        if (this.config) {
+                            if (this.config.ultimaModificacion) {
+                                this.config.ultimaModificacion = new Date(this.config.ultimaModificacion);
+                            }
+                        }
+                        _a.label = 2;
+                    case 2:
+                        this.countGetConfig++;
+                        return [2 /*return*/];
                 }
             });
         });
@@ -3040,16 +3113,18 @@ var GoogleDriveService = /** @class */ (function () {
                             return [2 /*return*/, undefined];
                         }
                         userGoogle = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get();
-                        if (userGoogle.isSignedIn()) {
-                            return [2 /*return*/, {
+                        if (!userGoogle.isSignedIn()) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.getConfigFromUser()];
+                    case 3:
+                        _a.sent();
+                        return [2 /*return*/, {
+                                data: this.config,
+                                user: {
                                     email: userGoogle.getBasicProfile().getEmail(),
                                     username: userGoogle.getBasicProfile().getName(),
-                                }];
-                        }
-                        else {
-                            return [2 /*return*/, undefined];
-                        }
-                        return [2 /*return*/];
+                                }
+                            }];
+                    case 4: return [2 /*return*/, undefined];
                 }
             });
         });
@@ -3094,10 +3169,10 @@ var GoogleDriveService = /** @class */ (function () {
         })
             .then(function (response) { return response.json(); })
             .then(function (data) {
-            _this.toastr.info('Archivo subido:' + JSON.stringify(data), 'Business Control!');
+            _this.toastr.success('Información creada exitosamente:' + JSON.stringify(data), 'Business Control!');
         })
             .catch(function (error) {
-            console.error('Error al subir el archivo:', error);
+            _this.toastr.error('Error al subir el archivo:' + JSON.stringify(error), 'Business Control!');
         });
     };
     GoogleDriveService.prototype.findFileInFolder = function (fileName, folderId, accessToken) {
@@ -3134,10 +3209,10 @@ var GoogleDriveService = /** @class */ (function () {
         })
             .then(function (response) { return response.json(); })
             .then(function (data) {
-            _this.toastr.info('Archivo actualizado:' + JSON.stringify(data), 'Business Control!');
+            _this.toastr.success('Información actualizada exitosamente:' + JSON.stringify(data), 'Business Control!');
         })
             .catch(function (error) {
-            console.error('Error al actualizar el archivo:', error);
+            _this.toastr.error('Error al actualizar el archivo:' + JSON.stringify(error), 'Business Control!');
         });
     };
     GoogleDriveService.prototype.uploadFileWithFolderDetection = function (blob, filename) {
@@ -3157,14 +3232,14 @@ var GoogleDriveService = /** @class */ (function () {
                     }
                     else {
                         // El archivo no existe, lo subimos
-                        _this.toastr.info('Archivo no encontrado, subiendo nuevo archivo...', 'Business Control!');
+                        _this.toastr.warning('Archivo no encontrado, subiendo nuevo archivo...', 'Business Control!');
                         return _this.uploadBlobToFolder(blob, filename, folderId, accessToken);
                     }
                 });
             }
             else {
                 // La carpeta no existe, la creamos
-                _this.toastr.info('Carpeta no encontrada, creando nueva carpeta...', 'Business Control!');
+                _this.toastr.warning('Carpeta no encontrada, creando nueva carpeta...', 'Business Control!');
                 return _this.createFolder(_this.FOLDER_NAME, accessToken)
                     .then(function (newFolderId) {
                     _this.toastr.info('Nueva carpeta creada, ID:' + newFolderId, 'Business Control!');
@@ -3173,7 +3248,7 @@ var GoogleDriveService = /** @class */ (function () {
             }
         })
             .catch(function (error) {
-            console.error('Error al manejar el archivo:', error);
+            _this.toastr.error('Error al manejar el archivo:' + JSON.stringify(error), 'Business Control!');
         });
     };
     GoogleDriveService.prototype.findFolderByName = function (folderName, accessToken) {
@@ -3223,21 +3298,21 @@ var GoogleDriveService = /** @class */ (function () {
                     case 2:
                         folderId = _a.sent();
                         if (!folderId) {
-                            this.toastr.info('Carpeta no encontrada', 'Business Control!');
+                            this.toastr.warning('Carpeta no encontrada', 'Business Control!');
                             return [2 /*return*/, null];
                         }
                         return [4 /*yield*/, this.findFirstJsonFileInFolder(folderId, accessToken)];
                     case 3:
                         fileId = _a.sent();
                         if (!fileId) {
-                            this.toastr.info('Archivo .json no encontrado en la carpeta', 'Business Control!');
+                            this.toastr.warning('Archivo .json no encontrado en la carpeta', 'Business Control!');
                             return [2 /*return*/, null];
                         }
                         // Descargar el contenido del archivo
                         return [2 /*return*/, this.downloadFileContent(fileId, accessToken)];
                     case 4:
                         error_2 = _a.sent();
-                        console.error('Error al descargar el archivo:', error_2);
+                        this.toastr.info('Error al descargar el archivo:' + JSON.stringify(error_2), 'Business Control!');
                         return [2 /*return*/, null];
                     case 5: return [2 /*return*/];
                 }
