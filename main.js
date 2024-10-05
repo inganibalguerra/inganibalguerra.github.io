@@ -1471,7 +1471,8 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     BusinessControlSettingsComponent.prototype.Login = function () {
         var _this = this;
         this.googleService.signIn().then(function (config) {
-            _this.userLogger = config.user;
+            var _a;
+            _this.userLogger = (_a = config) === null || _a === void 0 ? void 0 : _a.user;
             if (config.data) {
                 _this.ngOnInit();
             }
@@ -1484,7 +1485,8 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     BusinessControlSettingsComponent.prototype.getUserLogget = function () {
         var _this = this;
         this.googleService.getUser().then(function (config) {
-            _this.userLogger = config.user;
+            var _a;
+            _this.userLogger = (_a = config) === null || _a === void 0 ? void 0 : _a.user;
         });
     };
     BusinessControlSettingsComponent.prototype.onSubmitInitial = function () {
@@ -2536,12 +2538,12 @@ var BusinessControlService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!!BusinessControlService_1.isSync) return [3 /*break*/, 2];
+                        if (!(!BusinessControlService_1.isSync || BusinessControlService_1.isSync && !configLocalStorage)) return [3 /*break*/, 2];
                         BusinessControlService_1.isSync = true;
                         return [4 /*yield*/, this.googleService.getUser()];
                     case 1:
                         userLogged = _a.sent();
-                        if (userLogged) {
+                        if (userLogged && userLogged.data) {
                             uploadConfigInGoogle = false;
                             if (userLogged.data && !userLogged.data.ultimaModificacion) {
                                 userLogged.data.ultimaModificacion = new Date();
@@ -3041,14 +3043,16 @@ var GoogleDriveService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 6, 7, 8]);
+                        _a.trys.push([0, 5, , 6]);
                         if (!!this.gapiLoaded$.getValue()) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.loadGapiClient()];
                     case 1:
                         _a.sent();
                         _a.label = 2;
                     case 2:
-                        if (!this.gapiLoaded$.getValue()) return [3 /*break*/, 5];
+                        if (!this.gapiLoaded$.getValue()) {
+                            return [2 /*return*/, undefined];
+                        }
                         return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signIn()];
                     case 3:
                         user = _a.sent();
@@ -3062,16 +3066,11 @@ var GoogleDriveService = /** @class */ (function () {
                                     username: user.getBasicProfile().getName(),
                                 }
                             }];
-                    case 5: return [3 /*break*/, 8];
-                    case 6:
+                    case 5:
                         error_1 = _a.sent();
                         this.toastr.error("Control de error en login: " + JSON.stringify(error_1), 'Business Control!');
-                        return [3 /*break*/, 8];
-                    case 7: return [2 /*return*/, {
-                            data: null,
-                            user: null
-                        }];
-                    case 8: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
@@ -3125,10 +3124,7 @@ var GoogleDriveService = /** @class */ (function () {
                                     username: userGoogle.getBasicProfile().getName(),
                                 }
                             }];
-                    case 4: return [2 /*return*/, {
-                            data: null,
-                            user: null
-                        }];
+                    case 4: return [2 /*return*/, undefined];
                 }
             });
         });
