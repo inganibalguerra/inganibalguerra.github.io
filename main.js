@@ -376,6 +376,71 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.html":
+/*!******************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.html ***!
+  \******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <h2>Mi Presupuesto</h2>\n\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome | currency }}\n                    </span>\n                    <span class=\"description\">Total Ingresos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-info\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                </div>\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                            <th scope=\"col\">Porcentaje Utilizado</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td>{{ category.currentAmmount | currency }}</td>\n                            <td>\n                                <div class=\"d-flex align-items-center\">\n                                    <span class=\"mr-2\">{{ calculatePercentage(category.currentAmmount, category.budget)\n                                        }}%</span>\n                                    <div class=\"progress\">\n                                        <div class=\"progress-bar bg-gradient-danger\" role=\"progressbar\"\n                                            [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                            aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n                                </div>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.html":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.html ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <h6 class=\"heading-small text-muted mb-4\">Datos de la cuenta</h6>\n        <form [formGroup]=\"configuracionForm\" (ngSubmit)=\"onSubmitInitial()\">\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <ng-container *ngIf=\"!disableAccountId; else elseNoDisableAccountIdInput\">\n                            <label placement=\"right\"\n                                ngbTooltip=\"Recuerda que en base a este identificador, el sistema registrara automaticamente las transacciones desde tu correo electrónico\"\n                                class=\"form-control-label\" for=\"accountId\">\n                                Identificador de la Cuenta\n                            </label>\n                            <input class=\"form-control form-control-alternative\" id=\"accountId\"\n                                formControlName=\"accountId\" placeholder=\"0\" type=\"text\">\n                            <p class=\"text-warning\">\n                                <span\n                                    *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountId.errors?.required\">Campo\n                                    Requerido</span>\n                            </p>\n                        </ng-container>\n                        <ng-template #elseNoDisableAccountIdInput>\n                            <strong>\n                                Cuenta Nro: {{ accountToEdit.id }}\n                            </strong>\n                        </ng-template>\n\n                    </div>\n                </div>\n                <div class=\" col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"accountName\">\n                            Nombre\n                        </label>\n                        <input class=\"form-control form-control-alternative\" id=\"accountName\"\n                            formControlName=\"accountName\" placeholder=\"\" type=\"text\">\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountName.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <label class=\"form-control-label\" for=\"accountDescription\">\n                            Descripción\n                        </label>\n                        <textarea class=\"form-control form-control-alternative\" formControlName=\"accountDescription\"\n                            placeholder=\"\"></textarea>\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountDescription.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"accountBalance\">\n                            Saldo actual\n                        </label>\n                        <input class=\"form-control form-control-alternative\" id=\"accountBalance\"\n                            formControlName=\"accountBalance\" placeholder=\"\" type=\"number\">\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountBalance.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n            </div>\n            <button [disabled]=\"!configuracionForm.valid\" type=\"submit\" class=\"btn btn-primary\">Guardar</button>\n        </form>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.html":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.html ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <h2>Gestión de Categorías y Presupuesto Mensual</h2>\n\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome | currency }}\n                    </span>\n                    <span class=\"description\">Total Ingresos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-info\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">ID</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <td>{{ category.id }}</td>\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td>\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.html":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.html ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0 \" [ngClass]=\"{ 'bg-gradient-default': !transaction.categoryId }\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div *ngIf=\"transaction.canProcessed\" class=\"col\">\n                <h5 class=\"card-title text-uppercase text-muted mb-0\">\n                    {{transaction.description}}</h5>\n                <span *ngIf=\"transaction.type=='income'; else elseUnrecognizedTransactions\">\n                    <span class=\"text-success mr-2\"><i class=\"fa fa-arrow-up\"></i></span>\n                </span>\n                <ng-template #elseUnrecognizedTransactions>\n                    <span class=\"text-danger mr-2\"><i class=\"fa fa-arrow-down\"></i></span>\n                </ng-template>\n\n                <span class=\"h2 font-weight-bold mb-0\"\n                    [ngClass]=\"{ 'text-white': !transaction.categoryId }\">{{transaction.amount|currency}}</span>\n            </div>\n            <div class=\"col-auto\">\n                <button placement=\"left\" ngbTooltip=\"Configurar nueva cuenta\"\n                    *ngIf=\"showButtons && !transaction.isProcessed && transaction.canProcessed\"\n                    (click)=\"openCreateAccount(transaction)\" type=\"button\"\n                    class=\"btn text-white btn-sm bg-gradient-dark\">\n                    <span>Registrar </span>\n                    <span\n                        class=\"badge badge-md  bg-gradient-warning border-white\">{{transaction.originalAccount}}</span>\n                </button>\n\n                <button placement=\"left\" ngbTooltip=\"Configurar palabras clave para detectar la categoria\"\n                    *ngIf=\"showButtons && !transaction.categoryId\" (click)=\"openManagementCategories(transaction)\"\n                    type=\"button\" class=\"btn text-white btn-sm bg-gradient-warning\">\n                    <span>Categoria </span>\n                </button>\n\n                <div *ngIf=\"transaction.transactionId\" [ngClass]=\"transaction.type=='income'?'bg-success':'bg-danger'\"\n                    class=\"icon icon-shape text-white rounded-circle shadow\">\n                    <i class=\"ni ni-spaceship\"></i>\n                </div>\n            </div>\n        </div>\n        <p *ngIf=\"transaction.canProcessed\" class=\"mb-0 text-muted text-sm\">\n            <span class=\"mt-1\">\n                <i class=\"ni ni-credit-card\"></i>\n            </span>\n            {{transaction.accountId ? transaction.accountId : transaction.originalAccount}} |\n            <span class=\"text-nowrap\">\n                {{ transaction.date | date: 'dd/MM/yyyy HH:mm': '-0500'}}\n            </span>\n        </p>\n\n        <p *ngIf=\"showOriginalBody || !transaction.canProcessed\" class=\"mb-0 text-muted text-sm\"\n            [ngClass]=\"{ 'text-white': !transaction.categoryId }\">\n            <strong>Cuerpo Original: </strong>\n            <span class=\"card-title mb-0\">{{ transaction.originalBody}}</span>\n        </p>\n        <div *ngIf=\"!transaction.canProcessed\" class=\"alert alert-danger\" role=\"alert\">\n            <span class=\"alert-inner--icon\"><i class=\"ni ni-like-2\"></i></span>\n            <strong> Advertencia!</strong> Comunicate con el desarrollador para configurar este nuevo escenario no\n            contemplado!\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of settionsData.accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta Nro: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.lastBalance | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <i class=\" fa fa-arrow-up\"></i>\n                            <span class=\"text-nowrap\"> Total ingresos </span><span class=\"mr-2\">\n                                {{0|\n                                currency}}\n                            </span>\n                        </p>\n                        <p class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateAccount()\">Nueva cuenta</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3\">\n                    <div class=\"pb-1\" *ngFor=\"let transaction of unrecognizedTransactions\">\n                        <app-account-control-transaction-card [transaction]=\"transaction\"\n                            (onRegisterAccount)=\"openCreateAccount(transaction)\"\n                            (onRegisterCategory)=\"openManagementCategories(transaction)\">\n                        </app-account-control-transaction-card>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3\">\n                    <app-account-control-list-budgets [settionsData]=\"settionsData\">\n\n                    </app-account-control-list-budgets>\n                </div>\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/briefcases/briefcases.component.html":
 /*!**************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/briefcases/briefcases.component.html ***!
@@ -544,6 +609,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_business_control_voucher_business_control_voucher_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/business-control-voucher/business-control-voucher.component */ "./src/app/pages/business-control-voucher/business-control-voucher.component.ts");
 /* harmony import */ var _pages_business_control_verify_business_control_verify_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/business-control-verify/business-control-verify.component */ "./src/app/pages/business-control-verify/business-control-verify.component.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
+/* harmony import */ var _pages_account_control_account_control_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/account-control/account-control.component */ "./src/app/pages/account-control/account-control.component.ts");
+/* harmony import */ var _pages_account_control_account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/account-control/account-control-management-account/account-control-management-account.component */ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.ts");
+/* harmony import */ var _pages_account_control_account_control_management_categories_account_control_management_categories_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/account-control/account-control-management-categories/account-control-management-categories.component */ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.ts");
+/* harmony import */ var _pages_account_control_account_control_transaction_card_account_control_transaction_card_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/account-control/account-control-transaction-card/account-control-transaction-card.component */ "./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.ts");
+/* harmony import */ var _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/account-control/account-control-list-budgets/account-control-list-budgets.component */ "./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -553,6 +623,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
+
+
+
 
 
 
@@ -588,7 +663,7 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_0__["BrowserAnimationsModule"],
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_17__["ToastrModule"].forRoot({
                     // Configuración opcional de Toastr
-                    timeOut: 3000,
+                    timeOut: 10000,
                     positionClass: 'toast-bottom-right',
                     preventDuplicates: true,
                 }),
@@ -601,7 +676,12 @@ var AppModule = /** @class */ (function () {
                 _pages_business_control_business_control_component__WEBPACK_IMPORTED_MODULE_13__["BusinessControlComponent"],
                 _pages_business_control_settings_business_control_settings_component__WEBPACK_IMPORTED_MODULE_14__["BusinessControlSettingsComponent"],
                 _pages_business_control_voucher_business_control_voucher_component__WEBPACK_IMPORTED_MODULE_15__["BusinessControlVoucherComponent"],
-                _pages_business_control_verify_business_control_verify_component__WEBPACK_IMPORTED_MODULE_16__["BusinessControlVerifyComponent"]
+                _pages_business_control_verify_business_control_verify_component__WEBPACK_IMPORTED_MODULE_16__["BusinessControlVerifyComponent"],
+                _pages_account_control_account_control_component__WEBPACK_IMPORTED_MODULE_18__["AccountControlComponent"],
+                _pages_account_control_account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_19__["AccountControlManagementAccountComponent"],
+                _pages_account_control_account_control_management_categories_account_control_management_categories_component__WEBPACK_IMPORTED_MODULE_20__["AccountControlManagementCategoriesComponent"],
+                _pages_account_control_account_control_transaction_card_account_control_transaction_card_component__WEBPACK_IMPORTED_MODULE_21__["AccountControlTransactionCardComponent"],
+                _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__["AccountControlListBudgetsComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -634,6 +714,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_business_control_business_control_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/business-control/business-control.component */ "./src/app/pages/business-control/business-control.component.ts");
 /* harmony import */ var _pages_business_control_settings_business_control_settings_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/business-control-settings/business-control-settings.component */ "./src/app/pages/business-control-settings/business-control-settings.component.ts");
 /* harmony import */ var _pages_business_control_verify_business_control_verify_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/business-control-verify/business-control-verify.component */ "./src/app/pages/business-control-verify/business-control-verify.component.ts");
+/* harmony import */ var _pages_account_control_account_control_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/account-control/account-control.component */ "./src/app/pages/account-control/account-control.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -643,6 +724,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -697,6 +779,16 @@ var routes = [
                 loadChildren: function () { return __webpack_require__.e(/*! import() | layouts-admin-layout-admin-layout-module */ "layouts-admin-layout-admin-layout-module").then(__webpack_require__.bind(null, /*! ./layouts/admin-layout/admin-layout.module */ "./src/app/layouts/admin-layout/admin-layout.module.ts")).then(function (m) { return m.AdminLayoutModule; }); }
             },
             { path: 'business-control-verify', component: _pages_business_control_verify_business_control_verify_component__WEBPACK_IMPORTED_MODULE_9__["BusinessControlVerifyComponent"] },
+        ]
+    }, {
+        path: '',
+        component: _layouts_admin_layout_admin_layout_component__WEBPACK_IMPORTED_MODULE_4__["AdminLayoutComponent"],
+        children: [
+            {
+                path: '',
+                loadChildren: function () { return __webpack_require__.e(/*! import() | layouts-admin-layout-admin-layout-module */ "layouts-admin-layout-admin-layout-module").then(__webpack_require__.bind(null, /*! ./layouts/admin-layout/admin-layout.module */ "./src/app/layouts/admin-layout/admin-layout.module.ts")).then(function (m) { return m.AdminLayoutModule; }); }
+            },
+            { path: 'account-control', component: _pages_account_control_account_control_component__WEBPACK_IMPORTED_MODULE_10__["AccountControlComponent"] },
         ]
     },
     {
@@ -1009,6 +1101,8 @@ var ROUTES = [
     // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
     { path: '/user-profile', title: 'Perfil', icon: 'ni-single-02 text-yellow', class: '' },
     { path: '/briefcases', title: 'Portafolio', icon: 'ni-tv-2 text-primary', class: '' },
+    { path: '/account-control', title: 'Cuentas', icon: 'ni-credit-card text-default', class: '' },
+    { path: '/account-control-settings', title: 'Configuracion de Cuentas', icon: 'ni-building text-success', class: 'hide' },
     { path: '/business-control', title: 'Negocio', icon: 'ni-building text-success', class: '' },
     { path: '/business-control-settings', title: 'Negocio', icon: 'ni-building text-success', class: 'hide' },
     { path: '/business-control-verify', title: 'Verificacion', icon: 'ni ni-atom text-warn', class: 'hide' },
@@ -1037,6 +1131,32 @@ var SidebarComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], SidebarComponent);
     return SidebarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/entities/account-control.ts":
+/*!*********************************************!*\
+  !*** ./src/app/entities/account-control.ts ***!
+  \*********************************************/
+/*! exports provided: AccountConstant */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountConstant", function() { return AccountConstant; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var AccountConstant = /** @class */ (function () {
+    function AccountConstant() {
+    }
+    AccountConstant.TRANSACTION_TYPE_INCOME = 'income';
+    AccountConstant.TRANSACTION_TYPE_EXPENSE = 'expense';
+    AccountConstant.ACCOUNT_BILLETERA = 'Billetera';
+    return AccountConstant;
 }());
 
 
@@ -1174,6 +1294,814 @@ var AuthLayoutComponent = /** @class */ (function () {
     ], AuthLayoutComponent);
     return AuthLayoutComponent;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.css":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.css ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 5px;\n    padding: 5px 0;\n}\n\n.keyword-badge {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    gap: 3px;\n    margin-bottom: 5px;\n}\n\n.is-invalid {\n    border-color: red;\n}\n\n.text-danger {\n    color: red;\n}\n\n.table-responsive {\n    overflow-x: auto;\n    /* Habilita el desplazamiento horizontal */\n    -webkit-overflow-scrolling: touch;\n    /* Mejora la experiencia de desplazamiento en iOS */\n}\n\n.table-container {\n    width: 100%;\n    /* Asegura que el contenedor ocupe el 100% del espacio disponible */\n}\n\n.keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    /* Coloca los badges en varias líneas */\n    gap: 4px;\n    max-width: 250px;\n    /* Opcional: Ajusta el ancho máximo para las keywords */\n}\n\n.btn-sm.bg-gradient-dark {\n    margin-right: 4px;\n    /* Espacio entre badges */\n}\n\n.table-col-nombre {\n    min-width: 150px;\n    /* Define el ancho mínimo deseado */\n}\n\n/* Estilo para filas pares */\n\ntable.table tbody tr:nth-child(even) {\n    background-color: #f9f9f9;\n    /* Color gris claro */\n}\n\n.card-profile-stats {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    /* Añade espacio entre los elementos */\n}\n\n.budget-item {\n    min-width: 120px;\n    /* Ancho mínimo para cada elemento */\n    padding: 0.5rem;\n    -webkit-box-flex: 1;\n            flex: 1 1 30%;\n    /* Los elementos ocupan 30% del ancho en pantallas grandes */\n}\n\n/* En pantallas pequeñas, se organiza en columnas */\n\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1saXN0LWJ1ZGdldHMvYWNjb3VudC1jb250cm9sLWxpc3QtYnVkZ2V0cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsZUFBZTtJQUNmLFFBQVE7SUFDUixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixRQUFRO0lBQ1Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDBDQUEwQztJQUMxQyxpQ0FBaUM7SUFDakMsbURBQW1EO0FBQ3ZEOztBQUVBO0lBQ0ksV0FBVztJQUNYLG1FQUFtRTtBQUN2RTs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZix1Q0FBdUM7SUFDdkMsUUFBUTtJQUNSLGdCQUFnQjtJQUNoQix1REFBdUQ7QUFDM0Q7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1DQUFtQztBQUN2Qzs7QUFFQSw0QkFBNEI7O0FBQzVCO0lBQ0kseUJBQXlCO0lBQ3pCLHFCQUFxQjtBQUN6Qjs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZixTQUFTO0lBQ1Qsc0NBQXNDO0FBQzFDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG9DQUFvQztJQUNwQyxlQUFlO0lBQ2YsbUJBQWE7WUFBYixhQUFhO0lBQ2IsNERBQTREO0FBQ2hFOztBQUVBLG1EQUFtRDs7QUFDbkQ7SUFDSTtRQUNJLDRCQUFzQjtRQUF0Qiw2QkFBc0I7Z0JBQXRCLHNCQUFzQjtRQUN0Qix5QkFBbUI7Z0JBQW5CLG1CQUFtQjtJQUN2Qjs7SUFFQTtRQUNJLFdBQVc7UUFDWCwrREFBK0Q7SUFDbkU7QUFDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtbGlzdC1idWRnZXRzL2FjY291bnQtY29udHJvbC1saXN0LWJ1ZGdldHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5rZXl3b3Jkcy1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC13cmFwOiB3cmFwO1xuICAgIGdhcDogNXB4O1xuICAgIHBhZGRpbmc6IDVweCAwO1xufVxuXG4ua2V5d29yZC1iYWRnZSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGdhcDogM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuLmlzLWludmFsaWQge1xuICAgIGJvcmRlci1jb2xvcjogcmVkO1xufVxuXG4udGV4dC1kYW5nZXIge1xuICAgIGNvbG9yOiByZWQ7XG59XG5cbi50YWJsZS1yZXNwb25zaXZlIHtcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgIC8qIEhhYmlsaXRhIGVsIGRlc3BsYXphbWllbnRvIGhvcml6b250YWwgKi9cbiAgICAtd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzogdG91Y2g7XG4gICAgLyogTWVqb3JhIGxhIGV4cGVyaWVuY2lhIGRlIGRlc3BsYXphbWllbnRvIGVuIGlPUyAqL1xufVxuXG4udGFibGUtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICAvKiBBc2VndXJhIHF1ZSBlbCBjb250ZW5lZG9yIG9jdXBlIGVsIDEwMCUgZGVsIGVzcGFjaW8gZGlzcG9uaWJsZSAqL1xufVxuXG4ua2V5d29yZHMtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAvKiBDb2xvY2EgbG9zIGJhZGdlcyBlbiB2YXJpYXMgbMOtbmVhcyAqL1xuICAgIGdhcDogNHB4O1xuICAgIG1heC13aWR0aDogMjUwcHg7XG4gICAgLyogT3BjaW9uYWw6IEFqdXN0YSBlbCBhbmNobyBtw6F4aW1vIHBhcmEgbGFzIGtleXdvcmRzICovXG59XG5cbi5idG4tc20uYmctZ3JhZGllbnQtZGFyayB7XG4gICAgbWFyZ2luLXJpZ2h0OiA0cHg7XG4gICAgLyogRXNwYWNpbyBlbnRyZSBiYWRnZXMgKi9cbn1cblxuLnRhYmxlLWNvbC1ub21icmUge1xuICAgIG1pbi13aWR0aDogMTUwcHg7XG4gICAgLyogRGVmaW5lIGVsIGFuY2hvIG3DrW5pbW8gZGVzZWFkbyAqL1xufVxuXG4vKiBFc3RpbG8gcGFyYSBmaWxhcyBwYXJlcyAqL1xudGFibGUudGFibGUgdGJvZHkgdHI6bnRoLWNoaWxkKGV2ZW4pIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmOWY5O1xuICAgIC8qIENvbG9yIGdyaXMgY2xhcm8gKi9cbn1cblxuLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgZ2FwOiAxcmVtO1xuICAgIC8qIEHDsWFkZSBlc3BhY2lvIGVudHJlIGxvcyBlbGVtZW50b3MgKi9cbn1cblxuLmJ1ZGdldC1pdGVtIHtcbiAgICBtaW4td2lkdGg6IDEyMHB4O1xuICAgIC8qIEFuY2hvIG3DrW5pbW8gcGFyYSBjYWRhIGVsZW1lbnRvICovXG4gICAgcGFkZGluZzogMC41cmVtO1xuICAgIGZsZXg6IDEgMSAzMCU7XG4gICAgLyogTG9zIGVsZW1lbnRvcyBvY3VwYW4gMzAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgZ3JhbmRlcyAqL1xufVxuXG4vKiBFbiBwYW50YWxsYXMgcGVxdWXDsWFzLCBzZSBvcmdhbml6YSBlbiBjb2x1bW5hcyAqL1xuQG1lZGlhIChtYXgtd2lkdGg6IDU3NnB4KSB7XG4gICAgLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgfVxuXG4gICAgLmJ1ZGdldC1pdGVtIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIC8qIENhZGEgZWxlbWVudG8gdG9tYSBlbCAxMDAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgcGVxdWXDsWFzICovXG4gICAgfVxufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.ts":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.ts ***!
+  \**************************************************************************************************************/
+/*! exports provided: AccountControlListBudgetsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlListBudgetsComponent", function() { return AccountControlListBudgetsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var AccountControlListBudgetsComponent = /** @class */ (function () {
+    function AccountControlListBudgetsComponent() {
+        this.activeTab = 'income';
+        this.newKeyword = '';
+        this.categories = [];
+        this.budgetSettings = {
+            categories: [],
+            totalIncome: 0,
+            totalExpense: 0,
+            savingsGoal: 0
+        };
+    }
+    AccountControlListBudgetsComponent.prototype.ngOnInit = function () {
+    };
+    Object.defineProperty(AccountControlListBudgetsComponent.prototype, "settionsData", {
+        get: function () {
+            return this._settionsData;
+        },
+        set: function (value) {
+            if (value) {
+                this.onSettionsDataChange(value); // Llama a un método cuando el valor cambia
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AccountControlListBudgetsComponent.prototype.onSettionsDataChange = function (value) {
+        this._settionsData = JSON.parse(JSON.stringify(value));
+        if (value && value.budgetSettings) {
+            this.categories = value.budgetSettings.categories;
+            this.budgetSettings = value.budgetSettings;
+        }
+    };
+    AccountControlListBudgetsComponent.prototype.calculatePercentage = function (currentAmmount, budget) {
+        if (budget === 0)
+            return 0;
+        return Math.round((currentAmmount / budget) * 100);
+    };
+    AccountControlListBudgetsComponent.prototype.getCategoriesByType = function (type) {
+        return this.categories.filter(function (category) {
+            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
+        }).sort(function (a, b) { return a.order - b.order; });
+    };
+    AccountControlListBudgetsComponent.prototype.setActiveTab = function (type) {
+        this.activeTab = type;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], AccountControlListBudgetsComponent.prototype, "settionsData", null);
+    AccountControlListBudgetsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-list-budgets',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-list-budgets.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-list-budgets.component.css */ "./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccountControlListBudgetsComponent);
+    return AccountControlListBudgetsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.css":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.css ***!
+  \***************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtbWFuYWdlbWVudC1hY2NvdW50L2FjY291bnQtY29udHJvbC1tYW5hZ2VtZW50LWFjY291bnQuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.ts":
+/*!**************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.ts ***!
+  \**************************************************************************************************************************/
+/*! exports provided: AccountControlManagementAccountComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlManagementAccountComponent", function() { return AccountControlManagementAccountComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+var AccountControlManagementAccountComponent = /** @class */ (function () {
+    function AccountControlManagementAccountComponent(fb, accountService) {
+        this.fb = fb;
+        this.accountService = accountService;
+        this.disableAccountId = false;
+        this.onFinish = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.configuracionForm = this.fb.group({
+            accountId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            accountName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            accountDescription: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            accountBalance: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            submitted: [false]
+        });
+    }
+    Object.defineProperty(AccountControlManagementAccountComponent.prototype, "transaction", {
+        get: function () {
+            return this._transaction;
+        },
+        set: function (value) {
+            this._transaction = value;
+            this.onTransactionChange(value); // Llama a un método cuando el valor cambia
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AccountControlManagementAccountComponent.prototype, "accountToEdit", {
+        get: function () {
+            return this._accountEdit;
+        },
+        set: function (value) {
+            this._accountEdit = value;
+            this.onAccountChange(value); // Llama a un método cuando el valor cambia
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AccountControlManagementAccountComponent.prototype.onAccountChange = function (value) {
+        if (value) {
+            this.disableAccountId = true;
+            this.configuracionForm.patchValue({ accountId: value.id });
+            this.configuracionForm.patchValue({ accountName: value.name });
+            this.configuracionForm.patchValue({ accountDescription: value.description });
+            this.configuracionForm.patchValue({ accountBalance: value.balance });
+        }
+    };
+    AccountControlManagementAccountComponent.prototype.onTransactionChange = function (value) {
+        if (value) {
+            this._transaction.originalAccount = this._transaction.originalAccount.replace("*", "");
+            this.configuracionForm.patchValue({ accountId: value.originalAccount });
+        }
+    };
+    AccountControlManagementAccountComponent.prototype.ngOnInit = function () {
+    };
+    AccountControlManagementAccountComponent.prototype.onSubmitInitial = function () {
+        this.configuracionForm.patchValue({ submitted: true });
+        if (this.configuracionForm.valid) {
+            var formValues = this.configuracionForm.value;
+            var account = {
+                id: formValues.accountId,
+                name: formValues.accountName,
+                description: formValues.accountDescription,
+                balance: formValues.accountBalance,
+                transactions: [],
+                lastBalance: 0,
+                balanceLastMonth: 0,
+                lastTransaction: null
+            };
+            this.accountService.saveAccount(account);
+            this.onFinish.emit(account);
+        }
+    };
+    AccountControlManagementAccountComponent.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], AccountControlManagementAccountComponent.prototype, "transaction", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], AccountControlManagementAccountComponent.prototype, "accountToEdit", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AccountControlManagementAccountComponent.prototype, "onFinish", void 0);
+    AccountControlManagementAccountComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-management-account',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-management-account.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-management-account.component.css */ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"]])
+    ], AccountControlManagementAccountComponent);
+    return AccountControlManagementAccountComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.css":
+/*!*********************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.css ***!
+  \*********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 5px;\n    padding: 5px 0;\n}\n\n.keyword-badge {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    gap: 3px;\n    margin-bottom: 5px;\n}\n\n.is-invalid {\n    border-color: red;\n}\n\n.text-danger {\n    color: red;\n}\n\n.table-responsive {\n    overflow-x: auto;\n    /* Habilita el desplazamiento horizontal */\n    -webkit-overflow-scrolling: touch;\n    /* Mejora la experiencia de desplazamiento en iOS */\n}\n\n.table-container {\n    width: 100%;\n    /* Asegura que el contenedor ocupe el 100% del espacio disponible */\n}\n\n.keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    /* Coloca los badges en varias líneas */\n    gap: 4px;\n    max-width: 250px;\n    /* Opcional: Ajusta el ancho máximo para las keywords */\n}\n\n.btn-sm.bg-gradient-dark {\n    margin-right: 4px;\n    /* Espacio entre badges */\n}\n\n.table-col-nombre {\n    min-width: 150px;\n    /* Define el ancho mínimo deseado */\n}\n\n/* Estilo para filas pares */\n\ntable.table tbody tr:nth-child(even) {\n    background-color: #f9f9f9;\n    /* Color gris claro */\n}\n\n.card-profile-stats {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    /* Añade espacio entre los elementos */\n}\n\n.budget-item {\n    min-width: 120px;\n    /* Ancho mínimo para cada elemento */\n    padding: 0.5rem;\n    -webkit-box-flex: 1;\n            flex: 1 1 30%;\n    /* Los elementos ocupan 30% del ancho en pantallas grandes */\n}\n\n/* En pantallas pequeñas, se organiza en columnas */\n\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1tYW5hZ2VtZW50LWNhdGVnb3JpZXMvYWNjb3VudC1jb250cm9sLW1hbmFnZW1lbnQtY2F0ZWdvcmllcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsZUFBZTtJQUNmLFFBQVE7SUFDUixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixRQUFRO0lBQ1Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDBDQUEwQztJQUMxQyxpQ0FBaUM7SUFDakMsbURBQW1EO0FBQ3ZEOztBQUVBO0lBQ0ksV0FBVztJQUNYLG1FQUFtRTtBQUN2RTs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZix1Q0FBdUM7SUFDdkMsUUFBUTtJQUNSLGdCQUFnQjtJQUNoQix1REFBdUQ7QUFDM0Q7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1DQUFtQztBQUN2Qzs7QUFFQSw0QkFBNEI7O0FBQzVCO0lBQ0kseUJBQXlCO0lBQ3pCLHFCQUFxQjtBQUN6Qjs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZixTQUFTO0lBQ1Qsc0NBQXNDO0FBQzFDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG9DQUFvQztJQUNwQyxlQUFlO0lBQ2YsbUJBQWE7WUFBYixhQUFhO0lBQ2IsNERBQTREO0FBQ2hFOztBQUVBLG1EQUFtRDs7QUFDbkQ7SUFDSTtRQUNJLDRCQUFzQjtRQUF0Qiw2QkFBc0I7Z0JBQXRCLHNCQUFzQjtRQUN0Qix5QkFBbUI7Z0JBQW5CLG1CQUFtQjtJQUN2Qjs7SUFFQTtRQUNJLFdBQVc7UUFDWCwrREFBK0Q7SUFDbkU7QUFDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtbWFuYWdlbWVudC1jYXRlZ29yaWVzL2FjY291bnQtY29udHJvbC1tYW5hZ2VtZW50LWNhdGVnb3JpZXMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5rZXl3b3Jkcy1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC13cmFwOiB3cmFwO1xuICAgIGdhcDogNXB4O1xuICAgIHBhZGRpbmc6IDVweCAwO1xufVxuXG4ua2V5d29yZC1iYWRnZSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGdhcDogM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuLmlzLWludmFsaWQge1xuICAgIGJvcmRlci1jb2xvcjogcmVkO1xufVxuXG4udGV4dC1kYW5nZXIge1xuICAgIGNvbG9yOiByZWQ7XG59XG5cbi50YWJsZS1yZXNwb25zaXZlIHtcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgIC8qIEhhYmlsaXRhIGVsIGRlc3BsYXphbWllbnRvIGhvcml6b250YWwgKi9cbiAgICAtd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzogdG91Y2g7XG4gICAgLyogTWVqb3JhIGxhIGV4cGVyaWVuY2lhIGRlIGRlc3BsYXphbWllbnRvIGVuIGlPUyAqL1xufVxuXG4udGFibGUtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICAvKiBBc2VndXJhIHF1ZSBlbCBjb250ZW5lZG9yIG9jdXBlIGVsIDEwMCUgZGVsIGVzcGFjaW8gZGlzcG9uaWJsZSAqL1xufVxuXG4ua2V5d29yZHMtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAvKiBDb2xvY2EgbG9zIGJhZGdlcyBlbiB2YXJpYXMgbMOtbmVhcyAqL1xuICAgIGdhcDogNHB4O1xuICAgIG1heC13aWR0aDogMjUwcHg7XG4gICAgLyogT3BjaW9uYWw6IEFqdXN0YSBlbCBhbmNobyBtw6F4aW1vIHBhcmEgbGFzIGtleXdvcmRzICovXG59XG5cbi5idG4tc20uYmctZ3JhZGllbnQtZGFyayB7XG4gICAgbWFyZ2luLXJpZ2h0OiA0cHg7XG4gICAgLyogRXNwYWNpbyBlbnRyZSBiYWRnZXMgKi9cbn1cblxuLnRhYmxlLWNvbC1ub21icmUge1xuICAgIG1pbi13aWR0aDogMTUwcHg7XG4gICAgLyogRGVmaW5lIGVsIGFuY2hvIG3DrW5pbW8gZGVzZWFkbyAqL1xufVxuXG4vKiBFc3RpbG8gcGFyYSBmaWxhcyBwYXJlcyAqL1xudGFibGUudGFibGUgdGJvZHkgdHI6bnRoLWNoaWxkKGV2ZW4pIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmOWY5O1xuICAgIC8qIENvbG9yIGdyaXMgY2xhcm8gKi9cbn1cblxuLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgZ2FwOiAxcmVtO1xuICAgIC8qIEHDsWFkZSBlc3BhY2lvIGVudHJlIGxvcyBlbGVtZW50b3MgKi9cbn1cblxuLmJ1ZGdldC1pdGVtIHtcbiAgICBtaW4td2lkdGg6IDEyMHB4O1xuICAgIC8qIEFuY2hvIG3DrW5pbW8gcGFyYSBjYWRhIGVsZW1lbnRvICovXG4gICAgcGFkZGluZzogMC41cmVtO1xuICAgIGZsZXg6IDEgMSAzMCU7XG4gICAgLyogTG9zIGVsZW1lbnRvcyBvY3VwYW4gMzAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgZ3JhbmRlcyAqL1xufVxuXG4vKiBFbiBwYW50YWxsYXMgcGVxdWXDsWFzLCBzZSBvcmdhbml6YSBlbiBjb2x1bW5hcyAqL1xuQG1lZGlhIChtYXgtd2lkdGg6IDU3NnB4KSB7XG4gICAgLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgfVxuXG4gICAgLmJ1ZGdldC1pdGVtIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIC8qIENhZGEgZWxlbWVudG8gdG9tYSBlbCAxMDAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgcGVxdWXDsWFzICovXG4gICAgfVxufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.ts":
+/*!********************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.ts ***!
+  \********************************************************************************************************************************/
+/*! exports provided: AccountControlManagementCategoriesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlManagementCategoriesComponent", function() { return AccountControlManagementCategoriesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+var AccountControlManagementCategoriesComponent = /** @class */ (function () {
+    function AccountControlManagementCategoriesComponent(accountService) {
+        this.accountService = accountService;
+        this.onFinish = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.activeTab = 'income';
+        this.newKeyword = '';
+        this.categories = [];
+        this.budgetSettings = {
+            categories: [],
+            totalIncome: 0,
+            totalExpense: 0,
+            savingsGoal: 0
+        };
+    }
+    Object.defineProperty(AccountControlManagementCategoriesComponent.prototype, "transaction", {
+        get: function () {
+            return this._transaction;
+        },
+        set: function (value) {
+            this._transaction = value;
+            this.onTransactionChange(value); // Llama a un método cuando el valor cambia
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AccountControlManagementCategoriesComponent.prototype.onTransactionChange = function (value) {
+        if (value) {
+            if (value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME || value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE) {
+                this.activeTab = value.type;
+                this.addNewCategory();
+            }
+        }
+    };
+    Object.defineProperty(AccountControlManagementCategoriesComponent.prototype, "settionsData", {
+        get: function () {
+            return this._settionsData;
+        },
+        set: function (value) {
+            this._settionsData = JSON.parse(JSON.stringify(value));
+            this.onSettionsDataChange(value); // Llama a un método cuando el valor cambia
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AccountControlManagementCategoriesComponent.prototype.onSettionsDataChange = function (value) {
+        if (value && value.budgetSettings) {
+            this.categories = value.budgetSettings.categories.map(function (t) {
+                return __assign(__assign({}, t), { newKeyword: '' });
+            });
+            this.budgetSettings = value.budgetSettings;
+            if (this._transaction) {
+                this.onTransactionChange(this._transaction);
+            }
+        }
+    };
+    AccountControlManagementCategoriesComponent.prototype.accountsId = function () {
+        var _a, _b, _c;
+        return _c = (_b = (_a = this.settionsData) === null || _a === void 0 ? void 0 : _a.accounts) === null || _b === void 0 ? void 0 : _b.map(function (a) { return a.id; }), (_c !== null && _c !== void 0 ? _c : []);
+    };
+    AccountControlManagementCategoriesComponent.prototype.ngOnInit = function () {
+    };
+    AccountControlManagementCategoriesComponent.prototype.setActiveTab = function (type) {
+        this.activeTab = type;
+    };
+    Object.defineProperty(AccountControlManagementCategoriesComponent.prototype, "categoriesOfCurrentTab", {
+        get: function () {
+            return this.getCategoriesByType(this.activeTab);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AccountControlManagementCategoriesComponent.prototype.getCategoriesByType = function (type) {
+        return this.categories.filter(function (category) {
+            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
+        }).sort(function (a, b) { return a.order - b.order; });
+    };
+    AccountControlManagementCategoriesComponent.prototype.addNewCategory = function () {
+        var groupOfOrder = this.getGroupOfOrder(this.activeTab);
+        var newCategory = {
+            id: this.activeTab + "_" + Date.now(),
+            name: '',
+            keyWords: [],
+            type: this.activeTab === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE,
+            budget: 0,
+            accountId: '',
+            order: groupOfOrder + this.getCategoriesByType(this.activeTab).length,
+            newKeyword: '' // Añade la propiedad temporal de entrada de keyword
+        };
+        this.categories.push(newCategory);
+        this.updateBudgetSummary();
+    };
+    AccountControlManagementCategoriesComponent.prototype.getGroupOfOrder = function (type) {
+        var groupOfOrder = 1000;
+        if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
+            groupOfOrder = 2000;
+        }
+        return groupOfOrder;
+    };
+    AccountControlManagementCategoriesComponent.prototype.addKeyword = function (category) {
+        if (category.newKeyword && !category.keyWords.includes(category.newKeyword)) {
+            category.keyWords.push(category.newKeyword.trim());
+            category.newKeyword = ''; // Limpiar el input de esta fila específica
+            this.updateBudgetSummary();
+        }
+    };
+    // Mover una categoría hacia arriba
+    AccountControlManagementCategoriesComponent.prototype.moveCategoryUp = function (index) {
+        var _a;
+        if (index > 0) {
+            var indexReal = this.getIndexReal(index);
+            _a = [this.categories[indexReal], this.categories[indexReal - 1]], this.categories[indexReal - 1] = _a[0], this.categories[indexReal] = _a[1];
+            var groupOfOrder = this.getGroupOfOrder(this.categories[indexReal].type);
+            this.categories[indexReal].order = groupOfOrder + indexReal;
+            this.categories[indexReal - 1].order = groupOfOrder + indexReal - 1;
+        }
+    };
+    // Mover una categoría hacia abajo
+    AccountControlManagementCategoriesComponent.prototype.moveCategoryDown = function (index) {
+        var _a;
+        if (index < this.getCategoriesByType(this.activeTab).length - 1) {
+            var indexReal = this.getIndexReal(index);
+            _a = [this.categories[indexReal], this.categories[indexReal + 1]], this.categories[indexReal + 1] = _a[0], this.categories[indexReal] = _a[1];
+            var groupOfOrder = this.getGroupOfOrder(this.categories[indexReal].type);
+            this.categories[indexReal].order = groupOfOrder + indexReal;
+            this.categories[indexReal + 1].order = groupOfOrder + indexReal + 1;
+        }
+    };
+    AccountControlManagementCategoriesComponent.prototype.getIndexReal = function (index) {
+        if (this.activeTab === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
+            return index + (this.getCategoriesByType(src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME).length);
+        }
+        return index;
+    };
+    AccountControlManagementCategoriesComponent.prototype.removeKeyword = function (category, keyword) {
+        category.keyWords = category.keyWords.filter(function (k) { return k !== keyword; });
+        this.updateBudgetSummary();
+    };
+    AccountControlManagementCategoriesComponent.prototype.removeCategory = function (category) {
+        this.categories = this.categories.filter(function (k) { return k.id !== category.id; });
+        this.updateBudgetSummary();
+    };
+    AccountControlManagementCategoriesComponent.prototype.saveAllCategories = function () {
+        // Lógica para guardar todas las categorías en la base de datos o backend
+        this.updateBudgetSummary();
+        this.accountService.saveBudgetSettings(this.budgetSettings);
+        this.onFinish.emit(this.budgetSettings);
+    };
+    AccountControlManagementCategoriesComponent.prototype.updateBudgetSummary = function () {
+        var _this = this;
+        this.categories.forEach(function (category) {
+            var groupOfOrder = _this.getGroupOfOrder(category.type);
+            category.order = groupOfOrder + _this.categories.indexOf(category);
+            category.id = (category.type + "_" + category.name).replace(/ /g, "").toLowerCase();
+        });
+        this.budgetSettings.categories = this.categories;
+        this.budgetSettings.totalIncome = this.budgetSettings.categories
+            .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
+            .reduce(function (sum, category) { return sum + category.budget; }, 0);
+        this.budgetSettings.totalExpense = this.budgetSettings.categories
+            .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
+            .reduce(function (sum, category) { return sum + category.budget; }, 0);
+        this.budgetSettings.savingsGoal = this.budgetSettings.totalIncome - this.budgetSettings.totalExpense;
+    };
+    AccountControlManagementCategoriesComponent.prototype.isFormValid = function () {
+        return this.categories.every(function (category) {
+            return category.name &&
+                category.type &&
+                category.keyWords.length > 0;
+        });
+    };
+    AccountControlManagementCategoriesComponent.prototype.isFormValidForCurrentTab = function (type) {
+        return this.getCategoriesByType(type).every(function (category) {
+            return category.name &&
+                category.type &&
+                category.keyWords.length > 0;
+        });
+    };
+    AccountControlManagementCategoriesComponent.ctorParameters = function () { return [
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], AccountControlManagementCategoriesComponent.prototype, "transaction", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], AccountControlManagementCategoriesComponent.prototype, "settionsData", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AccountControlManagementCategoriesComponent.prototype, "onFinish", void 0);
+    AccountControlManagementCategoriesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-management-categories',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-management-categories.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-management-categories.component.css */ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"]])
+    ], AccountControlManagementCategoriesComponent);
+    return AccountControlManagementCategoriesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.css":
+/*!***********************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.css ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtdHJhbnNhY3Rpb24tY2FyZC9hY2NvdW50LWNvbnRyb2wtdHJhbnNhY3Rpb24tY2FyZC5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.ts":
+/*!**********************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.ts ***!
+  \**********************************************************************************************************************/
+/*! exports provided: AccountControlTransactionCardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlTransactionCardComponent", function() { return AccountControlTransactionCardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var AccountControlTransactionCardComponent = /** @class */ (function () {
+    function AccountControlTransactionCardComponent() {
+        this.showOriginalBody = false;
+        this.showButtons = true;
+        this.onRegisterCategory = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onRegisterAccount = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    AccountControlTransactionCardComponent.prototype.ngOnInit = function () {
+    };
+    AccountControlTransactionCardComponent.prototype.openManagementCategories = function () {
+        this.onRegisterCategory.emit(this.transaction);
+    };
+    AccountControlTransactionCardComponent.prototype.openCreateAccount = function () {
+        this.onRegisterAccount.emit(this.transaction);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccountControlTransactionCardComponent.prototype, "transaction", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], AccountControlTransactionCardComponent.prototype, "showOriginalBody", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], AccountControlTransactionCardComponent.prototype, "showButtons", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AccountControlTransactionCardComponent.prototype, "onRegisterCategory", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AccountControlTransactionCardComponent.prototype, "onRegisterAccount", void 0);
+    AccountControlTransactionCardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-transaction-card',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-transaction-card.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-transaction-card.component.css */ "./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccountControlTransactionCardComponent);
+    return AccountControlTransactionCardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control.component.css ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control.component.ts ***!
+  \********************************************************************/
+/*! exports provided: AccountControlComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlComponent", function() { return AccountControlComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/google-services/google.service */ "./src/app/services/google-services/google.service.ts");
+/* harmony import */ var _common_base_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/base-component */ "./src/app/pages/common/base-component.ts");
+/* harmony import */ var _account_control_management_categories_account_control_management_categories_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./account-control-management-categories/account-control-management-categories.component */ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.ts");
+/* harmony import */ var _account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account-control-management-account/account-control-management-account.component */ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+
+var AccountControlComponent = /** @class */ (function (_super) {
+    __extends(AccountControlComponent, _super);
+    function AccountControlComponent(googleService, modalService, accountService) {
+        var _this = _super.call(this, googleService) || this;
+        _this.modalService = modalService;
+        _this.accountService = accountService;
+        _this.unrecognizedTransactions = [];
+        return _this;
+    }
+    AccountControlComponent.prototype.initialiceComponent = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        console.log('Inicializando componente...');
+                        this.settionsData = this.accountService.getTransactions(this.settionsData);
+                        if (!this.isLogged()) return [3 /*break*/, 2];
+                        _a = this;
+                        return [4 /*yield*/, this.accountService.syncTransactions(this.configFromGoogle)];
+                    case 1:
+                        _a.settionsData = _b.sent();
+                        _b.label = 2;
+                    case 2:
+                        console.log('Componente inicializado...', this.settionsData);
+                        this.unrecognizedTransactions = this.settionsData.transactions;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AccountControlComponent.prototype.ngOnInit = function () {
+        this.init();
+    };
+    AccountControlComponent.prototype.ngOnDestroy = function () {
+        this.detroy();
+    };
+    AccountControlComponent.prototype.openEditAccount = function (account) {
+        var _this = this;
+        var componentRef = this.modalService.open(_account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountControlManagementAccountComponent"], { size: 'xl' });
+        var componentInstance = componentRef.componentInstance;
+        componentInstance.accountToEdit = account;
+        componentInstance.onFinish.subscribe(function (data) {
+            _this.initialiceComponent();
+            componentRef.close();
+        });
+    };
+    AccountControlComponent.prototype.openCreateAccount = function (transaction) {
+        var _this = this;
+        var componentRef = this.modalService.open(_account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_4__["AccountControlManagementAccountComponent"], { size: 'xl' });
+        var componentInstance = componentRef.componentInstance;
+        componentInstance.transaction = transaction;
+        componentInstance.onFinish.subscribe(function (data) {
+            _this.initialiceComponent();
+            componentRef.close();
+        });
+    };
+    AccountControlComponent.prototype.openManagementCategories = function (transaction) {
+        var _this = this;
+        var componentRef = this.modalService.open(_account_control_management_categories_account_control_management_categories_component__WEBPACK_IMPORTED_MODULE_3__["AccountControlManagementCategoriesComponent"], { size: 'xxl' });
+        var componentInstance = componentRef.componentInstance;
+        componentInstance.transaction = transaction;
+        componentInstance.settionsData = this.settionsData;
+        componentInstance.onFinish.subscribe(function (data) {
+            _this.initialiceComponent();
+            componentRef.close();
+        });
+    };
+    AccountControlComponent.prototype.getPercentageChange = function (account) {
+        if (account.lastBalance === 0) {
+            // Evita la división por cero, devuelve 0 o alguna otra indicación
+            return 0;
+        }
+        var change = ((account.balance - account.lastBalance) / account.lastBalance) * 100;
+        return change;
+    };
+    AccountControlComponent.prototype.deleteData = function () {
+        this.accountService.deleteData();
+        window.location.reload();
+    };
+    AccountControlComponent.prototype.syncGoogleDrive = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.accountService.syncWithGoogleDrive(this.settionsData, true)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AccountControlComponent.ctorParameters = function () { return [
+        { type: src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_1__["GoogleService"] },
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModal"] },
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_6__["AccountControlService"] }
+    ]; };
+    AccountControlComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control.component.css */ "./src/app/pages/account-control/account-control.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_1__["GoogleService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModal"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_6__["AccountControlService"]])
+    ], AccountControlComponent);
+    return AccountControlComponent;
+}(_common_base_component__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
 
 
 
@@ -1341,7 +2269,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_business_control_business_control_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/business-control/business-control.service */ "./src/app/services/business-control/business-control.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
-/* harmony import */ var src_app_services_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/google-drive/google-drive.service */ "./src/app/services/google-drive/google-drive.service.ts");
+/* harmony import */ var src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/google-services/google.service */ "./src/app/services/google-services/google.service.ts");
 /* harmony import */ var src_app_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/credit/credit.service */ "./src/app/services/credit/credit.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1494,10 +2422,13 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     };
     BusinessControlSettingsComponent.prototype.getUserLogget = function () {
         var _this = this;
-        this.googleService.getUser().then(function (config) {
+        this.googleService.getUser().then(function (config) { return __awaiter(_this, void 0, void 0, function () {
             var _a;
-            _this.userLogger = (_a = config) === null || _a === void 0 ? void 0 : _a.user;
-        });
+            return __generator(this, function (_b) {
+                this.userLogger = (_a = config) === null || _a === void 0 ? void 0 : _a.user;
+                return [2 /*return*/];
+            });
+        }); });
     };
     BusinessControlSettingsComponent.prototype.onSubmitInitial = function () {
         this.configuracionForm.patchValue({ submitted: true });
@@ -1762,7 +2693,7 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
     BusinessControlSettingsComponent.ctorParameters = function () { return [
         { type: src_app_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_5__["CreditService"] },
         { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
-        { type: src_app_services_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_4__["GoogleDriveService"] },
+        { type: src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_4__["GoogleService"] },
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
         { type: src_app_services_business_control_business_control_service__WEBPACK_IMPORTED_MODULE_1__["BusinessControlService"] }
     ]; };
@@ -1776,7 +2707,7 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./business-control-settings.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/business-control-settings/business-control-settings.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./business-control-settings.component.css */ "./src/app/pages/business-control-settings/business-control-settings.component.css")).default]
         }),
-        __metadata("design:paramtypes", [src_app_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_5__["CreditService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], src_app_services_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_4__["GoogleDriveService"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_services_business_control_business_control_service__WEBPACK_IMPORTED_MODULE_1__["BusinessControlService"]])
+        __metadata("design:paramtypes", [src_app_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_5__["CreditService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"], src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_4__["GoogleService"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_services_business_control_business_control_service__WEBPACK_IMPORTED_MODULE_1__["BusinessControlService"]])
     ], BusinessControlSettingsComponent);
     return BusinessControlSettingsComponent;
 }());
@@ -2019,7 +2950,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var src_app_services_pdf_pdf_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/pdf/pdf.service */ "./src/app/services/pdf/pdf.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
-/* harmony import */ var src_app_services_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/google-drive/google-drive.service */ "./src/app/services/google-drive/google-drive.service.ts");
+/* harmony import */ var src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/google-services/google.service */ "./src/app/services/google-services/google.service.ts");
 /* harmony import */ var src_app_services_crypt_crypt_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/crypt/crypt.service */ "./src/app/services/crypt/crypt.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2487,7 +3418,7 @@ var BusinessControlComponent = /** @class */ (function () {
         }
     };
     BusinessControlComponent.ctorParameters = function () { return [
-        { type: src_app_services_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_7__["GoogleDriveService"] },
+        { type: src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_7__["GoogleService"] },
         { type: src_app_services_crypt_crypt_service__WEBPACK_IMPORTED_MODULE_8__["CryptService"] },
         { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] },
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
@@ -2506,9 +3437,606 @@ var BusinessControlComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./business-control.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/business-control/business-control.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./business-control.component.css */ "./src/app/pages/business-control/business-control.component.css")).default]
         }),
-        __metadata("design:paramtypes", [src_app_services_google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_7__["GoogleDriveService"], src_app_services_crypt_crypt_service__WEBPACK_IMPORTED_MODULE_8__["CryptService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_business_control_business_control_service__WEBPACK_IMPORTED_MODULE_3__["BusinessControlService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_services_pdf_pdf_service__WEBPACK_IMPORTED_MODULE_5__["PdfService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_7__["GoogleService"], src_app_services_crypt_crypt_service__WEBPACK_IMPORTED_MODULE_8__["CryptService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_business_control_business_control_service__WEBPACK_IMPORTED_MODULE_3__["BusinessControlService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_services_pdf_pdf_service__WEBPACK_IMPORTED_MODULE_5__["PdfService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], BusinessControlComponent);
     return BusinessControlComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/common/base-component.ts":
+/*!************************************************!*\
+  !*** ./src/app/pages/common/base-component.ts ***!
+  \************************************************/
+/*! exports provided: BaseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseComponent", function() { return BaseComponent; });
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var BaseComponent = /** @class */ (function () {
+    function BaseComponent(googleService) {
+        this.googleService = googleService;
+        this.contador = 0;
+    }
+    BaseComponent.prototype.init = function () {
+        this._init();
+    };
+    ;
+    BaseComponent.prototype._init = function () {
+        console.log("ENTRO AQUIIIIII...", BaseComponent.contador++);
+        this.initialiceComponent();
+        this.getUserLogget();
+    };
+    BaseComponent.prototype.detroy = function () {
+    };
+    BaseComponent.prototype.hasDataInGoogle = function () {
+        if (this.configFromGoogle && this.configFromGoogle.data) {
+            return true;
+        }
+        return false;
+    };
+    ;
+    BaseComponent.prototype.isLogged = function () {
+        if (this.configFromGoogle && this.configFromGoogle.user) {
+            return true;
+        }
+        return false;
+    };
+    ;
+    BaseComponent.prototype.Login = function () {
+        var _this = this;
+        this.googleService.signInForAccountControl().then(function (config) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.configFromGoogle = config;
+                        if (!config) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.syncGoogleDrive()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        this.initialiceComponent();
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+    };
+    BaseComponent.prototype.Logout = function () {
+        this.googleService.signOut();
+        this.configFromGoogle = null;
+    };
+    BaseComponent.prototype.getUserLogget = function () {
+        var _this = this;
+        this.contador++;
+        this.googleService.getUserForAccountControl().then(function (config) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log('Usuario encontrado...', this.contador, config);
+                        this.configFromGoogle = config;
+                        if (!config) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.syncGoogleDrive()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        this.initialiceComponent();
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+    };
+    BaseComponent.contador = 0;
+    return BaseComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/account-control/account-control.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/services/account-control/account-control.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: AccountControlService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlService", function() { return AccountControlService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../crypt/crypt.service */ "./src/app/services/crypt/crypt.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
+/* harmony import */ var _google_services_google_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../google-services/google.service */ "./src/app/services/google-services/google.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+/* harmony import */ var _utils_transaction_operation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/transaction-operation */ "./src/app/services/utils/transaction-operation.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+
+var AccountControlService = /** @class */ (function () {
+    function AccountControlService(toastr, googleService, cryptService, _httpService) {
+        this.toastr = toastr;
+        this.googleService = googleService;
+        this.cryptService = cryptService;
+        this._httpService = _httpService;
+        this.storageKey = 'accountData';
+        this.storageSelectedBienKey = 'selectedAccountId';
+    }
+    AccountControlService_1 = AccountControlService;
+    AccountControlService.prototype.getSettingsData = function () {
+        var data = this._getConfigFromLocalStorage();
+        if (data) {
+            data.accounts = data.accounts;
+        }
+        this.syncWithGoogleDrive(data);
+        return data;
+    };
+    AccountControlService.prototype.setSelectedId = function (bienId) {
+        localStorage.setItem(this.storageSelectedBienKey, bienId);
+    };
+    AccountControlService.prototype.getSelectedId = function () {
+        return localStorage.getItem(this.storageSelectedBienKey);
+    };
+    AccountControlService.prototype.saveAccount = function (account, userName, email) {
+        var data = this._getConfigFromLocalStorage();
+        if (!data) {
+            data = this.instanceNewConfig(userName, email);
+        }
+        var oldAccount = data.accounts.find(function (t) { return t.id === account.id; });
+        if (oldAccount) {
+            oldAccount.name = account.name;
+            oldAccount.description = account.description;
+            oldAccount.balance = account.balance;
+        }
+        else {
+            data.accounts.push(account);
+        }
+        this.saveSettingsData(data);
+    };
+    AccountControlService.prototype.instanceNewConfig = function (name, email) {
+        var data;
+        data = {
+            name: (name !== null && name !== void 0 ? name : this._generateRandomString(25)),
+            accounts: [
+                {
+                    id: src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_5__["AccountConstant"].ACCOUNT_BILLETERA,
+                    name: 'AccountControlService.BILLETERA_ACCOUNT',
+                    description: 'Esta cuenta es por default, no la elimine',
+                    balance: 1000,
+                    balanceLastMonth: 0,
+                    lastBalance: 0
+                }
+            ],
+            budgetSettings: null,
+            transactions: [],
+            email: email,
+        };
+        return data;
+    };
+    AccountControlService.prototype.saveBudgetSettings = function (budgetSettings) {
+        var data = this._getConfigFromLocalStorage();
+        if (!data) {
+            this.toastr.error('Debe existir al menos una cuenta registrada, no se deberia poder configurar presupuesto sin al menos una cuenta creada!!!', 'Account Control!');
+            return;
+        }
+        data.budgetSettings = budgetSettings;
+        this.saveSettingsData(data);
+    };
+    AccountControlService.prototype._generateRandomString = function (length) {
+        return Math.random().toString(36).substring(2, 2 + length);
+    };
+    AccountControlService.prototype.syncWithGoogleDrive = function (configLocalStorage, bypass) {
+        if (bypass === void 0) { bypass = false; }
+        return __awaiter(this, void 0, void 0, function () {
+            var userLogged, uploadConfigInGoogle;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(!AccountControlService_1.isSync || AccountControlService_1.isSync && !configLocalStorage || bypass)) return [3 /*break*/, 5];
+                        AccountControlService_1.isSync = true;
+                        return [4 /*yield*/, this.googleService.getUserForAccountControl()];
+                    case 1:
+                        userLogged = _a.sent();
+                        if (!(userLogged && userLogged.data)) return [3 /*break*/, 3];
+                        uploadConfigInGoogle = false;
+                        if (userLogged.data && !userLogged.data.lastSync) {
+                            userLogged.data.lastSync = new Date();
+                            //se manda a subir la data nuevamente a google drive ya que en google drive no hay fecha de modificacion en el json
+                            uploadConfigInGoogle = true;
+                        }
+                        if (!(userLogged.data && (!configLocalStorage || !configLocalStorage.lastSync || configLocalStorage.lastSync < userLogged.data.lastSync))) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.saveSettingsData(userLogged.data, uploadConfigInGoogle)];
+                    case 2:
+                        _a.sent();
+                        this.toastr.success('Información syncronizada correctamente desde google drive', 'Account Control!');
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1500);
+                        _a.label = 3;
+                    case 3:
+                        if (!(userLogged && !userLogged.data)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.uploadConfigWithGoogleDrive()];
+                    case 4:
+                        _a.sent();
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AccountControlService.prototype._getConfigFromLocalStorage = function () {
+        var data = this._readConfig();
+        var response = data ? JSON.parse(data) : null;
+        if (response) {
+            if (response.lastSync) {
+                response.lastSync = new Date(response.lastSync);
+            }
+            if (response.lastSyncTransactions) {
+                response.lastSyncTransactions = new Date(response.lastSyncTransactions);
+            }
+            response.transactions.forEach(function (t) {
+                t.date = new Date(t.date);
+            });
+            response.accounts.forEach(function (account) {
+                if (account.lastTransaction) {
+                    account.lastTransaction.date = new Date(account.lastTransaction.date);
+                }
+            });
+        }
+        return response;
+    };
+    AccountControlService.prototype._readConfig = function () {
+        return localStorage.getItem(this.storageKey);
+    };
+    AccountControlService.prototype.saveSettingsData = function (config, syncWithGoogle) {
+        if (syncWithGoogle === void 0) { syncWithGoogle = true; }
+        return __awaiter(this, void 0, void 0, function () {
+            var isLogged;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        config.lastSync = new Date();
+                        localStorage.setItem(this.storageKey, JSON.stringify(config));
+                        return [4 /*yield*/, this.googleService.isUserLogged()];
+                    case 1:
+                        isLogged = _a.sent();
+                        if (!(isLogged && syncWithGoogle)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.uploadConfigWithGoogleDrive()];
+                    case 2:
+                        _a.sent();
+                        _a.label = 3;
+                    case 3: return [2 /*return*/, config];
+                }
+            });
+        });
+    };
+    /**
+     * Este metodo se utiliza debido a que desde el front los input date arrojan un string como valor y en tiempo de ejecucion este string en formato "2024-07-18" toca convertirlo a date
+     * @param dateString fecha en formato string ("2024-07-18")
+     * @returns fecha
+     */
+    AccountControlService.prototype.instanceDateFromString = function (dateString) {
+        // Extraer año, mes y día del string
+        var _a = dateString.split('-').map(Number), year = _a[0], month = _a[1], day = _a[2];
+        // Crear la fecha manualmente usando el constructor de Date con los componentes individuales
+        // El mes en el constructor Date es 0-indexed, por eso restamos 1
+        return new Date(year, month - 1, day);
+    };
+    AccountControlService.prototype.downloadConfig = function () {
+        var config = this._getConfigFromLocalStorage();
+        if (config) {
+            // Crea un blob con el contenido JSON
+            var blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            // Crea un enlace para la descarga
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "Account-Control" + config.name + ".json";
+            // Simula un clic en el enlace para iniciar la descarga
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    };
+    AccountControlService.prototype.uploadConfigWithGoogleDrive = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var config, blob, fileName;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        config = this._getConfigFromLocalStorage();
+                        if (!config) return [3 /*break*/, 2];
+                        blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+                        fileName = "AC-Main-" + config.name + ".json";
+                        // Llama al método para subir el archivo a Google Drive
+                        return [4 /*yield*/, this.googleService.uploadFileWithFolderDetection(blob, fileName, true)];
+                    case 1:
+                        // Llama al método para subir el archivo a Google Drive
+                        _a.sent();
+                        _a.label = 2;
+                    case 2: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AccountControlService.prototype.deleteData = function () {
+        localStorage.removeItem(this.storageKey);
+    };
+    // Define el formato internacional deseado
+    AccountControlService.prototype.formatoInternacional = function (date) {
+        // Si date es una cadena, conviértelo a un objeto Date
+        date = typeof date === 'string' ? new Date(date) : date;
+        // Define el formato internacional deseado
+        var _formatoInternacional = new Intl.DateTimeFormat('es-CO', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        return _formatoInternacional.format(date);
+    };
+    AccountControlService.prototype.syncTransactions = function (userLogged) {
+        var _a, _b;
+        return __awaiter(this, void 0, void 0, function () {
+            var config, defaultStartDate, newTransactions;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        console.log('Sincronizando transacciones...', userLogged.user.username);
+                        config = this._getConfigFromLocalStorage();
+                        defaultStartDate = new Date();
+                        // Resta 3 meses a la fecha de inicio para buscar transacciones de hace tres meses
+                        defaultStartDate.setMonth(defaultStartDate.getMonth() - 3);
+                        return [4 /*yield*/, this.googleService.getTransactionsSince((_b = (_a = config) === null || _a === void 0 ? void 0 : _a.lastSyncTransactions, (_b !== null && _b !== void 0 ? _b : defaultStartDate)))];
+                    case 1:
+                        newTransactions = _c.sent();
+                        if (!(newTransactions.length > 0)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this._syncTransactions(config, userLogged, newTransactions)];
+                    case 2:
+                        config = _c.sent();
+                        _c.label = 3;
+                    case 3: return [2 /*return*/, this.getTransactions(config)];
+                }
+            });
+        });
+    };
+    AccountControlService.prototype._syncTransactions = function (config, userLogged, newTransactions) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        if (!config) {
+                            config = this.instanceNewConfig(userLogged.user.username, userLogged.user.email);
+                        }
+                        if (!config.transactions) {
+                            config.transactions = [];
+                        }
+                        (_a = config.transactions).push.apply(_a, newTransactions);
+                        config.lastSyncTransactions = new Date();
+                        config.transactions = config.transactions.sort(function (a, b) { return b.date.getTime() - a.date.getTime(); });
+                        return [4 /*yield*/, this.saveSettingsData(config)];
+                    case 1:
+                        _b.sent();
+                        this.toastr.success('[' + (newTransactions.length) + '] Transacciones sincronizadas correctamente', 'Account Control!');
+                        return [2 /*return*/, config];
+                }
+            });
+        });
+    };
+    AccountControlService.prototype.getCategory = function (config, t, showToastr) {
+        if (showToastr === void 0) { showToastr = false; }
+        var _a, _b, _c;
+        var category = (_c = (_b = (_a = config) === null || _a === void 0 ? void 0 : _a.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.find(function (cat) { return cat.keyWords.some(function (key) { return t.description.toLowerCase().includes(key.toLowerCase()); }); });
+        if ((!category || (category && !category.accountId)) && !t.originalAccount) {
+            if (showToastr && config.budgetSettings) {
+                this.toastr.warning("No se encontro categor\u00EDa para la transacci\u00F3n \"" + t.description + "\" por un monto de " + t.amount, 'Account Control!');
+            }
+            return;
+        }
+        return category;
+    };
+    AccountControlService.prototype.getTransactions = function (config) {
+        var _this = this;
+        var _a, _b, _c, _d, _e;
+        if (!config) {
+            config = this.getSettingsData();
+            if (!config) {
+                config = this.instanceNewConfig();
+            }
+        }
+        var helper = new _utils_transaction_operation__WEBPACK_IMPORTED_MODULE_6__["TransactionOperation"]();
+        var transactionsProcessed = 0;
+        (_c = (_b = (_a = config) === null || _a === void 0 ? void 0 : _a.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.forEach(function (cat) {
+            cat.currentAmmount = 0;
+        });
+        (_e = (_d = config) === null || _d === void 0 ? void 0 : _d.transactions) === null || _e === void 0 ? void 0 : _e.forEach(function (t) {
+            var canContinue = _this.processTransaction(config, t);
+            if (!canContinue) {
+                return;
+            }
+            transactionsProcessed++;
+            if (t.targetAccountId) {
+                //si tiene una cuenta configurada para el targetAccountId, crea una nueva transacción de lo contrario no porque si no crearia muchas transferencias de cuentas que no son mias
+                //esto lo hice solo para mi tarjeta de crédito o cuando cree alguna cuenta cuando le preste a amigos etc.
+                var auxaccount = _this.getAccount(config, t.targetAccountId);
+                if (!auxaccount) {
+                    return;
+                }
+                var newTransaction = helper.createTransactionIfIsTranfer(t);
+                if (newTransaction) {
+                    _this.processTransaction(config, newTransaction);
+                    config.transactions.push(newTransaction);
+                    transactionsProcessed++;
+                }
+            }
+        });
+        if (transactionsProcessed > 0) {
+            config.transactions = config.transactions.sort(function (a, b) { return b.date.getTime() - a.date.getTime(); });
+            this.saveSettingsData(config);
+            this.toastr.info('[' + (transactionsProcessed) + '] Transacciones procesadas correctamente', 'Account Control!');
+        }
+        return config;
+    };
+    AccountControlService.prototype.processTransaction = function (config, t) {
+        var _a, _b;
+        if (!t.canProcessed) {
+            // Transacción no puede ser procesada
+            var anotherTransaction = new _utils_transaction_operation__WEBPACK_IMPORTED_MODULE_6__["TransactionOperation"]().getTransaction(t.originalBody, t.id);
+            if (!anotherTransaction.canProcessed)
+                return;
+            // Asignar campos de anotherTransaction a t
+            Object.assign(t, anotherTransaction);
+        }
+        var category = this.getCategory(config, t, false);
+        if (category) {
+            t.categoryId = category.id;
+            category.currentAmmount += Math.abs(t.amount);
+        }
+        if (!t.originalAccount && category) {
+            t.originalAccount = category.accountId;
+        }
+        if (t.isProcessed) {
+            // Transacción ya procesada
+            return;
+        }
+        var accountId = (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.accountId, (_b !== null && _b !== void 0 ? _b : t.originalAccount));
+        if (!accountId) {
+            return;
+        }
+        var account = this.getAccount(config, accountId);
+        if (!account) {
+            if (config.budgetSettings) {
+                // this.toastr.warning(`No se encontro cuenta para la transacción "${t.description}" por un monto de ${t.amount}`, 'Account Control!');
+            }
+            return;
+        }
+        if (account.lastTransaction) {
+            var dateAccount = account.lastTransaction.date.getFullYear() + account.lastTransaction.date.getMonth();
+            var dateTransaction = t.date.getFullYear() + t.date.getMonth();
+            if (dateTransaction > dateAccount) {
+                account.balanceLastMonth = account.balance;
+            }
+        }
+        t.accountId = account.id;
+        account.lastBalance = account.balance;
+        account.balance += t.amount;
+        account.lastTransaction = t;
+        t.isProcessed = true;
+        return true;
+    };
+    AccountControlService.prototype.getAccount = function (config, accountId) {
+        return config.accounts.find(function (acc) { return acc.id.toLowerCase().includes(accountId.toLowerCase()); });
+    };
+    var AccountControlService_1;
+    AccountControlService.isSync = false;
+    AccountControlService.ctorParameters = function () { return [
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
+        { type: _google_services_google_service__WEBPACK_IMPORTED_MODULE_3__["GoogleService"] },
+        { type: _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"] },
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
+    AccountControlService = AccountControlService_1 = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _google_services_google_service__WEBPACK_IMPORTED_MODULE_3__["GoogleService"], _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], AccountControlService);
+    return AccountControlService;
 }());
 
 
@@ -2528,7 +4056,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../crypt/crypt.service */ "./src/app/services/crypt/crypt.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm5/http.js");
-/* harmony import */ var _google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../google-drive/google-drive.service */ "./src/app/services/google-drive/google-drive.service.ts");
+/* harmony import */ var _google_services_google_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../google-services/google.service */ "./src/app/services/google-services/google.service.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -3040,7 +4568,7 @@ var BusinessControlService = /** @class */ (function () {
     BusinessControlService.CONCEPTO_DEPOSITO_50 = 'Depósito (50%)';
     BusinessControlService.ctorParameters = function () { return [
         { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
-        { type: _google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__["GoogleDriveService"] },
+        { type: _google_services_google_service__WEBPACK_IMPORTED_MODULE_3__["GoogleService"] },
         { type: _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"] },
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
     ]; };
@@ -3048,7 +4576,7 @@ var BusinessControlService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _google_drive_google_drive_service__WEBPACK_IMPORTED_MODULE_3__["GoogleDriveService"], _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"], _google_services_google_service__WEBPACK_IMPORTED_MODULE_3__["GoogleService"], _crypt_crypt_service__WEBPACK_IMPORTED_MODULE_1__["CryptService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], BusinessControlService);
     return BusinessControlService;
 }());
@@ -3296,20 +4824,21 @@ var CryptService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/google-drive/google-drive.service.ts":
-/*!***************************************************************!*\
-  !*** ./src/app/services/google-drive/google-drive.service.ts ***!
-  \***************************************************************/
-/*! exports provided: GoogleDriveService */
+/***/ "./src/app/services/google-services/google.service.ts":
+/*!************************************************************!*\
+  !*** ./src/app/services/google-services/google.service.ts ***!
+  \************************************************************/
+/*! exports provided: GoogleService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleDriveService", function() { return GoogleDriveService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleService", function() { return GoogleService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var gapi_script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gapi-script */ "./node_modules/gapi-script/index.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _utils_transaction_operation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/transaction-operation */ "./src/app/services/utils/transaction-operation.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3362,47 +4891,63 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
-var GoogleDriveService = /** @class */ (function () {
-    function GoogleDriveService(toastr) {
+
+var GoogleService = /** @class */ (function () {
+    function GoogleService(toastr) {
         this.toastr = toastr;
         this.CLIENT_ID = '746365364970-d423bo7481d242h1hrbs31p2q3tbsusd.apps.googleusercontent.com';
         this.API_KEY = 'TU_API_KEY'; // Opcional si solo usas OAuth
-        this.DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-        this.SCOPES = "https://www.googleapis.com/auth/drive.file";
+        this.SCOPES = "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/gmail.readonly";
+        this.DISCOVERY_DOCS = [
+            "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest",
+            "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"
+        ];
         this.FOLDER_NAME = 'business-control';
+        this.FOLDER_NAME_ACCOUNT_CONTROL = 'account-control';
         this.countGetConfig = 0;
+        this.countGetSettingData = 0;
         this.gapiLoaded$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](false);
         this.loadGapiClient();
     }
-    GoogleDriveService.prototype.signOut = function () {
+    GoogleService_1 = GoogleService;
+    GoogleService.prototype.signOut = function () {
         gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signOut();
     };
-    GoogleDriveService.prototype.loadGapiClient = function () {
+    GoogleService.prototype.loadGapiClient = function () {
         var _this = this;
         try {
             return new Promise(function (resolve, reject) {
-                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () {
-                    gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.init({
-                        // apiKey: this.API_KEY,
-                        clientId: _this.CLIENT_ID,
-                        discoveryDocs: _this.DISCOVERY_DOCS,
-                        scope: _this.SCOPES
-                    }).then(function () {
-                        _this.gapiLoaded$.next(true);
-                        resolve();
-                    }).catch(function (error) {
-                        _this.toastr.error("Error al inicializar Google Drive" + JSON.stringify(error), 'Business Control!');
-                        _this.gapiLoaded$.next(false);
-                        reject(error);
+                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () { return __awaiter(_this, void 0, void 0, function () {
+                    var _this = this;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.load('gmail', 'v1')];
+                            case 1:
+                                _a.sent();
+                                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.init({
+                                    // apiKey: this.API_KEY,
+                                    clientId: this.CLIENT_ID,
+                                    discoveryDocs: this.DISCOVERY_DOCS,
+                                    scope: this.SCOPES
+                                }).then(function () {
+                                    _this.gapiLoaded$.next(true);
+                                    resolve();
+                                }).catch(function (error) {
+                                    _this.toastr.error("Error al inicializar Google Drive" + JSON.stringify(error), 'Business Control!');
+                                    _this.gapiLoaded$.next(false);
+                                    reject(error);
+                                });
+                                return [2 /*return*/];
+                        }
                     });
-                });
+                }); });
             });
         }
         catch (error) {
             this.toastr.error("Control de error al inicializar Google Drive: " + JSON.stringify(error), 'Business Control!');
         }
     };
-    GoogleDriveService.prototype.signIn = function () {
+    GoogleService.prototype.signIn = function () {
         return __awaiter(this, void 0, void 0, function () {
             var user, error_1;
             return __generator(this, function (_a) {
@@ -3440,14 +4985,52 @@ var GoogleDriveService = /** @class */ (function () {
             });
         });
     };
-    GoogleDriveService.prototype.getConfigFromUser = function () {
+    GoogleService.prototype.signInForAccountControl = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var user, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 5, , 6]);
+                        if (!!this.gapiLoaded$.getValue()) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.loadGapiClient()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        if (!this.gapiLoaded$.getValue()) {
+                            return [2 /*return*/, undefined];
+                        }
+                        return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signIn()];
+                    case 3:
+                        user = _a.sent();
+                        return [4 /*yield*/, this.getSettingDataFromUser()];
+                    case 4:
+                        _a.sent();
+                        return [2 /*return*/, {
+                                data: this.configData,
+                                user: {
+                                    email: user.getBasicProfile().getEmail(),
+                                    username: user.getBasicProfile().getName(),
+                                }
+                            }];
+                    case 5:
+                        error_2 = _a.sent();
+                        this.toastr.error("Control de error en login: " + JSON.stringify(error_2), 'Business Control!');
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GoogleService.prototype.getConfigFromUser = function () {
         return __awaiter(this, void 0, void 0, function () {
             var data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!(!this.config && this.countGetConfig == 0)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.downloadFirstJsonFileFromBusinessControlFolder()];
+                        return [4 /*yield*/, this.downloadFirstJsonFileFromBusinessControlFolder(this.FOLDER_NAME)];
                     case 1:
                         data = _a.sent();
                         this.config = data ? JSON.parse(data) : undefined;
@@ -3464,7 +5047,32 @@ var GoogleDriveService = /** @class */ (function () {
             });
         });
     };
-    GoogleDriveService.prototype.getUser = function () {
+    GoogleService.prototype.getSettingDataFromUser = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var data;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log('getSettingDataFromUser', this.countGetSettingData);
+                        if (!(!this.configData && this.countGetSettingData == 0)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.downloadFirstJsonFileFromBusinessControlFolder(this.FOLDER_NAME_ACCOUNT_CONTROL)];
+                    case 1:
+                        data = _a.sent();
+                        this.configData = data ? JSON.parse(data) : undefined;
+                        if (this.configData) {
+                            if (this.configData.lastSync) {
+                                this.configData.lastSync = new Date(this.configData.lastSync);
+                            }
+                        }
+                        _a.label = 2;
+                    case 2:
+                        this.countGetSettingData++;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GoogleService.prototype.getUser = function () {
         return __awaiter(this, void 0, void 0, function () {
             var userGoogle;
             return __generator(this, function (_a) {
@@ -3494,7 +5102,37 @@ var GoogleDriveService = /** @class */ (function () {
             });
         });
     };
-    GoogleDriveService.prototype.isUserLogged = function () {
+    GoogleService.prototype.getUserForAccountControl = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var userGoogle;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!!this.gapiLoaded$.getValue()) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.loadGapiClient()];
+                    case 1:
+                        _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        if (!this.gapiLoaded$.getValue()) return [3 /*break*/, 4];
+                        userGoogle = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get();
+                        if (!userGoogle.isSignedIn()) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.getSettingDataFromUser()];
+                    case 3:
+                        _a.sent();
+                        return [2 /*return*/, {
+                                data: this.configData,
+                                user: {
+                                    email: userGoogle.getBasicProfile().getEmail(),
+                                    username: userGoogle.getBasicProfile().getName(),
+                                }
+                            }];
+                    case 4: return [2 /*return*/, undefined];
+                }
+            });
+        });
+    };
+    GoogleService.prototype.isUserLogged = function () {
         return __awaiter(this, void 0, void 0, function () {
             var userGoogle;
             return __generator(this, function (_a) {
@@ -3515,7 +5153,7 @@ var GoogleDriveService = /** @class */ (function () {
             });
         });
     };
-    GoogleDriveService.prototype.uploadBlobToFolder = function (blob, fileName, folderId, accessToken) {
+    GoogleService.prototype.uploadBlobToFolder = function (blob, fileName, folderId, accessToken) {
         var _this = this;
         var metadata = {
             'name': fileName,
@@ -3540,7 +5178,7 @@ var GoogleDriveService = /** @class */ (function () {
             _this.toastr.error('Error al subir el archivo:' + JSON.stringify(error), 'Business Control!');
         });
     };
-    GoogleDriveService.prototype.findFileInFolder = function (fileName, folderId, accessToken) {
+    GoogleService.prototype.findFileInFolder = function (fileName, folderId, accessToken) {
         return fetch("https://www.googleapis.com/drive/v3/files?q='" + folderId + "' in parents and name='" + fileName + "' and trashed=false", {
             method: 'GET',
             headers: {
@@ -3557,7 +5195,7 @@ var GoogleDriveService = /** @class */ (function () {
             return null; // Retorna null si no encuentra el archivo
         });
     };
-    GoogleDriveService.prototype.updateFile = function (fileId, blob, accessToken) {
+    GoogleService.prototype.updateFile = function (fileId, blob, accessToken) {
         var _this = this;
         var metadata = {
             'mimeType': blob.type
@@ -3580,43 +5218,56 @@ var GoogleDriveService = /** @class */ (function () {
             _this.toastr.error('Error al actualizar el archivo:' + JSON.stringify(error), 'Business Control!');
         });
     };
-    GoogleDriveService.prototype.uploadFileWithFolderDetection = function (blob, filename) {
-        var _this = this;
-        var accessToken = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
-        this.findFolderByName(this.FOLDER_NAME, accessToken)
-            .then(function (folderId) {
-            if (folderId) {
-                _this.toastr.info('Carpeta encontrada, ID:' + folderId, 'Business Control!');
-                // Verificamos si el archivo ya existe en la carpeta
-                return _this.findFileInFolder(filename, folderId, accessToken)
-                    .then(function (fileId) {
-                    if (fileId) {
-                        // El archivo ya existe, lo actualizamos
-                        _this.toastr.info('Archivo encontrado, actualizando...', 'Business Control!');
-                        return _this.updateFile(fileId, blob, accessToken);
-                    }
-                    else {
-                        // El archivo no existe, lo subimos
-                        _this.toastr.warning('Archivo no encontrado, subiendo nuevo archivo...', 'Business Control!');
-                        return _this.uploadBlobToFolder(blob, filename, folderId, accessToken);
-                    }
-                });
-            }
-            else {
-                // La carpeta no existe, la creamos
-                _this.toastr.warning('Carpeta no encontrada, creando nueva carpeta...', 'Business Control!');
-                return _this.createFolder(_this.FOLDER_NAME, accessToken)
-                    .then(function (newFolderId) {
-                    _this.toastr.info('Nueva carpeta creada, ID:' + newFolderId, 'Business Control!');
-                    return _this.uploadBlobToFolder(blob, filename, newFolderId, accessToken);
-                });
-            }
-        })
-            .catch(function (error) {
-            _this.toastr.error('Error al manejar el archivo:' + JSON.stringify(error), 'Business Control!');
+    GoogleService.prototype.uploadFileWithFolderDetection = function (blob, filename, isAccountControl) {
+        if (isAccountControl === void 0) { isAccountControl = false; }
+        return __awaiter(this, void 0, void 0, function () {
+            var folderName, accessToken;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        folderName = !isAccountControl ? this.FOLDER_NAME : this.FOLDER_NAME_ACCOUNT_CONTROL;
+                        accessToken = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+                        return [4 /*yield*/, this.findFolderByName(folderName, accessToken)
+                                .then(function (folderId) {
+                                if (folderId) {
+                                    _this.toastr.info('Carpeta encontrada, ID:' + folderId, 'Business Control!');
+                                    // Verificamos si el archivo ya existe en la carpeta
+                                    return _this.findFileInFolder(filename, folderId, accessToken)
+                                        .then(function (fileId) {
+                                        if (fileId) {
+                                            // El archivo ya existe, lo actualizamos
+                                            _this.toastr.info('Archivo encontrado, actualizando...', 'Business Control!');
+                                            return _this.updateFile(fileId, blob, accessToken);
+                                        }
+                                        else {
+                                            // El archivo no existe, lo subimos
+                                            _this.toastr.warning('Archivo no encontrado, subiendo nuevo archivo...', 'Business Control!');
+                                            return _this.uploadBlobToFolder(blob, filename, folderId, accessToken);
+                                        }
+                                    });
+                                }
+                                else {
+                                    // La carpeta no existe, la creamos
+                                    _this.toastr.warning('Carpeta no encontrada, creando nueva carpeta...', 'Business Control!');
+                                    return _this.createFolder(folderName, accessToken)
+                                        .then(function (newFolderId) {
+                                        _this.toastr.info('Nueva carpeta creada, ID:' + newFolderId, 'Business Control!');
+                                        return _this.uploadBlobToFolder(blob, filename, newFolderId, accessToken);
+                                    });
+                                }
+                            })
+                                .catch(function (error) {
+                                _this.toastr.error('Error al manejar el archivo:' + JSON.stringify(error), 'Business Control!');
+                            })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
         });
     };
-    GoogleDriveService.prototype.findFolderByName = function (folderName, accessToken) {
+    GoogleService.prototype.findFolderByName = function (folderName, accessToken) {
         return fetch("https://www.googleapis.com/drive/v3/files?q=mimeType='application/vnd.google-apps.folder' and name='" + folderName + "' and trashed=false", {
             method: 'GET',
             headers: {
@@ -3633,7 +5284,7 @@ var GoogleDriveService = /** @class */ (function () {
             return null; // Retorna null si no encuentra la carpeta
         });
     };
-    GoogleDriveService.prototype.createFolder = function (folderName, accessToken) {
+    GoogleService.prototype.createFolder = function (folderName, accessToken) {
         var metadata = {
             'name': folderName,
             'mimeType': 'application/vnd.google-apps.folder'
@@ -3649,9 +5300,9 @@ var GoogleDriveService = /** @class */ (function () {
             .then(function (response) { return response.json(); })
             .then(function (data) { return data.id; }); // Retorna el ID de la carpeta creada
     };
-    GoogleDriveService.prototype.downloadFirstJsonFileFromBusinessControlFolder = function () {
+    GoogleService.prototype.downloadFirstJsonFileFromBusinessControlFolder = function (folderName) {
         return __awaiter(this, void 0, void 0, function () {
-            var accessToken, folderId, fileId, error_2;
+            var accessToken, folderId, fileId, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3659,7 +5310,7 @@ var GoogleDriveService = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);
-                        return [4 /*yield*/, this.findFolderByName(this.FOLDER_NAME, accessToken)];
+                        return [4 /*yield*/, this.findFolderByName(folderName, accessToken)];
                     case 2:
                         folderId = _a.sent();
                         if (!folderId) {
@@ -3676,16 +5327,16 @@ var GoogleDriveService = /** @class */ (function () {
                         // Descargar el contenido del archivo
                         return [2 /*return*/, this.downloadFileContent(fileId, accessToken)];
                     case 4:
-                        error_2 = _a.sent();
-                        this.toastr.info('Error al descargar el archivo:' + JSON.stringify(error_2), 'Business Control!');
+                        error_3 = _a.sent();
+                        this.toastr.info('Error al descargar el archivo:' + JSON.stringify(error_3), 'Business Control!');
                         return [2 /*return*/, null];
                     case 5: return [2 /*return*/];
                 }
             });
         });
     };
-    GoogleDriveService.prototype.findFirstJsonFileInFolder = function (folderId, accessToken) {
-        return fetch("https://www.googleapis.com/drive/v3/files?q='" + folderId + "' in parents and mimeType='application/json' and trashed=false", {
+    GoogleService.prototype.findFirstJsonFileInFolder = function (folderId, accessToken) {
+        return fetch("https://www.googleapis.com/drive/v3/files?q='" + folderId + "' in parents and trashed=false", {
             method: 'GET',
             headers: {
                 'Authorization': "Bearer " + accessToken,
@@ -3696,12 +5347,16 @@ var GoogleDriveService = /** @class */ (function () {
             .then(function (data) {
             var files = data.files;
             if (files && files.length > 0) {
-                return files[0].id; // Retorna el ID del primer archivo .json
+                // Filtrar archivos con extensión .json
+                var jsonFiles = files.filter(function (file) { return file.name.endsWith('.json'); });
+                if (jsonFiles.length > 0) {
+                    return jsonFiles[0].id; // Retorna el ID del primer archivo .json
+                }
             }
             return null; // Retorna null si no encuentra ningún archivo .json
         });
     };
-    GoogleDriveService.prototype.downloadFileContent = function (fileId, accessToken) {
+    GoogleService.prototype.downloadFileContent = function (fileId, accessToken) {
         return fetch("https://www.googleapis.com/drive/v3/files/" + fileId + "?alt=media", {
             method: 'GET',
             headers: {
@@ -3710,16 +5365,151 @@ var GoogleDriveService = /** @class */ (function () {
         })
             .then(function (response) { return response.text(); }); // Retorna el contenido del archivo como string
     };
-    GoogleDriveService.ctorParameters = function () { return [
+    // Obtener correos electrónicos nuevos a partir de una fecha dada y de varios remitentes
+    GoogleService.prototype.getNewEmailsSince = function (date, senders) {
+        if (senders === void 0) { senders = ['alertasynotificaciones@notificacionesbancolombia.com', 'alertasynotificaciones@bancolombia.com.co']; }
+        return __awaiter(this, void 0, void 0, function () {
+            var accessToken, rfc3339Date, gmail, promises, responses, emailIds, error_4;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log("Consultando emails", date, senders);
+                        accessToken = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+                        rfc3339Date = date.toISOString();
+                        gmail = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client['gmail'];
+                        promises = senders.map(function (sender) {
+                            var query = "from:" + sender + " after:" + Math.floor(new Date(rfc3339Date).getTime() / 1000);
+                            return gmail.users.messages.list({
+                                'userId': 'me',
+                                'q': query,
+                            });
+                        });
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 6, , 7]);
+                        return [4 /*yield*/, Promise.all(promises)];
+                    case 2:
+                        responses = _a.sent();
+                        emailIds = responses.reduce(function (acc, response) {
+                            var messages = response.result.messages || [];
+                            return acc.concat(messages.map(function (message) { return message.id; }));
+                        }, []);
+                        if (!(emailIds.length > 0)) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.fetchEmailDetails(emailIds)];
+                    case 3: return [2 /*return*/, _a.sent()];
+                    case 4:
+                        this.toastr.info('No se encontraron correos electrónicos nuevos desde la fecha especificada.', 'Business Control!');
+                        return [2 /*return*/, []];
+                    case 5: return [3 /*break*/, 7];
+                    case 6:
+                        error_4 = _a.sent();
+                        this.toastr.info('Error al consultar los correos electrónicos:' + JSON.stringify(error_4), 'Business Control!');
+                        return [2 /*return*/, []];
+                    case 7: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // Obtener detalles de cada correo a partir de sus IDs
+    GoogleService.prototype.fetchEmailDetails = function (emailIds) {
+        return __awaiter(this, void 0, void 0, function () {
+            var emails, gmail, _i, emailIds_1, emailId, email;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        emails = [];
+                        gmail = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client['gmail'];
+                        _i = 0, emailIds_1 = emailIds;
+                        _a.label = 1;
+                    case 1:
+                        if (!(_i < emailIds_1.length)) return [3 /*break*/, 4];
+                        emailId = emailIds_1[_i];
+                        return [4 /*yield*/, gmail.users.messages.get({
+                                'userId': 'me',
+                                'id': emailId
+                            })];
+                    case 2:
+                        email = _a.sent();
+                        emails.push(email.result);
+                        _a.label = 3;
+                    case 3:
+                        _i++;
+                        return [3 /*break*/, 1];
+                    case 4: return [2 /*return*/, emails];
+                }
+            });
+        });
+    };
+    // Procesar correos electrónicos para extraer transacciones
+    GoogleService.prototype.processEmailsForTransactions = function (emails) {
+        var _this = this;
+        var transactions = [];
+        var helper = new _utils_transaction_operation__WEBPACK_IMPORTED_MODULE_4__["TransactionOperation"]();
+        emails.forEach(function (email) {
+            var body = _this.getEmailBody(email);
+            var idEmail = _this.getIdEmail(email);
+            // Buscar patrones para detectar compras, transferencias e ingresos
+            var transaction = helper.getTransaction(body, idEmail);
+            transactions.push(transaction);
+        });
+        return transactions;
+    };
+    GoogleService.prototype.getIdEmail = function (email) {
+        return email.id;
+    };
+    // Obtener el cuerpo del correo electrónico
+    GoogleService.prototype.getEmailBody = function (email) {
+        return email.snippet;
+        // const bodyData = email.payload.parts.filter((part: any) => part.mimeType === 'text/html' || part.mimeType === 'text/plain')[0].body.data;
+        // return atob(bodyData.replace(/-/g, '+').replace(/_/g, '/'));
+    };
+    GoogleService.prototype.getTransactionsSince = function (date) {
+        return __awaiter(this, void 0, void 0, function () {
+            var emails, transactions, error_5;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        console.log("getTransactionsSince", date);
+                        if (!GoogleService_1.isGettingEmail)
+                            GoogleService_1.gettingEmailPromise = this.getNewEmailsSince(date);
+                        ;
+                        GoogleService_1.isGettingEmail = true;
+                        return [4 /*yield*/, GoogleService_1.gettingEmailPromise];
+                    case 1:
+                        emails = _a.sent();
+                        GoogleService_1.isGettingEmail = false;
+                        if (emails.length === 0) {
+                            return [2 /*return*/, []];
+                        }
+                        transactions = this.processEmailsForTransactions(emails);
+                        if (transactions.length === 0) {
+                            this.toastr.warning('No se encontraron transacciones en los correos.', 'Business Control!');
+                        }
+                        return [2 /*return*/, transactions];
+                    case 2:
+                        error_5 = _a.sent();
+                        console.error(error_5);
+                        this.toastr.error('Error al obtener transacciones: ' + JSON.stringify(error_5), 'Business Control!');
+                        return [2 /*return*/, []];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    var GoogleService_1;
+    GoogleService.isGettingEmail = false;
+    GoogleService.gettingEmailPromise = null;
+    GoogleService.ctorParameters = function () { return [
         { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"] }
     ]; };
-    GoogleDriveService = __decorate([
+    GoogleService = GoogleService_1 = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
         __metadata("design:paramtypes", [ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]])
-    ], GoogleDriveService);
-    return GoogleDriveService;
+    ], GoogleService);
+    return GoogleService;
 }());
 
 
@@ -4002,6 +5792,306 @@ var SummaryResumeService = /** @class */ (function () {
         __metadata("design:paramtypes", [_load_data_load_data_service__WEBPACK_IMPORTED_MODULE_1__["LoadDataService"]])
     ], SummaryResumeService);
     return SummaryResumeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/utils/transaction-operation.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/services/utils/transaction-operation.ts ***!
+  \*********************************************************/
+/*! exports provided: TransactionOperation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransactionOperation", function() { return TransactionOperation; });
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var TransactionOperation = /** @class */ (function () {
+    function TransactionOperation() {
+    }
+    TransactionOperation.prototype.getTransaction = function (body, id) {
+        var purchasePattern = /[Cc]ompraste\s+COP([\d,.]+)\s+en\s+([\w\s*]+)\s+con\s+tu\s+T\.Cred\s+\*{1,2}([\d]{4}),\s+el\s+(([\d/]+)\s+a\s+las\s+([\d:]+)|([\d:]+)\s+a\s+las\s+([\d/]+))/i;
+        var purchasePatternSimple = /[Cc]ompra\s+por\s+COP([\d,.]+)\s+en\s+([\w\s*]+)\s+(\d{2}:\d{2})\.\s+([\d/]+)\s+T\.Cred\s+\*([\d]{4})/i;
+        var purchasePatternSimpl2 = /[Cc]ompra\s+por\s+\$([\d,.]+)\s+en\s+([\w\s*]+)\s+(\d{2}:\d{2})\.\s+([\d/]+)\s+T\.Cred\s+\*([\d]{4})/i;
+        var transferPattern = /[Tt]ransferiste\s+\$([\d,.]+)\s+desde\s+tu\s+cuenta\s+\*(\d+)\s+a\s+la\s+cuenta\s+(\*\d+)\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
+        var transferPatter2 = /[Tt]ransferiste\s+\$([\d,.]+)\s+de\s+tu\s+cuenta\s+\*\*(\d+)\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
+        var transferPatter3 = /[Tt]ransferencia\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+cta\s+(\d+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
+        var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
+        var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+(\d+).\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
+        var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
+        var incomePattern = /[Pp]ago\s+de\s+Nomina\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+Cuenta\s+Ahorros.\s+([\d:]+)\s+([\d/]+)/i;
+        var withdrawalPattern = /[Rr]etiraste\s+\$([\d,.]+)\s+en\s+([\w\s*]+)\s+de\s+tu\s+T\.Deb\s+\*\*([\d]{4})\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
+        var retiroPattern = /[Rr]etiro\s+por\s+\$([\d,.]+)\s+en\s+([\w_]+)\.\s+Hora\s+(\d{2}:\d{2})\s+([\d\/]+)\s+T\.Deb\s+\*(\d{4})/i;
+        var paymentPattern = /[Pp]agaste\s+\$([\d,.]+)\s+a\s+([\w\s]+)\s+desde\s+tu\s+producto\s+(\*\d+)\s+el\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
+        var affiliatePurchasePattern = /[Cc]ompra por COP([\d,.]+)\s+en\s+([\w\/.]+)\s+(\d{2}:\d{2})\.\s+([\d\/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
+        var affiliatePurchasePatter2 = /[Cc]ompra\s+por\s+\$([\d,.]+)\s+en\s+([\w\/.]+)\s+(\d{2}:\d{2})\.\s+([\d\/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*(\d{4})/i;
+        var notificationPattern = /[Rr]ecibiras \$(\d{1,3}(?:\.\d{3})*,\d{2}) en (\d+) dias habiles en tu Tarjeta Credito \*\*(\d{4}) por parte de ([\w\s]+?)\. (\d{2}):(\d{2}) (\d{2})\/(\d{2})\/(\d{4})/;
+        var paymentCreditCardPattern = /[Nn]otificación [Tt]ransaccional.*Pago\s+de\s+Tarjeta\s+de\s+Credito\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+la\s+tarjeta\s+\*(\d+).\s+([\d/]+)\s+(\d{2}:\d{2})/i;
+        // Patrón para las notificaciones de compras de Bancolombia
+        var type = 'expense';
+        var accountId = '';
+        var amount = 0;
+        var date = new Date();
+        var description = '';
+        var categoryId = '';
+        var targetAccountId = '';
+        if (purchasePattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(purchasePattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                accountId = "*" + matches[3];
+                if (!matches[5]) {
+                    date = this.parseDateTime(matches[8], matches[7]);
+                }
+                else {
+                    date = this.parseDateTime(matches[5], matches[6]);
+                }
+            }
+        }
+        else if (purchasePatternSimple.test(body)) {
+            var matches = body.match(purchasePatternSimple);
+            if (matches) {
+                type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                date = this.parseDateTime(matches[4], matches[3]);
+                accountId = "*" + matches[5];
+            }
+        }
+        else if (purchasePatternSimpl2.test(body)) {
+            var matches = body.match(purchasePatternSimpl2);
+            if (matches) {
+                type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                date = this.parseDateTime(matches[4], matches[3]);
+                accountId = "*" + matches[5];
+            }
+        }
+        else if (transferPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(transferPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1], 1);
+                accountId = "*" + matches[2];
+                targetAccountId = matches[3];
+                description = "Transferencia a la cuenta " + targetAccountId;
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (transferPatter2.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(transferPatter2);
+            if (matches) {
+                amount = this.parseAmount(matches[1], 1);
+                accountId = "*" + matches[2];
+                targetAccountId = matches[3];
+                description = "Transferencia a la cuenta " + targetAccountId;
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (qrTransferPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(qrTransferPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                accountId = "*" + matches[2];
+                targetAccountId = matches[3];
+                description = "Transferencia con QR a la cuenta " + targetAccountId;
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (receivedTransferPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            var matches = body.match(receivedTransferPattern);
+            if (matches) {
+                description = "transferencia de " + matches[1].trim();
+                amount = this.parseAmount(matches[2], 1);
+                accountId = matches[3];
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (incomePattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            var matches = body.match(incomePattern);
+            if (matches) {
+                description = "Pago de n\u00F3mina de " + matches[1];
+                amount = this.parseAmount(matches[2]);
+                date = this.parseDateTime(matches[4], matches[3]);
+            }
+        }
+        else if (withdrawalPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(withdrawalPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Retiraste en " + matches[2];
+                accountId = "*" + matches[3];
+                date = this.parseDateTime(matches[4], matches[5]);
+                targetAccountId = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].ACCOUNT_BILLETERA;
+            }
+        }
+        else if (paymentPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(paymentPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Pago a " + matches[2];
+                accountId = matches[3];
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (affiliatePurchasePattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(affiliatePurchasePattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                accountId = "*" + matches[5];
+                date = this.parseDateTime(matches[4], matches[3]);
+            }
+        }
+        else if (affiliatePurchasePatter2.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(affiliatePurchasePatter2);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                accountId = "*" + matches[5];
+                date = this.parseDateTime(matches[4], matches[3]);
+            }
+        }
+        else if (notificationPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            var matches = body.match(notificationPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                accountId = "*" + matches[3];
+                description = "Recibir\u00E1s en tu Tarjeta de Cr\u00E9dito por parte de " + matches[4].trim();
+                date = this.parseDateTime(matches[7] + "/" + matches[8] + "/" + matches[9], matches[5] + ":" + matches[6]);
+            }
+        }
+        else if (paymentCreditCardPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(paymentCreditCardPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                accountId = "*" + matches[2];
+                targetAccountId = "*" + matches[3];
+                description = "Pago de T.Cred Nro " + targetAccountId;
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (retiroPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(retiroPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Retiro en " + matches[2];
+                date = this.parseDateTime(matches[4], matches[3]);
+                accountId = "*" + matches[5];
+                targetAccountId = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].ACCOUNT_BILLETERA;
+            }
+        }
+        else if (transferPatter3.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(transferPatter3);
+            if (matches) {
+                amount = this.parseAmount(matches[1], 1);
+                accountId = "*" + matches[2];
+                targetAccountId = "*" + matches[3];
+                description = "Transferencia a la cuenta " + targetAccountId;
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (providerPaymentPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            var matches = body.match(providerPaymentPattern);
+            if (matches) {
+                description = "Pago PROVEEDOR de " + matches[1];
+                amount = this.parseAmount(matches[2]);
+                accountId = ''; // Si hay un accountId específico, añádelo aquí
+                date = this.parseDateTime(matches[4], matches[3]);
+            }
+        }
+        if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE && amount > 0) {
+            amount = -amount;
+        }
+        accountId = accountId.replace(/\*/g, '');
+        targetAccountId = targetAccountId.replace(/\*/g, '');
+        return { id: id, accountId: '', originalAccount: accountId, amount: amount, date: date, categoryId: categoryId, description: description, type: type, originalBody: body, targetAccountId: targetAccountId, canProcessed: (description ? true : false), isProcessed: false };
+    };
+    TransactionOperation.prototype.createTransactionIfIsTranfer = function (transaction) {
+        if (transaction.targetAccountId) {
+            transaction.transactionId = transaction.id;
+            var cloneTransaction = __assign({}, transaction);
+            transaction.id = this.generateUniqueId();
+            cloneTransaction.id = this.generateUniqueId();
+            cloneTransaction.originalAccount = transaction.targetAccountId;
+            cloneTransaction.targetAccountId = transaction.originalAccount;
+            cloneTransaction.description = "Transf. Automatica: " + cloneTransaction.description;
+            cloneTransaction.type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            cloneTransaction.amount = cloneTransaction.amount * -1;
+            return cloneTransaction;
+        }
+        return null;
+    };
+    TransactionOperation.prototype.parseAmount = function (amountStr, rounded) {
+        if (rounded === void 0) { rounded = 100; }
+        if (amountStr.includes(".") && amountStr.includes(","))
+            return parseFloat(amountStr.replace(/[,.]/g, '')) / rounded;
+        return parseFloat(amountStr.split(".")[0]);
+    };
+    TransactionOperation.prototype.parseDateTime = function (dateStr, timeStr) {
+        var _a, _b;
+        if (timeStr === void 0) { timeStr = '00:00'; }
+        var day, month, year;
+        var _c = timeStr.split(':').map(Number), hour = _c[0], minute = _c[1];
+        // Detect format and parse accordingly
+        if (dateStr.includes('/')) {
+            var parts = dateStr.split('/');
+            if (parts[0].length === 4) {
+                // yyyy/mm/dd format
+                _a = parts.map(Number), year = _a[0], month = _a[1], day = _a[2];
+            }
+            else {
+                // dd/mm/yyyy format
+                _b = parts.map(Number), day = _b[0], month = _b[1], year = _b[2];
+            }
+        }
+        else {
+            // throw new Error("Unrecognized date format");
+            return new Date();
+        }
+        // Create date in UTC, then adjust to Colombia time
+        var date = new Date(Date.UTC(year, month - 1, day, hour + 5, minute)); // UTC + 5 for Colombia
+        date.setUTCHours(date.getUTCHours()); // Final adjustment for Colombia Time
+        return date;
+    };
+    TransactionOperation.prototype.generateUniqueId = function () {
+        return '_' + Math.random().toString(36).substr(2, 9);
+    };
+    return TransactionOperation;
 }());
 
 
