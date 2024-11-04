@@ -389,6 +389,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.html":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.html ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"mb-2\">\n            <!-- Input de búsqueda -->\n            <input type=\"text\" placeholder=\"Buscar transacción...\" class=\"form-control form-control-alternative mb-2\"\n                (input)=\"onSearch($event)\" />\n\n            <!-- Mostrar conteo de registros -->\n            <small class=\"text-muted\">Total registros:\n                <span *ngIf=\"filteredTransactions.length == transactions.length\">\n                    {{ visibleTransactions.length }}/{{ transactions.length }}\n                </span>\n                <span *ngIf=\"filteredTransactions.length != transactions.length\">\n                    {{ transactions.length }} | {{ visibleTransactions.length }}/{{ filteredTransactions.length }}\n                    coincidencias\n                </span>\n            </small>\n        </div>\n\n        <!-- Mostrar métricas al estar filtrando -->\n        <div *ngIf=\"isFiltering\" class=\"card-profile-stats d-flex justify-content-center mb-3\">\n            <div>\n                <span class=\"heading text-success\">\n                    <i class=\"fas fa-arrow-circle-up\"></i>\n                    {{ totalIncome | currency }}\n                </span>\n                <span class=\"description\">Total Ingresos</span>\n            </div>\n            <div>\n                <span class=\"heading text-danger\">\n                    <i class=\"fas fa-arrow-circle-down\"></i>\n                    {{ totalExpense | currency }}\n                </span>\n                <span class=\"description\">Total Gastos</span>\n            </div>\n            <div *ngIf=\"savingsGoal>0\">\n                <span class=\"heading text-info\">\n                    <i class=\"fas fa-piggy-bank\"></i>\n                    {{ savingsGoal | currency }}\n                </span>\n                <span class=\"description\">Ahorro</span>\n            </div>\n        </div>\n\n        <!-- Contenedor con scroll que incluye las transacciones -->\n        <div class=\"scroll-container\" style=\"max-height: 680px; overflow-y: auto;\" (scroll)=\"onScroll($event)\">\n\n            <div class=\"pb-1\" *ngFor=\"let transaction of visibleTransactions\">\n                <app-account-control-transaction-card [transaction]=\"transaction\"\n                    (onRegisterAccount)=\"openCreateAccount(transaction)\"\n                    (onRegisterCategory)=\"openManagementCategories(transaction)\">\n                </app-account-control-transaction-card>\n            </div>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.html":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.html ***!
@@ -437,7 +450,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of settionsData.accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta Nro: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.lastBalance | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <i class=\" fa fa-arrow-up\"></i>\n                            <span class=\"text-nowrap\"> Total ingresos </span><span class=\"mr-2\">\n                                {{0|\n                                currency}}\n                            </span>\n                        </p>\n                        <p class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 730px; max-height: 730px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settionsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateAccount()\">Nueva cuenta</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3\">\n                    <div class=\"mb-2\">\n                        <!-- Input de búsqueda -->\n                        <input type=\"text\" placeholder=\"Buscar transacción...\"\n                            class=\"form-control form-control-alternative mb-2\" (input)=\"onSearch($event)\" />\n\n                        <!-- Mostrar conteo de registros -->\n                        <small class=\"text-muted\">Total registros: {{ transactions.length }}\n                            <span *ngIf=\"filteredTransactions.length != transactions.length\">\n                                | {{ visibleTransactions.length }}/{{ filteredTransactions.length }} elementos que\n                                coinciden\n                            </span>\n                        </small>\n                    </div>\n\n                    <!-- Mostrar métricas al estar filtrando -->\n                    <div *ngIf=\"isFiltering\" class=\"card-profile-stats d-flex justify-content-center mb-3\">\n                        <div>\n                            <span class=\"heading text-success\">\n                                <i class=\"fas fa-arrow-circle-up\"></i>\n                                {{ totalIncome | currency }}\n                            </span>\n                            <span class=\"description\">Total Ingresos</span>\n                        </div>\n                        <div>\n                            <span class=\"heading text-danger\">\n                                <i class=\"fas fa-arrow-circle-down\"></i>\n                                {{ totalExpense | currency }}\n                            </span>\n                            <span class=\"description\">Total Gastos</span>\n                        </div>\n                        <div>\n                            <span class=\"heading text-info\">\n                                <i class=\"fas fa-piggy-bank\"></i>\n                                {{ savingsGoal | currency }}\n                            </span>\n                            <span class=\"description\">Ahorro Mensual</span>\n                        </div>\n                    </div>\n\n                    <!-- Contenedor con scroll que incluye las transacciones -->\n                    <div class=\"scroll-container\" style=\"max-height: 640px; overflow-y: auto;\"\n                        (scroll)=\"onScroll($event)\">\n                        <div class=\"pb-1\" *ngFor=\"let transaction of visibleTransactions\">\n                            <app-account-control-transaction-card [transaction]=\"transaction\"\n                                (onRegisterAccount)=\"openCreateAccount(transaction)\"\n                                (onRegisterCategory)=\"openManagementCategories(transaction)\">\n                            </app-account-control-transaction-card>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of settionsData.accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta Nro: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.lastBalance | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <i class=\" fa fa-arrow-up\"></i>\n                            <span class=\"text-nowrap\"> Total ingresos </span><span class=\"mr-2\">\n                                {{0|\n                                currency}}\n                            </span>\n                        </p>\n                        <p class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settionsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateAccount()\">Nueva cuenta</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
 
 /***/ }),
 
@@ -614,6 +627,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_control_account_control_management_categories_account_control_management_categories_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/account-control/account-control-management-categories/account-control-management-categories.component */ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.ts");
 /* harmony import */ var _pages_account_control_account_control_transaction_card_account_control_transaction_card_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/account-control/account-control-transaction-card/account-control-transaction-card.component */ "./src/app/pages/account-control/account-control-transaction-card/account-control-transaction-card.component.ts");
 /* harmony import */ var _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/account-control/account-control-list-budgets/account-control-list-budgets.component */ "./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.ts");
+/* harmony import */ var _pages_account_control_account_control_list_transactions_account_control_list_transactions_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/account-control/account-control-list-transactions/account-control-list-transactions.component */ "./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -623,6 +637,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -681,7 +696,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_19__["AccountControlManagementAccountComponent"],
                 _pages_account_control_account_control_management_categories_account_control_management_categories_component__WEBPACK_IMPORTED_MODULE_20__["AccountControlManagementCategoriesComponent"],
                 _pages_account_control_account_control_transaction_card_account_control_transaction_card_component__WEBPACK_IMPORTED_MODULE_21__["AccountControlTransactionCardComponent"],
-                _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__["AccountControlListBudgetsComponent"]
+                _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__["AccountControlListBudgetsComponent"],
+                _pages_account_control_account_control_list_transactions_account_control_list_transactions_component__WEBPACK_IMPORTED_MODULE_23__["AccountControlListTransactionsComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -1404,6 +1420,150 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.css":
+/*!*************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.css ***!
+  \*************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/* Personalizar el estilo de la barra de scroll en el contenedor de transacciones */\n.card-body .scroll-container::-webkit-scrollbar {\n    width: 8px;\n}\n.card-body .scroll-container::-webkit-scrollbar-thumb {\n    background-color: #aaa;\n    border-radius: 4px;\n}\n/* En pantallas pequeñas, se organiza en columnas */\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1saXN0LXRyYW5zYWN0aW9ucy9hY2NvdW50LWNvbnRyb2wtbGlzdC10cmFuc2FjdGlvbnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxtRkFBbUY7QUFDbkY7SUFDSSxVQUFVO0FBQ2Q7QUFFQTtJQUNJLHNCQUFzQjtJQUN0QixrQkFBa0I7QUFDdEI7QUFFQSxtREFBbUQ7QUFDbkQ7SUFDSTtRQUNJLDRCQUFzQjtRQUF0Qiw2QkFBc0I7Z0JBQXRCLHNCQUFzQjtRQUN0Qix5QkFBbUI7Z0JBQW5CLG1CQUFtQjtJQUN2Qjs7SUFFQTtRQUNJLFdBQVc7UUFDWCwrREFBK0Q7SUFDbkU7QUFDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtbGlzdC10cmFuc2FjdGlvbnMvYWNjb3VudC1jb250cm9sLWxpc3QtdHJhbnNhY3Rpb25zLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBQZXJzb25hbGl6YXIgZWwgZXN0aWxvIGRlIGxhIGJhcnJhIGRlIHNjcm9sbCBlbiBlbCBjb250ZW5lZG9yIGRlIHRyYW5zYWNjaW9uZXMgKi9cbi5jYXJkLWJvZHkgLnNjcm9sbC1jb250YWluZXI6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcbiAgICB3aWR0aDogOHB4O1xufVxuXG4uY2FyZC1ib2R5IC5zY3JvbGwtY29udGFpbmVyOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2FhYTtcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG5cbi8qIEVuIHBhbnRhbGxhcyBwZXF1ZcOxYXMsIHNlIG9yZ2FuaXphIGVuIGNvbHVtbmFzICovXG5AbWVkaWEgKG1heC13aWR0aDogNTc2cHgpIHtcbiAgICAuY2FyZC1wcm9maWxlLXN0YXRzIHtcbiAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB9XG5cbiAgICAuYnVkZ2V0LWl0ZW0ge1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgLyogQ2FkYSBlbGVtZW50byB0b21hIGVsIDEwMCUgZGVsIGFuY2hvIGVuIHBhbnRhbGxhcyBwZXF1ZcOxYXMgKi9cbiAgICB9XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.ts":
+/*!************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.ts ***!
+  \************************************************************************************************************************/
+/*! exports provided: AccountControlListTransactionsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlListTransactionsComponent", function() { return AccountControlListTransactionsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+
+var AccountControlListTransactionsComponent = /** @class */ (function () {
+    function AccountControlListTransactionsComponent() {
+        this.visibleTransactions = []; // Transacciones visibles en la vista
+        this.filteredTransactions = []; // Transacciones filtradas con el input de búsqueda
+        this.pageSize = 10; // Número de transacciones por página
+        this.currentPage = 0; // Página actual
+        this.totalIncome = 0;
+        this.totalExpense = 0;
+        this.savingsGoal = 0;
+        this.isFiltering = false; // Variable para verificar si se está filtrando
+    }
+    Object.defineProperty(AccountControlListTransactionsComponent.prototype, "transactions", {
+        get: function () {
+            return this._transactions;
+        },
+        set: function (value) {
+            if (value) {
+                this.onSettionsDataChange(value); // Llama a un método cuando el valor cambia
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AccountControlListTransactionsComponent.prototype.onSettionsDataChange = function (value) {
+        this._transactions = JSON.parse(JSON.stringify(value));
+        if (value && value.length > 0) {
+            this.ngOnInit();
+        }
+    };
+    AccountControlListTransactionsComponent.prototype.ngOnInit = function () {
+        this.filteredTransactions = __spreadArrays(this.transactions); // Inicialmente sin filtrar
+        this.loadMoreTransactions(); // Carga los primeros 30 registros
+    };
+    AccountControlListTransactionsComponent.prototype.onScroll = function (event) {
+        var element = event.target;
+        // Cambia a <= para asegurarte de activar el evento cerca del final
+        if (element.scrollHeight - element.scrollTop <= element.clientHeight + 1) {
+            this.loadMoreTransactions();
+        }
+    };
+    AccountControlListTransactionsComponent.prototype.onSearch = function (event) {
+        var input = event.target.value;
+        this.isFiltering = input.length > 0;
+        if (this.isFiltering) {
+            this.filteredTransactions = this.transactions.filter(function (transaction) {
+                return JSON.stringify(transaction).toLowerCase().includes(input.toLowerCase());
+            });
+            this.calculateMetrics(this.filteredTransactions); // Actualiza métricas
+            this.visibleTransactions = this.filteredTransactions.slice(0, 30); // Primera página de resultados
+        }
+        else {
+            this.filteredTransactions = __spreadArrays(this.transactions);
+            this.visibleTransactions = this.transactions.slice(0, 30);
+            this.resetMetrics(); // Restaura métricas si no hay filtro
+        }
+    };
+    AccountControlListTransactionsComponent.prototype.calculateMetrics = function (transactions) {
+        this.totalIncome = transactions
+            .filter(function (transaction) { return transaction.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
+            .reduce(function (sum, transaction) { return sum + transaction.amount; }, 0);
+        this.totalExpense = transactions
+            .filter(function (transaction) { return transaction.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
+            .reduce(function (sum, transaction) { return sum + transaction.amount; }, 0);
+        this.savingsGoal = this.totalIncome - Math.abs(this.totalExpense);
+    };
+    AccountControlListTransactionsComponent.prototype.resetMetrics = function () {
+        this.totalIncome = 0;
+        this.totalExpense = 0;
+        this.savingsGoal = 0;
+    };
+    // Carga la siguiente página de transacciones
+    AccountControlListTransactionsComponent.prototype.loadMoreTransactions = function () {
+        var startIndex = this.currentPage * this.pageSize;
+        var endIndex = startIndex + this.pageSize;
+        var newTransactions = this.filteredTransactions.slice(startIndex, endIndex);
+        this.visibleTransactions = __spreadArrays(this.visibleTransactions, newTransactions);
+        this.currentPage++;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], AccountControlListTransactionsComponent.prototype, "transactions", null);
+    AccountControlListTransactionsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-list-transactions',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-list-transactions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-list-transactions.component.css */ "./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccountControlListTransactionsComponent);
+    return AccountControlListTransactionsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.css":
 /*!***************************************************************************************************************************!*\
   !*** ./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.css ***!
@@ -1927,7 +2087,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account-control-management-account/account-control-management-account.component */ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.ts");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
 /* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
-/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -1989,14 +2148,6 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
-
 
 
 
@@ -2011,14 +2162,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
         _this.modalService = modalService;
         _this.accountService = accountService;
         _this.transactions = [];
-        _this.visibleTransactions = []; // Transacciones visibles en la vista
-        _this.filteredTransactions = []; // Transacciones filtradas con el input de búsqueda
-        _this.pageSize = 10; // Número de transacciones por página
-        _this.currentPage = 0; // Página actual
-        _this.totalIncome = 0;
-        _this.totalExpense = 0;
-        _this.savingsGoal = 0;
-        _this.isFiltering = false; // Variable para verificar si se está filtrando
         return _this;
     }
     AccountControlComponent.prototype.initialiceComponent = function () {
@@ -2038,8 +2181,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
                     case 2:
                         console.log('Componente inicializado...', this.settionsData);
                         this.transactions = this.settionsData.transactions;
-                        this.filteredTransactions = __spreadArrays(this.transactions); // Inicialmente sin filtrar
-                        this.loadMoreTransactions(); // Carga los primeros 30 registros
                         return [2 /*return*/];
                 }
             });
@@ -2105,51 +2246,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
                 }
             });
         });
-    };
-    // Función para cargar más transacciones al desplazarse
-    AccountControlComponent.prototype.onScroll = function (event) {
-        var element = event.target;
-        if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-            this.loadMoreTransactions();
-        }
-    };
-    AccountControlComponent.prototype.onSearch = function (event) {
-        var input = event.target.value;
-        this.isFiltering = input.length > 0;
-        if (this.isFiltering) {
-            this.filteredTransactions = this.transactions.filter(function (transaction) {
-                return JSON.stringify(transaction).toLowerCase().includes(input.toLowerCase());
-            });
-            this.calculateMetrics(this.filteredTransactions); // Actualiza métricas
-            this.visibleTransactions = this.filteredTransactions.slice(0, 30); // Primera página de resultados
-        }
-        else {
-            this.filteredTransactions = __spreadArrays(this.transactions);
-            this.visibleTransactions = this.transactions.slice(0, 30);
-            this.resetMetrics(); // Restaura métricas si no hay filtro
-        }
-    };
-    AccountControlComponent.prototype.calculateMetrics = function (transactions) {
-        this.totalIncome = transactions
-            .filter(function (transaction) { return transaction.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_7__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
-            .reduce(function (sum, transaction) { return sum + transaction.amount; }, 0);
-        this.totalExpense = transactions
-            .filter(function (transaction) { return transaction.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_7__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
-            .reduce(function (sum, transaction) { return sum + transaction.amount; }, 0);
-        this.savingsGoal = this.totalIncome - Math.abs(this.totalExpense);
-    };
-    AccountControlComponent.prototype.resetMetrics = function () {
-        this.totalIncome = 0;
-        this.totalExpense = 0;
-        this.savingsGoal = 0;
-    };
-    // Carga la siguiente página de transacciones
-    AccountControlComponent.prototype.loadMoreTransactions = function () {
-        var startIndex = this.currentPage * this.pageSize;
-        var endIndex = startIndex + this.pageSize;
-        var newTransactions = this.filteredTransactions.slice(startIndex, endIndex);
-        this.visibleTransactions = __spreadArrays(this.visibleTransactions, newTransactions);
-        this.currentPage++;
     };
     AccountControlComponent.ctorParameters = function () { return [
         { type: src_app_services_google_services_google_service__WEBPACK_IMPORTED_MODULE_1__["GoogleService"] },
