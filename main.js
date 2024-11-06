@@ -385,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div class=\"d-flex align-items-center\">\n                                    <div class=\"progress\">\n                                        <div class=\"progress-bar \"\n                                            [ngClass]=\"{'bg-gradient-success': calculatePercentage(category.currentAmmount, category.budget)<= 10, 'bg-gradient-info' :calculatePercentage(category.currentAmmount, category.budget)> 10 && calculatePercentage(category.currentAmmount, category.budget)<= 30, 'bg-gradient-warning' :calculatePercentage(category.currentAmmount, category.budget)> 30 && calculatePercentage(category.currentAmmount, category.budget)<= 60, 'bg-gradient-danger' :calculatePercentage(category.currentAmmount, category.budget)> 60 }\"\n                                            role=\"progressbar\"\n                                            [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                            aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n                                </div>\n                                <small>{{calculatePercentage(category.currentAmmount, category.budget)}}%</small>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"chart\">\n\n                <canvas id=\"categoryChart\" class=\"chart-canvas\"></canvas>\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div class=\"d-flex align-items-center\">\n                                    <div class=\"progress\">\n                                        <div class=\"progress-bar\"\n                                            [ngClass]=\"{'bg-gradient-success': calculatePercentage(category.currentAmmount, category.budget)<= 10, 'bg-gradient-info' :calculatePercentage(category.currentAmmount, category.budget)> 10 && calculatePercentage(category.currentAmmount, category.budget)<= 30, 'bg-gradient-warning' :calculatePercentage(category.currentAmmount, category.budget)> 30 && calculatePercentage(category.currentAmmount, category.budget)<= 60, 'bg-gradient-danger' :calculatePercentage(category.currentAmmount, category.budget)> 60 }\"\n                                            role=\"progressbar\"\n                                            [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                            aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n                                </div>\n                                <small>{{calculatePercentage(category.currentAmmount,\n                                    category.budget)}}%</small>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -463,7 +463,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settionsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva\n                                transaccion</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva\n                                transaccion</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
 
 /***/ }),
 
@@ -1355,7 +1355,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlListBudgetsComponent", function() { return AccountControlListBudgetsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+/* harmony import */ var src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/variables/charts */ "./src/app/variables/charts.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1370,10 +1373,11 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
+
+
 var AccountControlListBudgetsComponent = /** @class */ (function () {
     function AccountControlListBudgetsComponent() {
         this.activeTab = 'expense';
-        this.newKeyword = '';
         this.categories = [];
         this.budgetSettings = {
             categories: [],
@@ -1385,28 +1389,175 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         this.currentTotalExpense = 0;
         this.currentSavingsGoal = 0;
     }
-    AccountControlListBudgetsComponent.prototype.ngOnInit = function () {
-    };
-    Object.defineProperty(AccountControlListBudgetsComponent.prototype, "settionsData", {
+    Object.defineProperty(AccountControlListBudgetsComponent.prototype, "settingsData", {
         get: function () {
-            return this._settionsData;
+            return this._settingsData;
         },
         set: function (value) {
             if (value) {
-                this.onSettionsDataChange(value); // Llama a un método cuando el valor cambia
+                this.onSettingsDataChange(value);
             }
         },
         enumerable: true,
         configurable: true
     });
-    AccountControlListBudgetsComponent.prototype.onSettionsDataChange = function (value) {
-        this._settionsData = JSON.parse(JSON.stringify(value));
+    AccountControlListBudgetsComponent.prototype.ngOnInit = function () {
+        this.initializeChart();
+    };
+    AccountControlListBudgetsComponent.prototype.ngOnChanges = function (changes) {
+        if (changes.settingsData && !changes.settingsData.firstChange) {
+            this.updateChart();
+        }
+    };
+    AccountControlListBudgetsComponent.prototype.onSettingsDataChange = function (value) {
+        this._settingsData = JSON.parse(JSON.stringify(value));
         if (value && value.budgetSettings) {
             this.categories = value.budgetSettings.categories;
             this.budgetSettings = value.budgetSettings;
-            this.currentTotalIncome = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME; }).reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
-            this.currentTotalExpense = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; }).reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
+            this.currentTotalIncome = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
+                .reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
+            this.currentTotalExpense = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
+                .reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
             this.currentSavingsGoal = this.currentTotalIncome - this.currentTotalExpense;
+            this.updateChart();
+        }
+    };
+    AccountControlListBudgetsComponent.prototype.initializeChart = function () {
+        var _this = this;
+        Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["parseOptions"])(chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"], Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["chartOptions"])());
+        var config = {
+            type: 'pie',
+            data: {
+                labels: this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; }).map(function (category) { return category.name; }),
+                datasets: [{
+                        data: this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; }).map(function (category) { return _this.calculatePercentage(category.currentAmmount, category.budget); }),
+                        backgroundColor: [
+                            'rgba(102, 204, 204, 0.5)',
+                            'rgba(255, 178, 102, 0.5)',
+                            'rgba(255, 223, 102, 0.5)',
+                            'rgba(192, 192, 192, 0.5)',
+                            'rgba(102, 178, 255, 0.5)',
+                            'rgba(178, 102, 255, 0.5)',
+                            'rgba(255, 102, 128, 0.5)',
+                            'rgba(144, 224, 144, 0.5)',
+                            'rgba(255, 153, 153, 0.5)',
+                            'rgba(173, 216, 230, 0.5)',
+                            'rgba(255, 204, 229, 0.5)',
+                            'rgba(255, 235, 156, 0.5)',
+                            'rgba(153, 221, 255, 0.5)',
+                            'rgba(255, 153, 187, 0.5)',
+                            'rgba(204, 204, 255, 0.5)',
+                            'rgba(204, 255, 204, 0.5)',
+                            'rgba(255, 204, 153, 0.5)',
+                            'rgba(255, 230, 179, 0.5)',
+                            'rgba(230, 179, 255, 0.5)',
+                            'rgba(102, 255, 178, 0.5)',
+                            'rgba(255, 153, 102, 0.5)',
+                            'rgba(153, 255, 255, 0.5)',
+                            'rgba(255, 204, 102, 0.5)',
+                            'rgba(255, 229, 204, 0.5)',
+                            'rgba(255, 255, 153, 0.5)',
+                            'rgba(102, 153, 255, 0.5)',
+                            'rgba(255, 102, 178, 0.5)',
+                            'rgba(204, 255, 229, 0.5)',
+                            'rgba(255, 179, 179, 0.5)',
+                            'rgba(204, 230, 255, 0.5)',
+                            'rgba(178, 255, 102, 0.5)',
+                            'rgba(255, 204, 153, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(230, 179, 255, 0.5)',
+                            'rgba(255, 204, 255, 0.5)',
+                            'rgba(153, 255, 204, 0.5)',
+                            'rgba(255, 178, 102, 0.5)',
+                            'rgba(230, 230, 250, 0.5)',
+                            'rgba(255, 229, 102, 0.5)',
+                            'rgba(102, 255, 204, 0.5)',
+                            'rgba(204, 229, 255, 0.5)',
+                            'rgba(204, 255, 229, 0.5)',
+                            'rgba(255, 204, 153, 0.5)',
+                            'rgba(255, 182, 193, 0.5)',
+                            'rgba(230, 245, 201, 0.5)',
+                            'rgba(255, 235, 205, 0.5)',
+                            'rgba(230, 126, 126, 0.5)',
+                            'rgba(126, 230, 153, 0.5)',
+                            'rgba(255, 183, 178, 0.5)',
+                            'rgba(205, 230, 255, 0.5)' // Light baby blue
+                        ],
+                        borderColor: [
+                            'rgba(102, 204, 204, 1)',
+                            'rgba(255, 178, 102, 1)',
+                            'rgba(255, 223, 102, 1)',
+                            'rgba(192, 192, 192, 1)',
+                            'rgba(102, 178, 255, 1)',
+                            'rgba(178, 102, 255, 1)',
+                            'rgba(255, 102, 128, 1)',
+                            'rgba(144, 224, 144, 1)',
+                            'rgba(255, 153, 153, 1)',
+                            'rgba(173, 216, 230, 1)',
+                            'rgba(255, 204, 229, 1)',
+                            'rgba(255, 235, 156, 1)',
+                            'rgba(153, 221, 255, 1)',
+                            'rgba(255, 153, 187, 1)',
+                            'rgba(204, 204, 255, 1)',
+                            'rgba(204, 255, 204, 1)',
+                            'rgba(255, 204, 153, 1)',
+                            'rgba(255, 230, 179, 1)',
+                            'rgba(230, 179, 255, 1)',
+                            'rgba(102, 255, 178, 1)',
+                            'rgba(255, 153, 102, 1)',
+                            'rgba(153, 255, 255, 1)',
+                            'rgba(255, 204, 102, 1)',
+                            'rgba(255, 229, 204, 1)',
+                            'rgba(255, 255, 153, 1)',
+                            'rgba(102, 153, 255, 1)',
+                            'rgba(255, 102, 178, 1)',
+                            'rgba(204, 255, 229, 1)',
+                            'rgba(255, 179, 179, 1)',
+                            'rgba(204, 230, 255, 1)',
+                            'rgba(178, 255, 102, 1)',
+                            'rgba(255, 204, 153, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(230, 179, 255, 1)',
+                            'rgba(255, 204, 255, 1)',
+                            'rgba(153, 255, 204, 1)',
+                            'rgba(255, 178, 102, 1)',
+                            'rgba(230, 230, 250, 1)',
+                            'rgba(255, 229, 102, 1)',
+                            'rgba(102, 255, 204, 1)',
+                            'rgba(204, 229, 255, 1)',
+                            'rgba(204, 255, 229, 1)',
+                            'rgba(255, 204, 153, 1)',
+                            'rgba(255, 182, 193, 1)',
+                            'rgba(230, 245, 201, 1)',
+                            'rgba(255, 235, 205, 1)',
+                            'rgba(230, 126, 126, 1)',
+                            'rgba(126, 230, 153, 1)',
+                            'rgba(255, 183, 178, 1)',
+                            'rgba(205, 230, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    }
+                }
+            }
+        };
+        this.categoryChart = new chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"]('categoryChart', config);
+    };
+    AccountControlListBudgetsComponent.prototype.updateChart = function () {
+        var _this = this;
+        if (this.categoryChart) {
+            this.categoryChart.data.labels = this.getCategoriesByType(this.activeTab).map(function (category) { return category.name; });
+            this.categoryChart.data.datasets[0].data = this.getCategoriesByType(this.activeTab).map(function (category) {
+                return _this.calculatePercentage(category.currentAmmount, category.budget);
+            });
+            this.categoryChart.update();
         }
     };
     AccountControlListBudgetsComponent.prototype.calculatePercentage = function (currentAmmount, budget) {
@@ -1416,17 +1567,19 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     };
     AccountControlListBudgetsComponent.prototype.getCategoriesByType = function (type) {
         return this.categories.filter(function (category) {
-            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
-        }).sort(function (a, b) { return a.order - b.order; });
+            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
+        })
+            .sort(function (a, b) { return a.order - b.order; });
     };
     AccountControlListBudgetsComponent.prototype.setActiveTab = function (type) {
         this.activeTab = type;
+        this.initializeChart();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [Object])
-    ], AccountControlListBudgetsComponent.prototype, "settionsData", null);
+    ], AccountControlListBudgetsComponent.prototype, "settingsData", null);
     AccountControlListBudgetsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-account-control-list-budgets',
@@ -6647,6 +6800,350 @@ var TransactionOperation = /** @class */ (function () {
     return TransactionOperation;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/variables/charts.ts":
+/*!*************************************!*\
+  !*** ./src/app/variables/charts.ts ***!
+  \*************************************/
+/*! exports provided: chartOptions, parseOptions, chartExample1, chartExample2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chartOptions", function() { return chartOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseOptions", function() { return parseOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chartExample1", function() { return chartExample1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chartExample2", function() { return chartExample2; });
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_0__);
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+//
+// Chart extension for making the bars rounded
+// Code from: https://codepen.io/jedtrow/full/ygRYgo
+//
+chart_js__WEBPACK_IMPORTED_MODULE_0___default.a.elements.Rectangle.prototype.draw = function () {
+    var ctx = this._chart.ctx;
+    var vm = this._view;
+    var left, right, top, bottom, signX, signY, borderSkipped, radius;
+    var borderWidth = vm.borderWidth;
+    // Set Radius Here
+    // If radius is large enough to cause drawing errors a max radius is imposed
+    var cornerRadius = 6;
+    if (!vm.horizontal) {
+        // bar
+        left = vm.x - vm.width / 2;
+        right = vm.x + vm.width / 2;
+        top = vm.y;
+        bottom = vm.base;
+        signX = 1;
+        signY = bottom > top ? 1 : -1;
+        borderSkipped = vm.borderSkipped || "bottom";
+    }
+    else {
+        // horizontal bar
+        left = vm.base;
+        right = vm.x;
+        top = vm.y - vm.height / 2;
+        bottom = vm.y + vm.height / 2;
+        signX = right > left ? 1 : -1;
+        signY = 1;
+        borderSkipped = vm.borderSkipped || "left";
+    }
+    // Canvas doesn't allow us to stroke inside the width so we can
+    // adjust the sizes to fit if we're setting a stroke on the line
+    if (borderWidth) {
+        // borderWidth shold be less than bar width and bar height.
+        var barSize = Math.min(Math.abs(left - right), Math.abs(top - bottom));
+        borderWidth = borderWidth > barSize ? barSize : borderWidth;
+        var halfStroke = borderWidth / 2;
+        // Adjust borderWidth when bar top position is near vm.base(zero).
+        var borderLeft = left + (borderSkipped !== "left" ? halfStroke * signX : 0);
+        var borderRight = right + (borderSkipped !== "right" ? -halfStroke * signX : 0);
+        var borderTop = top + (borderSkipped !== "top" ? halfStroke * signY : 0);
+        var borderBottom = bottom + (borderSkipped !== "bottom" ? -halfStroke * signY : 0);
+        // not become a vertical line?
+        if (borderLeft !== borderRight) {
+            top = borderTop;
+            bottom = borderBottom;
+        }
+        // not become a horizontal line?
+        if (borderTop !== borderBottom) {
+            left = borderLeft;
+            right = borderRight;
+        }
+    }
+    ctx.beginPath();
+    ctx.fillStyle = vm.backgroundColor;
+    ctx.strokeStyle = vm.borderColor;
+    ctx.lineWidth = borderWidth;
+    // Corner points, from bottom-left to bottom-right clockwise
+    // | 1 2 |
+    // | 0 3 |
+    var corners = [[left, bottom], [left, top], [right, top], [right, bottom]];
+    // Find first (starting) corner with fallback to 'bottom'
+    var borders = ["bottom", "left", "top", "right"];
+    var startCorner = borders.indexOf(borderSkipped, 0);
+    if (startCorner === -1) {
+        startCorner = 0;
+    }
+    function cornerAt(index) {
+        return corners[(startCorner + index) % 4];
+    }
+    // Draw rectangle from 'startCorner'
+    var corner = cornerAt(0);
+    ctx.moveTo(corner[0], corner[1]);
+    for (var i = 1; i < 4; i++) {
+        corner = cornerAt(i);
+        var nextCornerId = i + 1;
+        if (nextCornerId === 4) {
+            nextCornerId = 0;
+        }
+        // let nextCorner = cornerAt(nextCornerId);
+        var width = corners[2][0] - corners[1][0];
+        var height = corners[0][1] - corners[1][1];
+        var x = corners[1][0];
+        var y = corners[1][1];
+        // eslint-disable-next-line
+        var radius = cornerRadius;
+        // Fix radius being too large
+        if (radius > height / 2) {
+            radius = height / 2;
+        }
+        if (radius > width / 2) {
+            radius = width / 2;
+        }
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+    }
+    ctx.fill();
+    if (borderWidth) {
+        ctx.stroke();
+    }
+};
+var mode = 'light'; //(themeMode) ? themeMode : 'light';
+var fonts = {
+    base: 'Open Sans'
+};
+// Colors
+var colors = {
+    gray: {
+        100: '#f6f9fc',
+        200: '#e9ecef',
+        300: '#dee2e6',
+        400: '#ced4da',
+        500: '#adb5bd',
+        600: '#8898aa',
+        700: '#525f7f',
+        800: '#32325d',
+        900: '#212529'
+    },
+    theme: {
+        'default': '#172b4d',
+        'primary': '#5e72e4',
+        'secondary': '#f4f5f7',
+        'info': '#11cdef',
+        'success': '#2dce89',
+        'danger': '#f5365c',
+        'warning': '#fb6340'
+    },
+    black: '#12263F',
+    white: '#FFFFFF',
+    transparent: 'transparent',
+};
+function chartOptions() {
+    // Options
+    var options = {
+        defaults: {
+            global: {
+                responsive: true,
+                maintainAspectRatio: false,
+                defaultColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
+                defaultFontColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
+                defaultFontFamily: fonts.base,
+                defaultFontSize: 13,
+                layout: {
+                    padding: 0
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        padding: 16
+                    }
+                },
+                elements: {
+                    point: {
+                        radius: 0,
+                        backgroundColor: colors.theme['primary']
+                    },
+                    line: {
+                        tension: .4,
+                        borderWidth: 4,
+                        borderColor: colors.theme['primary'],
+                        backgroundColor: colors.transparent,
+                        borderCapStyle: 'rounded'
+                    },
+                    rectangle: {
+                        backgroundColor: colors.theme['warning']
+                    },
+                    arc: {
+                        backgroundColor: colors.theme['primary'],
+                        borderColor: (mode == 'dark') ? colors.gray[800] : colors.white,
+                        borderWidth: 4
+                    }
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: 'index',
+                    intersect: false,
+                }
+            },
+            doughnut: {
+                cutoutPercentage: 83,
+                legendCallback: function (chart) {
+                    var data = chart.data;
+                    var content = '';
+                    data.labels.forEach(function (label, index) {
+                        var bgColor = data.datasets[0].backgroundColor[index];
+                        content += '<span class="chart-legend-item">';
+                        content += '<i class="chart-legend-indicator" style="background-color: ' + bgColor + '"></i>';
+                        content += label;
+                        content += '</span>';
+                    });
+                    return content;
+                }
+            }
+        }
+    };
+    // yAxes
+    chart_js__WEBPACK_IMPORTED_MODULE_0___default.a.scaleService.updateScaleDefaults('linear', {
+        gridLines: {
+            borderDash: [2],
+            borderDashOffset: [2],
+            color: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
+            drawBorder: false,
+            drawTicks: false,
+            lineWidth: 0,
+            zeroLineWidth: 0,
+            zeroLineColor: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
+            zeroLineBorderDash: [2],
+            zeroLineBorderDashOffset: [2]
+        },
+        ticks: {
+            beginAtZero: true,
+            padding: 10,
+            callback: function (value) {
+                if (!(value % 10)) {
+                    return value;
+                }
+            }
+        }
+    });
+    // xAxes
+    chart_js__WEBPACK_IMPORTED_MODULE_0___default.a.scaleService.updateScaleDefaults('category', {
+        gridLines: {
+            drawBorder: false,
+            drawOnChartArea: false,
+            drawTicks: false
+        },
+        ticks: {
+            padding: 20
+        },
+        maxBarThickness: 10
+    });
+    return options;
+}
+var parseOptions = function (parent, options) {
+    for (var item in options) {
+        if (typeof options[item] !== 'object') {
+            parent[item] = options[item];
+        }
+        else {
+            parseOptions(parent[item], options[item]);
+        }
+    }
+};
+var chartExample1 = {
+    options: {
+        scales: {
+            yAxes: [{
+                    gridLines: {
+                        color: colors.gray[900],
+                        zeroLineColor: colors.gray[900]
+                    },
+                    ticks: {
+                        callback: function (value) {
+                            if (!(value % 10)) {
+                                return '$' + value + 'k';
+                            }
+                        }
+                    }
+                }]
+        }
+    },
+    data: {
+        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+                label: 'Performance',
+                data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+            }]
+    }
+};
+var chartExample2 = {
+    options: {
+        scales: {
+            yAxes: [
+                {
+                    ticks: {
+                        callback: function (value) {
+                            if (!(value % 10)) {
+                                //return '$' + value + 'k'
+                                return value;
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        tooltips: {
+            callbacks: {
+                label: function (item, data) {
+                    var label = data.datasets[item.datasetIndex].label || "";
+                    var yLabel = item.yLabel;
+                    var content = "";
+                    if (data.datasets.length > 1) {
+                        content += label;
+                    }
+                    content += yLabel;
+                    return content;
+                }
+            }
+        }
+    },
+    data: {
+        labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [
+            {
+                label: "Sales",
+                data: [25, 20, 30, 22, 17, 29]
+            }
+        ]
+    }
+};
 
 
 /***/ }),
