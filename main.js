@@ -324,6 +324,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/loading/loading.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/loading/loading.component.html ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"loader\">\n    <div class=\"loaderBar\"></div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/navbar/navbar.component.html":
 /*!***********************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/navbar/navbar.component.html ***!
@@ -411,7 +424,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <h6 class=\"heading-small text-muted mb-4\">Datos de la cuenta</h6>\n        <form [formGroup]=\"configuracionForm\" (ngSubmit)=\"onSubmitInitial()\">\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <ng-container *ngIf=\"!disableAccountId; else elseNoDisableAccountIdInput\">\n                            <label placement=\"right\"\n                                ngbTooltip=\"Recuerda que en base a este identificador, el sistema registrara automaticamente las transacciones desde tu correo electrónico\"\n                                class=\"form-control-label\" for=\"accountId\">\n                                Identificador de la Cuenta\n                            </label>\n                            <input class=\"form-control form-control-alternative\" id=\"accountId\"\n                                formControlName=\"accountId\" placeholder=\"0\" type=\"text\">\n                            <p class=\"text-warning\">\n                                <span\n                                    *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountId.errors?.required\">Campo\n                                    Requerido</span>\n                            </p>\n                        </ng-container>\n                        <ng-template #elseNoDisableAccountIdInput>\n                            <strong>\n                                Cuenta Nro: {{ accountToEdit.id }}\n                            </strong>\n                        </ng-template>\n\n                    </div>\n                </div>\n                <div class=\" col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"accountName\">\n                            Nombre\n                        </label>\n                        <input class=\"form-control form-control-alternative\" id=\"accountName\"\n                            formControlName=\"accountName\" placeholder=\"\" type=\"text\">\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountName.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <label class=\"form-control-label\" for=\"accountDescription\">\n                            Descripción\n                        </label>\n                        <textarea class=\"form-control form-control-alternative\" formControlName=\"accountDescription\"\n                            placeholder=\"\"></textarea>\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountDescription.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"accountBalance\">\n                            Saldo actual\n                        </label>\n                        <input class=\"form-control form-control-alternative\" id=\"accountBalance\"\n                            formControlName=\"accountBalance\" placeholder=\"\" type=\"number\">\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountBalance.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <div class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                            <input class=\"custom-control-input\" formControlName=\"accountIsPrincipal\"\n                                id=\"accountIsPrincipal\" type=\"checkbox\"><label class=\"custom-control-label\"\n                                for=\"accountIsPrincipal\"><span class=\"text-muted\">Principal</span></label>\n                        </div>\n                        <h6 class=\"text-uppercase text-muted ls-1 mb-1\">Saldra en el panel general</h6>\n                    </div>\n                </div>\n            </div>\n            <button [disabled]=\"!configuracionForm.valid\" type=\"submit\" class=\"btn btn-primary\">Guardar</button>\n        </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Datos de la cuenta\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <form [formGroup]=\"configuracionForm\" (ngSubmit)=\"onSubmitInitial()\">\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <ng-container *ngIf=\"!disableAccountId; else elseNoDisableAccountIdInput\">\n                            <label placement=\"right\"\n                                ngbTooltip=\"Recuerda que en base a este identificador, el sistema registrara automaticamente las transacciones desde tu correo electrónico\"\n                                class=\"form-control-label\" for=\"accountId\">\n                                Identificador de la Cuenta\n                            </label>\n                            <input class=\"form-control form-control-alternative\" id=\"accountId\"\n                                formControlName=\"accountId\" placeholder=\"0\" type=\"text\">\n                            <p class=\"text-warning\">\n                                <span\n                                    *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountId.errors?.required\">Campo\n                                    Requerido</span>\n                            </p>\n                        </ng-container>\n                        <ng-template #elseNoDisableAccountIdInput>\n                            <strong>\n                                Cuenta Nro: {{ accountToEdit.id }}\n                            </strong>\n                        </ng-template>\n\n                    </div>\n                </div>\n                <div class=\" col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"accountName\">\n                            Nombre\n                        </label>\n                        <input class=\"form-control form-control-alternative\" id=\"accountName\"\n                            formControlName=\"accountName\" placeholder=\"\" type=\"text\">\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountName.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <label class=\"form-control-label\" for=\"accountDescription\">\n                            Descripción\n                        </label>\n                        <textarea class=\"form-control form-control-alternative\" formControlName=\"accountDescription\"\n                            placeholder=\"\"></textarea>\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountDescription.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"accountBalance\">\n                            Saldo actual\n                        </label>\n                        <input class=\"form-control form-control-alternative\" id=\"accountBalance\"\n                            formControlName=\"accountBalance\" placeholder=\"\" type=\"number\">\n                        <p class=\"text-warning\">\n                            <span\n                                *ngIf=\"configuracionForm.controls.submitted.value && configuracionForm.controls.accountBalance.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <div class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                            <input class=\"custom-control-input\" formControlName=\"accountIsPrincipal\"\n                                id=\"accountIsPrincipal\" type=\"checkbox\"><label class=\"custom-control-label\"\n                                for=\"accountIsPrincipal\"><span class=\"text-muted\">Principal</span></label>\n                        </div>\n                        <h6 class=\"text-uppercase text-muted ls-1 mb-1\">Saldra en el panel general</h6>\n                    </div>\n                </div>\n            </div>\n            <button [disabled]=\"!configuracionForm.valid\" type=\"submit\" class=\"btn btn-primary\">Guardar</button>\n        </form>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -424,7 +437,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <h2>Gestión de Categorías y Presupuesto Mensual</h2>\n\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome | currency }}\n                    </span>\n                    <span class=\"description\">Total Ingresos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-info\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">ID</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <td>{{ category.id }}</td>\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td>\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Gestión de Categorías y Presupuesto Mensual\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome | currency }}\n                    </span>\n                    <span class=\"description\">Total Ingresos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-info\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\" style=\"max-height: 500px; overflow-y: auto;\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td>\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -437,7 +450,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <h6 class=\"heading-small text-muted mb-4\">Datos de la Transacción</h6>\n        <form [formGroup]=\"transactionForm\" (ngSubmit)=\"onSubmit()\">\n            <!-- Categoría y Tipo -->\n            <div class=\"row\">\n                <div class=\"col-lg-6\" *ngIf=\"!transaction\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"type\">Tipo de Transacción</label>\n                        <select class=\"form-control\" id=\"type\" formControlName=\"type\">\n                            <option [value]=\"incomeType\">Ingreso</option>\n                            <option [value]=\"expenseType\">Gasto</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"categoryId\">Categoria</label>\n                        <select class=\"form-control\" id=\"categoryId\" formControlName=\"categoryId\">\n                            <option value=\"\">Seleccione una opcion</option>\n                            <option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                                {{ category.name }}\n                            </option>\n                        </select>\n                        <p class=\"text-warning\"\n                            *ngIf=\"isSubmitted && transactionForm.controls.categoryId.errors?.required\">Campo Requerido\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"row\">\n                <!-- Selección de Cuenta -->\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"originalAccount\">Cuenta Origen</label>\n                        <select class=\"form-control\" id=\"originalAccount\" formControlName=\"originalAccount\">\n                            <option *ngFor=\"let account of settingsData.accounts\" [value]=\"account.id\">\n                                {{ account.name }}\n                            </option>\n                        </select>\n                        <p class=\"text-warning\"\n                            *ngIf=\"isSubmitted && transactionForm.controls.originalAccount.errors?.required\">Campo\n                            Requerido\n                        </p>\n                    </div>\n                </div>\n\n                <!-- Selección de Cuenta -->\n                <div class=\"col-lg-6\" *ngIf=\"transactionForm.value.type=='expense' && !transaction\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"targetAccountId\">Cuenta Destino (opcional)</label>\n                        <select class=\"form-control\" id=\"targetAccountId\" formControlName=\"targetAccountId\">\n                            <option *ngFor=\"let account of settingsData.accounts\" [value]=\"account.id\">\n                                {{ account.name }}\n                            </option>\n                        </select>\n                        <p class=\"text-warning\"\n                            *ngIf=\"isSubmitted && transactionForm.controls.targetAccountId.errors?.required\">Campo\n                            Requerido\n                        </p>\n                    </div>\n                </div>\n\n\n            </div>\n\n            <!-- Fecha y Monto -->\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"date\">Fecha</label>\n                        <input type=\"date\" class=\"form-control\" id=\"date\" formControlName=\"date\">\n                        <p class=\"text-warning\" *ngIf=\"isSubmitted && transactionForm.controls.date.errors?.required\">\n                            Campo Requerido</p>\n                    </div>\n                </div>\n\n                <!-- Monto de la Transacción -->\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"amount\">Monto</label>\n                        <input type=\"number\" class=\"form-control\" id=\"amount\" formControlName=\"amount\"\n                            placeholder=\"Monto\">\n                        <p class=\"text-warning\" *ngIf=\"isSubmitted && transactionForm.controls.amount.errors?.required\">\n                            Campo Requerido</p>\n                    </div>\n                </div>\n\n\n            </div>\n\n            <!-- Descripción -->\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <label class=\"form-control-label\" for=\"description\">\n                            Descripción\n                        </label>\n                        <textarea class=\"form-control form-control-alternative\" formControlName=\"description\"\n                            placeholder=\"\"></textarea>\n                        <p class=\"text-warning\">\n                            <span *ngIf=\"isSubmitted && transactionForm.controls.description.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n            </div>\n\n\n\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!transactionForm.valid\">Guardar\n                Transacción</button>\n        </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Datos de la Transacción\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <form [formGroup]=\"transactionForm\" (ngSubmit)=\"onSubmit()\">\n            <!-- Categoría y Tipo -->\n            <div class=\"row\">\n                <div class=\"col-lg-6\" *ngIf=\"!transaction\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"type\">Tipo de Transacción</label>\n                        <select class=\"form-control\" id=\"type\" formControlName=\"type\">\n                            <option [value]=\"incomeType\">Ingreso</option>\n                            <option [value]=\"expenseType\">Gasto</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"categoryId\">Categoria</label>\n                        <select class=\"form-control\" id=\"categoryId\" formControlName=\"categoryId\">\n                            <option value=\"\">Seleccione una opcion</option>\n                            <option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                                {{ category.name }}\n                            </option>\n                        </select>\n                        <p class=\"text-warning\"\n                            *ngIf=\"isSubmitted && transactionForm.controls.categoryId.errors?.required\">Campo Requerido\n                        </p>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"row\">\n                <!-- Selección de Cuenta -->\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"originalAccount\">Cuenta Origen</label>\n                        <select class=\"form-control\" id=\"originalAccount\" formControlName=\"originalAccount\">\n                            <option *ngFor=\"let account of settingsData.accounts\" [value]=\"account.id\">\n                                {{ account.name }}\n                            </option>\n                        </select>\n                        <p class=\"text-warning\"\n                            *ngIf=\"isSubmitted && transactionForm.controls.originalAccount.errors?.required\">Campo\n                            Requerido\n                        </p>\n                    </div>\n                </div>\n\n                <!-- Selección de Cuenta -->\n                <div class=\"col-lg-6\" *ngIf=\"transactionForm.value.type=='expense' && !transaction\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"targetAccountId\">Cuenta Destino (opcional)</label>\n                        <select class=\"form-control\" id=\"targetAccountId\" formControlName=\"targetAccountId\">\n                            <option *ngFor=\"let account of settingsData.accounts\" [value]=\"account.id\">\n                                {{ account.name }}\n                            </option>\n                        </select>\n                        <p class=\"text-warning\"\n                            *ngIf=\"isSubmitted && transactionForm.controls.targetAccountId.errors?.required\">Campo\n                            Requerido\n                        </p>\n                    </div>\n                </div>\n\n\n            </div>\n\n            <!-- Fecha y Monto -->\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"date\">Fecha</label>\n                        <input type=\"date\" class=\"form-control\" id=\"date\" formControlName=\"date\">\n                        <p class=\"text-warning\" *ngIf=\"isSubmitted && transactionForm.controls.date.errors?.required\">\n                            Campo Requerido</p>\n                    </div>\n                </div>\n\n                <!-- Monto de la Transacción -->\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n                        <label class=\"form-control-label\" for=\"amount\">Monto</label>\n                        <input type=\"number\" class=\"form-control\" id=\"amount\" formControlName=\"amount\"\n                            placeholder=\"Monto\">\n                        <p class=\"text-warning\" *ngIf=\"isSubmitted && transactionForm.controls.amount.errors?.required\">\n                            Campo Requerido</p>\n                    </div>\n                </div>\n\n\n            </div>\n\n            <!-- Descripción -->\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <div class=\"form-group\">\n\n                        <label class=\"form-control-label\" for=\"description\">\n                            Descripción\n                        </label>\n                        <textarea class=\"form-control form-control-alternative\" formControlName=\"description\"\n                            placeholder=\"\"></textarea>\n                        <p class=\"text-warning\">\n                            <span *ngIf=\"isSubmitted && transactionForm.controls.description.errors?.required\">Campo\n                                Requerido</span>\n                        </p>\n                    </div>\n                </div>\n            </div>\n\n\n\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!transactionForm.valid\">Guardar\n                Transacción</button>\n        </form>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -463,7 +476,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva\n                                transaccion</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\"display-2 text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n            <div class=\"mb-2\" *ngIf=\"isSync\">\n                <app-loading></app-loading>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mis Cuentas\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva\n                                transaccion</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
 
 /***/ }),
 
@@ -876,6 +889,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/components/footer/footer.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var _loading_loading_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./loading/loading.component */ "./src/app/components/loading/loading.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -885,6 +899,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -905,12 +920,14 @@ var ComponentsModule = /** @class */ (function () {
             declarations: [
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__["FooterComponent"],
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__["NavbarComponent"],
-                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_2__["SidebarComponent"]
+                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_2__["SidebarComponent"],
+                _loading_loading_component__WEBPACK_IMPORTED_MODULE_7__["LoadingComponent"]
             ],
             exports: [
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__["FooterComponent"],
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_3__["NavbarComponent"],
-                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_2__["SidebarComponent"]
+                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_2__["SidebarComponent"],
+                _loading_loading_component__WEBPACK_IMPORTED_MODULE_7__["LoadingComponent"]
             ]
         })
     ], ComponentsModule);
@@ -986,6 +1003,63 @@ var FooterComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [src_app_services_summary_resume_summary_resume_service__WEBPACK_IMPORTED_MODULE_1__["SummaryResumeService"]])
     ], FooterComponent);
     return FooterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/loading/loading.component.css":
+/*!**********************************************************!*\
+  !*** ./src/app/components/loading/loading.component.css ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("body {\n    background: #333;\n}\n\n.loader {\n    width: 100%;\n    margin: 0 auto;\n    border-radius: 10px;\n    border: 4px solid transparent;\n    position: relative;\n    padding: 1px;\n}\n\n.loader:before {\n    content: '';\n    position: absolute;\n    top: -4px;\n    right: -4px;\n    bottom: -4px;\n    left: -4px;\n}\n\n.loader .loaderBar {\n    position: absolute;\n    border-radius: 10px;\n    top: 0;\n    right: 100%;\n    bottom: 0;\n    left: 0;\n    background: #fff;\n    width: 0;\n    -webkit-animation: borealisBar 2s linear infinite;\n            animation: borealisBar 2s linear infinite;\n}\n\n@-webkit-keyframes borealisBar {\n    0% {\n        left: 0%;\n        right: 100%;\n        width: 0%;\n    }\n\n    10% {\n        left: 0%;\n        right: 75%;\n        width: 25%;\n    }\n\n    90% {\n        right: 0%;\n        left: 75%;\n        width: 25%;\n    }\n\n    100% {\n        left: 100%;\n        right: 0%;\n        width: 0%;\n    }\n}\n\n@keyframes borealisBar {\n    0% {\n        left: 0%;\n        right: 100%;\n        width: 0%;\n    }\n\n    10% {\n        left: 0%;\n        right: 75%;\n        width: 25%;\n    }\n\n    90% {\n        right: 0%;\n        left: 75%;\n        width: 25%;\n    }\n\n    100% {\n        left: 100%;\n        right: 0%;\n        width: 0%;\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2FkaW5nL2xvYWRpbmcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLFdBQVc7SUFDWCxjQUFjO0lBQ2QsbUJBQW1CO0lBQ25CLDZCQUE2QjtJQUM3QixrQkFBa0I7SUFDbEIsWUFBWTtBQUNoQjs7QUFFQTtJQUNJLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFdBQVc7SUFDWCxZQUFZO0lBQ1osVUFBVTtBQUNkOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLG1CQUFtQjtJQUNuQixNQUFNO0lBQ04sV0FBVztJQUNYLFNBQVM7SUFDVCxPQUFPO0lBQ1AsZ0JBQWdCO0lBQ2hCLFFBQVE7SUFDUixpREFBeUM7WUFBekMseUNBQXlDO0FBQzdDOztBQUVBO0lBQ0k7UUFDSSxRQUFRO1FBQ1IsV0FBVztRQUNYLFNBQVM7SUFDYjs7SUFFQTtRQUNJLFFBQVE7UUFDUixVQUFVO1FBQ1YsVUFBVTtJQUNkOztJQUVBO1FBQ0ksU0FBUztRQUNULFNBQVM7UUFDVCxVQUFVO0lBQ2Q7O0lBRUE7UUFDSSxVQUFVO1FBQ1YsU0FBUztRQUNULFNBQVM7SUFDYjtBQUNKOztBQXhCQTtJQUNJO1FBQ0ksUUFBUTtRQUNSLFdBQVc7UUFDWCxTQUFTO0lBQ2I7O0lBRUE7UUFDSSxRQUFRO1FBQ1IsVUFBVTtRQUNWLFVBQVU7SUFDZDs7SUFFQTtRQUNJLFNBQVM7UUFDVCxTQUFTO1FBQ1QsVUFBVTtJQUNkOztJQUVBO1FBQ0ksVUFBVTtRQUNWLFNBQVM7UUFDVCxTQUFTO0lBQ2I7QUFDSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbG9hZGluZy9sb2FkaW5nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgICBiYWNrZ3JvdW5kOiAjMzMzO1xufVxuXG4ubG9hZGVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBtYXJnaW46IDAgYXV0bztcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICAgIGJvcmRlcjogNHB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBwYWRkaW5nOiAxcHg7XG59XG5cbi5sb2FkZXI6YmVmb3JlIHtcbiAgICBjb250ZW50OiAnJztcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAtNHB4O1xuICAgIHJpZ2h0OiAtNHB4O1xuICAgIGJvdHRvbTogLTRweDtcbiAgICBsZWZ0OiAtNHB4O1xufVxuXG4ubG9hZGVyIC5sb2FkZXJCYXIge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xuICAgIHRvcDogMDtcbiAgICByaWdodDogMTAwJTtcbiAgICBib3R0b206IDA7XG4gICAgbGVmdDogMDtcbiAgICBiYWNrZ3JvdW5kOiAjZmZmO1xuICAgIHdpZHRoOiAwO1xuICAgIGFuaW1hdGlvbjogYm9yZWFsaXNCYXIgMnMgbGluZWFyIGluZmluaXRlO1xufVxuXG5Aa2V5ZnJhbWVzIGJvcmVhbGlzQmFyIHtcbiAgICAwJSB7XG4gICAgICAgIGxlZnQ6IDAlO1xuICAgICAgICByaWdodDogMTAwJTtcbiAgICAgICAgd2lkdGg6IDAlO1xuICAgIH1cblxuICAgIDEwJSB7XG4gICAgICAgIGxlZnQ6IDAlO1xuICAgICAgICByaWdodDogNzUlO1xuICAgICAgICB3aWR0aDogMjUlO1xuICAgIH1cblxuICAgIDkwJSB7XG4gICAgICAgIHJpZ2h0OiAwJTtcbiAgICAgICAgbGVmdDogNzUlO1xuICAgICAgICB3aWR0aDogMjUlO1xuICAgIH1cblxuICAgIDEwMCUge1xuICAgICAgICBsZWZ0OiAxMDAlO1xuICAgICAgICByaWdodDogMCU7XG4gICAgICAgIHdpZHRoOiAwJTtcbiAgICB9XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/loading/loading.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/components/loading/loading.component.ts ***!
+  \*********************************************************/
+/*! exports provided: LoadingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingComponent", function() { return LoadingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var LoadingComponent = /** @class */ (function () {
+    function LoadingComponent() {
+    }
+    LoadingComponent.prototype.ngOnInit = function () {
+    };
+    LoadingComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-loading',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./loading.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/loading/loading.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./loading.component.css */ "./src/app/components/loading/loading.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoadingComponent);
+    return LoadingComponent;
 }());
 
 
@@ -1359,6 +1433,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
 /* harmony import */ var src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/variables/charts */ "./src/app/variables/charts.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1402,7 +1487,6 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         configurable: true
     });
     AccountControlListBudgetsComponent.prototype.ngOnInit = function () {
-        this.initializeChart();
     };
     AccountControlListBudgetsComponent.prototype.ngOnChanges = function (changes) {
         if (changes.settingsData && !changes.settingsData.firstChange) {
@@ -1425,118 +1509,12 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     AccountControlListBudgetsComponent.prototype.initializeChart = function () {
         var _this = this;
         Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["parseOptions"])(chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"], Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["chartOptions"])());
+        var categories = this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; });
         var config = {
             type: 'pie',
             data: {
-                labels: this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; }).map(function (category) { return category.name; }),
-                datasets: [{
-                        data: this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; }).map(function (category) { return _this.calculatePercentage(category.currentAmmount, category.budget); }),
-                        backgroundColor: [
-                            'rgba(102, 204, 204, 0.5)',
-                            'rgba(255, 178, 102, 0.5)',
-                            'rgba(255, 223, 102, 0.5)',
-                            'rgba(192, 192, 192, 0.5)',
-                            'rgba(102, 178, 255, 0.5)',
-                            'rgba(178, 102, 255, 0.5)',
-                            'rgba(255, 102, 128, 0.5)',
-                            'rgba(144, 224, 144, 0.5)',
-                            'rgba(255, 153, 153, 0.5)',
-                            'rgba(173, 216, 230, 0.5)',
-                            'rgba(255, 204, 229, 0.5)',
-                            'rgba(255, 235, 156, 0.5)',
-                            'rgba(153, 221, 255, 0.5)',
-                            'rgba(255, 153, 187, 0.5)',
-                            'rgba(204, 204, 255, 0.5)',
-                            'rgba(204, 255, 204, 0.5)',
-                            'rgba(255, 204, 153, 0.5)',
-                            'rgba(255, 230, 179, 0.5)',
-                            'rgba(230, 179, 255, 0.5)',
-                            'rgba(102, 255, 178, 0.5)',
-                            'rgba(255, 153, 102, 0.5)',
-                            'rgba(153, 255, 255, 0.5)',
-                            'rgba(255, 204, 102, 0.5)',
-                            'rgba(255, 229, 204, 0.5)',
-                            'rgba(255, 255, 153, 0.5)',
-                            'rgba(102, 153, 255, 0.5)',
-                            'rgba(255, 102, 178, 0.5)',
-                            'rgba(204, 255, 229, 0.5)',
-                            'rgba(255, 179, 179, 0.5)',
-                            'rgba(204, 230, 255, 0.5)',
-                            'rgba(178, 255, 102, 0.5)',
-                            'rgba(255, 204, 153, 0.5)',
-                            'rgba(153, 102, 255, 0.5)',
-                            'rgba(230, 179, 255, 0.5)',
-                            'rgba(255, 204, 255, 0.5)',
-                            'rgba(153, 255, 204, 0.5)',
-                            'rgba(255, 178, 102, 0.5)',
-                            'rgba(230, 230, 250, 0.5)',
-                            'rgba(255, 229, 102, 0.5)',
-                            'rgba(102, 255, 204, 0.5)',
-                            'rgba(204, 229, 255, 0.5)',
-                            'rgba(204, 255, 229, 0.5)',
-                            'rgba(255, 204, 153, 0.5)',
-                            'rgba(255, 182, 193, 0.5)',
-                            'rgba(230, 245, 201, 0.5)',
-                            'rgba(255, 235, 205, 0.5)',
-                            'rgba(230, 126, 126, 0.5)',
-                            'rgba(126, 230, 153, 0.5)',
-                            'rgba(255, 183, 178, 0.5)',
-                            'rgba(205, 230, 255, 0.5)' // Light baby blue
-                        ],
-                        borderColor: [
-                            'rgba(102, 204, 204, 1)',
-                            'rgba(255, 178, 102, 1)',
-                            'rgba(255, 223, 102, 1)',
-                            'rgba(192, 192, 192, 1)',
-                            'rgba(102, 178, 255, 1)',
-                            'rgba(178, 102, 255, 1)',
-                            'rgba(255, 102, 128, 1)',
-                            'rgba(144, 224, 144, 1)',
-                            'rgba(255, 153, 153, 1)',
-                            'rgba(173, 216, 230, 1)',
-                            'rgba(255, 204, 229, 1)',
-                            'rgba(255, 235, 156, 1)',
-                            'rgba(153, 221, 255, 1)',
-                            'rgba(255, 153, 187, 1)',
-                            'rgba(204, 204, 255, 1)',
-                            'rgba(204, 255, 204, 1)',
-                            'rgba(255, 204, 153, 1)',
-                            'rgba(255, 230, 179, 1)',
-                            'rgba(230, 179, 255, 1)',
-                            'rgba(102, 255, 178, 1)',
-                            'rgba(255, 153, 102, 1)',
-                            'rgba(153, 255, 255, 1)',
-                            'rgba(255, 204, 102, 1)',
-                            'rgba(255, 229, 204, 1)',
-                            'rgba(255, 255, 153, 1)',
-                            'rgba(102, 153, 255, 1)',
-                            'rgba(255, 102, 178, 1)',
-                            'rgba(204, 255, 229, 1)',
-                            'rgba(255, 179, 179, 1)',
-                            'rgba(204, 230, 255, 1)',
-                            'rgba(178, 255, 102, 1)',
-                            'rgba(255, 204, 153, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(230, 179, 255, 1)',
-                            'rgba(255, 204, 255, 1)',
-                            'rgba(153, 255, 204, 1)',
-                            'rgba(255, 178, 102, 1)',
-                            'rgba(230, 230, 250, 1)',
-                            'rgba(255, 229, 102, 1)',
-                            'rgba(102, 255, 204, 1)',
-                            'rgba(204, 229, 255, 1)',
-                            'rgba(204, 255, 229, 1)',
-                            'rgba(255, 204, 153, 1)',
-                            'rgba(255, 182, 193, 1)',
-                            'rgba(230, 245, 201, 1)',
-                            'rgba(255, 235, 205, 1)',
-                            'rgba(230, 126, 126, 1)',
-                            'rgba(126, 230, 153, 1)',
-                            'rgba(255, 183, 178, 1)',
-                            'rgba(205, 230, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                labels: categories.map(function (category) { return category.name; }),
+                datasets: [__assign({ data: categories.map(function (category) { return _this.calculatePercentage(category.currentAmmount, category.budget); }) }, this.getColors())]
             },
             options: {
                 responsive: true,
@@ -1544,6 +1522,15 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
                     legend: {
                         display: true,
                         position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                var category = categories[context.dataIndex];
+                                var amount = category.currentAmmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                                return category.name + ": " + amount;
+                            }
+                        }
                     }
                 }
             }
@@ -1553,12 +1540,73 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     AccountControlListBudgetsComponent.prototype.updateChart = function () {
         var _this = this;
         if (this.categoryChart) {
-            this.categoryChart.data.labels = this.getCategoriesByType(this.activeTab).map(function (category) { return category.name; });
-            this.categoryChart.data.datasets[0].data = this.getCategoriesByType(this.activeTab).map(function (category) {
+            var categories = this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; });
+            this.categoryChart.data.labels = categories.map(function (category) { return category.name; });
+            this.categoryChart.data.datasets[0].data = categories.map(function (category) {
                 return _this.calculatePercentage(category.currentAmmount, category.budget);
             });
             this.categoryChart.update();
         }
+        else {
+            this.initializeChart();
+        }
+    };
+    AccountControlListBudgetsComponent.prototype.getColors = function () {
+        var colors = [
+            'rgba(102, 204, 204, OPACITY)',
+            'rgba(255, 178, 102, OPACITY)',
+            'rgba(255, 223, 102, OPACITY)',
+            'rgba(192, 192, 192, OPACITY)',
+            'rgba(102, 178, 255, OPACITY)',
+            'rgba(178, 102, 255, OPACITY)',
+            'rgba(255, 102, 128, OPACITY)',
+            'rgba(144, 224, 144, OPACITY)',
+            'rgba(255, 153, 153, OPACITY)',
+            'rgba(173, 216, 230, OPACITY)',
+            'rgba(255, 204, 229, OPACITY)',
+            'rgba(255, 235, 156, OPACITY)',
+            'rgba(153, 221, 255, OPACITY)',
+            'rgba(255, 153, 187, OPACITY)',
+            'rgba(204, 204, 255, OPACITY)',
+            'rgba(204, 255, 204, OPACITY)',
+            'rgba(255, 204, 153, OPACITY)',
+            'rgba(255, 230, 179, OPACITY)',
+            'rgba(230, 179, 255, OPACITY)',
+            'rgba(102, 255, 178, OPACITY)',
+            'rgba(255, 153, 102, OPACITY)',
+            'rgba(153, 255, 255, OPACITY)',
+            'rgba(255, 204, 102, OPACITY)',
+            'rgba(255, 229, 204, OPACITY)',
+            'rgba(255, 255, 153, OPACITY)',
+            'rgba(102, 153, 255, OPACITY)',
+            'rgba(255, 102, 178, OPACITY)',
+            'rgba(204, 255, 229, OPACITY)',
+            'rgba(255, 179, 179, OPACITY)',
+            'rgba(204, 230, 255, OPACITY)',
+            'rgba(178, 255, 102, OPACITY)',
+            'rgba(255, 204, 153, OPACITY)',
+            'rgba(153, 102, 255, OPACITY)',
+            'rgba(230, 179, 255, OPACITY)',
+            'rgba(255, 204, 255, OPACITY)',
+            'rgba(153, 255, 204, OPACITY)',
+            'rgba(255, 178, 102, OPACITY)',
+            'rgba(230, 230, 250, OPACITY)',
+            'rgba(255, 229, 102, OPACITY)',
+            'rgba(102, 255, 204, OPACITY)',
+            'rgba(204, 229, 255, OPACITY)',
+            'rgba(204, 255, 229, OPACITY)',
+            'rgba(255, 204, 153, OPACITY)',
+            'rgba(255, 182, 193, OPACITY)',
+            'rgba(230, 245, 201, OPACITY)',
+            'rgba(255, 235, 205, OPACITY)',
+            'rgba(230, 126, 126, OPACITY)',
+            'rgba(126, 230, 153, OPACITY)',
+            'rgba(255, 183, 178, OPACITY)',
+            'rgba(205, 230, 255, OPACITY)' // Light baby blue
+        ];
+        var backgroundColor = colors.map(function (color) { return color.replace('OPACITY', '0.5'); });
+        var borderColor = colors.map(function (color) { return color.replace('OPACITY', '1'); });
+        return { backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: 1 };
     };
     AccountControlListBudgetsComponent.prototype.calculatePercentage = function (currentAmmount, budget) {
         if (budget === 0)
@@ -1687,6 +1735,9 @@ var AccountControlListTransactionsComponent = /** @class */ (function () {
         this.resetMetrics();
         this.filteredTransactions = __spreadArrays(this.transactions); // Inicialmente sin filtrar
         this.loadMoreTransactions(); // Carga los primeros 30 registros
+        if (this.lastEvent) {
+            this.onSearch(this.lastEvent);
+        }
     };
     AccountControlListTransactionsComponent.prototype.onScroll = function (event) {
         var element = event.target;
@@ -1696,6 +1747,7 @@ var AccountControlListTransactionsComponent = /** @class */ (function () {
         }
     };
     AccountControlListTransactionsComponent.prototype.onSearch = function (event) {
+        this.lastEvent = event;
         var input = event.target.value;
         this.isFiltering = input.length > 0;
         if (this.isFiltering) {
@@ -1821,7 +1873,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlManagementAccountComponent", function() { return AccountControlManagementAccountComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
-/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1837,8 +1890,10 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AccountControlManagementAccountComponent = /** @class */ (function () {
-    function AccountControlManagementAccountComponent(fb, accountService) {
+    function AccountControlManagementAccountComponent(activeModal, fb, accountService) {
+        this.activeModal = activeModal;
         this.fb = fb;
         this.accountService = accountService;
         this.disableAccountId = false;
@@ -1912,8 +1967,9 @@ var AccountControlManagementAccountComponent = /** @class */ (function () {
         }
     };
     AccountControlManagementAccountComponent.ctorParameters = function () { return [
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"] },
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
-        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"] }
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__["AccountControlService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -1935,7 +1991,7 @@ var AccountControlManagementAccountComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-management-account.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./account-control-management-account.component.css */ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.css")).default]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"]])
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__["AccountControlService"]])
     ], AccountControlManagementAccountComponent);
     return AccountControlManagementAccountComponent;
 }());
@@ -1968,8 +2024,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlManagementCategoriesComponent", function() { return AccountControlManagementCategoriesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
-/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -1996,11 +2053,13 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AccountControlManagementCategoriesComponent = /** @class */ (function () {
-    function AccountControlManagementCategoriesComponent(accountService) {
+    function AccountControlManagementCategoriesComponent(activeModal, accountService) {
+        this.activeModal = activeModal;
         this.accountService = accountService;
         this.onFinish = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.activeTab = 'income';
+        this.activeTab = 'expense';
         this.newKeyword = '';
         this.categories = [];
         this.budgetSettings = {
@@ -2023,7 +2082,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     });
     AccountControlManagementCategoriesComponent.prototype.onTransactionChange = function (value) {
         if (value) {
-            if (value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME || value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE) {
+            if (value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME || value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE) {
                 this.activeTab = value.type;
                 this.addNewCategory();
             }
@@ -2071,7 +2130,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     });
     AccountControlManagementCategoriesComponent.prototype.getCategoriesByType = function (type) {
         return this.categories.filter(function (category) {
-            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
+            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
         }).sort(function (a, b) { return a.order - b.order; });
     };
     AccountControlManagementCategoriesComponent.prototype.addNewCategory = function () {
@@ -2080,7 +2139,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
             id: this.activeTab + "_" + Date.now(),
             name: '',
             keyWords: [],
-            type: this.activeTab === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE,
+            type: this.activeTab === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE,
             budget: 0,
             accountId: '',
             order: groupOfOrder + this.getCategoriesByType(this.activeTab).length,
@@ -2091,7 +2150,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     };
     AccountControlManagementCategoriesComponent.prototype.getGroupOfOrder = function (type) {
         var groupOfOrder = 1000;
-        if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
+        if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
             groupOfOrder = 2000;
         }
         return groupOfOrder;
@@ -2126,8 +2185,8 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         }
     };
     AccountControlManagementCategoriesComponent.prototype.getIndexReal = function (index) {
-        if (this.activeTab === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
-            return index + (this.getCategoriesByType(src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME).length);
+        if (this.activeTab === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
+            return index + (this.getCategoriesByType(src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME).length);
         }
         return index;
     };
@@ -2154,10 +2213,10 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         });
         this.budgetSettings.categories = this.categories;
         this.budgetSettings.totalIncome = this.budgetSettings.categories
-            .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
+            .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
             .reduce(function (sum, category) { return sum + category.budget; }, 0);
         this.budgetSettings.totalExpense = this.budgetSettings.categories
-            .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
+            .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
             .reduce(function (sum, category) { return sum + category.budget; }, 0);
         this.budgetSettings.savingsGoal = this.budgetSettings.totalIncome - this.budgetSettings.totalExpense;
     };
@@ -2176,7 +2235,8 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         });
     };
     AccountControlManagementCategoriesComponent.ctorParameters = function () { return [
-        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"] }
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"] },
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__["AccountControlService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -2198,7 +2258,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-management-categories.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./account-control-management-categories.component.css */ "./src/app/pages/account-control/account-control-management-categories/account-control-management-categories.component.css")).default]
         }),
-        __metadata("design:paramtypes", [src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__["AccountControlService"]])
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__["AccountControlService"]])
     ], AccountControlManagementCategoriesComponent);
     return AccountControlManagementCategoriesComponent;
 }());
@@ -2232,8 +2292,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlManagementTransactionComponent", function() { return AccountControlManagementTransactionComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
-/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
-/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -2261,21 +2322,23 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AccountControlManagementTransactionComponent = /** @class */ (function () {
-    function AccountControlManagementTransactionComponent(fb, accountService) {
+    function AccountControlManagementTransactionComponent(activeModal, fb, accountService) {
+        this.activeModal = activeModal;
         this.fb = fb;
         this.accountService = accountService;
         this.isSubmitted = false;
         this.onTransactionSave = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.incomeType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME;
-        this.expenseType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+        this.incomeType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_3__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+        this.expenseType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_3__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
         this.transactionForm = this.fb.group({
             originalAccount: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             amount: [0, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].min(0.01)]],
             date: [this.convertToColDate(new Date()).toISOString().substring(0, 10), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             description: [''],
             categoryId: [''],
-            type: [src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            type: [src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_3__["AccountConstant"].TRANSACTION_TYPE_EXPENSE, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             targetAccountId: [''],
             isProcessed: [false],
             originalBody: [''],
@@ -2306,7 +2369,7 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
         console.log(this.convertToColDate(new Date(this.transaction.date)).toISOString().substring(0, 10));
         this.transactionForm.patchValue({
             originalAccount: this.transaction.originalAccount,
-            amount: this.transaction.type == src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? -this.transaction.amount : this.transaction.amount,
+            amount: this.transaction.type == src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_3__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? -this.transaction.amount : this.transaction.amount,
             date: this.convertToColDate(new Date(this.transaction.date)).toISOString().substring(0, 10),
             description: this.transaction.description,
             categoryId: this.transaction.categoryId,
@@ -2359,8 +2422,9 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
             date1.getDate() === date2.getDate();
     };
     AccountControlManagementTransactionComponent.ctorParameters = function () { return [
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"] },
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
-        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__["AccountControlService"] }
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_4__["AccountControlService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -2380,7 +2444,7 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-management-transaction.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-management-transaction/account-control-management-transaction.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./account-control-management-transaction.component.css */ "./src/app/pages/account-control/account-control-management-transaction/account-control-management-transaction.component.css")).default]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_3__["AccountControlService"]])
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_4__["AccountControlService"]])
     ], AccountControlManagementTransactionComponent);
     return AccountControlManagementTransactionComponent;
 }());
@@ -2602,6 +2666,7 @@ var AccountControlComponent = /** @class */ (function (_super) {
         _this.accounts = [];
         _this.showAllAccounts = false;
         _this.heritage = 0;
+        _this.isSync = false;
         return _this;
     }
     AccountControlComponent.prototype.initialiceComponent = function () {
@@ -2610,13 +2675,15 @@ var AccountControlComponent = /** @class */ (function (_super) {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        console.log('Inicializando componente...');
+                        this.isSync = false;
                         this.settionsData = this.accountService.getTransactions(this.settionsData);
                         if (!this.isLogged()) return [3 /*break*/, 2];
+                        this.isSync = true;
                         _a = this;
                         return [4 /*yield*/, this.accountService.syncTransactions(this.configFromGoogle)];
                     case 1:
                         _a.settionsData = _b.sent();
+                        this.isSync = false;
                         _b.label = 2;
                     case 2:
                         console.log('Componente inicializado...', this.settionsData);
@@ -6539,6 +6606,7 @@ var TransactionOperation = /** @class */ (function () {
         var transferPatter2 = /[Tt]ransferiste\s+\$([\d,.]+)\s+de\s+tu\s+cuenta\s+\*\*(\d+)\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
         var transferPatter3 = /[Tt]ransferencia\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+cta\s+(\d+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
+        var bancolombiaCreditCardPaymentPattern = /[Bb]ancolombia le informa que\s+([\w\s]+)\s+realizo\s+abono\s+a\s+su\s+T\.Cred\*(\d{4})\s+por\s+\$([\d,.]+)\.\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+(\d+).\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
         var incomePattern = /[Pp]ago\s+de\s+Nomina\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+Cuenta\s+Ahorros.\s+([\d:]+)\s+([\d/]+)/i;
@@ -6547,6 +6615,7 @@ var TransactionOperation = /** @class */ (function () {
         var paymentPattern = /[Pp]agaste\s+\$([\d,.]+)\s+a\s+([\w\s]+)\s+desde\s+tu\s+producto\s+(\*\d+)\s+el\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var affiliatePurchasePattern = /[Cc]ompra por COP([\d,.]+)\s+en\s+([\w\/.]+)\s+(\d{2}:\d{2})\.\s+([\d\/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
         var affiliatePurchasePatter2 = /[Cc]ompra\s+por\s+\$([\d,.]+)\s+en\s+([\w\/.]+)\s+(\d{2}:\d{2})\.\s+([\d\/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*(\d{4})/i;
+        var affiliatePurchasePatter3 = /[Cc]ompra\s+por\s+COP([\d,.]+)\s+en\s+([\w\s*]+)\s+(\d{2}:\d{2})\.\s+([\d/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
         var notificationPattern = /[Rr]ecibiras \$(\d{1,3}(?:\.\d{3})*,\d{2}) en (\d+) dias habiles en tu Tarjeta Credito \*\*(\d{4}) por parte de ([\w\s]+?)\. (\d{2}):(\d{2}) (\d{2})\/(\d{2})\/(\d{4})/;
         var paymentCreditCardPattern = /[Nn]otificación [Tt]ransaccional.*Pago\s+de\s+Tarjeta\s+de\s+Credito\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+la\s+tarjeta\s+\*(\d+).\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         // Patrón para las notificaciones de compras de Bancolombia
@@ -6685,6 +6754,16 @@ var TransactionOperation = /** @class */ (function () {
                 date = this.parseDateTime(matches[4], matches[3]);
             }
         }
+        else if (affiliatePurchasePatter3.test(body)) {
+            var matches = body.match(affiliatePurchasePatter3);
+            if (matches) {
+                type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                date = this.parseDateTime(matches[4], matches[3]);
+                accountId = "*" + matches[5];
+            }
+        }
         else if (notificationPattern.test(body)) {
             type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
             var matches = body.match(notificationPattern);
@@ -6736,6 +6815,16 @@ var TransactionOperation = /** @class */ (function () {
                 amount = this.parseAmount(matches[2]);
                 accountId = ''; // Si hay un accountId específico, añádelo aquí
                 date = this.parseDateTime(matches[4], matches[3]);
+            }
+        }
+        else if (bancolombiaCreditCardPaymentPattern.test(body)) {
+            var matches = body.match(bancolombiaCreditCardPaymentPattern);
+            if (matches) {
+                type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+                amount = this.parseAmount(matches[3]);
+                description = "Abono realizado por " + matches[1].trim();
+                accountId = "*" + matches[2];
+                date = this.parseDateTime(matches[4], matches[5]);
             }
         }
         if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE && amount > 0) {
