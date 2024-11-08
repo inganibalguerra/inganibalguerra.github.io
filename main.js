@@ -1518,18 +1518,16 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
             },
             options: {
                 responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                var category = categories[context.dataIndex];
-                                var amount = category.currentAmmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                                return category.name + ": " + amount;
-                            }
+                legend: {
+                    display: true,
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var index = tooltipItem.index;
+                            var category = categories[index];
+                            var amount = category.currentAmmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                            return category.name + ": " + amount;
                         }
                     }
                 }
@@ -2686,7 +2684,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
                         this.isSync = false;
                         _b.label = 2;
                     case 2:
-                        console.log('Componente inicializado...', this.settionsData);
                         this.transactions = this.settionsData.transactions;
                         this.filterAccounts();
                         return [2 /*return*/];
@@ -4201,7 +4198,6 @@ var BaseComponent = /** @class */ (function () {
     };
     ;
     BaseComponent.prototype._init = function () {
-        console.log("ENTRO AQUIIIIII...", BaseComponent.contador++);
         this.initialiceComponent();
         this.getUserLogget();
     };
@@ -4251,7 +4247,6 @@ var BaseComponent = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log('Usuario encontrado...', this.contador, config);
                         this.configFromGoogle = config;
                         if (!config) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.syncGoogleDrive()];
