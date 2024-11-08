@@ -4524,14 +4524,15 @@ var AccountControlService = /** @class */ (function () {
     AccountControlService.prototype._readConfig = function () {
         return localStorage.getItem(this.storageKey);
     };
-    AccountControlService.prototype.saveSettingsData = function (config, syncWithGoogle) {
+    AccountControlService.prototype.saveSettingsData = function (config, syncWithGoogle, lastSync) {
         if (syncWithGoogle === void 0) { syncWithGoogle = true; }
+        if (lastSync === void 0) { lastSync = new Date(); }
         return __awaiter(this, void 0, void 0, function () {
             var isLogged;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        config.lastSync = new Date();
+                        config.lastSync = lastSync;
                         localStorage.setItem(this.storageKey, JSON.stringify(config));
                         return [4 /*yield*/, this.googleService.isUserLogged()];
                     case 1:
@@ -4707,7 +4708,7 @@ var AccountControlService = /** @class */ (function () {
         });
         if (transactionsProcessed > 0) {
             config.transactions = config.transactions.sort(function (a, b) { return b.date.getTime() - a.date.getTime(); });
-            this.saveSettingsData(config);
+            this.saveSettingsData(config, false, config.transactions[0].date);
             this.toastr.info('[' + (transactionsProcessed) + '] Transacciones procesadas correctamente', 'Account Control!');
         }
         return config;
