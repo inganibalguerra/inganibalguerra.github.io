@@ -706,7 +706,7 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_0__["BrowserAnimationsModule"],
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_17__["ToastrModule"].forRoot({
                     // Configuración opcional de Toastr
-                    timeOut: 10000,
+                    timeOut: 7000,
                     positionClass: 'toast-bottom-right',
                     preventDuplicates: true,
                 }),
@@ -1214,7 +1214,6 @@ var ROUTES = [
     { path: '/account-control', title: 'Cuentas', icon: 'ni-credit-card text-default', class: '' },
     { path: '/account-control-settings', title: 'Configuracion de Cuentas', icon: 'ni-building text-success', class: 'hide' },
     { path: '/business-control', title: 'Negocio', icon: 'ni-building text-success', class: '' },
-    { path: '/business-control-settings', title: 'Negocio', icon: 'ni-building text-success', class: 'hide' },
     { path: '/business-control-verify', title: 'Verificacion', icon: 'ni ni-atom text-warn', class: 'hide' },
 ];
 var SidebarComponent = /** @class */ (function () {
@@ -2361,10 +2360,6 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
         }
     };
     AccountControlManagementTransactionComponent.prototype.loadTransactionData = function () {
-        console.log(new Date(this.transaction.date));
-        console.log(this.convertToColDate(new Date(this.transaction.date)));
-        console.log(this.convertToColDate(new Date(this.transaction.date)).toISOString());
-        console.log(this.convertToColDate(new Date(this.transaction.date)).toISOString().substring(0, 10));
         this.transactionForm.patchValue({
             originalAccount: this.transaction.originalAccount,
             amount: this.transaction.type == src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_3__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? -this.transaction.amount : this.transaction.amount,
