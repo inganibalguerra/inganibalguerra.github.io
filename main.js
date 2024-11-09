@@ -1613,10 +1613,11 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         return Math.round((currentAmmount / budget) * 100);
     };
     AccountControlListBudgetsComponent.prototype.getCategoriesByType = function (type) {
+        var _this = this;
         return this.categories.filter(function (category) {
             return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
         })
-            .sort(function (a, b) { return a.order - b.order; });
+            .sort(function (a, b) { return _this.calculatePercentage(b.currentAmmount, b.budget) - _this.calculatePercentage(a.currentAmmount, a.budget); });
     };
     AccountControlListBudgetsComponent.prototype.setActiveTab = function (type) {
         this.activeTab = type;
