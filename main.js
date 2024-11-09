@@ -2165,7 +2165,6 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     AccountControlManagementCategoriesComponent.prototype.moveCategoryUp = function (index) {
         var _a;
         if (index > 0) {
-            // const indexReal = this.getIndexReal(index);
             var indexReal = index;
             _a = [this.categoriesOfCurrentTab[indexReal], this.categoriesOfCurrentTab[indexReal - 1]], this.categoriesOfCurrentTab[indexReal - 1] = _a[0], this.categoriesOfCurrentTab[indexReal] = _a[1];
             var groupOfOrder = this.getGroupOfOrder(this.categoriesOfCurrentTab[indexReal].type);
@@ -2177,19 +2176,12 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     AccountControlManagementCategoriesComponent.prototype.moveCategoryDown = function (index) {
         var _a;
         if (index < this.categoriesOfCurrentTab.length - 1) {
-            // const indexReal = this.getIndexReal(index);
             var indexReal = index;
             _a = [this.categoriesOfCurrentTab[indexReal], this.categoriesOfCurrentTab[indexReal + 1]], this.categoriesOfCurrentTab[indexReal + 1] = _a[0], this.categoriesOfCurrentTab[indexReal] = _a[1];
             var groupOfOrder = this.getGroupOfOrder(this.categoriesOfCurrentTab[indexReal].type);
             this.categoriesOfCurrentTab[indexReal].order = groupOfOrder + indexReal;
             this.categoriesOfCurrentTab[indexReal + 1].order = groupOfOrder + indexReal + 1;
         }
-    };
-    AccountControlManagementCategoriesComponent.prototype.getIndexReal = function (index) {
-        if (this.activeTab === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
-            return index + (this.getCategoriesByType(src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME).length);
-        }
-        return index;
     };
     AccountControlManagementCategoriesComponent.prototype.removeKeyword = function (category, keyword) {
         category.keyWords = category.keyWords.filter(function (k) { return k !== keyword; });
@@ -2678,7 +2670,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
         _this.accounts = [];
         _this.showAllAccounts = false;
         _this.heritage = 0;
-        _this.isSync = false;
         return _this;
     }
     AccountControlComponent.prototype.initialiceComponent = function () {
@@ -3093,7 +3084,7 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
         this.getUserLogget();
     };
     BusinessControlSettingsComponent.prototype.initialiceComponent = function () {
-        var _a, _b;
+        var _a;
         this.isConfigured = false;
         this.selectedBien = null;
         this.responseAmortizacion = null;
@@ -3101,7 +3092,10 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
         if (this.config) {
             this.isConfigured = true;
             this.bienes = this.config.bienes;
-            var bienId = (_a = this.bussinessServices.getSelectedId(), (_a !== null && _a !== void 0 ? _a : (_b = this.bienes[0]) === null || _b === void 0 ? void 0 : _b.id));
+            var bienId = this.bussinessServices.getSelectedId();
+            if (!bienId || bienId == 'undefined' || bienId == 'null') {
+                bienId = (_a = this.bienes[0]) === null || _a === void 0 ? void 0 : _a.id;
+            }
             this.tipoBien = 'Arrendamiento';
             this.onBienSelect(bienId);
             if (!this.selectedBien || !this.selectedBien.contratoActivo) {
@@ -3270,7 +3264,9 @@ var BusinessControlSettingsComponent = /** @class */ (function () {
         this.selectedBienId = bienId;
         this.bussinessServices.setSelectedId(bienId);
         this.selectedBien = this.bussinessServices.getBienById(bienId);
-        this.tipoBien = this.selectedBien.tipo;
+        if (this.selectedBien) {
+            this.tipoBien = this.selectedBien.tipo;
+        }
         if (this.selectedBien && this.selectedBien.contratoActivo && this.selectedBien.contratoActivo.tipo == 'Credito') {
             this.responseAmortizacion = this.creditService.calcularAmortizacion(this.selectedBien);
         }
@@ -4205,6 +4201,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var BaseComponent = /** @class */ (function () {
     function BaseComponent(googleService) {
         this.googleService = googleService;
+        this.isSync = false;
         this.contador = 0;
     }
     BaseComponent.prototype.init = function () {
@@ -4257,10 +4254,12 @@ var BaseComponent = /** @class */ (function () {
     BaseComponent.prototype.getUserLogget = function () {
         var _this = this;
         this.contador++;
+        this.isSync = true;
         this.googleService.getUserForAccountControl().then(function (config) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        this.isSync = false;
                         this.configFromGoogle = config;
                         if (!config) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.syncGoogleDrive()];
