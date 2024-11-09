@@ -1510,14 +1510,13 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         }
     };
     AccountControlListBudgetsComponent.prototype.initializeChart = function () {
-        var _this = this;
         Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["parseOptions"])(chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"], Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["chartOptions"])());
         var categories = this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; });
         var config = {
             type: 'pie',
             data: {
                 labels: categories.map(function (category) { return category.name; }),
-                datasets: [__assign({ data: categories.map(function (category) { return _this.calculatePercentage(category.currentAmmount, category.budget); }) }, this.getColors())]
+                datasets: [__assign({ data: categories.map(function (category) { return category.currentAmmount; }) }, this.getColors())]
             },
             options: {
                 responsive: true,
@@ -1539,12 +1538,11 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         this.categoryChart = new chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"]('categoryChart', config);
     };
     AccountControlListBudgetsComponent.prototype.updateChart = function () {
-        var _this = this;
         if (this.categoryChart) {
             var categories = this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; });
             this.categoryChart.data.labels = categories.map(function (category) { return category.name; });
             this.categoryChart.data.datasets[0].data = categories.map(function (category) {
-                return _this.calculatePercentage(category.currentAmmount, category.budget);
+                return category.currentAmmount;
             });
             this.categoryChart.update();
         }
