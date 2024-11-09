@@ -4569,7 +4569,10 @@ var AccountControlService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        config.lastSync = lastSync;
+                        if (config.lastSync < lastSync) {
+                            config.lastSync = lastSync;
+                        }
+                        ;
                         localStorage.setItem(this.storageKey, JSON.stringify(config));
                         return [4 /*yield*/, this.googleService.isUserLogged()];
                     case 1:
