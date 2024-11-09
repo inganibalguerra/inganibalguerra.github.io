@@ -437,7 +437,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Gestión de Categorías y Presupuesto Mensual\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome | currency }}\n                    </span>\n                    <span class=\"description\">Total Ingresos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-info\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\" style=\"max-height: 500px; overflow-y: auto;\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td>\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Gestión de Categorías y Presupuesto Mensual\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome | currency }}\n                    </span>\n                    <span class=\"description\">Total Ingresos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                </div>\n                <div>\n                    <span class=\"heading text-info\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\" style=\"max-height: 500px; overflow-y: auto;\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td>\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option value=null>N/A</option>\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -2083,6 +2083,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
             if (value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME || value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE) {
                 this.activeTab = value.type;
                 this.addNewCategory();
+                this._filterCategoriesOfCurrentTab();
             }
         }
     };
@@ -2105,6 +2106,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
                 return __assign(__assign({}, t), { newKeyword: '' });
             });
             this.budgetSettings = value.budgetSettings;
+            this._filterCategoriesOfCurrentTab();
             if (this._transaction) {
                 this.onTransactionChange(this._transaction);
             }
@@ -2118,14 +2120,13 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     };
     AccountControlManagementCategoriesComponent.prototype.setActiveTab = function (type) {
         this.activeTab = type;
+        this._filterCategoriesOfCurrentTab();
     };
-    Object.defineProperty(AccountControlManagementCategoriesComponent.prototype, "categoriesOfCurrentTab", {
-        get: function () {
-            return this.getCategoriesByType(this.activeTab);
-        },
-        enumerable: true,
-        configurable: true
-    });
+    AccountControlManagementCategoriesComponent.prototype._filterCategoriesOfCurrentTab = function () {
+        this.categoriesOfCurrentTab = this.getCategoriesByType(this.activeTab);
+        console.log(this.categories);
+        console.log(this.categoriesOfCurrentTab);
+    };
     AccountControlManagementCategoriesComponent.prototype.getCategoriesByType = function (type) {
         return this.categories.filter(function (category) {
             return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
@@ -2164,22 +2165,24 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
     AccountControlManagementCategoriesComponent.prototype.moveCategoryUp = function (index) {
         var _a;
         if (index > 0) {
-            var indexReal = this.getIndexReal(index);
-            _a = [this.categories[indexReal], this.categories[indexReal - 1]], this.categories[indexReal - 1] = _a[0], this.categories[indexReal] = _a[1];
-            var groupOfOrder = this.getGroupOfOrder(this.categories[indexReal].type);
-            this.categories[indexReal].order = groupOfOrder + indexReal;
-            this.categories[indexReal - 1].order = groupOfOrder + indexReal - 1;
+            // const indexReal = this.getIndexReal(index);
+            var indexReal = index;
+            _a = [this.categoriesOfCurrentTab[indexReal], this.categoriesOfCurrentTab[indexReal - 1]], this.categoriesOfCurrentTab[indexReal - 1] = _a[0], this.categoriesOfCurrentTab[indexReal] = _a[1];
+            var groupOfOrder = this.getGroupOfOrder(this.categoriesOfCurrentTab[indexReal].type);
+            this.categoriesOfCurrentTab[indexReal].order = groupOfOrder + indexReal;
+            this.categoriesOfCurrentTab[indexReal - 1].order = groupOfOrder + indexReal - 1;
         }
     };
     // Mover una categoría hacia abajo
     AccountControlManagementCategoriesComponent.prototype.moveCategoryDown = function (index) {
         var _a;
-        if (index < this.getCategoriesByType(this.activeTab).length - 1) {
-            var indexReal = this.getIndexReal(index);
-            _a = [this.categories[indexReal], this.categories[indexReal + 1]], this.categories[indexReal + 1] = _a[0], this.categories[indexReal] = _a[1];
-            var groupOfOrder = this.getGroupOfOrder(this.categories[indexReal].type);
-            this.categories[indexReal].order = groupOfOrder + indexReal;
-            this.categories[indexReal + 1].order = groupOfOrder + indexReal + 1;
+        if (index < this.categoriesOfCurrentTab.length - 1) {
+            // const indexReal = this.getIndexReal(index);
+            var indexReal = index;
+            _a = [this.categoriesOfCurrentTab[indexReal], this.categoriesOfCurrentTab[indexReal + 1]], this.categoriesOfCurrentTab[indexReal + 1] = _a[0], this.categoriesOfCurrentTab[indexReal] = _a[1];
+            var groupOfOrder = this.getGroupOfOrder(this.categoriesOfCurrentTab[indexReal].type);
+            this.categoriesOfCurrentTab[indexReal].order = groupOfOrder + indexReal;
+            this.categoriesOfCurrentTab[indexReal + 1].order = groupOfOrder + indexReal + 1;
         }
     };
     AccountControlManagementCategoriesComponent.prototype.getIndexReal = function (index) {
@@ -2203,13 +2206,14 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         this.onFinish.emit(this.budgetSettings);
     };
     AccountControlManagementCategoriesComponent.prototype.updateBudgetSummary = function () {
-        var _this = this;
         this.categories.forEach(function (category) {
-            var groupOfOrder = _this.getGroupOfOrder(category.type);
-            category.order = groupOfOrder + _this.categories.indexOf(category);
             category.id = (category.type + "_" + category.name).replace(/ /g, "").toLowerCase();
+            if (!category.accountId || category.accountId == 'null') {
+                category.accountId = null;
+            }
         });
-        this.budgetSettings.categories = this.categories;
+        this.budgetSettings.categories = this.categories.sort(function (a, b) { return a.order - b.order; });
+        console.log(this.budgetSettings.categories);
         this.budgetSettings.totalIncome = this.budgetSettings.categories
             .filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
             .reduce(function (sum, category) { return sum + category.budget; }, 0);
@@ -2388,6 +2392,8 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
         return newDate;
     };
     AccountControlManagementTransactionComponent.prototype.onSubmit = function () {
+        var _this = this;
+        var _a;
         this.isSubmitted = true;
         if (this.transactionForm.valid) {
             var formValues = this.transactionForm.value;
@@ -2406,7 +2412,15 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
                         transactionToSave_1.description = transactionToSave_1.description ? transactionToSave_1.description + " = " + category.name : category.name;
                     }
                     else {
-                        transactionToSave_1.description = transactionToSave_1.description ? "" + transactionToSave_1.description : category.name;
+                        if ((this.transaction && category.id != this.transaction.categoryId)) {
+                            //Aqui eliminariamos de la descripción el nombre de la categoria anterior
+                            var oldTransaction = this.settingsData.budgetSettings.categories.find(function (c) { return c.id == _this.transaction.categoryId; });
+                            transactionToSave_1.description = (_a = transactionToSave_1.description) === null || _a === void 0 ? void 0 : _a.replace(" = " + oldTransaction.name, "");
+                            transactionToSave_1.description = transactionToSave_1.description ? transactionToSave_1.description + " = " + category.name : category.name;
+                        }
+                        else {
+                            transactionToSave_1.description = transactionToSave_1.description ? "" + transactionToSave_1.description : category.name;
+                        }
                     }
                 }
             }
@@ -4496,6 +4510,8 @@ var AccountControlService = /** @class */ (function () {
         });
     };
     AccountControlService.prototype._getConfigFromLocalStorage = function () {
+        var _this = this;
+        var _a;
         var data = this._readConfig();
         var response = data ? JSON.parse(data) : null;
         if (response) {
@@ -4508,6 +4524,17 @@ var AccountControlService = /** @class */ (function () {
             response.transactions.forEach(function (t) {
                 t.date = new Date(t.date);
             });
+            var contExpende_1 = 0;
+            var contIncome_1 = 0;
+            (_a = response.budgetSettings) === null || _a === void 0 ? void 0 : _a.categories.forEach(function (category) {
+                if (category.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_5__["AccountConstant"].TRANSACTION_TYPE_EXPENSE) {
+                    category.order = contExpende_1++;
+                }
+                else {
+                    category.order = contIncome_1++;
+                }
+                category.order = _this._getGroupOfOrder(category.type) + category.order;
+            });
             response.accounts.forEach(function (account) {
                 if (account.lastTransaction) {
                     account.lastTransaction.date = new Date(account.lastTransaction.date);
@@ -4515,6 +4542,13 @@ var AccountControlService = /** @class */ (function () {
             });
         }
         return response;
+    };
+    AccountControlService.prototype._getGroupOfOrder = function (type) {
+        var groupOfOrder = 1000;
+        if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_5__["AccountConstant"].TRANSACTION_TYPE_INCOME) {
+            groupOfOrder = 2000;
+        }
+        return groupOfOrder;
     };
     AccountControlService.prototype._readConfig = function () {
         return localStorage.getItem(this.storageKey);
@@ -4735,7 +4769,7 @@ var AccountControlService = /** @class */ (function () {
             // Transacción ya procesada
             return;
         }
-        var accountId = (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.accountId, (_b !== null && _b !== void 0 ? _b : t.originalAccount));
+        var accountId = (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.accountId, (_b !== null && _b !== void 0 ? _b : '')) ? category.accountId : t.originalAccount;
         if (!accountId) {
             return;
         }
