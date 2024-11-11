@@ -398,7 +398,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"chart\">\n\n                <canvas id=\"categoryChart\" class=\"chart-canvas\"></canvas>\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div class=\"d-flex align-items-center\">\n                                    <div class=\"progress\">\n                                        <div class=\"progress-bar\"\n                                            [ngClass]=\"{'bg-gradient-success': calculatePercentage(category.currentAmmount, category.budget)<= 10, 'bg-gradient-info' :calculatePercentage(category.currentAmmount, category.budget)> 10 && calculatePercentage(category.currentAmmount, category.budget)<= 30, 'bg-gradient-warning' :calculatePercentage(category.currentAmmount, category.budget)> 30 && calculatePercentage(category.currentAmmount, category.budget)<= 60, 'bg-gradient-danger' :calculatePercentage(category.currentAmmount, category.budget)> 60 }\"\n                                            role=\"progressbar\"\n                                            [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                            aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n                                </div>\n                                <small>{{calculatePercentage(category.currentAmmount,\n                                    category.budget)}}%</small>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n                <app-account-control-dash-category-by-months [transactionType]=\"activeTab\"\n                    [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div class=\"d-flex align-items-center\">\n                                    <div class=\"progress\">\n                                        <div class=\"progress-bar\"\n                                            [ngClass]=\"{'bg-gradient-success': calculatePercentage(category.currentAmmount, category.budget)<= 10, 'bg-gradient-info' :calculatePercentage(category.currentAmmount, category.budget)> 10 && calculatePercentage(category.currentAmmount, category.budget)<= 30, 'bg-gradient-warning' :calculatePercentage(category.currentAmmount, category.budget)> 30 && calculatePercentage(category.currentAmmount, category.budget)<= 60, 'bg-gradient-danger' :calculatePercentage(category.currentAmmount, category.budget)> 60 }\"\n                                            role=\"progressbar\"\n                                            [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                            aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n                                </div>\n                                <small>{{calculatePercentage(category.currentAmmount,\n                                    category.budget)}}%</small>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -476,7 +476,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-sm btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\" text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"mb-2\" *ngIf=\"isSync\">\n                <app-loading [message]=\"messageOrLoading\"></app-loading>\n\n            </div>\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Historial de transacciones\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva\n                                transaccion</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-sm btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\" text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"mb-2\" *ngIf=\"isSync\">\n                <app-loading [message]=\"messageOrLoading\"></app-loading>\n\n            </div>\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Historial de transacciones\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva\n                                transaccion</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOptions\" class=\"grafico-ejemplo\" (chartInit)=\"onChartInit($event)\">\n</div>");
 
 /***/ }),
 
@@ -655,6 +668,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/account-control/account-control-list-budgets/account-control-list-budgets.component */ "./src/app/pages/account-control/account-control-list-budgets/account-control-list-budgets.component.ts");
 /* harmony import */ var _pages_account_control_account_control_list_transactions_account_control_list_transactions_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/account-control/account-control-list-transactions/account-control-list-transactions.component */ "./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.ts");
 /* harmony import */ var _pages_account_control_account_control_management_transaction_account_control_management_transaction_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pages/account-control/account-control-management-transaction/account-control-management-transaction.component */ "./src/app/pages/account-control/account-control-management-transaction/account-control-management-transaction.component.ts");
+/* harmony import */ var _pages_account_control_dashboards_account_control_dash_category_by_months_account_control_dash_category_by_months_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component */ "./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.ts");
+/* harmony import */ var ngx_echarts__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ngx-echarts */ "./node_modules/ngx-echarts/__ivy_ngcc__/fesm5/ngx-echarts.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -664,6 +679,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -710,6 +727,9 @@ var AppModule = /** @class */ (function () {
                     positionClass: 'toast-bottom-right',
                     preventDuplicates: true,
                 }),
+                ngx_echarts__WEBPACK_IMPORTED_MODULE_26__["NgxEchartsModule"].forRoot({
+                    echarts: function () { return __webpack_require__.e(/*! import() | echarts */ "echarts").then(__webpack_require__.bind(null, /*! echarts */ "./node_modules/echarts/index.js")); } // Carga dinámica de ECharts
+                })
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
@@ -726,7 +746,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_account_control_transaction_card_account_control_transaction_card_component__WEBPACK_IMPORTED_MODULE_21__["AccountControlTransactionCardComponent"],
                 _pages_account_control_account_control_list_budgets_account_control_list_budgets_component__WEBPACK_IMPORTED_MODULE_22__["AccountControlListBudgetsComponent"],
                 _pages_account_control_account_control_list_transactions_account_control_list_transactions_component__WEBPACK_IMPORTED_MODULE_23__["AccountControlListTransactionsComponent"],
-                _pages_account_control_account_control_management_transaction_account_control_management_transaction_component__WEBPACK_IMPORTED_MODULE_24__["AccountControlManagementTransactionComponent"]
+                _pages_account_control_account_control_management_transaction_account_control_management_transaction_component__WEBPACK_IMPORTED_MODULE_24__["AccountControlManagementTransactionComponent"],
+                _pages_account_control_dashboards_account_control_dash_category_by_months_account_control_dash_category_by_months_component__WEBPACK_IMPORTED_MODULE_25__["AccountControlDashCategoryByMonthsComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -1417,7 +1438,7 @@ var AuthLayoutComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 5px;\n    padding: 5px 0;\n}\n\n.keyword-badge {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    gap: 3px;\n    margin-bottom: 5px;\n}\n\n.is-invalid {\n    border-color: red;\n}\n\n.text-danger {\n    color: red;\n}\n\n.table-responsive {\n    overflow-x: auto;\n    /* Habilita el desplazamiento horizontal */\n    -webkit-overflow-scrolling: touch;\n    /* Mejora la experiencia de desplazamiento en iOS */\n}\n\n.table-container {\n    width: 100%;\n    /* Asegura que el contenedor ocupe el 100% del espacio disponible */\n}\n\n.keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    /* Coloca los badges en varias líneas */\n    gap: 4px;\n    max-width: 250px;\n    /* Opcional: Ajusta el ancho máximo para las keywords */\n}\n\n.btn-sm.bg-gradient-dark {\n    margin-right: 4px;\n    /* Espacio entre badges */\n}\n\n.table-col-nombre {\n    min-width: 150px;\n    /* Define el ancho mínimo deseado */\n}\n\n/* Estilo para filas pares */\n\ntable.table tbody tr:nth-child(even) {\n    background-color: #f9f9f9;\n    /* Color gris claro */\n}\n\n.card-profile-stats {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    /* Añade espacio entre los elementos */\n}\n\n.budget-item {\n    min-width: 120px;\n    /* Ancho mínimo para cada elemento */\n    padding: 0.5rem;\n    -webkit-box-flex: 1;\n            flex: 1 1 30%;\n    /* Los elementos ocupan 30% del ancho en pantallas grandes */\n}\n\n/* En pantallas pequeñas, se organiza en columnas */\n\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1saXN0LWJ1ZGdldHMvYWNjb3VudC1jb250cm9sLWxpc3QtYnVkZ2V0cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsZUFBZTtJQUNmLFFBQVE7SUFDUixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixRQUFRO0lBQ1Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDBDQUEwQztJQUMxQyxpQ0FBaUM7SUFDakMsbURBQW1EO0FBQ3ZEOztBQUVBO0lBQ0ksV0FBVztJQUNYLG1FQUFtRTtBQUN2RTs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZix1Q0FBdUM7SUFDdkMsUUFBUTtJQUNSLGdCQUFnQjtJQUNoQix1REFBdUQ7QUFDM0Q7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1DQUFtQztBQUN2Qzs7QUFFQSw0QkFBNEI7O0FBQzVCO0lBQ0kseUJBQXlCO0lBQ3pCLHFCQUFxQjtBQUN6Qjs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZixTQUFTO0lBQ1Qsc0NBQXNDO0FBQzFDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG9DQUFvQztJQUNwQyxlQUFlO0lBQ2YsbUJBQWE7WUFBYixhQUFhO0lBQ2IsNERBQTREO0FBQ2hFOztBQUVBLG1EQUFtRDs7QUFDbkQ7SUFDSTtRQUNJLDRCQUFzQjtRQUF0Qiw2QkFBc0I7Z0JBQXRCLHNCQUFzQjtRQUN0Qix5QkFBbUI7Z0JBQW5CLG1CQUFtQjtJQUN2Qjs7SUFFQTtRQUNJLFdBQVc7UUFDWCwrREFBK0Q7SUFDbkU7QUFDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtbGlzdC1idWRnZXRzL2FjY291bnQtY29udHJvbC1saXN0LWJ1ZGdldHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5rZXl3b3Jkcy1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC13cmFwOiB3cmFwO1xuICAgIGdhcDogNXB4O1xuICAgIHBhZGRpbmc6IDVweCAwO1xufVxuXG4ua2V5d29yZC1iYWRnZSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGdhcDogM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuLmlzLWludmFsaWQge1xuICAgIGJvcmRlci1jb2xvcjogcmVkO1xufVxuXG4udGV4dC1kYW5nZXIge1xuICAgIGNvbG9yOiByZWQ7XG59XG5cbi50YWJsZS1yZXNwb25zaXZlIHtcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgIC8qIEhhYmlsaXRhIGVsIGRlc3BsYXphbWllbnRvIGhvcml6b250YWwgKi9cbiAgICAtd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzogdG91Y2g7XG4gICAgLyogTWVqb3JhIGxhIGV4cGVyaWVuY2lhIGRlIGRlc3BsYXphbWllbnRvIGVuIGlPUyAqL1xufVxuXG4udGFibGUtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICAvKiBBc2VndXJhIHF1ZSBlbCBjb250ZW5lZG9yIG9jdXBlIGVsIDEwMCUgZGVsIGVzcGFjaW8gZGlzcG9uaWJsZSAqL1xufVxuXG4ua2V5d29yZHMtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAvKiBDb2xvY2EgbG9zIGJhZGdlcyBlbiB2YXJpYXMgbMOtbmVhcyAqL1xuICAgIGdhcDogNHB4O1xuICAgIG1heC13aWR0aDogMjUwcHg7XG4gICAgLyogT3BjaW9uYWw6IEFqdXN0YSBlbCBhbmNobyBtw6F4aW1vIHBhcmEgbGFzIGtleXdvcmRzICovXG59XG5cbi5idG4tc20uYmctZ3JhZGllbnQtZGFyayB7XG4gICAgbWFyZ2luLXJpZ2h0OiA0cHg7XG4gICAgLyogRXNwYWNpbyBlbnRyZSBiYWRnZXMgKi9cbn1cblxuLnRhYmxlLWNvbC1ub21icmUge1xuICAgIG1pbi13aWR0aDogMTUwcHg7XG4gICAgLyogRGVmaW5lIGVsIGFuY2hvIG3DrW5pbW8gZGVzZWFkbyAqL1xufVxuXG4vKiBFc3RpbG8gcGFyYSBmaWxhcyBwYXJlcyAqL1xudGFibGUudGFibGUgdGJvZHkgdHI6bnRoLWNoaWxkKGV2ZW4pIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmOWY5O1xuICAgIC8qIENvbG9yIGdyaXMgY2xhcm8gKi9cbn1cblxuLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgZ2FwOiAxcmVtO1xuICAgIC8qIEHDsWFkZSBlc3BhY2lvIGVudHJlIGxvcyBlbGVtZW50b3MgKi9cbn1cblxuLmJ1ZGdldC1pdGVtIHtcbiAgICBtaW4td2lkdGg6IDEyMHB4O1xuICAgIC8qIEFuY2hvIG3DrW5pbW8gcGFyYSBjYWRhIGVsZW1lbnRvICovXG4gICAgcGFkZGluZzogMC41cmVtO1xuICAgIGZsZXg6IDEgMSAzMCU7XG4gICAgLyogTG9zIGVsZW1lbnRvcyBvY3VwYW4gMzAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgZ3JhbmRlcyAqL1xufVxuXG4vKiBFbiBwYW50YWxsYXMgcGVxdWXDsWFzLCBzZSBvcmdhbml6YSBlbiBjb2x1bW5hcyAqL1xuQG1lZGlhIChtYXgtd2lkdGg6IDU3NnB4KSB7XG4gICAgLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgfVxuXG4gICAgLmJ1ZGdldC1pdGVtIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIC8qIENhZGEgZWxlbWVudG8gdG9tYSBlbCAxMDAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgcGVxdWXDsWFzICovXG4gICAgfVxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 5px;\n    padding: 5px 0;\n}\n\n.keyword-badge {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    gap: 3px;\n    margin-bottom: 5px;\n}\n\n.is-invalid {\n    border-color: red;\n}\n\n.text-danger {\n    color: red;\n}\n\n.table-responsive {\n    overflow-x: auto;\n    /* Habilita el desplazamiento horizontal */\n    -webkit-overflow-scrolling: touch;\n    /* Mejora la experiencia de desplazamiento en iOS */\n}\n\n.table-container {\n    width: 100%;\n    /* Asegura que el contenedor ocupe el 100% del espacio disponible */\n}\n\n.keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    /* Coloca los badges en varias líneas */\n    gap: 4px;\n    max-width: 250px;\n    /* Opcional: Ajusta el ancho máximo para las keywords */\n}\n\n.btn-sm.bg-gradient-dark {\n    margin-right: 4px;\n    /* Espacio entre badges */\n}\n\n.table-col-nombre {\n    min-width: 150px;\n    /* Define el ancho mínimo deseado */\n}\n\n/* Estilo para filas pares */\n\ntable.table tbody tr:nth-child(even) {\n    background-color: #f9f9f9;\n    /* Color gris claro */\n}\n\n.card-profile-stats {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    /* Añade espacio entre los elementos */\n}\n\n.budget-item {\n    min-width: 120px;\n    /* Ancho mínimo para cada elemento */\n    padding: 0.5rem;\n    -webkit-box-flex: 1;\n            flex: 1 1 30%;\n    /* Los elementos ocupan 30% del ancho en pantallas grandes */\n}\n\n/* En pantallas pequeñas, se organiza en columnas */\n\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n\n.nav-item {\n    cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1saXN0LWJ1ZGdldHMvYWNjb3VudC1jb250cm9sLWxpc3QtYnVkZ2V0cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsZUFBZTtJQUNmLFFBQVE7SUFDUixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixRQUFRO0lBQ1Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDBDQUEwQztJQUMxQyxpQ0FBaUM7SUFDakMsbURBQW1EO0FBQ3ZEOztBQUVBO0lBQ0ksV0FBVztJQUNYLG1FQUFtRTtBQUN2RTs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZix1Q0FBdUM7SUFDdkMsUUFBUTtJQUNSLGdCQUFnQjtJQUNoQix1REFBdUQ7QUFDM0Q7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1DQUFtQztBQUN2Qzs7QUFFQSw0QkFBNEI7O0FBQzVCO0lBQ0kseUJBQXlCO0lBQ3pCLHFCQUFxQjtBQUN6Qjs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZixTQUFTO0lBQ1Qsc0NBQXNDO0FBQzFDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG9DQUFvQztJQUNwQyxlQUFlO0lBQ2YsbUJBQWE7WUFBYixhQUFhO0lBQ2IsNERBQTREO0FBQ2hFOztBQUVBLG1EQUFtRDs7QUFDbkQ7SUFDSTtRQUNJLDRCQUFzQjtRQUF0Qiw2QkFBc0I7Z0JBQXRCLHNCQUFzQjtRQUN0Qix5QkFBbUI7Z0JBQW5CLG1CQUFtQjtJQUN2Qjs7SUFFQTtRQUNJLFdBQVc7UUFDWCwrREFBK0Q7SUFDbkU7QUFDSjs7QUFFQTtJQUNJLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvYWNjb3VudC1jb250cm9sLWxpc3QtYnVkZ2V0cy9hY2NvdW50LWNvbnRyb2wtbGlzdC1idWRnZXRzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIua2V5d29yZHMtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICBnYXA6IDVweDtcbiAgICBwYWRkaW5nOiA1cHggMDtcbn1cblxuLmtleXdvcmQtYmFkZ2Uge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBnYXA6IDNweDtcbiAgICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5cbi5pcy1pbnZhbGlkIHtcbiAgICBib3JkZXItY29sb3I6IHJlZDtcbn1cblxuLnRleHQtZGFuZ2VyIHtcbiAgICBjb2xvcjogcmVkO1xufVxuXG4udGFibGUtcmVzcG9uc2l2ZSB7XG4gICAgb3ZlcmZsb3cteDogYXV0bztcbiAgICAvKiBIYWJpbGl0YSBlbCBkZXNwbGF6YW1pZW50byBob3Jpem9udGFsICovXG4gICAgLXdlYmtpdC1vdmVyZmxvdy1zY3JvbGxpbmc6IHRvdWNoO1xuICAgIC8qIE1lam9yYSBsYSBleHBlcmllbmNpYSBkZSBkZXNwbGF6YW1pZW50byBlbiBpT1MgKi9cbn1cblxuLnRhYmxlLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgLyogQXNlZ3VyYSBxdWUgZWwgY29udGVuZWRvciBvY3VwZSBlbCAxMDAlIGRlbCBlc3BhY2lvIGRpc3BvbmlibGUgKi9cbn1cblxuLmtleXdvcmRzLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgLyogQ29sb2NhIGxvcyBiYWRnZXMgZW4gdmFyaWFzIGzDrW5lYXMgKi9cbiAgICBnYXA6IDRweDtcbiAgICBtYXgtd2lkdGg6IDI1MHB4O1xuICAgIC8qIE9wY2lvbmFsOiBBanVzdGEgZWwgYW5jaG8gbcOheGltbyBwYXJhIGxhcyBrZXl3b3JkcyAqL1xufVxuXG4uYnRuLXNtLmJnLWdyYWRpZW50LWRhcmsge1xuICAgIG1hcmdpbi1yaWdodDogNHB4O1xuICAgIC8qIEVzcGFjaW8gZW50cmUgYmFkZ2VzICovXG59XG5cbi50YWJsZS1jb2wtbm9tYnJlIHtcbiAgICBtaW4td2lkdGg6IDE1MHB4O1xuICAgIC8qIERlZmluZSBlbCBhbmNobyBtw61uaW1vIGRlc2VhZG8gKi9cbn1cblxuLyogRXN0aWxvIHBhcmEgZmlsYXMgcGFyZXMgKi9cbnRhYmxlLnRhYmxlIHRib2R5IHRyOm50aC1jaGlsZChldmVuKSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y5ZjlmOTtcbiAgICAvKiBDb2xvciBncmlzIGNsYXJvICovXG59XG5cbi5jYXJkLXByb2ZpbGUtc3RhdHMge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC13cmFwOiB3cmFwO1xuICAgIGdhcDogMXJlbTtcbiAgICAvKiBBw7FhZGUgZXNwYWNpbyBlbnRyZSBsb3MgZWxlbWVudG9zICovXG59XG5cbi5idWRnZXQtaXRlbSB7XG4gICAgbWluLXdpZHRoOiAxMjBweDtcbiAgICAvKiBBbmNobyBtw61uaW1vIHBhcmEgY2FkYSBlbGVtZW50byAqL1xuICAgIHBhZGRpbmc6IDAuNXJlbTtcbiAgICBmbGV4OiAxIDEgMzAlO1xuICAgIC8qIExvcyBlbGVtZW50b3Mgb2N1cGFuIDMwJSBkZWwgYW5jaG8gZW4gcGFudGFsbGFzIGdyYW5kZXMgKi9cbn1cblxuLyogRW4gcGFudGFsbGFzIHBlcXVlw7Fhcywgc2Ugb3JnYW5pemEgZW4gY29sdW1uYXMgKi9cbkBtZWRpYSAobWF4LXdpZHRoOiA1NzZweCkge1xuICAgIC5jYXJkLXByb2ZpbGUtc3RhdHMge1xuICAgICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIH1cblxuICAgIC5idWRnZXQtaXRlbSB7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICAvKiBDYWRhIGVsZW1lbnRvIHRvbWEgZWwgMTAwJSBkZWwgYW5jaG8gZW4gcGFudGFsbGFzIHBlcXVlw7FhcyAqL1xuICAgIH1cbn1cblxuLm5hdi1pdGVtIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -1432,21 +1453,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlListBudgetsComponent", function() { return AccountControlListBudgetsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
-/* harmony import */ var src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/variables/charts */ "./src/app/variables/charts.ts");
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1459,8 +1466,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-
-
 
 
 var AccountControlListBudgetsComponent = /** @class */ (function () {
@@ -1493,7 +1498,6 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     };
     AccountControlListBudgetsComponent.prototype.ngOnChanges = function (changes) {
         if (changes.settingsData && !changes.settingsData.firstChange) {
-            this.updateChart();
         }
     };
     AccountControlListBudgetsComponent.prototype.onSettingsDataChange = function (value) {
@@ -1501,111 +1505,12 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         if (value && value.budgetSettings) {
             this.categories = value.budgetSettings.categories;
             this.budgetSettings = value.budgetSettings;
-            this.currentTotalIncome = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
+            this.currentTotalIncome = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
                 .reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
-            this.currentTotalExpense = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
+            this.currentTotalExpense = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
                 .reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
             this.currentSavingsGoal = this.currentTotalIncome - this.currentTotalExpense;
-            this.updateChart();
         }
-    };
-    AccountControlListBudgetsComponent.prototype.initializeChart = function () {
-        Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["parseOptions"])(chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"], Object(src_app_variables_charts__WEBPACK_IMPORTED_MODULE_3__["chartOptions"])());
-        var categories = this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; });
-        var config = {
-            type: 'pie',
-            data: {
-                labels: categories.map(function (category) { return category.name; }),
-                datasets: [__assign({ data: categories.map(function (category) { return category.currentAmmount; }) }, this.getColors())]
-            },
-            options: {
-                responsive: true,
-                legend: {
-                    display: true,
-                },
-                tooltips: {
-                    callbacks: {
-                        label: function (tooltipItem, data) {
-                            var index = tooltipItem.index;
-                            var category = categories[index];
-                            var amount = category.currentAmmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                            return category.name + ": " + amount;
-                        }
-                    }
-                }
-            }
-        };
-        this.categoryChart = new chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"]('categoryChart', config);
-    };
-    AccountControlListBudgetsComponent.prototype.updateChart = function () {
-        if (this.categoryChart) {
-            var categories = this.getCategoriesByType(this.activeTab).filter(function (cat) { return cat.currentAmmount > 0; });
-            this.categoryChart.data.labels = categories.map(function (category) { return category.name; });
-            this.categoryChart.data.datasets[0].data = categories.map(function (category) {
-                return category.currentAmmount;
-            });
-            this.categoryChart.update();
-        }
-        else {
-            this.initializeChart();
-        }
-    };
-    AccountControlListBudgetsComponent.prototype.getColors = function () {
-        var colors = [
-            'rgba(102, 204, 204, OPACITY)',
-            'rgba(255, 178, 102, OPACITY)',
-            'rgba(255, 223, 102, OPACITY)',
-            'rgba(192, 192, 192, OPACITY)',
-            'rgba(102, 178, 255, OPACITY)',
-            'rgba(178, 102, 255, OPACITY)',
-            'rgba(255, 102, 128, OPACITY)',
-            'rgba(144, 224, 144, OPACITY)',
-            'rgba(255, 153, 153, OPACITY)',
-            'rgba(173, 216, 230, OPACITY)',
-            'rgba(255, 204, 229, OPACITY)',
-            'rgba(255, 235, 156, OPACITY)',
-            'rgba(153, 221, 255, OPACITY)',
-            'rgba(255, 153, 187, OPACITY)',
-            'rgba(204, 204, 255, OPACITY)',
-            'rgba(204, 255, 204, OPACITY)',
-            'rgba(255, 204, 153, OPACITY)',
-            'rgba(255, 230, 179, OPACITY)',
-            'rgba(230, 179, 255, OPACITY)',
-            'rgba(102, 255, 178, OPACITY)',
-            'rgba(255, 153, 102, OPACITY)',
-            'rgba(153, 255, 255, OPACITY)',
-            'rgba(255, 204, 102, OPACITY)',
-            'rgba(255, 229, 204, OPACITY)',
-            'rgba(255, 255, 153, OPACITY)',
-            'rgba(102, 153, 255, OPACITY)',
-            'rgba(255, 102, 178, OPACITY)',
-            'rgba(204, 255, 229, OPACITY)',
-            'rgba(255, 179, 179, OPACITY)',
-            'rgba(204, 230, 255, OPACITY)',
-            'rgba(178, 255, 102, OPACITY)',
-            'rgba(255, 204, 153, OPACITY)',
-            'rgba(153, 102, 255, OPACITY)',
-            'rgba(230, 179, 255, OPACITY)',
-            'rgba(255, 204, 255, OPACITY)',
-            'rgba(153, 255, 204, OPACITY)',
-            'rgba(255, 178, 102, OPACITY)',
-            'rgba(230, 230, 250, OPACITY)',
-            'rgba(255, 229, 102, OPACITY)',
-            'rgba(102, 255, 204, OPACITY)',
-            'rgba(204, 229, 255, OPACITY)',
-            'rgba(204, 255, 229, OPACITY)',
-            'rgba(255, 204, 153, OPACITY)',
-            'rgba(255, 182, 193, OPACITY)',
-            'rgba(230, 245, 201, OPACITY)',
-            'rgba(255, 235, 205, OPACITY)',
-            'rgba(230, 126, 126, OPACITY)',
-            'rgba(126, 230, 153, OPACITY)',
-            'rgba(255, 183, 178, OPACITY)',
-            'rgba(205, 230, 255, OPACITY)' // Light baby blue
-        ];
-        var backgroundColor = colors.map(function (color) { return color.replace('OPACITY', '0.5'); });
-        var borderColor = colors.map(function (color) { return color.replace('OPACITY', '1'); });
-        return { backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: 1 };
     };
     AccountControlListBudgetsComponent.prototype.calculatePercentage = function (currentAmmount, budget) {
         if (budget === 0)
@@ -1615,13 +1520,12 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     AccountControlListBudgetsComponent.prototype.getCategoriesByType = function (type) {
         var _this = this;
         return this.categories.filter(function (category) {
-            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
+            return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
         })
             .sort(function (a, b) { return _this.calculatePercentage(b.currentAmmount, b.budget) - _this.calculatePercentage(a.currentAmmount, a.budget); });
     };
     AccountControlListBudgetsComponent.prototype.setActiveTab = function (type) {
         this.activeTab = type;
-        this.initializeChart();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -2798,6 +2702,216 @@ var AccountControlComponent = /** @class */ (function (_super) {
     ], AccountControlComponent);
     return AccountControlComponent;
 }(_common_base_component__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.css":
+/*!************************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.css ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9kYXNoYm9hcmRzL2FjY291bnQtY29udHJvbC1kYXNoLWNhdGVnb3J5LWJ5LW1vbnRocy9hY2NvdW50LWNvbnRyb2wtZGFzaC1jYXRlZ29yeS1ieS1tb250aHMuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.ts":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.ts ***!
+  \***********************************************************************************************************************************************/
+/*! exports provided: AccountControlDashCategoryByMonthsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashCategoryByMonthsComponent", function() { return AccountControlDashCategoryByMonthsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+
+var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
+    function AccountControlDashCategoryByMonthsComponent() {
+        this.transactions = [];
+        this.year = new Date().getFullYear();
+        this.transactionType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+    }
+    AccountControlDashCategoryByMonthsComponent.prototype.ngOnInit = function () {
+        this.generateChartOptions();
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.ngOnChanges = function (changes) {
+        if (changes.transactions || changes.year || changes.transactionType || changes.budgetSettings) {
+            this.generateChartOptions();
+        }
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.generateChartOptions = function () {
+        var _this = this;
+        var _a;
+        // Filtrar las transacciones por año y tipo
+        var filteredTransactions = this.transactions.filter(function (transaction) {
+            return new Date(transaction.date).getFullYear() === _this.year &&
+                transaction.type === _this.transactionType;
+        });
+        // Obtener las categorías de las transacciones filtradas
+        var filteredCategoryIds = new Set(filteredTransactions.map(function (t) { return t.categoryId; }));
+        var relevantCategories = this.budgetSettings.categories.filter(function (category) {
+            return filteredCategoryIds.has(category.id);
+        });
+        // Crear el objeto monthlyData
+        var monthlyData = {};
+        // Inicializar monthlyData para cada categoría relevante con un array de 12 `null`
+        for (var _i = 0, relevantCategories_1 = relevantCategories; _i < relevantCategories_1.length; _i++) {
+            var category = relevantCategories_1[_i];
+            monthlyData[category.name] = Array(12).fill(null);
+        }
+        var lastMonth = 1;
+        var _loop_1 = function (transaction) {
+            var month = new Date(transaction.date).getMonth();
+            var categoryName = (_a = relevantCategories.find(function (cat) { return cat.id === transaction.categoryId; })) === null || _a === void 0 ? void 0 : _a.name;
+            if (categoryName) {
+                if (lastMonth < month) {
+                    lastMonth = month;
+                }
+                monthlyData[categoryName][month] = (monthlyData[categoryName][month] || 0) + Math.abs(transaction.amount);
+            }
+        };
+        // Llenar monthlyData con los valores de las transacciones
+        for (var _b = 0, filteredTransactions_1 = filteredTransactions; _b < filteredTransactions_1.length; _b++) {
+            var transaction = filteredTransactions_1[_b];
+            _loop_1(transaction);
+        }
+        // Formatear el dataset en un array, agregando el nombre de la categoría como primera columna
+        var dataset = [__spreadArrays(['product'], Array.from({ length: 12 }, function (_, i) { return _this.getNameOfMonth(i); }))];
+        for (var category in monthlyData) {
+            var row = [category];
+            for (var i = 0; i < 12; i++) {
+                row.push(monthlyData[category][i]);
+            }
+            dataset.push(row);
+        }
+        // Configuración del gráfico
+        this.chartOptions = {
+            legend: {
+                show: false
+            },
+            tooltip: {
+                trigger: 'axis',
+                showContent: false
+            },
+            dataset: { source: dataset },
+            xAxis: { type: 'category' },
+            yAxis: { gridIndex: 0 },
+            grid: { top: '55%', left: '80px' },
+            series: __spreadArrays(this.getSeriesOfLines(relevantCategories), [
+                {
+                    type: 'pie',
+                    id: 'pie',
+                    radius: '30%',
+                    center: ['50%', '25%'],
+                    emphasis: {
+                        focus: 'self'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true
+                    },
+                    label: {
+                        show: true,
+                        formatter: '{b}: {@' + this.getNameOfMonth(lastMonth) + '} ({d}%)'
+                    },
+                    encode: {
+                        itemName: 'product',
+                        value: this.getNameOfMonth(lastMonth),
+                        tooltip: this.getNameOfMonth(lastMonth)
+                    }
+                }
+            ])
+        };
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.getNameOfMonth = function (i) {
+        return new Date(0, i).toLocaleString('default', { month: 'short' });
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.getSeriesOfLines = function (filteredTransactions) {
+        var response = filteredTransactions.map(function (t) {
+            return {
+                type: 'line',
+                smooth: true,
+                seriesLayoutBy: 'row',
+                emphasis: { focus: 'series' },
+            };
+        });
+        return response;
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.getSeriesOfMoth = function (months) {
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.onChartInit = function (chart) {
+        chart.on('updateAxisPointer', function (event) {
+            var xAxisInfo = event.axesInfo[0];
+            if (xAxisInfo) {
+                var dimension = xAxisInfo.value + 1;
+                chart.setOption({
+                    series: {
+                        id: 'pie',
+                        label: {
+                            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                        },
+                        encode: {
+                            value: dimension,
+                            tooltip: dimension
+                        }
+                    }
+                });
+            }
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AccountControlDashCategoryByMonthsComponent.prototype, "transactions", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], AccountControlDashCategoryByMonthsComponent.prototype, "year", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], AccountControlDashCategoryByMonthsComponent.prototype, "transactionType", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccountControlDashCategoryByMonthsComponent.prototype, "budgetSettings", void 0);
+    AccountControlDashCategoryByMonthsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-dash-category-by-months',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-dash-category-by-months.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-dash-category-by-months.component.css */ "./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.css")).default]
+        })
+    ], AccountControlDashCategoryByMonthsComponent);
+    return AccountControlDashCategoryByMonthsComponent;
+}());
 
 
 
@@ -6929,350 +7043,6 @@ var TransactionOperation = /** @class */ (function () {
     return TransactionOperation;
 }());
 
-
-
-/***/ }),
-
-/***/ "./src/app/variables/charts.ts":
-/*!*************************************!*\
-  !*** ./src/app/variables/charts.ts ***!
-  \*************************************/
-/*! exports provided: chartOptions, parseOptions, chartExample1, chartExample2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chartOptions", function() { return chartOptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseOptions", function() { return parseOptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chartExample1", function() { return chartExample1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chartExample2", function() { return chartExample2; });
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/src/chart.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_0__);
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-//
-// Chart extension for making the bars rounded
-// Code from: https://codepen.io/jedtrow/full/ygRYgo
-//
-chart_js__WEBPACK_IMPORTED_MODULE_0___default.a.elements.Rectangle.prototype.draw = function () {
-    var ctx = this._chart.ctx;
-    var vm = this._view;
-    var left, right, top, bottom, signX, signY, borderSkipped, radius;
-    var borderWidth = vm.borderWidth;
-    // Set Radius Here
-    // If radius is large enough to cause drawing errors a max radius is imposed
-    var cornerRadius = 6;
-    if (!vm.horizontal) {
-        // bar
-        left = vm.x - vm.width / 2;
-        right = vm.x + vm.width / 2;
-        top = vm.y;
-        bottom = vm.base;
-        signX = 1;
-        signY = bottom > top ? 1 : -1;
-        borderSkipped = vm.borderSkipped || "bottom";
-    }
-    else {
-        // horizontal bar
-        left = vm.base;
-        right = vm.x;
-        top = vm.y - vm.height / 2;
-        bottom = vm.y + vm.height / 2;
-        signX = right > left ? 1 : -1;
-        signY = 1;
-        borderSkipped = vm.borderSkipped || "left";
-    }
-    // Canvas doesn't allow us to stroke inside the width so we can
-    // adjust the sizes to fit if we're setting a stroke on the line
-    if (borderWidth) {
-        // borderWidth shold be less than bar width and bar height.
-        var barSize = Math.min(Math.abs(left - right), Math.abs(top - bottom));
-        borderWidth = borderWidth > barSize ? barSize : borderWidth;
-        var halfStroke = borderWidth / 2;
-        // Adjust borderWidth when bar top position is near vm.base(zero).
-        var borderLeft = left + (borderSkipped !== "left" ? halfStroke * signX : 0);
-        var borderRight = right + (borderSkipped !== "right" ? -halfStroke * signX : 0);
-        var borderTop = top + (borderSkipped !== "top" ? halfStroke * signY : 0);
-        var borderBottom = bottom + (borderSkipped !== "bottom" ? -halfStroke * signY : 0);
-        // not become a vertical line?
-        if (borderLeft !== borderRight) {
-            top = borderTop;
-            bottom = borderBottom;
-        }
-        // not become a horizontal line?
-        if (borderTop !== borderBottom) {
-            left = borderLeft;
-            right = borderRight;
-        }
-    }
-    ctx.beginPath();
-    ctx.fillStyle = vm.backgroundColor;
-    ctx.strokeStyle = vm.borderColor;
-    ctx.lineWidth = borderWidth;
-    // Corner points, from bottom-left to bottom-right clockwise
-    // | 1 2 |
-    // | 0 3 |
-    var corners = [[left, bottom], [left, top], [right, top], [right, bottom]];
-    // Find first (starting) corner with fallback to 'bottom'
-    var borders = ["bottom", "left", "top", "right"];
-    var startCorner = borders.indexOf(borderSkipped, 0);
-    if (startCorner === -1) {
-        startCorner = 0;
-    }
-    function cornerAt(index) {
-        return corners[(startCorner + index) % 4];
-    }
-    // Draw rectangle from 'startCorner'
-    var corner = cornerAt(0);
-    ctx.moveTo(corner[0], corner[1]);
-    for (var i = 1; i < 4; i++) {
-        corner = cornerAt(i);
-        var nextCornerId = i + 1;
-        if (nextCornerId === 4) {
-            nextCornerId = 0;
-        }
-        // let nextCorner = cornerAt(nextCornerId);
-        var width = corners[2][0] - corners[1][0];
-        var height = corners[0][1] - corners[1][1];
-        var x = corners[1][0];
-        var y = corners[1][1];
-        // eslint-disable-next-line
-        var radius = cornerRadius;
-        // Fix radius being too large
-        if (radius > height / 2) {
-            radius = height / 2;
-        }
-        if (radius > width / 2) {
-            radius = width / 2;
-        }
-        ctx.moveTo(x + radius, y);
-        ctx.lineTo(x + width - radius, y);
-        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-        ctx.lineTo(x + width, y + height - radius);
-        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-        ctx.lineTo(x + radius, y + height);
-        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-        ctx.lineTo(x, y + radius);
-        ctx.quadraticCurveTo(x, y, x + radius, y);
-    }
-    ctx.fill();
-    if (borderWidth) {
-        ctx.stroke();
-    }
-};
-var mode = 'light'; //(themeMode) ? themeMode : 'light';
-var fonts = {
-    base: 'Open Sans'
-};
-// Colors
-var colors = {
-    gray: {
-        100: '#f6f9fc',
-        200: '#e9ecef',
-        300: '#dee2e6',
-        400: '#ced4da',
-        500: '#adb5bd',
-        600: '#8898aa',
-        700: '#525f7f',
-        800: '#32325d',
-        900: '#212529'
-    },
-    theme: {
-        'default': '#172b4d',
-        'primary': '#5e72e4',
-        'secondary': '#f4f5f7',
-        'info': '#11cdef',
-        'success': '#2dce89',
-        'danger': '#f5365c',
-        'warning': '#fb6340'
-    },
-    black: '#12263F',
-    white: '#FFFFFF',
-    transparent: 'transparent',
-};
-function chartOptions() {
-    // Options
-    var options = {
-        defaults: {
-            global: {
-                responsive: true,
-                maintainAspectRatio: false,
-                defaultColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
-                defaultFontColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
-                defaultFontFamily: fonts.base,
-                defaultFontSize: 13,
-                layout: {
-                    padding: 0
-                },
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: true,
-                        padding: 16
-                    }
-                },
-                elements: {
-                    point: {
-                        radius: 0,
-                        backgroundColor: colors.theme['primary']
-                    },
-                    line: {
-                        tension: .4,
-                        borderWidth: 4,
-                        borderColor: colors.theme['primary'],
-                        backgroundColor: colors.transparent,
-                        borderCapStyle: 'rounded'
-                    },
-                    rectangle: {
-                        backgroundColor: colors.theme['warning']
-                    },
-                    arc: {
-                        backgroundColor: colors.theme['primary'],
-                        borderColor: (mode == 'dark') ? colors.gray[800] : colors.white,
-                        borderWidth: 4
-                    }
-                },
-                tooltips: {
-                    enabled: true,
-                    mode: 'index',
-                    intersect: false,
-                }
-            },
-            doughnut: {
-                cutoutPercentage: 83,
-                legendCallback: function (chart) {
-                    var data = chart.data;
-                    var content = '';
-                    data.labels.forEach(function (label, index) {
-                        var bgColor = data.datasets[0].backgroundColor[index];
-                        content += '<span class="chart-legend-item">';
-                        content += '<i class="chart-legend-indicator" style="background-color: ' + bgColor + '"></i>';
-                        content += label;
-                        content += '</span>';
-                    });
-                    return content;
-                }
-            }
-        }
-    };
-    // yAxes
-    chart_js__WEBPACK_IMPORTED_MODULE_0___default.a.scaleService.updateScaleDefaults('linear', {
-        gridLines: {
-            borderDash: [2],
-            borderDashOffset: [2],
-            color: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
-            drawBorder: false,
-            drawTicks: false,
-            lineWidth: 0,
-            zeroLineWidth: 0,
-            zeroLineColor: (mode == 'dark') ? colors.gray[900] : colors.gray[300],
-            zeroLineBorderDash: [2],
-            zeroLineBorderDashOffset: [2]
-        },
-        ticks: {
-            beginAtZero: true,
-            padding: 10,
-            callback: function (value) {
-                if (!(value % 10)) {
-                    return value;
-                }
-            }
-        }
-    });
-    // xAxes
-    chart_js__WEBPACK_IMPORTED_MODULE_0___default.a.scaleService.updateScaleDefaults('category', {
-        gridLines: {
-            drawBorder: false,
-            drawOnChartArea: false,
-            drawTicks: false
-        },
-        ticks: {
-            padding: 20
-        },
-        maxBarThickness: 10
-    });
-    return options;
-}
-var parseOptions = function (parent, options) {
-    for (var item in options) {
-        if (typeof options[item] !== 'object') {
-            parent[item] = options[item];
-        }
-        else {
-            parseOptions(parent[item], options[item]);
-        }
-    }
-};
-var chartExample1 = {
-    options: {
-        scales: {
-            yAxes: [{
-                    gridLines: {
-                        color: colors.gray[900],
-                        zeroLineColor: colors.gray[900]
-                    },
-                    ticks: {
-                        callback: function (value) {
-                            if (!(value % 10)) {
-                                return '$' + value + 'k';
-                            }
-                        }
-                    }
-                }]
-        }
-    },
-    data: {
-        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-                label: 'Performance',
-                data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
-            }]
-    }
-};
-var chartExample2 = {
-    options: {
-        scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        callback: function (value) {
-                            if (!(value % 10)) {
-                                //return '$' + value + 'k'
-                                return value;
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        tooltips: {
-            callbacks: {
-                label: function (item, data) {
-                    var label = data.datasets[item.datasetIndex].label || "";
-                    var yLabel = item.yLabel;
-                    var content = "";
-                    if (data.datasets.length > 1) {
-                        content += label;
-                    }
-                    content += yLabel;
-                    return content;
-                }
-            }
-        }
-    },
-    data: {
-        labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [
-            {
-                label: "Sales",
-                data: [25, 20, 30, 22, 17, 29]
-            }
-        ]
-    }
-};
 
 
 /***/ }),
