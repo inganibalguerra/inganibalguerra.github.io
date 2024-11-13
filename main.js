@@ -480,6 +480,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.html":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.html ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOptions\" style=\"height: 500px;\"></div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html ***!
@@ -515,7 +528,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <app-account-control-dash-daily-balance [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n\n    </div>\n</div>");
 
 /***/ }),
 
@@ -698,6 +711,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_echarts__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ngx-echarts */ "./node_modules/ngx-echarts/__ivy_ngcc__/fesm5/ngx-echarts.js");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_daily_balance_account_control_dash_daily_balance_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-daily-balance/account-control-dash-daily-balance.component */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-balance/account-control-dash-daily-balance.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dashboards_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dashboards.component */ "./src/app/pages/account-control/dashboards/account-control-dashboards.component.ts");
+/* harmony import */ var _pages_account_control_dashboards_account_control_dash_all_categories_account_control_dash_all_categories_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component */ "./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -707,6 +721,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -779,7 +794,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_account_control_management_transaction_account_control_management_transaction_component__WEBPACK_IMPORTED_MODULE_24__["AccountControlManagementTransactionComponent"],
                 _pages_account_control_dashboards_account_control_dash_category_by_months_account_control_dash_category_by_months_component__WEBPACK_IMPORTED_MODULE_25__["AccountControlDashCategoryByMonthsComponent"],
                 _pages_account_control_dashboards_account_control_dash_daily_balance_account_control_dash_daily_balance_component__WEBPACK_IMPORTED_MODULE_27__["AccountControlDashDailyBalanceComponent"],
-                _pages_account_control_dashboards_account_control_dashboards_component__WEBPACK_IMPORTED_MODULE_28__["AccountControlDashboardsComponent"]
+                _pages_account_control_dashboards_account_control_dashboards_component__WEBPACK_IMPORTED_MODULE_28__["AccountControlDashboardsComponent"],
+                _pages_account_control_dashboards_account_control_dash_all_categories_account_control_dash_all_categories_component__WEBPACK_IMPORTED_MODULE_29__["AccountControlDashAllCategoriesComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -2642,6 +2658,7 @@ var AccountControlComponent = /** @class */ (function (_super) {
     };
     AccountControlComponent.prototype.ngOnInit = function () {
         this.init();
+        this.openDashboards(this.transactions);
     };
     AccountControlComponent.prototype.ngOnDestroy = function () {
         this.detroy();
@@ -2750,6 +2767,189 @@ var AccountControlComponent = /** @class */ (function (_super) {
     ], AccountControlComponent);
     return AccountControlComponent;
 }(_common_base_component__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.css":
+/*!****************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.css ***!
+  \****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9kYXNoYm9hcmRzL2FjY291bnQtY29udHJvbC1kYXNoLWFsbC1jYXRlZ29yaWVzL2FjY291bnQtY29udHJvbC1kYXNoLWFsbC1jYXRlZ29yaWVzLmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.ts":
+/*!***************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.ts ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: AccountControlDashAllCategoriesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashAllCategoriesComponent", function() { return AccountControlDashAllCategoriesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+
+var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
+    function AccountControlDashAllCategoriesComponent() {
+        this.transactions = [];
+        this.transactionType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+    }
+    AccountControlDashAllCategoriesComponent.prototype.ngOnInit = function () {
+        this.prepareChartData();
+    };
+    AccountControlDashAllCategoriesComponent.prototype.prepareChartData = function () {
+        var _this = this;
+        var transactionsOfCurrentType = this.transactions.filter(function (transaction) { return transaction.type === _this.transactionType; });
+        // Extraer y formatear las fechas únicas en formato `YYYY-MM`
+        var uniqueDates = Array.from(new Set(transactionsOfCurrentType.map(function (tx) {
+            var date = new Date(tx.date);
+            return date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0');
+        }))).sort();
+        // Mapear `categoryId` a `categoryName`
+        var categoryMap = new Map(this.budgetSettings.categories.map(function (category) { return [category.id, category.name]; }));
+        // Sumar y acumular los montos por mes y categoría
+        var dataByCategoryAndMonth = {};
+        transactionsOfCurrentType.forEach(function (tx) {
+            var date = new Date(tx.date);
+            var month = date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0');
+            var categoryName = categoryMap.get(tx.categoryId) || 'Other';
+            if (!dataByCategoryAndMonth[categoryName]) {
+                dataByCategoryAndMonth[categoryName] = {};
+            }
+            if (!dataByCategoryAndMonth[categoryName][month]) {
+                dataByCategoryAndMonth[categoryName][month] = 0;
+            }
+            dataByCategoryAndMonth[categoryName][month] += tx.amount;
+        });
+        // Generar los datos acumulados por categoría
+        var accumulatedDataByCategory = {};
+        Object.keys(dataByCategoryAndMonth).forEach(function (category) {
+            accumulatedDataByCategory[category] = {};
+            var cumulativeAmount = 0;
+            uniqueDates.forEach(function (month) {
+                cumulativeAmount += dataByCategoryAndMonth[category][month] || 0;
+                accumulatedDataByCategory[category][month] = cumulativeAmount;
+            });
+        });
+        // Configuración de datasets y series
+        var datasetWithFilters = [];
+        var seriesList = [];
+        Object.keys(accumulatedDataByCategory).forEach(function (category) {
+            var datasetId = "dataset_" + category;
+            datasetWithFilters.push({
+                id: datasetId,
+                source: uniqueDates.map(function (month) { return ({
+                    Month: month,
+                    Amount: accumulatedDataByCategory[category][month] || null
+                }); })
+            });
+            seriesList.push({
+                type: 'line',
+                datasetId: datasetId,
+                showSymbol: false,
+                name: category,
+                endLabel: {
+                    show: true,
+                    formatter: function (params) {
+                        console.log(params);
+                        return category + ": " + params.data.Amount;
+                    }
+                },
+                labelLayout: {
+                    moveOverlap: 'shiftY'
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                encode: {
+                    x: 'Month',
+                    y: 'Amount',
+                    label: ['Month', 'Amount'],
+                    itemName: 'Month',
+                    tooltip: ['Amount']
+                }
+            });
+        });
+        // Configuración de opciones del gráfico
+        this.chartOptions = {
+            animationDuration: 10000,
+            dataset: __spreadArrays([
+                {
+                    id: 'dataset_raw',
+                    source: datasetWithFilters
+                }
+            ], datasetWithFilters),
+            title: {
+                left: 'center',
+                text: (this.transactionType == src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? 'Gastos' : 'Ingresos') + " por categoria"
+            },
+            tooltip: {
+                order: 'valueDesc',
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                name: 'Month'
+            },
+            yAxis: {
+                name: 'Accumulated Amount'
+            },
+            grid: {
+                right: 140
+            },
+            series: seriesList
+        };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AccountControlDashAllCategoriesComponent.prototype, "transactions", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccountControlDashAllCategoriesComponent.prototype, "budgetSettings", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], AccountControlDashAllCategoriesComponent.prototype, "transactionType", void 0);
+    AccountControlDashAllCategoriesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-dash-all-categories',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-dash-all-categories.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-dash-all-categories.component.css */ "./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.css")).default]
+        })
+    ], AccountControlDashAllCategoriesComponent);
+    return AccountControlDashAllCategoriesComponent;
+}());
 
 
 
