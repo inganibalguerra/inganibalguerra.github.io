@@ -2658,7 +2658,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
     };
     AccountControlComponent.prototype.ngOnInit = function () {
         this.init();
-        this.openDashboards(this.transactions);
     };
     AccountControlComponent.prototype.ngOnDestroy = function () {
         this.detroy();
