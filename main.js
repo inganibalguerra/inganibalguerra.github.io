@@ -2873,7 +2873,7 @@ var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
             if (!dataByCategoryAndMonth[categoryName][month]) {
                 dataByCategoryAndMonth[categoryName][month] = 0;
             }
-            dataByCategoryAndMonth[categoryName][month] += tx.amount;
+            dataByCategoryAndMonth[categoryName][month] += Math.abs(tx.amount);
         });
         // Generar los datos acumulados por categoría
         var accumulatedDataByCategory = {};
