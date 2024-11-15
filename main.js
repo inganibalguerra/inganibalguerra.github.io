@@ -2905,8 +2905,8 @@ var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
                 endLabel: {
                     show: true,
                     formatter: function (params) {
-                        console.log(params);
-                        return category + ": " + params.data.Amount;
+                        var amountFormatted = params.data.Amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                        return category + ": " + amountFormatted;
                     }
                 },
                 labelLayout: {
