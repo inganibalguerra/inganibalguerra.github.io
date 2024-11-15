@@ -5066,11 +5066,9 @@ var AccountControlService = /** @class */ (function () {
             return;
         }
         var accountOfTransaction = data.accounts.find(function (a) { return a.id === transaction.accountId; });
-        if (!accountOfTransaction) {
-            this.toastr.error('No se puede editar una transacción que no pertenece a una cuenta válida', 'Account Control!');
-            return;
+        if (accountOfTransaction) {
+            accountOfTransaction.balance += -transaction.amount;
         }
-        accountOfTransaction.balance += -transaction.amount;
         data.transactions = data.transactions.filter(function (a) { return a.id !== transaction.id; });
         this.saveSettingsData(data);
     };
