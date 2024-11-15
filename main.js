@@ -411,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"mb-2\">\n            <!-- Input de búsqueda -->\n            <input type=\"text\" placeholder=\"Buscar transacción...\" class=\"form-control form-control-alternative mb-2\"\n                (input)=\"onSearch($event)\" />\n\n            <!-- Mostrar conteo de registros -->\n            <small class=\"text-muted\">Total registros:\n                <span *ngIf=\"filteredTransactions.length == transactions.length\">\n                    {{ visibleTransactions.length }}/{{ transactions.length }}\n                </span>\n                <span *ngIf=\"filteredTransactions.length != transactions.length\">\n                    {{ transactions.length }} | {{ visibleTransactions.length }}/{{ filteredTransactions.length }}\n                    coincidencias\n                </span>\n            </small>\n        </div>\n\n        <!-- Mostrar métricas al estar filtrando -->\n        <div *ngIf=\"isFiltering\" class=\"card-profile-stats d-flex justify-content-center mb-3\">\n            <div>\n                <span class=\"heading text-success\">\n                    <i class=\"fas fa-arrow-circle-up\"></i>\n                    {{ totalIncome | currency }}\n                </span>\n                <span class=\"description\">Total Ingresos</span>\n            </div>\n            <div>\n                <span class=\"heading text-danger\">\n                    <i class=\"fas fa-arrow-circle-down\"></i>\n                    {{ totalExpense | currency }}\n                </span>\n                <span class=\"description\">Total Gastos</span>\n            </div>\n            <div *ngIf=\"savingsGoal>0\">\n                <span class=\"heading text-info\">\n                    <i class=\"fas fa-piggy-bank\"></i>\n                    {{ savingsGoal | currency }}\n                </span>\n                <span class=\"description\">Ahorro</span>\n            </div>\n        </div>\n        <div *ngIf=\"isFiltering\" class=\"row col mb-1\">\n\n            <button placement=\"top\" ngbTooltip=\"Abrir dashboards\" (click)=\"openDashboards()\"\n                class=\"btn btn-icon btn-3 btn-sm btn-primary\" type=\"button\">\n                <span class=\"btn-inner--icon\">\n                    <i class=\"fas fa-chart-bar\"></i>\n                </span>\n            </button>\n        </div>\n\n        <!-- Contenedor con scroll que incluye las transacciones -->\n        <div class=\"scroll-container\" style=\"max-height: 680px; overflow-y: auto;\" (scroll)=\"onScroll($event)\">\n\n            <div class=\"pb-1\" *ngFor=\"let transaction of visibleTransactions\">\n                <app-account-control-transaction-card [transaction]=\"transaction\" [settingsData]=\"settionsData\"\n                    (onRegisterAccount)=\"openCreateAccount(transaction)\"\n                    (onRegisterCategory)=\"openManagementCategories(transaction)\"\n                    (onEditTransaction)=\"openEditTransaction(transaction)\">\n                </app-account-control-transaction-card>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"mb-2\">\n            <!-- Input de búsqueda -->\n            <input type=\"text\" placeholder=\"Buscar transacción...\" class=\"form-control form-control-alternative mb-2\"\n                (input)=\"onSearch($event)\" />\n\n            <!-- Mostrar conteo de registros -->\n            <small class=\"text-muted\">Total registros:\n                <span *ngIf=\"filteredTransactions.length == transactions.length\">\n                    {{ visibleTransactions.length }}/{{ transactions.length }}\n                </span>\n                <span *ngIf=\"filteredTransactions.length != transactions.length\">\n                    {{ transactions.length }} | {{ visibleTransactions.length }}/{{ filteredTransactions.length }}\n                    coincidencias\n                </span>\n            </small>\n        </div>\n\n        <!-- Mostrar métricas al estar filtrando -->\n        <div *ngIf=\"isFiltering\" class=\"card-profile-stats d-flex justify-content-center mb-3\">\n            <div>\n                <span class=\"heading text-success\">\n                    <i class=\"fas fa-arrow-circle-up\"></i>\n                    {{ totalIncome | currency }}\n                </span>\n                <span class=\"description\">Total Ingresos</span>\n            </div>\n            <div>\n                <span class=\"heading text-danger\">\n                    <i class=\"fas fa-arrow-circle-down\"></i>\n                    {{ totalExpense | currency }}\n                </span>\n                <span class=\"description\">Total Gastos</span>\n            </div>\n            <div *ngIf=\"savingsGoal>0\">\n                <span class=\"heading text-info\">\n                    <i class=\"fas fa-piggy-bank\"></i>\n                    {{ savingsGoal | currency }}\n                </span>\n                <span class=\"description\">Ahorro</span>\n            </div>\n        </div>\n        <div *ngIf=\"isFiltering\" class=\"row col mb-1\">\n\n            <button placement=\"top\" ngbTooltip=\"Abrir dashboards\" (click)=\"openDashboards()\"\n                class=\"btn btn-icon btn-3 btn-sm btn-primary\" type=\"button\">\n                <span class=\"btn-inner--icon\">\n                    <i class=\"fas fa-chart-bar\"></i>\n                </span>\n            </button>\n        </div>\n\n        <!-- Contenedor con scroll que incluye las transacciones -->\n        <div class=\"scroll-container\" style=\"max-height: 680px; overflow-y: auto;\" (scroll)=\"onScroll($event)\">\n\n            <div class=\"pb-1\" *ngFor=\"let transaction of visibleTransactions\">\n                <app-account-control-transaction-card [transaction]=\"transaction\" [settingsData]=\"settionsData\"\n                    (onRegisterAccount)=\"openCreateAccount(transaction)\"\n                    (onRegisterCategory)=\"openManagementCategories(transaction)\"\n                    (onEditTransaction)=\"openEditTransaction(transaction)\"\n                    (onDeleteTransaction)=\"deleteTransaction(transaction)\">\n                </app-account-control-transaction-card>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -463,7 +463,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0 \"\n    [ngClass]=\"{ 'bg-gradient-default': (!transaction.categoryId || transaction.categoryId=='no_category')}\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div *ngIf=\"transaction.canProcessed\" class=\"col\">\n                <h5 class=\"card-title text-uppercase text-muted mb-0\">\n                    {{transaction.description}}</h5>\n                <span *ngIf=\"transaction.type=='income'; else elseUnrecognizedTransactions\">\n                    <span class=\"text-success mr-2\"><i class=\"fa fa-arrow-up\"></i></span>\n                </span>\n                <ng-template #elseUnrecognizedTransactions>\n                    <span class=\"text-danger mr-2\"><i class=\"fa fa-arrow-down\"></i></span>\n                </ng-template>\n\n                <span class=\"h2 font-weight-bold mb-0\"\n                    [ngClass]=\"{ 'text-white': (!transaction.categoryId || transaction.categoryId=='no_category')}\">{{transaction.amount|currency}}</span>\n\n            </div>\n            <div class=\"col-auto\">\n                <button placement=\"left\" ngbTooltip=\"Configurar nueva cuenta\"\n                    *ngIf=\"showButtons && !transaction.isProcessed && transaction.canProcessed\"\n                    (click)=\"openCreateAccount(transaction)\" type=\"button\"\n                    class=\"btn text-white btn-sm bg-gradient-dark\">\n                    <span>Registrar </span>\n                    <span\n                        class=\"badge badge-md  bg-gradient-warning border-white\">{{transaction.originalAccount}}</span>\n                </button>\n\n\n\n                <button placement=\"left\" ngbTooltip=\"Configurar palabras clave para detectar la categoria\"\n                    *ngIf=\"showButtons && (!transaction.categoryId || transaction.categoryId=='no_category')\"\n                    (click)=\"openManagementCategories(transaction)\" type=\"button\"\n                    class=\"btn text-white btn-sm bg-gradient-warning\">\n                    <span>Categoria </span>\n                </button>\n\n                <button *ngIf=\"showButtons && transaction.canProcessed\" (click)=\"openEditTransaction(transaction)\"\n                    type=\"button\" class=\"btn text-white btn-sm bg-gradient-primary\">\n                    <span>Editar </span>\n                </button>\n\n                <div *ngIf=\"transaction.transactionId\" [ngClass]=\"transaction.type=='income'?'bg-success':'bg-danger'\"\n                    class=\"icon icon-shape text-white rounded-circle shadow\">\n                    <i class=\"ni ni-spaceship\"></i>\n                </div>\n            </div>\n        </div>\n        <p *ngIf=\"transaction.canProcessed\" class=\"mb-0 text-muted text-sm\">\n            <span class=\"mt-1\">\n                <i class=\"ni ni-credit-card\"></i>\n            </span>\n            {{transaction.accountId ? transaction.accountId : transaction.originalAccount}} |\n            <span class=\"text-nowrap\">\n                {{ transaction.date | date: 'dd/MM/yyyy HH:mm': '-0500'}}\n            </span>\n\n        </p>\n        <span class=\"badge badge-dot\" *ngIf=\"transaction.isProcessed; else elseUnrecognizedTransactions\">\n            <i class=\"bg-success\"></i>\n        </span>\n        <ng-template #elseUnrecognizedTransactions>\n            <span class=\"badge badge-dot\">\n                <i class=\"bg-danger\"></i>\n            </span>\n        </ng-template>\n\n        <span style=\"font-size: 50%;\" class=\"badge badge-pill text-white\"\n            [ngClass]=\"{ 'bg-gradient-success': (transaction.type=='income'), 'bg-gradient-danger': (transaction.type!='income')}\">\n            {{ getCategory(transaction.categoryId)}}\n        </span>\n        <p *ngIf=\"showOriginalBody || !transaction.canProcessed\" class=\"mb-0 text-muted text-sm\"\n            [ngClass]=\"{ 'text-white': (!transaction.categoryId || transaction.categoryId=='no_category') }\">\n            <strong>Cuerpo Original: </strong>\n            <span class=\"card-title mb-0\">{{ transaction.originalBody}}</span>\n        </p>\n        <div *ngIf=\"!transaction.canProcessed\" class=\"alert alert-danger\" role=\"alert\">\n            <span class=\"alert-inner--icon\"><i class=\"ni ni-like-2\"></i></span>\n            <strong> Advertencia!</strong> Comunicate con el desarrollador para configurar este nuevo escenario no\n            contemplado!\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0 \"\n    [ngClass]=\"{ 'bg-gradient-default': (!transaction.categoryId || transaction.categoryId=='no_category')}\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div *ngIf=\"transaction.canProcessed\" class=\"col\">\n                <h5 class=\"card-title text-uppercase text-muted mb-0\">\n                    {{transaction.description}}</h5>\n                <span *ngIf=\"transaction.type=='income'; else elseUnrecognizedTransactions\">\n                    <span class=\"text-success mr-2\"><i class=\"fa fa-arrow-up\"></i></span>\n                </span>\n                <ng-template #elseUnrecognizedTransactions>\n                    <span class=\"text-danger mr-2\"><i class=\"fa fa-arrow-down\"></i></span>\n                </ng-template>\n\n                <span class=\"h2 font-weight-bold mb-0\"\n                    [ngClass]=\"{ 'text-white': (!transaction.categoryId || transaction.categoryId=='no_category')}\">{{transaction.amount|currency}}</span>\n\n            </div>\n            <div class=\"col-auto\">\n                <button placement=\"left\" ngbTooltip=\"Configurar nueva cuenta\"\n                    *ngIf=\"showButtons && !transaction.isProcessed && transaction.canProcessed\"\n                    (click)=\"openCreateAccount(transaction)\" type=\"button\"\n                    class=\"btn text-white btn-sm bg-gradient-dark\">\n                    <span>Registrar </span>\n                    <span\n                        class=\"badge badge-md  bg-gradient-warning border-white\">{{transaction.originalAccount}}</span>\n                </button>\n\n\n\n                <button placement=\"left\" ngbTooltip=\"Configurar palabras clave para detectar la categoria\"\n                    *ngIf=\"showButtons && (!transaction.categoryId || transaction.categoryId=='no_category')\"\n                    (click)=\"openManagementCategories(transaction)\" type=\"button\"\n                    class=\"btn text-white btn-sm bg-gradient-warning\">\n                    <span>Categoria </span>\n                </button>\n\n                <button *ngIf=\"showButtons && transaction.canProcessed\" (click)=\"openEditTransaction(transaction)\"\n                    type=\"button\" class=\"btn text-white btn-sm bg-gradient-primary\">\n                    <span>Editar </span>\n                </button>\n\n                <div *ngIf=\"transaction.transactionId\" [ngClass]=\"transaction.type=='income'?'bg-success':'bg-danger'\"\n                    class=\"icon icon-shape text-white rounded-circle shadow\">\n                    <i class=\"ni ni-spaceship\"></i>\n                </div>\n            </div>\n        </div>\n        <p *ngIf=\"transaction.canProcessed\" class=\"mb-0 text-muted text-sm\">\n            <span class=\"mt-1\">\n                <i class=\"ni ni-credit-card\"></i>\n            </span>\n            {{transaction.accountId ? transaction.accountId : transaction.originalAccount}} |\n            <span class=\"text-nowrap\">\n                {{ transaction.date | date: 'dd/MM/yyyy HH:mm': '-0500'}}\n            </span>\n\n        </p>\n        <span class=\"badge badge-dot\" *ngIf=\"transaction.isProcessed; else elseUnrecognizedTransactions\">\n            <i class=\"bg-success\"></i>\n        </span>\n        <ng-template #elseUnrecognizedTransactions>\n            <span class=\"badge badge-dot\">\n                <i class=\"bg-danger\"></i>\n            </span>\n        </ng-template>\n\n        <span style=\"font-size: 50%;\" class=\"badge badge-pill text-white\"\n            [ngClass]=\"{ 'bg-gradient-success': (transaction.type=='income'), 'bg-gradient-danger': (transaction.type!='income')}\">\n            {{ getCategory(transaction.categoryId)}}\n        </span>\n        <p *ngIf=\"showOriginalBody || !transaction.canProcessed\" class=\"mb-0 text-muted text-sm\"\n            [ngClass]=\"{ 'text-white': (!transaction.categoryId || transaction.categoryId=='no_category') }\">\n            <strong>Cuerpo Original: </strong>\n            <span class=\"card-title mb-0\">{{ transaction.originalBody}}</span>\n        </p>\n        <div *ngIf=\"!transaction.canProcessed\" class=\"alert alert-danger\" role=\"alert\">\n            <span class=\"alert-inner--icon\"><i class=\"ni ni-like-2\"></i></span>\n            <strong> Advertencia!</strong> Comunicate con el desarrollador para configurar este nuevo escenario no\n            contemplado!\n        </div>\n\n        <div class=\"float-right\" *ngIf=\"!showOriginalBody\">\n            <button type=\"button\" (click)=\"deleteTransacion()\" class=\"btn btn-icon btn-3 btn-sm btn-danger\">\n                <span class=\"btn-inner--icon\">\n                    <i class=\"fa fa-trash\"></i>\n                </span>\n            </button>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1625,6 +1625,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _account_control_management_account_account_control_management_account_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../account-control-management-account/account-control-management-account.component */ "./src/app/pages/account-control/account-control-management-account/account-control-management-account.component.ts");
 /* harmony import */ var _account_control_management_transaction_account_control_management_transaction_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../account-control-management-transaction/account-control-management-transaction.component */ "./src/app/pages/account-control/account-control-management-transaction/account-control-management-transaction.component.ts");
 /* harmony import */ var _dashboards_account_control_dashboards_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dashboards/account-control-dashboards.component */ "./src/app/pages/account-control/dashboards/account-control-dashboards.component.ts");
+/* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm5/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1651,9 +1653,13 @@ var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
 
 
 
+
+
 var AccountControlListTransactionsComponent = /** @class */ (function () {
-    function AccountControlListTransactionsComponent(modalService) {
+    function AccountControlListTransactionsComponent(modalService, accountService, toastr) {
         this.modalService = modalService;
+        this.accountService = accountService;
+        this.toastr = toastr;
         this.visibleTransactions = []; // Transacciones visibles en la vista
         this.filteredTransactions = []; // Transacciones filtradas con el input de búsqueda
         this.pageSize = 10; // Número de transacciones por página
@@ -1777,8 +1783,20 @@ var AccountControlListTransactionsComponent = /** @class */ (function () {
         componentInstance.transactions = this.visibleTransactions;
         componentInstance.settingsData = this.settionsData;
     };
+    AccountControlListTransactionsComponent.prototype.deleteTransaction = function (transaction) {
+        var result = confirm('¿Estás seguro de que deseas continuar?');
+        if (result) {
+            this.accountService.deleteTransaction(transaction);
+            this.onFinish.emit();
+        }
+        else {
+            this.toastr.info("Operación de eliminación cancelada", "Account Control!!");
+        }
+    };
     AccountControlListTransactionsComponent.ctorParameters = function () { return [
-        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"] }
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"] },
+        { type: src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_7__["AccountControlService"] },
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_8__["ToastrService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -1799,7 +1817,7 @@ var AccountControlListTransactionsComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-list-transactions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./account-control-list-transactions.component.css */ "./src/app/pages/account-control/account-control-list-transactions/account-control-list-transactions.component.css")).default]
         }),
-        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"]])
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"], src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_7__["AccountControlService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]])
     ], AccountControlListTransactionsComponent);
     return AccountControlListTransactionsComponent;
 }());
@@ -2459,6 +2477,7 @@ var AccountControlTransactionCardComponent = /** @class */ (function () {
         this.onRegisterCategory = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.onRegisterAccount = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.onEditTransaction = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onDeleteTransaction = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     AccountControlTransactionCardComponent.prototype.ngOnInit = function () {
     };
@@ -2474,6 +2493,9 @@ var AccountControlTransactionCardComponent = /** @class */ (function () {
     AccountControlTransactionCardComponent.prototype.getCategory = function (categoryId) {
         var _a, _b, _c, _d, _e;
         return _e = (_d = (_c = (_b = (_a = this.settingsData) === null || _a === void 0 ? void 0 : _a.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.find(function (c) { return c.id === categoryId; })) === null || _d === void 0 ? void 0 : _d.name, (_e !== null && _e !== void 0 ? _e : 'Sin clasificar');
+    };
+    AccountControlTransactionCardComponent.prototype.deleteTransacion = function () {
+        this.onDeleteTransaction.emit(this.transaction);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -2503,6 +2525,10 @@ var AccountControlTransactionCardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], AccountControlTransactionCardComponent.prototype, "onEditTransaction", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AccountControlTransactionCardComponent.prototype, "onDeleteTransaction", void 0);
     AccountControlTransactionCardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-account-control-transaction-card',
@@ -5031,6 +5057,21 @@ var AccountControlService = /** @class */ (function () {
         else {
             data.transactions.push(transaction);
         }
+        this.saveSettingsData(data);
+    };
+    AccountControlService.prototype.deleteTransaction = function (transaction) {
+        var data = this._getConfigFromLocalStorage();
+        if (!data) {
+            this.toastr.error("Debe existir al menos una cuenta para poder crear una transacción", 'Account Control!');
+            return;
+        }
+        var accountOfTransaction = data.accounts.find(function (a) { return a.id === transaction.accountId; });
+        if (!accountOfTransaction) {
+            this.toastr.error('No se puede editar una transacción que no pertenece a una cuenta válida', 'Account Control!');
+            return;
+        }
+        accountOfTransaction.balance += -transaction.amount;
+        data.transactions = data.transactions.filter(function (a) { return a.id !== transaction.id; });
         this.saveSettingsData(data);
     };
     AccountControlService.prototype.instanceNewConfig = function (name, email) {
