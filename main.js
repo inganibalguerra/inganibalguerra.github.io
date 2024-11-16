@@ -541,7 +541,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\"\n                    [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-2\">\n                <label for=\"yearSelector\">Año</label>\n                <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                    <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                        {{ availableYear }}\n                    </option>\n                </select>\n            </div>\n        </div>\n\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\"\n                    [transactions]=\"settingsData.transactions\" [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n\n    </div>\n</div>");
 
 /***/ }),
 
@@ -2700,7 +2700,6 @@ var AccountControlComponent = /** @class */ (function (_super) {
     };
     AccountControlComponent.prototype.ngOnInit = function () {
         this.init();
-        this.openDashboards();
     };
     AccountControlComponent.prototype.ngOnDestroy = function () {
         this.detroy();
@@ -3105,7 +3104,7 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
         // Configuración del gráfico
         this.chartOptions = {
             title: {
-                text: (this.transactionType === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? 'Gastos' : 'Ingresos') + " Por Mes",
+                text: (this.transactionType === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? 'Gastos' : 'Ingresos') + " de " + this.year,
                 left: 'center',
                 textStyle: {
                     fontSize: 18,
@@ -3439,7 +3438,7 @@ var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
         ];
         var monthName = monthNames[month];
         // Título con el mes y año actuales
-        var title = "Trans. de " + monthName + " de " + year;
+        var title = monthName + " de " + year;
         // Fechas de inicio y fin del mes
         var startDate = new Date(year, month, 1);
         var endDate = new Date(year, month + 1, 0);
@@ -3639,8 +3638,30 @@ var AccountControlDashboardsComponent = /** @class */ (function () {
         this.transactions = [];
         this.year = new Date().getFullYear();
         this.transactionType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+        this.availableYears = [];
     }
     AccountControlDashboardsComponent.prototype.ngOnInit = function () {
+        this.populateAvailableYears();
+    };
+    /**
+     * Extrae los años únicos de las transacciones.
+     */
+    AccountControlDashboardsComponent.prototype.populateAvailableYears = function () {
+        if (this.transactions && this.transactions.length > 0) {
+            this.availableYears = Array.from(new Set(this.transactions.map(function (tx) { return new Date(tx.date).getFullYear(); }))).sort(function (a, b) { return a - b; });
+        }
+        else {
+            // Asegúrate de tener un rango predeterminado.
+            var currentYear = new Date().getFullYear();
+            this.availableYears = [currentYear - 1, currentYear, currentYear + 1];
+        }
+    };
+    /**
+   * Maneja el cambio de año desde el selector.
+   */
+    AccountControlDashboardsComponent.prototype.onYearChange = function (event) {
+        var selectedYear = event.target.value;
+        this.year = parseInt(selectedYear, 10);
     };
     AccountControlDashboardsComponent.ctorParameters = function () { return [
         { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"] }
