@@ -6576,8 +6576,9 @@ var CreditService = /** @class */ (function () {
                 interes = this.redondear(saldo * tasaMensual); // Calcular interés redondeado
                 abonoCapital = this.redondear(cuotaFija - interes); // Cuota menos interés y seguro
             }
-            var cuotaSoloInteres = interesesComprobante == interes && interes > 0;
+            var cuotaSoloInteres = interesesComprobante > 0 && interes > 0;
             if (cuotaSoloInteres) {
+                interes = interesesComprobante;
                 abonoCapital = 0;
                 cuotaFijaTemp = 0;
                 cuotaFija = this.calcularCuotaFija(tasaMensual, saldo, numCuotas - index, tarifaFija);
