@@ -7758,6 +7758,7 @@ var TransactionOperation = /** @class */ (function () {
         var transferPattern = /[Tt]ransferiste\s+\$([\d,.]+)\s+desde\s+tu\s+cuenta\s+\*(\d+)\s+a\s+la\s+cuenta\s+(\*\d+)\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
         var transferPatter2 = /[Tt]ransferiste\s+\$([\d,.]+)\s+de\s+tu\s+cuenta\s+\*\*(\d+)\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
         var transferPatter3 = /[Tt]ransferencia\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+cta\s+(\d+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
+        var updatedPurchasePattern = /[Cc]ompraste\s+COP([\d.,]+)\s+en\s+([\w\s\/\.]+)\s+con\s+tu\s+T\.Cred\s+\*{1,2}([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
         var bancolombiaCreditCardPaymentPattern = /[Bb]ancolombia le informa que\s+([\w\s]+)\s+realizo\s+abono\s+a\s+su\s+T\.Cred\*(\d{4})\s+por\s+\$([\d,.]+)\.\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+(\d+).\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
@@ -7977,6 +7978,16 @@ var TransactionOperation = /** @class */ (function () {
                 amount = this.parseAmount(matches[3]);
                 description = "Abono realizado por " + matches[1].trim();
                 accountId = "*" + matches[2];
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (updatedPurchasePattern.test(body)) {
+            var matches = body.match(updatedPurchasePattern);
+            if (matches) {
+                type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                accountId = "*" + matches[3];
                 date = this.parseDateTime(matches[4], matches[5]);
             }
         }
