@@ -2396,7 +2396,7 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
     };
     AccountControlManagementTransactionComponent.prototype.onSubmit = function () {
         var _this = this;
-        var _a;
+        var _a, _b;
         this.isSubmitted = true;
         if (this.transactionForm.valid) {
             var formValues = this.transactionForm.value;
@@ -2418,7 +2418,7 @@ var AccountControlManagementTransactionComponent = /** @class */ (function () {
                         if ((this.transaction && category.id != this.transaction.categoryId)) {
                             //Aqui eliminariamos de la descripción el nombre de la categoria anterior
                             var oldTransaction = this.settingsData.budgetSettings.categories.find(function (c) { return c.id == _this.transaction.categoryId; });
-                            transactionToSave_1.description = (_a = transactionToSave_1.description) === null || _a === void 0 ? void 0 : _a.replace(" = " + oldTransaction.name, "");
+                            transactionToSave_1.description = (_a = transactionToSave_1.description) === null || _a === void 0 ? void 0 : _a.replace(" = " + ((_b = oldTransaction) === null || _b === void 0 ? void 0 : _b.name), "");
                             transactionToSave_1.description = transactionToSave_1.description ? transactionToSave_1.description + " = " + category.name : category.name;
                         }
                         else {
@@ -7759,6 +7759,7 @@ var TransactionOperation = /** @class */ (function () {
         var transferPatter2 = /[Tt]ransferiste\s+\$([\d,.]+)\s+de\s+tu\s+cuenta\s+\*\*(\d+)\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
         var transferPatter3 = /[Tt]ransferencia\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+cta\s+(\d+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var updatedPurchasePattern = /[Cc]ompraste\s+COP([\d.,]+)\s+en\s+([\w\s\/\.]+)\s+con\s+tu\s+T\.Cred\s+\*{1,2}([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
+        var purchaseNotificationPattern = /[Cc]ompraste\s+\$([\d,.]+)\s+en\s+([\w\s]+)\s+con\s+tu\s+T\.Deb\s+\*([\d]{4}),\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
         var bancolombiaCreditCardPaymentPattern = /[Bb]ancolombia le informa que\s+([\w\s]+)\s+realizo\s+abono\s+a\s+su\s+T\.Cred\*(\d{4})\s+por\s+\$([\d,.]+)\.\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+(\d+).\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
@@ -7793,6 +7794,16 @@ var TransactionOperation = /** @class */ (function () {
                 else {
                     date = this.parseDateTime(matches[5], matches[6]);
                 }
+            }
+        }
+        else if (purchaseNotificationPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(purchaseNotificationPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Compra en " + matches[2];
+                accountId = "*" + matches[3];
+                date = this.parseDateTime(matches[4], matches[5]);
             }
         }
         else if (purchasePatternSimple.test(body)) {
