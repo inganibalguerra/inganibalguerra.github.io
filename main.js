@@ -489,7 +489,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-sm btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-sm btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\" text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"mb-2\" *ngIf=\"isSync\">\n                <app-loading [message]=\"messageOrLoading\"></app-loading>\n\n            </div>\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                            <button placement=\"top\" ngbTooltip=\"Abrir dashboards\" (click)=\"openDashboards()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-primary\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"fas fa-chart-bar\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Historial de transacciones\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-info\" (click)=\"openMigrateTransaction()\">Migrar</button>\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header pb-6 pt-5 pt-md-8 bg-gradient-dark\">\n    <div class=\"container-fluid\">\n        <div class=\"header-body\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <p class=\"float-right\" *ngIf=\"!configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"bottom\" ngbTooltip=\"Autenticación\" (click)=\"Login()\"\n                            class=\"btn btn-sm btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Iniciar Con Google</span>\n                        </a>\n                    </p>\n                    <p class=\"float-right\" *ngIf=\"configFromGoogle\">\n                        <a href=\"javascript:void(0)\" placement=\"left\"\n                            [ngbTooltip]=\"'Cerrar sesión: '+configFromGoogle.user?.email || 'Email no encontrado'\"\n                            (click)=\"Logout()\" class=\"btn btn-sm btn-neutral btn-icon\">\n                            <span class=\"btn-inner--icon\"><img src=\"../assets/img/icons/common/google.svg\"></span>\n                            <span class=\"btn-inner--text\">Sync: {{configFromGoogle.user?.username}}</span>\n                        </a>\n                    </p>\n                    <h1 class=\" text-white\">Account Control</h1>\n                    <p class=\"text-white\">\n                        <strong>\n                            Aquí podras administrar todos tus ingresos y gastos de todas tus\n                            cuentas, para mayor experiencia sincronizate con tu cuenta de google\n                        </strong>\n                    </p>\n                    <span class=\"custom-control custom-control-alternative custom-checkbox pb-3 pt-0\">\n                        <input class=\"custom-control-input\" id=\"showAccountIsPrincipal\" [(ngModel)]=\"showAllAccounts\"\n                            (change)=\"filterAccounts()\" type=\"checkbox\"><label class=\"custom-control-label\"\n                            for=\"showAccountIsPrincipal\"><span class=\"text-muted\">Mostrar\n                                todo?</span></label>\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"mb-2\" *ngIf=\"isSync\">\n                <app-loading [message]=\"messageOrLoading\"></app-loading>\n\n            </div>\n            <div class=\"row\" *ngIf=\"settionsData\">\n                <div class=\"col-xl-3 col-lg-6 mb-3\" *ngFor=\"let account of accounts\">\n                    <div class=\"card card-stats mb-1 mb-xl-0\">\n                        <div class=\"card-body\">\n                            <div class=\"row\">\n                                <div class=\"col\">\n\n                                    <small class=\"card-title text-muted\">Cuenta: {{account.id}}</small>\n                                    <h5 class=\"card-title text-uppercase text-muted mb-0\">{{ account.name }}</h5>\n                                    <span class=\"h2 font-weight-bold mb-0\">{{ account.balance | currency }}</span>\n                                </div>\n                                <div class=\"col-auto\">\n                                    <button (click)=\"openEditAccount(account)\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>Editar</span>\n                                    </button>\n                                </div>\n                            </div>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                <!-- Condición para aumento, sin cambio y disminución -->\n                                <ng-container *ngIf=\"getPercentageChange(account) > 0; else noChange\">\n                                    <span class=\"text-success mr-2\">\n                                        <i class=\"fa fa-arrow-up\"></i> {{ getPercentageChange(account) | number:\n                                        '1.2-2' }}%\n                                    </span>\n                                </ng-container>\n                                <ng-template #noChange>\n                                    <ng-container *ngIf=\"getPercentageChange(account) < 0; else sameBalance\">\n                                        <span class=\"text-danger mr-2\">\n                                            <i class=\"fa fa-arrow-down\"></i> {{ getPercentageChange(account) |\n                                            number: '1.2-2' }}%\n                                        </span>\n                                    </ng-container>\n                                    <ng-template #sameBalance>\n                                        <span class=\"text-info mr-2\">\n                                            <i class=\"fa fa-minus\"></i> 0%\n                                        </span>\n                                    </ng-template>\n                                </ng-template>\n                                <span class=\"text-nowrap\">Último mes: {{ account.balanceLastMonth | currency }}</span>\n                            </p>\n                            <p class=\"mt-1 mb-0 text-muted text-sm\">\n                                {{account.description}}\n                            </p>\n                            <p>\n                                <app-account-control-dash-daily-by-account [account]=\"account\"\n                                    [transactions]=\"transactions\"></app-account-control-dash-daily-by-account>\n                            </p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col col-lg-12\">\n                    <div class=\"d-flex text-white justify-content-between\">\n                        <p class=\"mr-4\">\n                            <ng-container *ngIf=\"heritage > 0; else noChange\">\n                                <span class=\"text-success mr-2\">\n                                    <i class=\"fa fa-arrow-up\"></i>\n                                    <strong>\n                                        Patrimonio {{ heritage |currency}}\n                                    </strong>\n                                </span>\n                            </ng-container>\n                            <ng-template #noChange>\n                                <ng-container *ngIf=\"heritage < 0; else sameBalance\">\n                                    <span class=\"text-danger mr-2\">\n                                        <i class=\"fa fa-arrow-down\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-container>\n                                <ng-template #sameBalance>\n                                    <span class=\"text-info mr-2\">\n                                        <i class=\"fa fa-minus\"></i>\n                                        <strong>\n                                            Patrimonio {{ heritage |currency}}\n                                        </strong>\n                                    </span>\n                                </ng-template>\n                            </ng-template>\n                        </p>\n                        <div class=\"float-right\">\n                            <button placement=\"top\" ngbTooltip=\"Crear cuenta\" (click)=\"openCreateAccount()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-success\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"ni ni-fat-add\"></i>\n                                </span>\n                            </button>\n                            <button placement=\"top\" ngbTooltip=\"Abrir dashboards\" (click)=\"openDashboards()\"\n                                class=\"btn btn-icon btn-3 btn-sm btn-primary\" type=\"button\">\n                                <span class=\"btn-inner--icon\">\n                                    <i class=\"fas fa-chart-bar\"></i>\n                                </span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid mt--7\">\n    <div class=\"row mt-4\">\n        <div class=\"col-lg-5\">\n            <div class=\"card bg-secondary shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-6\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Historial de transacciones\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-6 text-right\">\n                            <button class=\"btn btn-sm btn-info\" (click)=\"openMigrateTransaction()\">Migrar</button>\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"openCreateTransaction()\">Nueva</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n                    <div class=\"scroll-container\" style=\"min-height: 800px;  overflow-y: auto;\">\n                        <app-account-control-list-transactions (onFinish)=\"restartComponent()\"\n                            [settionsData]=\"settionsData\"\n                            [transactions]=\"transactions\"></app-account-control-list-transactions>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n        <div class=\"col-lg-7 mb-lg-0 mb-4\">\n            <div class=\"card shadow\">\n                <div class=\"card-header bg-white border-0\">\n                    <div class=\"row align-items-center\">\n                        <div class=\"col-8\">\n                            <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                                <span>\n                                    Mi Presupuesto\n                                </span>\n                            </h6>\n                        </div>\n                        <div class=\"col-4 text-right\">\n                            <button class=\"btn btn-sm btn-primary\" [disabled]=\"!settionsData\"\n                                (click)=\"openManagementCategories()\">Categorias</button>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body p-3 \">\n\n                    <div class=\"scroll-container\" style=\"min-height: 800px; max-height: 800px; overflow-y: auto;\">\n                        <app-account-control-list-budgets [settingsData]=\"settionsData\">\n\n                        </app-account-control-list-budgets>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n    </div>\n    <button placement=\"top\" ngbTooltip=\"Elimina toda la información del sistema, estas seguro?\" *ngIf=\"settionsData\"\n        (click)=\"deleteData()\" class=\"btn btn-icon btn-3 btn-sm btn-secondary text-warning float-right\" type=\"button\">\n        <span class=\"btn-inner--icon\">\n            <i class=\"fas fa-trash\"></i> Eliminar datos\n        </span>\n    </button>\n    <small *ngIf=\"settionsData && settionsData.lastSync\"><strong>Ultima actualización:\n        </strong>{{settionsData.lastSync.toISOString()}}</small>\n</div>");
 
 /***/ }),
 
@@ -529,6 +529,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOptions\" class=\"chart-container\"></div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.html":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.html ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOption\" class=\"chart-container\"></div>");
 
 /***/ }),
 
@@ -740,6 +753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_all_categories_account_control_dash_all_categories_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component */ "./src/app/pages/account-control/dashboards/account-control-dash-all-categories/account-control-dash-all-categories.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_daily_categories_account_control_dash_daily_categories_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-daily-categories/account-control-dash-daily-categories.component */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-categories/account-control-dash-daily-categories.component.ts");
 /* harmony import */ var _pages_account_control_account_control_migrate_transaction_account_control_migrate_transaction_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./pages/account-control/account-control-migrate-transaction/account-control-migrate-transaction.component */ "./src/app/pages/account-control/account-control-migrate-transaction/account-control-migrate-transaction.component.ts");
+/* harmony import */ var _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -749,6 +763,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -827,7 +842,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_dashboards_account_control_dashboards_component__WEBPACK_IMPORTED_MODULE_28__["AccountControlDashboardsComponent"],
                 _pages_account_control_dashboards_account_control_dash_all_categories_account_control_dash_all_categories_component__WEBPACK_IMPORTED_MODULE_29__["AccountControlDashAllCategoriesComponent"],
                 _pages_account_control_dashboards_account_control_dash_daily_categories_account_control_dash_daily_categories_component__WEBPACK_IMPORTED_MODULE_30__["AccountControlDashDailyCategoriesComponent"],
-                _pages_account_control_account_control_migrate_transaction_account_control_migrate_transaction_component__WEBPACK_IMPORTED_MODULE_31__["AccountControlMigrateTransactionComponent"]
+                _pages_account_control_account_control_migrate_transaction_account_control_migrate_transaction_component__WEBPACK_IMPORTED_MODULE_31__["AccountControlMigrateTransactionComponent"],
+                _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__["AccountControlDashDailyByAccountComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -3558,6 +3574,207 @@ var AccountControlDashDailyBalanceComponent = /** @class */ (function () {
         })
     ], AccountControlDashDailyBalanceComponent);
     return AccountControlDashDailyBalanceComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.css":
+/*!********************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.css ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".chart-container {\n    width: 100%;\n    height: 70px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2Rhc2hib2FyZHMvYWNjb3VudC1jb250cm9sLWRhc2gtZGFpbHktYnktYWNjb3VudC9hY2NvdW50LWNvbnRyb2wtZGFzaC1kYWlseS1ieS1hY2NvdW50LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0lBQ1gsWUFBWTtBQUNoQiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9kYXNoYm9hcmRzL2FjY291bnQtY29udHJvbC1kYXNoLWRhaWx5LWJ5LWFjY291bnQvYWNjb3VudC1jb250cm9sLWRhc2gtZGFpbHktYnktYWNjb3VudC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNoYXJ0LWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiA3MHB4O1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.ts":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.ts ***!
+  \*******************************************************************************************************************************************/
+/*! exports provided: AccountControlDashDailyByAccountComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashDailyByAccountComponent", function() { return AccountControlDashDailyByAccountComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
+    function AccountControlDashDailyByAccountComponent() {
+        this.transactions = [];
+        this.frequency = 'daily';
+    }
+    AccountControlDashDailyByAccountComponent.prototype.ngOnInit = function () {
+        this.updateChart();
+    };
+    AccountControlDashDailyByAccountComponent.prototype.ngOnChanges = function (changes) {
+        if (changes['transactions'] || changes['frequency']) {
+            this.updateChart();
+        }
+    };
+    AccountControlDashDailyByAccountComponent.prototype.updateChart = function () {
+        if (!this.transactions || !this.account)
+            return;
+        var filteredTransactions = this.filterTransactionsByFrequency();
+        var groupedBalances = this.calculateBalances(filteredTransactions);
+        this.chartOption = this.createChartOption(groupedBalances);
+    };
+    AccountControlDashDailyByAccountComponent.prototype.filterTransactionsByFrequency = function () {
+        var _this = this;
+        var now = new Date();
+        console.log("df,kjgn");
+        return this.transactions.filter(function (t) { return _this.account.id.includes(t.accountId); }).filter(function (transaction) {
+            var transactionDate = new Date(transaction.date);
+            if (_this.frequency === 'daily') {
+                return (transactionDate.getFullYear() === now.getFullYear() &&
+                    transactionDate.getMonth() === now.getMonth());
+            }
+            else if (_this.frequency === 'monthly') {
+                return transactionDate.getFullYear() === now.getFullYear();
+            }
+            // 'annual' no filtra, se usa todo el historial.
+            return true;
+        });
+    };
+    AccountControlDashDailyByAccountComponent.prototype.calculateBalances = function (transactions) {
+        var _a;
+        var sortedTransactions = __spreadArrays(transactions).sort(function (a, b) { return new Date(a.date).getTime() - new Date(b.date).getTime(); });
+        var currentBalance = this.account.balance;
+        var result = [];
+        var currentDate = new Date(((_a = sortedTransactions[0]) === null || _a === void 0 ? void 0 : _a.date) || new Date());
+        var nextAmount = currentBalance;
+        for (var _i = 0, sortedTransactions_1 = sortedTransactions; _i < sortedTransactions_1.length; _i++) {
+            var transaction = sortedTransactions_1[_i];
+            var transactionDate = new Date(transaction.date);
+            // Agrupar transacciones según la frecuencia
+            while (this.shouldIncrementDate(currentDate, transactionDate)) {
+                result.push({ date: new Date(currentDate), balance: currentBalance });
+                currentDate = this.incrementDate(currentDate);
+            }
+            currentBalance = (nextAmount + (transaction.amount * -1)) + transaction.amount;
+            nextAmount = (currentBalance + (transaction.amount * -1));
+        }
+        // Agregar balance final
+        result.push({ date: currentDate, balance: currentBalance });
+        return result;
+    };
+    AccountControlDashDailyByAccountComponent.prototype.shouldIncrementDate = function (current, next) {
+        if (this.frequency === 'daily') {
+            return current.toISOString().slice(0, 10) !== next.toISOString().slice(0, 10);
+        }
+        else if (this.frequency === 'monthly') {
+            return current.getMonth() !== next.getMonth() || current.getFullYear() !== next.getFullYear();
+        }
+        else if (this.frequency === 'annual') {
+            return current.getFullYear() !== next.getFullYear();
+        }
+        return false;
+    };
+    AccountControlDashDailyByAccountComponent.prototype.incrementDate = function (date) {
+        var newDate = new Date(date);
+        if (this.frequency === 'daily') {
+            newDate.setDate(newDate.getDate() + 1);
+        }
+        else if (this.frequency === 'monthly') {
+            newDate.setMonth(newDate.getMonth() + 1);
+        }
+        else if (this.frequency === 'annual') {
+            newDate.setFullYear(newDate.getFullYear() + 1);
+        }
+        return newDate;
+    };
+    AccountControlDashDailyByAccountComponent.prototype.createChartOption = function (data) {
+        return {
+            tooltip: {
+                trigger: 'axis',
+                position: function (pt) {
+                    return [pt[0], '10%'];
+                }
+            },
+            xAxis: {
+                type: 'time',
+                boundaryGap: false,
+                show: false // Ocultar eje X
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%'],
+                show: false // Ocultar eje Y
+            },
+            series: [
+                {
+                    name: 'Balance',
+                    type: 'line',
+                    smooth: true,
+                    symbol: 'none',
+                    lineStyle: {
+                        width: 2,
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 1,
+                            y2: 0,
+                            colorStops: [
+                                { offset: 0, color: '#e74c3c' },
+                                { offset: 0.3, color: '#f1c40f' },
+                                { offset: 0.5, color: '#0090ff' },
+                                { offset: 0.7, color: '#32a852' },
+                                { offset: 1, color: 'green' } // Verde fuerte (10M+)
+                            ]
+                        }
+                    },
+                    data: data.map(function (d) { return [d.date, d.balance]; })
+                }
+            ]
+        };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AccountControlDashDailyByAccountComponent.prototype, "transactions", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccountControlDashDailyByAccountComponent.prototype, "account", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], AccountControlDashDailyByAccountComponent.prototype, "frequency", void 0);
+    AccountControlDashDailyByAccountComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-dash-daily-by-account',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-dash-daily-by-account.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-dash-daily-by-account.component.css */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccountControlDashDailyByAccountComponent);
+    return AccountControlDashDailyByAccountComponent;
 }());
 
 
