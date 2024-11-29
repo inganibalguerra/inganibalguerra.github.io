@@ -3011,8 +3011,11 @@ var AccountControlComponent = /** @class */ (function (_super) {
         // }
     };
     AccountControlComponent.prototype.deleteData = function () {
-        this.accountService.deleteData();
-        window.location.reload();
+        var result = confirm('¿Estás seguro de que deseas continuar?');
+        if (result) {
+            this.accountService.deleteData();
+            window.location.reload();
+        }
     };
     AccountControlComponent.prototype.syncGoogleDrive = function () {
         return __awaiter(this, void 0, void 0, function () {
