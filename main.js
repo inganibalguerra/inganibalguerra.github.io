@@ -398,7 +398,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div class=\"d-flex align-items-center\">\n                                    <div class=\"progress\">\n                                        <div class=\"progress-bar\"\n                                            [ngClass]=\"{'bg-gradient-success': calculatePercentage(category.currentAmmount, category.budget)<= 10, 'bg-gradient-info' :calculatePercentage(category.currentAmmount, category.budget)> 10 && calculatePercentage(category.currentAmmount, category.budget)<= 30, 'bg-gradient-warning' :calculatePercentage(category.currentAmmount, category.budget)> 30 && calculatePercentage(category.currentAmmount, category.budget)<= 60, 'bg-gradient-danger' :calculatePercentage(category.currentAmmount, category.budget)> 60 }\"\n                                            role=\"progressbar\"\n                                            [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                            aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n                                </div>\n                                <small>{{calculatePercentage(category.currentAmmount,\n                                    category.budget)}}%</small>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -437,7 +437,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Gestión de Categorías y Presupuesto Mensual\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome| currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ currentTotalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense| currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{currentTotalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal| currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ currentSavingsGoal | currency }})\n                    </span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\" style=\"max-height: 500px; overflow-y: auto;\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td>\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                                <br />\n                                <div *ngIf=\"category.currentAmmount>0\">\n                                    <small>Actual: {{category.currentAmmount | currency }}</small>\n                                    <div class=\"d-flex align-items-center\">\n                                        <div class=\"progress\">\n                                            <div class=\"progress-bar\"\n                                                [ngClass]=\"{'bg-gradient-success': calculatePercentage(category.currentAmmount, category.budget)<= 10, 'bg-gradient-info' :calculatePercentage(category.currentAmmount, category.budget)> 10 && calculatePercentage(category.currentAmmount, category.budget)<= 30, 'bg-gradient-warning' :calculatePercentage(category.currentAmmount, category.budget)> 30 && calculatePercentage(category.currentAmmount, category.budget)<= 60, 'bg-gradient-danger' :calculatePercentage(category.currentAmmount, category.budget)> 60 }\"\n                                                role=\"progressbar\"\n                                                [style.width.%]=\"calculatePercentage(category.currentAmmount, category.budget)\"\n                                                aria-valuenow=\"{{ calculatePercentage(category.currentAmmount, category.budget) }}\"\n                                                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                        </div>\n                                    </div>\n                                    <small>{{calculatePercentage(category.currentAmmount,\n                                        category.budget)}}%</small>\n                                </div>\n\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option value=null>N/A</option>\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Gestión de Categorías y Presupuesto Mensual\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ budgetSettings.totalIncome| currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ currentTotalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ budgetSettings.totalExpense| currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{currentTotalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ budgetSettings.savingsGoal| currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ currentSavingsGoal | currency }})\n                    </span>\n                </div>\n            </div>\n\n            <div *ngIf=\"transaction\">\n                <app-account-control-transaction-card [showOriginalBody]=\"true\" [showButtons]=\"false\"\n                    [transaction]=\"transaction\">\n                </app-account-control-transaction-card>\n                <br />\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <!-- Botón Nuevo para agregar categoría -->\n            <button (click)=\"addNewCategory()\" [disabled]=\"!isFormValidForCurrentTab(activeTab)\"\n                class=\"btn btn-outline-primary my-3\">Nuevo</button>\n\n            <!-- Contenedor responsivo de la tabla -->\n            <div class=\"table-responsive table-container\" style=\"max-height: 500px; overflow-y: auto;\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\" class=\"table-col-nombre\">Orden</th>\n                            <th scope=\"col\" class=\"table-col-nombre\">Categoria</th>\n                            <th scope=\"col\">Palabras Clave</th>\n                            <th scope=\"col\" class=\"table-col-categoria\">Presupuesto</th>\n                            <th scope=\"col\">Cuenta de Destino</th>\n                            <th scope=\"col\">Acciones</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of categoriesOfCurrentTab; let i = index\">\n                            <!-- <td>\n                                <input [(ngModel)]=\"category.order\" class=\"form-control\"\n                                    placeholder=\"Orden de prioridad\" [ngClass]=\"{'is-invalid': !category.order}\" />\n                                <div *ngIf=\"!category.order\" class=\"text-danger small\">Requerido</div>\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td> -->\n                            <td>\n                                <button (click)=\"moveCategoryUp(i)\" [disabled]=\"i === 0\" class=\"btn btn-sm\">\n                                    ▲\n                                </button>\n                                <button (click)=\"moveCategoryDown(i)\"\n                                    [disabled]=\"i === getCategoriesByType(activeTab).length - 1\" class=\"btn btn-sm\">\n                                    ▼\n                                </button>\n                                <br />\n                                <small>Order de prioridad: {{category.order}}</small>\n                            </td>\n                            <td>\n                                <input [(ngModel)]=\"category.name\" class=\"form-control\"\n                                    placeholder=\"Nombre de la categoría\" [ngClass]=\"{'is-invalid': !category.name}\" />\n                                <div *ngIf=\"!category.name\" class=\"text-danger small\">Requerido</div>\n                                <small>Nombre: {{category.name}}</small>\n                            </td>\n                            <td>\n                                <div class=\"keywords-container\">\n                                    <button *ngFor=\"let keyword of category.keyWords\" type=\"button\"\n                                        class=\"btn text-white btn-sm bg-gradient-dark\">\n                                        <span>{{ keyword }} </span>\n                                        <span (click)=\"removeKeyword(category, keyword)\"\n                                            class=\"badge badge-md  bg-gradient-danger border-white\">x</span>\n                                    </button>\n                                </div>\n                                <input [(ngModel)]=\"category.newKeyword\" placeholder=\"Nueva palabra clave\"\n                                    class=\"form-control mt-1\" [ngClass]=\"{'is-invalid': category.keyWords.length === 0}\"\n                                    (keyup.enter)=\"addKeyword(category)\" />\n                                <div *ngIf=\"category.keyWords.length === 0\" class=\"text-danger small\">Agregar al menos\n                                    una palabra clave</div>\n                                <button (click)=\"addKeyword(category)\"\n                                    class=\"btn btn-primary btn-sm mt-1\">Agregar</button>\n                            </td>\n                            <td class=\"table-col-categoria\">\n                                <input (change)=\"updateBudgetSummary()\" [(ngModel)]=\"category.budget\" type=\"number\"\n                                    class=\"form-control\" placeholder=\"Presupuesto\" />\n                                <small>Presupuesto: {{category.budget|currency}}</small>\n                                <br />\n                                <div style=\"width: 100%;\" *ngIf=\"category.currentAmmount>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                        category.budget)\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                            <td>\n                                <select id=\"accountId{{i}}\" [(ngModel)]=\"category.accountId\" class=\"form-control\">\n                                    <option value=null>N/A</option>\n                                    <option *ngFor=\"let accountId of accountsId()\" [value]=\"accountId\">\n                                        {{accountId}}\n                                    </option>\n                                </select>\n                                <small>Cuenta de destino: {{category.accountId}}</small>\n                            </td>\n                            <td>\n                                <button class=\"btn btn-icon btn-3 btn-sm btn-danger\" type=\"button\"\n                                    (click)=\"removeCategory(category)\">\n                                    <span class=\"btn-inner--icon\">\n                                        <i class=\"fa fa-trash\"></i>\n                                    </span>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n            <!-- Botón para guardar todos los cambios, habilitado solo si todas las categorías están completas -->\n            <button (click)=\"saveAllCategories()\" [disabled]=\"!isFormValid()\" class=\"btn btn-primary mt-3\">Guardar\n                Cambios</button>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -503,6 +503,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOptions\" style=\"height: 500px;\"></div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.html":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.html ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOptions\" class=\"chart-container\"></div>");
 
 /***/ }),
 
@@ -754,6 +767,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_daily_categories_account_control_dash_daily_categories_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-daily-categories/account-control-dash-daily-categories.component */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-categories/account-control-dash-daily-categories.component.ts");
 /* harmony import */ var _pages_account_control_account_control_migrate_transaction_account_control_migrate_transaction_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./pages/account-control/account-control-migrate-transaction/account-control-migrate-transaction.component */ "./src/app/pages/account-control/account-control-migrate-transaction/account-control-migrate-transaction.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.ts");
+/* harmony import */ var _pages_account_control_dashboards_account_control_dash_budget_by_category_account_control_dash_budget_by_category_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component */ "./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -763,6 +777,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -843,7 +858,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_dashboards_account_control_dash_all_categories_account_control_dash_all_categories_component__WEBPACK_IMPORTED_MODULE_29__["AccountControlDashAllCategoriesComponent"],
                 _pages_account_control_dashboards_account_control_dash_daily_categories_account_control_dash_daily_categories_component__WEBPACK_IMPORTED_MODULE_30__["AccountControlDashDailyCategoriesComponent"],
                 _pages_account_control_account_control_migrate_transaction_account_control_migrate_transaction_component__WEBPACK_IMPORTED_MODULE_31__["AccountControlMigrateTransactionComponent"],
-                _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__["AccountControlDashDailyByAccountComponent"]
+                _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__["AccountControlDashDailyByAccountComponent"],
+                _pages_account_control_dashboards_account_control_dash_budget_by_category_account_control_dash_budget_by_category_component__WEBPACK_IMPORTED_MODULE_33__["AccountControlDashBudgetByCategoryComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -1550,6 +1566,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlListBudgetsComponent", function() { return AccountControlListBudgetsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1622,6 +1649,35 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     };
     AccountControlListBudgetsComponent.prototype.setActiveTab = function (type) {
         this.activeTab = type;
+    };
+    AccountControlListBudgetsComponent.prototype.getTransactions = function (category) {
+        // Crea un mapa para acumular las transacciones por día
+        var transactionsMap = new Map();
+        // Itera sobre las transacciones del mes actual
+        category.transactionCurrentMonth.forEach(function (t) {
+            var day = t.date.toISOString().slice(0, 10);
+            var value = t.amount;
+            var transaction = { description: t.description, type: t.type, amount: t.amount };
+            // Si ya existen transacciones para el mismo día, acumula el valor y añade la transacción
+            if (transactionsMap.has(day)) {
+                var existingEntry = transactionsMap.get(day);
+                if (existingEntry) {
+                    existingEntry.total += value;
+                    existingEntry.transactions.push(transaction);
+                }
+            }
+            else {
+                // Si es la primera transacción del día, crea una nueva entrada
+                transactionsMap.set(day, { total: value, transactions: [transaction] });
+            }
+        });
+        // Convierte el mapa en un array
+        var response = Array.from(transactionsMap, function (_a) {
+            var day = _a[0], data = _a[1];
+            return (__assign({ day: day }, data));
+        })
+            .sort(function (a, b) { return a.day.localeCompare(b.day); });
+        return response;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -2035,7 +2091,7 @@ var AccountControlManagementAccountComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 5px;\n    padding: 5px 0;\n}\n\n.keyword-badge {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    gap: 3px;\n    margin-bottom: 5px;\n}\n\n.is-invalid {\n    border-color: red;\n}\n\n.text-danger {\n    color: red;\n}\n\n.table-responsive {\n    overflow-x: auto;\n    /* Habilita el desplazamiento horizontal */\n    -webkit-overflow-scrolling: touch;\n    /* Mejora la experiencia de desplazamiento en iOS */\n}\n\n.table-container {\n    width: 100%;\n    /* Asegura que el contenedor ocupe el 100% del espacio disponible */\n}\n\n.keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    /* Coloca los badges en varias líneas */\n    gap: 4px;\n    max-width: 250px;\n    /* Opcional: Ajusta el ancho máximo para las keywords */\n}\n\n.btn-sm.bg-gradient-dark {\n    margin-right: 4px;\n    /* Espacio entre badges */\n}\n\n.table-col-nombre {\n    min-width: 150px;\n    /* Define el ancho mínimo deseado */\n}\n\n/* Estilo para filas pares */\n\ntable.table tbody tr:nth-child(even) {\n    background-color: #f9f9f9;\n    /* Color gris claro */\n}\n\n.card-profile-stats {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    /* Añade espacio entre los elementos */\n}\n\n.budget-item {\n    min-width: 120px;\n    /* Ancho mínimo para cada elemento */\n    padding: 0.5rem;\n    -webkit-box-flex: 1;\n            flex: 1 1 30%;\n    /* Los elementos ocupan 30% del ancho en pantallas grandes */\n}\n\n/* En pantallas pequeñas, se organiza en columnas */\n\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1tYW5hZ2VtZW50LWNhdGVnb3JpZXMvYWNjb3VudC1jb250cm9sLW1hbmFnZW1lbnQtY2F0ZWdvcmllcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsZUFBZTtJQUNmLFFBQVE7SUFDUixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixRQUFRO0lBQ1Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDBDQUEwQztJQUMxQyxpQ0FBaUM7SUFDakMsbURBQW1EO0FBQ3ZEOztBQUVBO0lBQ0ksV0FBVztJQUNYLG1FQUFtRTtBQUN2RTs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZix1Q0FBdUM7SUFDdkMsUUFBUTtJQUNSLGdCQUFnQjtJQUNoQix1REFBdUQ7QUFDM0Q7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1DQUFtQztBQUN2Qzs7QUFFQSw0QkFBNEI7O0FBQzVCO0lBQ0kseUJBQXlCO0lBQ3pCLHFCQUFxQjtBQUN6Qjs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZixTQUFTO0lBQ1Qsc0NBQXNDO0FBQzFDOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG9DQUFvQztJQUNwQyxlQUFlO0lBQ2YsbUJBQWE7WUFBYixhQUFhO0lBQ2IsNERBQTREO0FBQ2hFOztBQUVBLG1EQUFtRDs7QUFDbkQ7SUFDSTtRQUNJLDRCQUFzQjtRQUF0Qiw2QkFBc0I7Z0JBQXRCLHNCQUFzQjtRQUN0Qix5QkFBbUI7Z0JBQW5CLG1CQUFtQjtJQUN2Qjs7SUFFQTtRQUNJLFdBQVc7UUFDWCwrREFBK0Q7SUFDbkU7QUFDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9hY2NvdW50LWNvbnRyb2wtbWFuYWdlbWVudC1jYXRlZ29yaWVzL2FjY291bnQtY29udHJvbC1tYW5hZ2VtZW50LWNhdGVnb3JpZXMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5rZXl3b3Jkcy1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC13cmFwOiB3cmFwO1xuICAgIGdhcDogNXB4O1xuICAgIHBhZGRpbmc6IDVweCAwO1xufVxuXG4ua2V5d29yZC1iYWRnZSB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGdhcDogM3B4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuLmlzLWludmFsaWQge1xuICAgIGJvcmRlci1jb2xvcjogcmVkO1xufVxuXG4udGV4dC1kYW5nZXIge1xuICAgIGNvbG9yOiByZWQ7XG59XG5cbi50YWJsZS1yZXNwb25zaXZlIHtcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xuICAgIC8qIEhhYmlsaXRhIGVsIGRlc3BsYXphbWllbnRvIGhvcml6b250YWwgKi9cbiAgICAtd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzogdG91Y2g7XG4gICAgLyogTWVqb3JhIGxhIGV4cGVyaWVuY2lhIGRlIGRlc3BsYXphbWllbnRvIGVuIGlPUyAqL1xufVxuXG4udGFibGUtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICAvKiBBc2VndXJhIHF1ZSBlbCBjb250ZW5lZG9yIG9jdXBlIGVsIDEwMCUgZGVsIGVzcGFjaW8gZGlzcG9uaWJsZSAqL1xufVxuXG4ua2V5d29yZHMtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAvKiBDb2xvY2EgbG9zIGJhZGdlcyBlbiB2YXJpYXMgbMOtbmVhcyAqL1xuICAgIGdhcDogNHB4O1xuICAgIG1heC13aWR0aDogMjUwcHg7XG4gICAgLyogT3BjaW9uYWw6IEFqdXN0YSBlbCBhbmNobyBtw6F4aW1vIHBhcmEgbGFzIGtleXdvcmRzICovXG59XG5cbi5idG4tc20uYmctZ3JhZGllbnQtZGFyayB7XG4gICAgbWFyZ2luLXJpZ2h0OiA0cHg7XG4gICAgLyogRXNwYWNpbyBlbnRyZSBiYWRnZXMgKi9cbn1cblxuLnRhYmxlLWNvbC1ub21icmUge1xuICAgIG1pbi13aWR0aDogMTUwcHg7XG4gICAgLyogRGVmaW5lIGVsIGFuY2hvIG3DrW5pbW8gZGVzZWFkbyAqL1xufVxuXG4vKiBFc3RpbG8gcGFyYSBmaWxhcyBwYXJlcyAqL1xudGFibGUudGFibGUgdGJvZHkgdHI6bnRoLWNoaWxkKGV2ZW4pIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjlmOWY5O1xuICAgIC8qIENvbG9yIGdyaXMgY2xhcm8gKi9cbn1cblxuLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgZ2FwOiAxcmVtO1xuICAgIC8qIEHDsWFkZSBlc3BhY2lvIGVudHJlIGxvcyBlbGVtZW50b3MgKi9cbn1cblxuLmJ1ZGdldC1pdGVtIHtcbiAgICBtaW4td2lkdGg6IDEyMHB4O1xuICAgIC8qIEFuY2hvIG3DrW5pbW8gcGFyYSBjYWRhIGVsZW1lbnRvICovXG4gICAgcGFkZGluZzogMC41cmVtO1xuICAgIGZsZXg6IDEgMSAzMCU7XG4gICAgLyogTG9zIGVsZW1lbnRvcyBvY3VwYW4gMzAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgZ3JhbmRlcyAqL1xufVxuXG4vKiBFbiBwYW50YWxsYXMgcGVxdWXDsWFzLCBzZSBvcmdhbml6YSBlbiBjb2x1bW5hcyAqL1xuQG1lZGlhIChtYXgtd2lkdGg6IDU3NnB4KSB7XG4gICAgLmNhcmQtcHJvZmlsZS1zdGF0cyB7XG4gICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgfVxuXG4gICAgLmJ1ZGdldC1pdGVtIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgIC8qIENhZGEgZWxlbWVudG8gdG9tYSBlbCAxMDAlIGRlbCBhbmNobyBlbiBwYW50YWxsYXMgcGVxdWXDsWFzICovXG4gICAgfVxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 5px;\n    padding: 5px 0;\n}\n\n.keyword-badge {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    gap: 3px;\n    margin-bottom: 5px;\n}\n\n.is-invalid {\n    border-color: red;\n}\n\n.text-danger {\n    color: red;\n}\n\n.table-responsive {\n    overflow-x: auto;\n    /* Habilita el desplazamiento horizontal */\n    -webkit-overflow-scrolling: touch;\n    /* Mejora la experiencia de desplazamiento en iOS */\n}\n\n.table-container {\n    width: 100%;\n    /* Asegura que el contenedor ocupe el 100% del espacio disponible */\n}\n\n.keywords-container {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    /* Coloca los badges en varias líneas */\n    gap: 4px;\n    max-width: 250px;\n    /* Opcional: Ajusta el ancho máximo para las keywords */\n}\n\n.btn-sm.bg-gradient-dark {\n    margin-right: 4px;\n    /* Espacio entre badges */\n}\n\n.table-col-nombre {\n    min-width: 150px;\n    /* Define el ancho mínimo deseado */\n}\n\n.table-col-categoria {\n    max-width: 400px;\n    /* Define el ancho mínimo deseado */\n}\n\n/* Estilo para filas pares */\n\ntable.table tbody tr:nth-child(even) {\n    background-color: #f9f9f9;\n    /* Color gris claro */\n}\n\n.card-profile-stats {\n    display: -webkit-box;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 1rem;\n    /* Añade espacio entre los elementos */\n}\n\n.budget-item {\n    min-width: 120px;\n    /* Ancho mínimo para cada elemento */\n    padding: 0.5rem;\n    -webkit-box-flex: 1;\n            flex: 1 1 30%;\n    /* Los elementos ocupan 30% del ancho en pantallas grandes */\n}\n\n/* En pantallas pequeñas, se organiza en columnas */\n\n@media (max-width: 576px) {\n    .card-profile-stats {\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n                flex-direction: column;\n        -webkit-box-align: center;\n                align-items: center;\n    }\n\n    .budget-item {\n        width: 100%;\n        /* Cada elemento toma el 100% del ancho en pantallas pequeñas */\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2FjY291bnQtY29udHJvbC1tYW5hZ2VtZW50LWNhdGVnb3JpZXMvYWNjb3VudC1jb250cm9sLW1hbmFnZW1lbnQtY2F0ZWdvcmllcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsZUFBZTtJQUNmLFFBQVE7SUFDUixjQUFjO0FBQ2xCOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixRQUFRO0lBQ1Isa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksVUFBVTtBQUNkOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDBDQUEwQztJQUMxQyxpQ0FBaUM7SUFDakMsbURBQW1EO0FBQ3ZEOztBQUVBO0lBQ0ksV0FBVztJQUNYLG1FQUFtRTtBQUN2RTs7QUFFQTtJQUNJLG9CQUFhO0lBQWIsYUFBYTtJQUNiLGVBQWU7SUFDZix1Q0FBdUM7SUFDdkMsUUFBUTtJQUNSLGdCQUFnQjtJQUNoQix1REFBdUQ7QUFDM0Q7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1DQUFtQztBQUN2Qzs7QUFFQTtJQUNJLGdCQUFnQjtJQUNoQixtQ0FBbUM7QUFDdkM7O0FBR0EsNEJBQTRCOztBQUM1QjtJQUNJLHlCQUF5QjtJQUN6QixxQkFBcUI7QUFDekI7O0FBRUE7SUFDSSxvQkFBYTtJQUFiLGFBQWE7SUFDYixlQUFlO0lBQ2YsU0FBUztJQUNULHNDQUFzQztBQUMxQzs7QUFFQTtJQUNJLGdCQUFnQjtJQUNoQixvQ0FBb0M7SUFDcEMsZUFBZTtJQUNmLG1CQUFhO1lBQWIsYUFBYTtJQUNiLDREQUE0RDtBQUNoRTs7QUFFQSxtREFBbUQ7O0FBQ25EO0lBQ0k7UUFDSSw0QkFBc0I7UUFBdEIsNkJBQXNCO2dCQUF0QixzQkFBc0I7UUFDdEIseUJBQW1CO2dCQUFuQixtQkFBbUI7SUFDdkI7O0lBRUE7UUFDSSxXQUFXO1FBQ1gsK0RBQStEO0lBQ25FO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvYWNjb3VudC1jb250cm9sLW1hbmFnZW1lbnQtY2F0ZWdvcmllcy9hY2NvdW50LWNvbnRyb2wtbWFuYWdlbWVudC1jYXRlZ29yaWVzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIua2V5d29yZHMtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICBnYXA6IDVweDtcbiAgICBwYWRkaW5nOiA1cHggMDtcbn1cblxuLmtleXdvcmQtYmFkZ2Uge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBnYXA6IDNweDtcbiAgICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5cbi5pcy1pbnZhbGlkIHtcbiAgICBib3JkZXItY29sb3I6IHJlZDtcbn1cblxuLnRleHQtZGFuZ2VyIHtcbiAgICBjb2xvcjogcmVkO1xufVxuXG4udGFibGUtcmVzcG9uc2l2ZSB7XG4gICAgb3ZlcmZsb3cteDogYXV0bztcbiAgICAvKiBIYWJpbGl0YSBlbCBkZXNwbGF6YW1pZW50byBob3Jpem9udGFsICovXG4gICAgLXdlYmtpdC1vdmVyZmxvdy1zY3JvbGxpbmc6IHRvdWNoO1xuICAgIC8qIE1lam9yYSBsYSBleHBlcmllbmNpYSBkZSBkZXNwbGF6YW1pZW50byBlbiBpT1MgKi9cbn1cblxuLnRhYmxlLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgLyogQXNlZ3VyYSBxdWUgZWwgY29udGVuZWRvciBvY3VwZSBlbCAxMDAlIGRlbCBlc3BhY2lvIGRpc3BvbmlibGUgKi9cbn1cblxuLmtleXdvcmRzLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgLyogQ29sb2NhIGxvcyBiYWRnZXMgZW4gdmFyaWFzIGzDrW5lYXMgKi9cbiAgICBnYXA6IDRweDtcbiAgICBtYXgtd2lkdGg6IDI1MHB4O1xuICAgIC8qIE9wY2lvbmFsOiBBanVzdGEgZWwgYW5jaG8gbcOheGltbyBwYXJhIGxhcyBrZXl3b3JkcyAqL1xufVxuXG4uYnRuLXNtLmJnLWdyYWRpZW50LWRhcmsge1xuICAgIG1hcmdpbi1yaWdodDogNHB4O1xuICAgIC8qIEVzcGFjaW8gZW50cmUgYmFkZ2VzICovXG59XG5cbi50YWJsZS1jb2wtbm9tYnJlIHtcbiAgICBtaW4td2lkdGg6IDE1MHB4O1xuICAgIC8qIERlZmluZSBlbCBhbmNobyBtw61uaW1vIGRlc2VhZG8gKi9cbn1cblxuLnRhYmxlLWNvbC1jYXRlZ29yaWEge1xuICAgIG1heC13aWR0aDogNDAwcHg7XG4gICAgLyogRGVmaW5lIGVsIGFuY2hvIG3DrW5pbW8gZGVzZWFkbyAqL1xufVxuXG5cbi8qIEVzdGlsbyBwYXJhIGZpbGFzIHBhcmVzICovXG50YWJsZS50YWJsZSB0Ym9keSB0cjpudGgtY2hpbGQoZXZlbikge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmOWY5Zjk7XG4gICAgLyogQ29sb3IgZ3JpcyBjbGFybyAqL1xufVxuXG4uY2FyZC1wcm9maWxlLXN0YXRzIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICBnYXA6IDFyZW07XG4gICAgLyogQcOxYWRlIGVzcGFjaW8gZW50cmUgbG9zIGVsZW1lbnRvcyAqL1xufVxuXG4uYnVkZ2V0LWl0ZW0ge1xuICAgIG1pbi13aWR0aDogMTIwcHg7XG4gICAgLyogQW5jaG8gbcOtbmltbyBwYXJhIGNhZGEgZWxlbWVudG8gKi9cbiAgICBwYWRkaW5nOiAwLjVyZW07XG4gICAgZmxleDogMSAxIDMwJTtcbiAgICAvKiBMb3MgZWxlbWVudG9zIG9jdXBhbiAzMCUgZGVsIGFuY2hvIGVuIHBhbnRhbGxhcyBncmFuZGVzICovXG59XG5cbi8qIEVuIHBhbnRhbGxhcyBwZXF1ZcOxYXMsIHNlIG9yZ2FuaXphIGVuIGNvbHVtbmFzICovXG5AbWVkaWEgKG1heC13aWR0aDogNTc2cHgpIHtcbiAgICAuY2FyZC1wcm9maWxlLXN0YXRzIHtcbiAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB9XG5cbiAgICAuYnVkZ2V0LWl0ZW0ge1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgLyogQ2FkYSBlbGVtZW50byB0b21hIGVsIDEwMCUgZGVsIGFuY2hvIGVuIHBhbnRhbGxhcyBwZXF1ZcOxYXMgKi9cbiAgICB9XG59Il19 */");
 
 /***/ }),
 
@@ -2265,6 +2321,35 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         if (budget === 0)
             return 0;
         return Math.round((currentAmmount / budget) * 100);
+    };
+    AccountControlManagementCategoriesComponent.prototype.getTransactions = function (category) {
+        // Crea un mapa para acumular las transacciones por día
+        var transactionsMap = new Map();
+        // Itera sobre las transacciones del mes actual
+        category.transactionCurrentMonth.forEach(function (t) {
+            var day = t.date.toISOString().slice(0, 10);
+            var value = t.amount;
+            var transaction = { description: t.description, type: t.type, amount: t.amount };
+            // Si ya existen transacciones para el mismo día, acumula el valor y añade la transacción
+            if (transactionsMap.has(day)) {
+                var existingEntry = transactionsMap.get(day);
+                if (existingEntry) {
+                    existingEntry.total += value;
+                    existingEntry.transactions.push(transaction);
+                }
+            }
+            else {
+                // Si es la primera transacción del día, crea una nueva entrada
+                transactionsMap.set(day, { total: value, transactions: [transaction] });
+            }
+        });
+        // Convierte el mapa en un array
+        var response = Array.from(transactionsMap, function (_a) {
+            var day = _a[0], data = _a[1];
+            return (__assign({ day: day }, data));
+        })
+            .sort(function (a, b) { return a.day.localeCompare(b.day); });
+        return response;
     };
     AccountControlManagementCategoriesComponent.ctorParameters = function () { return [
         { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"] },
@@ -3232,6 +3317,342 @@ var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.css":
+/*!************************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.css ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".chart-container {\n    width: 100%;\n    height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2Rhc2hib2FyZHMvYWNjb3VudC1jb250cm9sLWRhc2gtYnVkZ2V0LWJ5LWNhdGVnb3J5L2FjY291bnQtY29udHJvbC1kYXNoLWJ1ZGdldC1ieS1jYXRlZ29yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztJQUNYLFlBQVk7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvZGFzaGJvYXJkcy9hY2NvdW50LWNvbnRyb2wtZGFzaC1idWRnZXQtYnktY2F0ZWdvcnkvYWNjb3VudC1jb250cm9sLWRhc2gtYnVkZ2V0LWJ5LWNhdGVnb3J5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2hhcnQtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDUwcHg7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.ts":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.ts ***!
+  \***********************************************************************************************************************************************/
+/*! exports provided: AccountControlDashBudgetByCategoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashBudgetByCategoryComponent", function() { return AccountControlDashBudgetByCategoryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var AccountControlDashBudgetByCategoryComponent = /** @class */ (function () {
+    function AccountControlDashBudgetByCategoryComponent() {
+        this.percentage = 0; // Porcentaje del presupuesto utilizado
+        this.transactions = []; // Transacciones diarias
+        this.month = new Date().getMonth() + 1; // Mes (1 = Enero, 12 = Diciembre)
+    }
+    AccountControlDashBudgetByCategoryComponent.prototype.ngOnInit = function () {
+        // this.initChart();
+        this.chartOptions = this.createChartOption(this.transactions);
+    };
+    AccountControlDashBudgetByCategoryComponent.prototype.getDaysInMonth = function (month, year) {
+        var daysCount = new Date(year, month, 0).getDate();
+        return Array.from({ length: daysCount }, function (_, i) { return i + 1; });
+    };
+    AccountControlDashBudgetByCategoryComponent.prototype.getPercentageColor = function () {
+        if (this.percentage < 10)
+            return '#2dce89'; // Verde
+        if (this.percentage < 30)
+            return '#007bff'; // Azul
+        if (this.percentage < 60)
+            return '#fb9e02'; // Naranja
+        return '#f5365c'; // Rojo
+    };
+    AccountControlDashBudgetByCategoryComponent.prototype.initChart = function () {
+        var _this = this;
+        var year = new Date().getFullYear();
+        var daysInMonth = this.getDaysInMonth(this.month, year); // Calcular días del mes
+        var transactionData = this.transactions.map(function (t) {
+            return [t.day, t.total]; // Asignar 0 si no hay transacción
+        });
+        var percentageColor = this.getPercentageColor(); // Color del porcentaje según rango
+        // Condición para mostrar el texto del porcentaje solo si es mayor que 0
+        var showPercentage = this.percentage > 0;
+        this.chartOptions = {
+            tooltip: {
+                trigger: 'item',
+                formatter: function (params) {
+                    if (params.seriesName === 'Transacciones') {
+                        var day = params.data[0]; // Día
+                        var value = params.data[1]; // Valor de la transacción
+                        return "<b>D\u00EDa:</b> " + day + "<br/><b>Transacci\u00F3n:</b> $" + value.toFixed(2);
+                    }
+                    return ''; // No mostrar *tooltip* para otras series
+                },
+            },
+            grid: {
+                left: 1,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                containLabel: false,
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                show: false,
+                data: daysInMonth,
+                axisLabel: {
+                    formatter: function (value) { return "D\u00EDa " + value; },
+                },
+            },
+            yAxis: {
+                type: 'value',
+                show: false,
+                min: 0,
+                max: 100,
+                axisLabel: {
+                    formatter: '{value}%',
+                },
+            },
+            series: [
+                {
+                    name: 'Fondo rojo',
+                    type: 'line',
+                    data: daysInMonth.map(function (day) { return [day, _this.percentage]; }),
+                    areaStyle: {
+                        color: 'rgba(245, 54, 92, 0.3)',
+                    },
+                    lineStyle: {
+                        opacity: 0,
+                    },
+                    showSymbol: false,
+                    tooltip: {
+                        show: false,
+                    },
+                },
+                {
+                    name: 'Transacciones',
+                    type: 'line',
+                    data: transactionData,
+                    lineStyle: {
+                        color: '#2dce89',
+                    },
+                    itemStyle: {
+                        color: '#2dce89',
+                    },
+                },
+            ],
+            graphic: showPercentage
+                ? {
+                    type: 'text',
+                    left: 'center',
+                    top: '20%',
+                    style: {
+                        text: this.percentage + "%",
+                        font: 'bold 20px sans-serif',
+                        fill: percentageColor,
+                    },
+                }
+                : undefined,
+        };
+    };
+    AccountControlDashBudgetByCategoryComponent.prototype.createChartOption = function (data) {
+        var _this = this;
+        var year = new Date().getFullYear();
+        var daysInMonth = this.getDaysInMonth(this.month, year); // Calcular días del mes
+        var allDays = Array.from({ length: daysInMonth.length }, function (_, i) { return i + 1; }); // Crear array con todos los días del mes
+        // Convertir data a un mapa, extrayendo el día del formato anio-mes-dia
+        var transactionMap = new Map(data.map(function (t) { return [parseInt(t.day.split('-')[2]), t]; }));
+        var dataNew = allDays.map(function (day) {
+            if (transactionMap.has(day)) {
+                return transactionMap.get(day);
+            }
+            else {
+                return {
+                    day: year + "-" + _this.month.toString().padStart(2, '0') + "-" + day.toString().padStart(2, '0'),
+                    total: 0,
+                    transactions: []
+                };
+            }
+        });
+        var percentageColor = this.getPercentageColor(); // Color del porcentaje según rango
+        // Condición para mostrar el texto del porcentaje solo si es mayor que 0
+        var showPercentage = this.percentage > 0;
+        return {
+            grid: {
+                left: 1,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                containLabel: false,
+            },
+            tooltip: {
+                trigger: 'axis',
+                position: function (pt, params, dom, rect, size) {
+                    var contentSize = size.contentSize, viewSize = size.viewSize;
+                    var x = pt[0], y = pt[1];
+                    var isOverflowingRight = x + contentSize[0] > viewSize[0];
+                    return isOverflowingRight ? [x - contentSize[0], y] : [x, y];
+                },
+                formatter: function (params) {
+                    var dataPoint = params[0];
+                    var value = dataPoint.value; // value: [date, balance, categories]
+                    var day = value[0], total = value[1];
+                    var categories = dataPoint.data.transactions;
+                    // Formatear balance como moneda
+                    var balanceFormatted = new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                    }).format(total);
+                    // Obtener el color del punto actual
+                    var color = params[0].color; // Color calculado automáticamente por visualMap
+                    // Generar lista de categorías si existen
+                    var categoriesContent = categories.length
+                        ? "\n              <div>\n                <b>Transacciones:</b>\n                <ul style=\"padding-left: 15px; margin: 5px 0;\">\n                  " + categories.map(function (category) {
+                            var description = category.description;
+                            description = description.toString().split(" = ")[0];
+                            var aux = description.toString().split("Compra en");
+                            if (aux.length > 1) {
+                                description = aux[1];
+                            }
+                            aux = description.toString().split("Transferencia a la cuenta");
+                            if (aux.length > 1) {
+                                description = aux[1];
+                            }
+                            aux = description.toString().split("Transferencia con QR a la cuenta ");
+                            if (aux.length > 1) {
+                                description = "QR Con" + aux[1];
+                            }
+                            var circleColor = category.type == 'expense' ? '#f5365c' : '#2dce89';
+                            return "<li style=\"list-style: none;\">\n                              <span style=\"margin-right: 5px;color: " + circleColor + ";\">\u25CF</span><span style=\"font-size: 90%\">" + (description.length > 40 ? description.substring(0, 40) + '...' : description) + "</span>: " + new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 0
+                            }).format(category.amount) + "\n                            </li>";
+                        }).join('') + "\n                </ul>\n              </div>\n            "
+                        : '';
+                    // Retornar tooltip con balance coloreado
+                    return "\n            " + day + "<br/>\n            <span style=\"display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:" + color + ";\"></span>\n            <span style=\"font-size:14px;color:#666;font-weight:400;margin-left:2px\">Balance</span>\n            <span style=\"float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900\">" + balanceFormatted + "</span><br/>\n            " + categoriesContent + "\n          ";
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                show: false
+            },
+            yAxis: {
+                type: 'value',
+                boundaryGap: [0, '100%'],
+                show: false // Ocultar eje Y
+            },
+            visualMap: {
+                top: 50,
+                show: false,
+                right: 10,
+                pieces: [
+                    {
+                        lte: -2000000,
+                        color: '#fd0100'
+                    },
+                    {
+                        gt: -2000000,
+                        lte: -1000000,
+                        color: '#fc7d02'
+                    },
+                    {
+                        gt: -1000000,
+                        lte: 0,
+                        color: '#fbbd0f'
+                    },
+                    {
+                        gt: 0,
+                        lte: 250000,
+                        color: '#fbe00f'
+                    },
+                    {
+                        gt: 250000,
+                        lte: 800000,
+                        color: '#8ad70f'
+                    },
+                    {
+                        gt: 800000,
+                        lte: 1500000,
+                        color: '#37d70f'
+                    },
+                    {
+                        gt: 1500000,
+                        color: '#04d39a'
+                    }
+                ],
+                outOfRange: {
+                    color: '#999'
+                }
+            },
+            series: [
+                {
+                    name: 'Balance',
+                    type: 'line',
+                    smooth: true,
+                    symbol: 'none',
+                    data: dataNew.map(function (d) { return ({
+                        value: [d.day, d.total],
+                        transactions: d.transactions
+                    }); })
+                }
+            ],
+            graphic: showPercentage
+                ? {
+                    type: 'text',
+                    left: 'center',
+                    top: '20%',
+                    style: {
+                        text: this.percentage + "%",
+                        font: 'bold 150% sans-serif',
+                        fill: percentageColor,
+                    },
+                }
+                : undefined,
+        };
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], AccountControlDashBudgetByCategoryComponent.prototype, "percentage", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AccountControlDashBudgetByCategoryComponent.prototype, "transactions", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], AccountControlDashBudgetByCategoryComponent.prototype, "month", void 0);
+    AccountControlDashBudgetByCategoryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-dash-budget-by-category',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-dash-budget-by-category.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-dash-budget-by-category.component.css */ "./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.css")).default]
+        })
+    ], AccountControlDashBudgetByCategoryComponent);
+    return AccountControlDashBudgetByCategoryComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.css":
 /*!************************************************************************************************************************************************!*\
   !*** ./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.css ***!
@@ -3968,7 +4389,6 @@ var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
         // Agrupar transacciones por días y categorías
         var dataByDay = {};
         var activeDays = new Set(); // Para almacenar los días con transacciones
-        console.log("prueba");
         this.transactions.forEach(function (tx) {
             var _a, _b, _c;
             var txDate = new Date(tx.date);
@@ -6206,11 +6626,13 @@ var AccountControlService = /** @class */ (function () {
             var currentDate = new Date().getFullYear() + '-' + (new Date().getMonth() + 1);
             var dateOfTransaction = t.date.getFullYear() + '-' + (t.date.getMonth() + 1);
             if (currentDate == dateOfTransaction) {
-                category.currentAmmount += Math.abs(t.amount);
                 if (!category.transactionCurrentMonth) {
                     category.transactionCurrentMonth = [t];
                 }
-                category.transactionCurrentMonth.push(t);
+                if (!t.transactionId || (t.targetAccountId && t.type != src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_5__["AccountConstant"].TRANSACTION_TYPE_INCOME)) {
+                    category.currentAmmount += Math.abs(t.amount);
+                    category.transactionCurrentMonth.push(t);
+                }
             }
         }
         if (!t.originalAccount && category) {
@@ -8192,7 +8614,7 @@ var TransactionOperation = /** @class */ (function () {
             type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
             var matches = body.match(receivedTransferPattern);
             if (matches) {
-                description = "transferencia de " + matches[1].trim();
+                description = "Transferencia de " + matches[1].trim();
                 amount = this.parseAmount(matches[2], 1);
                 accountId = matches[3];
                 date = this.parseDateTime(matches[4], matches[5]);
