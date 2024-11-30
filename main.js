@@ -1651,10 +1651,11 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         this.activeTab = type;
     };
     AccountControlListBudgetsComponent.prototype.getTransactions = function (category) {
+        var _a, _b;
         // Crea un mapa para acumular las transacciones por día
         var transactionsMap = new Map();
         // Itera sobre las transacciones del mes actual
-        category.transactionCurrentMonth.forEach(function (t) {
+        (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.transactionCurrentMonth) === null || _b === void 0 ? void 0 : _b.forEach(function (t) {
             var day = t.date.toISOString().slice(0, 10);
             var value = t.amount;
             var transaction = { description: t.description, type: t.type, amount: t.amount };
@@ -2323,10 +2324,11 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         return Math.round((currentAmmount / budget) * 100);
     };
     AccountControlManagementCategoriesComponent.prototype.getTransactions = function (category) {
+        var _a, _b;
         // Crea un mapa para acumular las transacciones por día
         var transactionsMap = new Map();
         // Itera sobre las transacciones del mes actual
-        category.transactionCurrentMonth.forEach(function (t) {
+        (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.transactionCurrentMonth) === null || _b === void 0 ? void 0 : _b.forEach(function (t) {
             var day = t.date.toISOString().slice(0, 10);
             var value = t.amount;
             var transaction = { description: t.description, type: t.type, amount: t.amount };
