@@ -3566,37 +3566,62 @@ var AccountControlDashBudgetByCategoryComponent = /** @class */ (function () {
                 right: 10,
                 pieces: [
                     {
-                        lte: -2000000,
+                        lte: -3000000,
                         color: '#fd0100'
                     },
                     {
+                        gt: -3000000,
+                        lte: -2000000,
+                        color: '#f5365c'
+                    },
+                    {
                         gt: -2000000,
-                        lte: -1000000,
-                        color: '#fc7d02'
+                        lte: -500000,
+                        color: '#fb6340'
                     },
                     {
-                        gt: -1000000,
+                        gt: -500000,
                         lte: 0,
-                        color: '#fbbd0f'
+                        color: '#fb9f40'
                     },
                     {
-                        gt: 0,
-                        lte: 250000,
-                        color: '#fbe00f'
+                        gt: 1,
+                        lte: 10000,
+                        color: '#ffd600'
                     },
                     {
-                        gt: 250000,
-                        lte: 800000,
-                        color: '#8ad70f'
+                        gt: 10000,
+                        lte: 300000,
+                        color: '#11cdef'
                     },
                     {
-                        gt: 800000,
+                        gt: 300000,
+                        lte: 600000,
+                        color: '#04d39a'
+                    },
+                    {
+                        gt: 600000,
                         lte: 1500000,
-                        color: '#37d70f'
+                        color: '#2dce66'
                     },
                     {
                         gt: 1500000,
-                        color: '#04d39a'
+                        lte: 5000000,
+                        color: '#0fd731'
+                    },
+                    {
+                        gt: 5000000,
+                        lte: 10000000,
+                        color: '#5e72e4'
+                    },
+                    {
+                        gt: 10000000,
+                        lte: 30000000,
+                        color: '#8965e0'
+                    },
+                    {
+                        gt: 30000000,
+                        color: '#5603ad'
                     }
                 ],
                 outOfRange: {
@@ -4219,37 +4244,62 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
                 right: 10,
                 pieces: [
                     {
-                        lte: -2000000,
+                        lte: -3000000,
                         color: '#fd0100'
                     },
                     {
+                        gt: -3000000,
+                        lte: -2000000,
+                        color: '#f5365c'
+                    },
+                    {
                         gt: -2000000,
-                        lte: -1000000,
-                        color: '#fc7d02'
+                        lte: -500000,
+                        color: '#fb6340'
                     },
                     {
-                        gt: -1000000,
+                        gt: -500000,
                         lte: 0,
-                        color: '#fbbd0f'
+                        color: '#fb9f40'
                     },
                     {
-                        gt: 0,
-                        lte: 250000,
-                        color: '#fbe00f'
+                        gt: 1,
+                        lte: 10000,
+                        color: '#ffd600'
                     },
                     {
-                        gt: 250000,
-                        lte: 800000,
-                        color: '#8ad70f'
+                        gt: 10000,
+                        lte: 300000,
+                        color: '#11cdef'
                     },
                     {
-                        gt: 800000,
+                        gt: 300000,
+                        lte: 600000,
+                        color: '#04d39a'
+                    },
+                    {
+                        gt: 600000,
                         lte: 1500000,
-                        color: '#37d70f'
+                        color: '#2dce66'
                     },
                     {
                         gt: 1500000,
-                        color: '#04d39a'
+                        lte: 5000000,
+                        color: '#0fd731'
+                    },
+                    {
+                        gt: 5000000,
+                        lte: 10000000,
+                        color: '#5e72e4'
+                    },
+                    {
+                        gt: 10000000,
+                        lte: 30000000,
+                        color: '#8965e0'
+                    },
+                    {
+                        gt: 30000000,
+                        color: '#5603ad'
                     }
                 ],
                 outOfRange: {
