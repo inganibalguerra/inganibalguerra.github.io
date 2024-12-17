@@ -3328,7 +3328,7 @@ var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".chart-container {\n    width: 100%;\n    height: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2Rhc2hib2FyZHMvYWNjb3VudC1jb250cm9sLWRhc2gtYnVkZ2V0LWJ5LWNhdGVnb3J5L2FjY291bnQtY29udHJvbC1kYXNoLWJ1ZGdldC1ieS1jYXRlZ29yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztJQUNYLFlBQVk7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvZGFzaGJvYXJkcy9hY2NvdW50LWNvbnRyb2wtZGFzaC1idWRnZXQtYnktY2F0ZWdvcnkvYWNjb3VudC1jb250cm9sLWRhc2gtYnVkZ2V0LWJ5LWNhdGVnb3J5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2hhcnQtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDUwcHg7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".chart-container {\n    width: 100%;\n    height: 60px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2Rhc2hib2FyZHMvYWNjb3VudC1jb250cm9sLWRhc2gtYnVkZ2V0LWJ5LWNhdGVnb3J5L2FjY291bnQtY29udHJvbC1kYXNoLWJ1ZGdldC1ieS1jYXRlZ29yeS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztJQUNYLFlBQVk7QUFDaEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvZGFzaGJvYXJkcy9hY2NvdW50LWNvbnRyb2wtZGFzaC1idWRnZXQtYnktY2F0ZWdvcnkvYWNjb3VudC1jb250cm9sLWRhc2gtYnVkZ2V0LWJ5LWNhdGVnb3J5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2hhcnQtY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDYwcHg7XG59Il19 */");
 
 /***/ }),
 
@@ -8518,6 +8518,7 @@ var TransactionOperation = /** @class */ (function () {
         var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
         var incomePattern = /[Pp]ago\s+de\s+Nomina\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+Cuenta\s+Ahorros.\s+([\d:]+)\s+([\d/]+)/i;
         var receivedPayrollPattern = /[Pp]ago de [Nn]omina de ([\w\s]+) por \$([\d,.]+) en tu cuenta \*([\w]+) el (\d{2}:\d{2}) a las ([\d\/]+)/i;
+        var receivedPayrollPatter2 = /[Pp]ago de [Nn]omina de ([\w\s]+) por \$([\d,.]+) en tu cuenta(?: de)? Ahorros el ([\d/]+) a las (\d{2}:?)/i;
         var withdrawalPattern = /[Rr]etiraste\s+\$([\d,.]+)\s+en\s+([\w\s*]+)\s+de\s+tu\s+T\.Deb\s+\*\*([\d]{4})\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
         var retiroPattern = /[Rr]etiro\s+por\s+\$([\d,.]+)\s+en\s+([\w_]+)\.\s+Hora\s+(\d{2}:\d{2})\s+([\d\/]+)\s+T\.Deb\s+\*(\d{4})/i;
         var paymentPattern = /[Pp]agaste\s+\$([\d,.]+)\s+a\s+([\w\s]+)\s+desde\s+tu\s+producto\s+(\*\d+)\s+el\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
@@ -8638,6 +8639,19 @@ var TransactionOperation = /** @class */ (function () {
                 description = "Pago de n\u00F3mina de " + matches[1];
                 amount = this.parseAmount(matches[2]);
                 date = this.parseDateTime(matches[5], matches[4]);
+            }
+        }
+        else if (receivedPayrollPatter2.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            var matches = body.match(receivedPayrollPatter2);
+            if (matches) {
+                var name_1 = matches[1]; // Nombre del remitente
+                var amountValue = matches[2]; // Monto de la transacción
+                var dateValue = matches[3]; // Fecha de la transacción
+                var time = matches[4]; // Hora de la transacción
+                description = "Pago de n\u00F3mina de " + name_1;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
             }
         }
         else if (withdrawalPattern.test(body)) {
