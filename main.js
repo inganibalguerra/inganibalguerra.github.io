@@ -2170,7 +2170,7 @@ var AccountControlManagementCategoriesComponent = /** @class */ (function () {
         if (value) {
             if (value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_INCOME || value.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE) {
                 this.activeTab = value.type;
-                this.addNewCategory();
+                // this.addNewCategory();
                 this._filterCategoriesOfCurrentTab();
             }
         }
@@ -8522,6 +8522,7 @@ var TransactionOperation = /** @class */ (function () {
         var withdrawalPattern = /[Rr]etiraste\s+\$([\d,.]+)\s+en\s+([\w\s*]+)\s+de\s+tu\s+T\.Deb\s+\*\*([\d]{4})\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
         var retiroPattern = /[Rr]etiro\s+por\s+\$([\d,.]+)\s+en\s+([\w_]+)\.\s+Hora\s+(\d{2}:\d{2})\s+([\d\/]+)\s+T\.Deb\s+\*(\d{4})/i;
         var paymentPattern = /[Pp]agaste\s+\$([\d,.]+)\s+a\s+([\w\s]+)\s+desde\s+tu\s+producto\s+(\*\d+)\s+el\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
+        var paymentPatter2 = /[Pp]agaste \$([\d,.]+) a ([\w\s]+) desde tu producto (\d+) el ([\d/]+) (\d{2}:\d{2}:\d{2})/i;
         var affiliatePurchasePattern = /[Cc]ompra por COP([\d,.]+)\s+en\s+([\w\/.]+)\s+(\d{2}:\d{2})\.\s+([\d\/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
         var affiliatePurchasePatter2 = /[Cc]ompra\s+por\s+\$([\d,.]+)\s+en\s+([\w\/.]+)\s+(\d{2}:\d{2})\.\s+([\d\/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*(\d{4})/i;
         var affiliatePurchasePatter3 = /[Cc]ompra\s+por\s+COP([\d,.]+)\s+en\s+([\w\s*]+)\s+(\d{2}:\d{2})\.\s+([\d/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
@@ -8668,6 +8669,16 @@ var TransactionOperation = /** @class */ (function () {
         else if (paymentPattern.test(body)) {
             type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
             var matches = body.match(paymentPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                description = "Pago a " + matches[2];
+                accountId = matches[3];
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (paymentPatter2.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(paymentPatter2);
             if (matches) {
                 amount = this.parseAmount(matches[1]);
                 description = "Pago a " + matches[2];
