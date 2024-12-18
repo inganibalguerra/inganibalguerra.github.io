@@ -398,7 +398,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    (changeCurrentMonth)=\"changeCurrentMonth($event)\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1604,6 +1604,7 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         this.currentTotalIncome = 0;
         this.currentTotalExpense = 0;
         this.currentSavingsGoal = 0;
+        this.currentMonth = new Date();
     }
     Object.defineProperty(AccountControlListBudgetsComponent.prototype, "settingsData", {
         get: function () {
@@ -1621,13 +1622,14 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
     };
     AccountControlListBudgetsComponent.prototype.ngOnChanges = function (changes) {
         if (changes.settingsData && !changes.settingsData.firstChange) {
+            this.onSettingsDataChange(this._settingsData);
         }
     };
     AccountControlListBudgetsComponent.prototype.onSettingsDataChange = function (value) {
         this._settingsData = JSON.parse(JSON.stringify(value));
         if (value && value.budgetSettings) {
-            this.categories = value.budgetSettings.categories;
-            this.budgetSettings = value.budgetSettings;
+            this.categories = this._settingsData.budgetSettings.categories;
+            this.budgetSettings = this._settingsData.budgetSettings;
             this.currentTotalIncome = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME; })
                 .reduce(function (acc, curr) { return acc + curr.currentAmmount; }, 0);
             this.currentTotalExpense = this.categories.filter(function (c) { return c.type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE; })
@@ -1656,6 +1658,7 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         var transactionsMap = new Map();
         // Itera sobre las transacciones del mes actual
         (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.transactionCurrentMonth) === null || _b === void 0 ? void 0 : _b.forEach(function (t) {
+            t.date = new Date(t.date);
             var day = t.date.toISOString().slice(0, 10);
             var value = t.amount;
             var transaction = { description: t.description, type: t.type, amount: t.amount };
@@ -1679,6 +1682,9 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         })
             .sort(function (a, b) { return a.day.localeCompare(b.day); });
         return response;
+    };
+    AccountControlListBudgetsComponent.prototype.changeCurrentMonth = function (date) {
+        this.currentMonth = date;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -4393,6 +4399,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
     function AccountControlDashDailyCategoriesComponent() {
         this.transactions = [];
+        this.changeCurrentMonth = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.chartOptions = {};
         this.currentMonth = new Date(); // Mes actual para visualizar
         this.posList = [
@@ -4424,6 +4431,7 @@ var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
     };
     AccountControlDashDailyCategoriesComponent.prototype.prepareChartData = function () {
         var _this = this;
+        this.changeCurrentMonth.emit(this.currentMonth);
         var year = this.currentMonth.getFullYear();
         var month = this.currentMonth.getMonth();
         // Formatear el nombre del mes
@@ -4575,6 +4583,10 @@ var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], AccountControlDashDailyCategoriesComponent.prototype, "budgetSettings", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AccountControlDashDailyCategoriesComponent.prototype, "changeCurrentMonth", void 0);
     AccountControlDashDailyCategoriesComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-account-control-dash-daily-categories',
