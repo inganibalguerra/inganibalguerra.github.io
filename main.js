@@ -3209,6 +3209,9 @@ var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
         // Sumar y acumular los montos por mes y categoría
         var dataByCategoryAndMonth = {};
         transactionsOfCurrentType.forEach(function (tx) {
+            if (tx.transactionId || (tx.targetAccountId && tx.type == src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME)) {
+                return;
+            }
             var date = new Date(tx.date);
             var month = date.getFullYear() + "-" + (date.getMonth() + 1).toString().padStart(2, '0');
             var categoryName = categoryMap.get(tx.categoryId) || 'Other';
@@ -3284,14 +3287,14 @@ var AccountControlDashAllCategoriesComponent = /** @class */ (function () {
             },
             tooltip: {
                 order: 'valueDesc',
-                trigger: 'axis'
+                trigger: 'axis',
             },
             xAxis: {
                 type: 'category',
-                name: 'Month'
+                name: 'Dia'
             },
             yAxis: {
-                name: 'Accumulated Amount'
+                name: 'Dinero',
             },
             grid: {
                 right: 140
