@@ -4165,7 +4165,6 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
         }
         // Generar array de los 30 días anteriores 
         var past30Days = Array.from({ length: 30 }, function (_, i) { var date = new Date(firstDate); date.setDate(date.getDate() - i); return formatDate(date); });
-        console.log(past30Days);
         var nextAmount = currentBalance;
         for (var _i = 0, past30Days_1 = past30Days; _i < past30Days_1.length; _i++) {
             var date = past30Days_1[_i];
