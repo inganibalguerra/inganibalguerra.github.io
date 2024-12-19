@@ -4118,59 +4118,87 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
     };
     AccountControlDashDailyByAccountComponent.prototype.filterTransactionsByFrequency = function () {
         var _this = this;
-        var now = new Date();
-        var thirtyDaysAgo = new Date(now);
-        thirtyDaysAgo.setDate(now.getDate() - 30);
-        return this.transactions.filter(function (t) { return _this.account.id.includes(t.accountId); }).filter(function (transaction) {
+        var transactionsByCategory = this.transactions.filter(function (t) { return _this.account.id.includes(t.accountId); });
+        var lastTransactionDate = transactionsByCategory.length > 0 ? new Date(transactionsByCategory[0].date) : new Date();
+        var thirtyDaysAgoFromLastTransaction = new Date(lastTransactionDate);
+        thirtyDaysAgoFromLastTransaction.setDate(lastTransactionDate.getDate() - 30);
+        return transactionsByCategory.filter(function (transaction) {
             var transactionDate = new Date(transaction.date);
             if (_this.frequency === 'daily') {
-                return transactionDate >= thirtyDaysAgo;
+                return transactionDate >= thirtyDaysAgoFromLastTransaction;
             }
             else if (_this.frequency === 'monthly') {
-                return transactionDate.getFullYear() === now.getFullYear();
+                return transactionDate.getFullYear() === lastTransactionDate.getFullYear() &&
+                    transactionDate.getMonth() === lastTransactionDate.getMonth();
             }
             // 'annual' no filtra, se usa todo el historial.
             return true;
         });
     };
     AccountControlDashDailyByAccountComponent.prototype.calculateBalances = function (transactions) {
-        var _a, _b, _c, _d;
         // Ordenar las transacciones de más reciente a más antigua
         var sortedTransactions = __spreadArrays(transactions).sort(function (a, b) { return new Date(b.date).getTime() - new Date(a.date).getTime(); });
         // El balance inicial es el de la cuenta en la fecha de la última transacción
         var currentBalance = this.account.balance;
+        return this.generateResult(transactions, currentBalance);
+    };
+    AccountControlDashDailyByAccountComponent.prototype.generateResult = function (sortedTransactions, initialBalance) {
+        var _a, _b, _c, _d;
+        var currentBalance = initialBalance;
         var result = [];
-        var currentDate = new Date(((_a = sortedTransactions[0]) === null || _a === void 0 ? void 0 : _a.date) || new Date());
-        var nextAmount = currentBalance;
-        var categoriesForDate = [];
-        var _loop_1 = function (transaction) {
-            var transactionDate = new Date(transaction.date);
-            var categoryName = ((_d = (_c = (_b = this_1.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.find(function (cat) { return cat.id == transaction.categoryId; })) === null || _d === void 0 ? void 0 : _d.name) || 'Sin Categoría';
-            categoriesForDate.push({ name: categoryName, type: transaction.type, amount: transaction.amount });
-            // Actualizar el balance restando la transacción
-            // currentBalance -= transaction.amount;
-            // Si la fecha cambia, agregar un punto al gráfico
-            while (this_1.shouldDecrementDate(currentDate, transactionDate)) {
-                if (!result.some(function (t) { return t.date.toISOString().slice(0, 10) == currentDate.toISOString().slice(0, 10); })) {
-                    result.unshift({ date: new Date(currentDate), balance: currentBalance, categories: __spreadArrays(categoriesForDate) });
-                    categoriesForDate = [];
-                }
-                currentDate = this_1.decrementDate(currentDate);
+        // Agrupar las transacciones por fecha
+        var transactionsByDate = sortedTransactions.reduce(function (acc, trx) {
+            var dateKey = trx.date.toISOString().split('T')[0]; // Obtener solo la fecha
+            if (!acc[dateKey]) {
+                acc[dateKey] = [];
             }
-            // Asegurar que el balance final de la transacción también se registre
-            currentBalance = (nextAmount + (transaction.amount * -1)) + transaction.amount;
-            nextAmount = (currentBalance + (transaction.amount * -1));
-            if (!result.some(function (t) { return t.date.toISOString().slice(0, 10) == currentDate.toISOString().slice(0, 10); })) {
-                result.unshift({ date: currentDate, balance: currentBalance, categories: __spreadArrays(categoriesForDate) });
-                categoriesForDate = [];
-            }
-        };
-        var this_1 = this;
-        for (var _i = 0, sortedTransactions_1 = sortedTransactions; _i < sortedTransactions_1.length; _i++) {
-            var transaction = sortedTransactions_1[_i];
-            _loop_1(transaction);
+            acc[dateKey].push(trx);
+            return acc;
+        }, []);
+        var firstDate = sortedTransactions[0].date;
+        // Función para formatear una fecha a 'YYYY-MM-DD' 
+        function formatDate(date) {
+            var year = date.getFullYear();
+            var month = (date.getMonth() + 1).toString().padStart(2, '0');
+            var day = date.getDate().toString().padStart(2, '0');
+            return year + "-" + month + "-" + day;
         }
-        return result;
+        // Generar array de los 30 días anteriores 
+        var past30Days = Array.from({ length: 30 }, function (_, i) { var date = new Date(firstDate); date.setDate(date.getDate() - i); return formatDate(date); });
+        console.log(past30Days);
+        var nextAmount = currentBalance;
+        for (var _i = 0, past30Days_1 = past30Days; _i < past30Days_1.length; _i++) {
+            var date = past30Days_1[_i];
+            var dayTransactions = (_a = transactionsByDate[date], (_a !== null && _a !== void 0 ? _a : []));
+            var categories = [];
+            var _loop_1 = function (trx) {
+                // currentBalance += trx.amount; // Sumar porque estamos retrocediendo en el tiempo
+                var categoryName = ((_d = (_c = (_b = this_1.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.find(function (cat) { return cat.id == trx.categoryId; })) === null || _d === void 0 ? void 0 : _d.name) || 'Sin Categoría';
+                // Agregar la transacción al arreglo de categorías
+                // Asegurar que el balance final de la transacción también se registre
+                categories.push({
+                    name: categoryName,
+                    type: trx.type,
+                    amount: trx.amount
+                });
+            };
+            var this_1 = this;
+            for (var _e = 0, dayTransactions_1 = dayTransactions; _e < dayTransactions_1.length; _e++) {
+                var trx = dayTransactions_1[_e];
+                _loop_1(trx);
+            }
+            var totalAmount = dayTransactions.reduce(function (acc, transaction) { return acc + transaction.amount; }, 0);
+            currentBalance = (nextAmount + (totalAmount * -1)) + totalAmount;
+            nextAmount = (currentBalance + (totalAmount * -1));
+            // Agregar el resultado del día al arreglo final
+            result.push({
+                date: new Date(date),
+                balance: currentBalance,
+                categories: categories
+            });
+        }
+        return result.sort(function (a, b) { return a.date.getTime() - b.date.getTime(); });
+        ;
     };
     AccountControlDashDailyByAccountComponent.prototype.shouldDecrementDate = function (current, next) {
         if (this.frequency === 'daily') {
