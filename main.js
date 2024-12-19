@@ -7652,46 +7652,145 @@ var GoogleService = /** @class */ (function () {
         configurable: true
     });
     ;
+    GoogleService.prototype.trySilentSignIn = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var authInstance, user, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        authInstance = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance();
+                        return [4 /*yield*/, authInstance.signIn({ prompt: 'none' })];
+                    case 1:
+                        user = _a.sent();
+                        this.storeAuthToken(user.getAuthResponse());
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.warn('Silent sign-in failed:', error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GoogleService.prototype.refreshToken = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var authInstance, authResponse, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        authInstance = gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance();
+                        return [4 /*yield*/, authInstance.currentUser.get().reloadAuthResponse()];
+                    case 1:
+                        authResponse = _a.sent();
+                        this.storeAuthToken(authResponse);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_2 = _a.sent();
+                        console.error('Error al refrescar el token:', error_2);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    GoogleService.prototype.startTokenRefresh = function () {
+        var _this = this;
+        setInterval(function () { return __awaiter(_this, void 0, void 0, function () {
+            var error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.refreshToken()];
+                    case 1:
+                        _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_3 = _a.sent();
+                        console.error('Error al refrescar el token automáticamente:', error_3);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        }); }, 55 * 60 * 1000); // Cada 55 minutos (antes de que expire el token de 1 hora)
+    };
+    GoogleService.prototype.storeAuthToken = function (authResponse) {
+        localStorage.setItem('access_token', authResponse.access_token);
+        // No hay refresh_token disponible en AuthResponse, pero puedes usar el flujo de servidor si es necesario.
+    };
+    GoogleService.prototype.loadAuthTokensFromStorage = function () {
+        var accessToken = localStorage.getItem('access_token');
+        if (accessToken) {
+            gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth.setToken({ access_token: accessToken, error: '', expires_in: '3600', state: '' }); // Se completaron las propiedades requeridas.
+        }
+    };
     GoogleService.prototype.signOut = function () {
         gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signOut();
+        localStorage.removeItem('access_token');
     };
     GoogleService.prototype.loadGapiClient = function () {
-        var _this = this;
-        try {
-            return new Promise(function (resolve, reject) {
-                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () { return __awaiter(_this, void 0, void 0, function () {
-                    var _this = this;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0: return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.load('gmail', 'v1')];
-                            case 1:
-                                _a.sent();
-                                gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.init({
-                                    // apiKey: this.API_KEY,
-                                    clientId: this.CLIENT_ID,
-                                    discoveryDocs: this.DISCOVERY_DOCS,
-                                    scope: this.SCOPES
-                                }).then(function () {
-                                    _this.gapiLoaded$.next(true);
-                                    resolve();
-                                }).catch(function (error) {
-                                    _this.toastr.error("Error al inicializar Google Drive" + JSON.stringify(error), 'Business Control!');
-                                    _this.gapiLoaded$.next(false);
-                                    reject(error);
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                try {
+                    return [2 /*return*/, new Promise(function (resolve, reject) {
+                            gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].load('client:auth2', function () { return __awaiter(_this, void 0, void 0, function () {
+                                var _this = this;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            this.loadAuthTokensFromStorage(); // Cargar tokens desde almacenamiento local
+                                            return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client.load('gmail', 'v1')];
+                                        case 1:
+                                            _a.sent();
+                                            gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].client
+                                                .init({
+                                                clientId: this.CLIENT_ID,
+                                                discoveryDocs: this.DISCOVERY_DOCS,
+                                                scope: this.SCOPES,
+                                            })
+                                                .then(function () { return __awaiter(_this, void 0, void 0, function () {
+                                                var accessToken;
+                                                return __generator(this, function (_a) {
+                                                    switch (_a.label) {
+                                                        case 0:
+                                                            this.gapiLoaded$.next(true);
+                                                            accessToken = localStorage.getItem('access_token');
+                                                            if (!accessToken) return [3 /*break*/, 2];
+                                                            return [4 /*yield*/, this.trySilentSignIn()];
+                                                        case 1:
+                                                            _a.sent();
+                                                            _a.label = 2;
+                                                        case 2:
+                                                            resolve();
+                                                            return [2 /*return*/];
+                                                    }
+                                                });
+                                            }); })
+                                                .catch(function (error) {
+                                                _this.toastr.error('Error al inicializar Google Drive: ' + JSON.stringify(error), 'Business Control!');
+                                                _this.gapiLoaded$.next(false);
+                                                reject(error);
+                                            });
+                                            return [2 /*return*/];
+                                    }
                                 });
-                                return [2 /*return*/];
-                        }
-                    });
-                }); });
+                            }); });
+                        })];
+                }
+                catch (error) {
+                    this.toastr.error('Control de error al inicializar Google Drive: ' + JSON.stringify(error), 'Business Control!');
+                }
+                return [2 /*return*/];
             });
-        }
-        catch (error) {
-            this.toastr.error("Control de error al inicializar Google Drive: " + JSON.stringify(error), 'Business Control!');
-        }
+        });
     };
     GoogleService.prototype.signIn = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user, error_1;
+            var user, authResponse, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7708,19 +7807,22 @@ var GoogleService = /** @class */ (function () {
                         return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signIn()];
                     case 3:
                         user = _a.sent();
+                        authResponse = user.getAuthResponse();
+                        this.storeAuthToken(authResponse);
+                        this.startTokenRefresh(); // Inicia la renovación automática del token
                         return [4 /*yield*/, this.getConfigFromUser()];
                     case 4:
-                        _a.sent();
+                        _a.sent(); // Personalizar según tu aplicación
                         return [2 /*return*/, {
                                 data: this.config,
                                 user: {
                                     email: user.getBasicProfile().getEmail(),
                                     username: user.getBasicProfile().getName(),
-                                }
+                                },
                             }];
                     case 5:
-                        error_1 = _a.sent();
-                        this.toastr.error("Control de error en login: " + JSON.stringify(error_1), 'Business Control!');
+                        error_4 = _a.sent();
+                        this.toastr.error('Control de error en login: ' + JSON.stringify(error_4), 'Business Control!');
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/];
                 }
@@ -7729,7 +7831,7 @@ var GoogleService = /** @class */ (function () {
     };
     GoogleService.prototype.signInForAccountControl = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var user, error_2;
+            var user, authResponse, error_5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7746,6 +7848,9 @@ var GoogleService = /** @class */ (function () {
                         return [4 /*yield*/, gapi_script__WEBPACK_IMPORTED_MODULE_1__["gapi"].auth2.getAuthInstance().signIn()];
                     case 3:
                         user = _a.sent();
+                        authResponse = user.getAuthResponse();
+                        this.storeAuthToken(authResponse);
+                        this.startTokenRefresh(); // Inicia la renovación automática del token
                         return [4 /*yield*/, this.getSettingDataFromUser()];
                     case 4:
                         _a.sent();
@@ -7757,8 +7862,8 @@ var GoogleService = /** @class */ (function () {
                                 }
                             }];
                     case 5:
-                        error_2 = _a.sent();
-                        this.toastr.error("Control de error en login: " + JSON.stringify(error_2), 'Business Control!');
+                        error_5 = _a.sent();
+                        this.toastr.error("Control de error en login: " + JSON.stringify(error_5), 'Business Control!');
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/];
                 }
@@ -8043,7 +8148,7 @@ var GoogleService = /** @class */ (function () {
     };
     GoogleService.prototype.downloadFirstJsonFileFromBusinessControlFolder = function (folderName) {
         return __awaiter(this, void 0, void 0, function () {
-            var accessToken, folderId, fileId, error_3;
+            var accessToken, folderId, fileId, error_6;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8068,8 +8173,8 @@ var GoogleService = /** @class */ (function () {
                         // Descargar el contenido del archivo
                         return [2 /*return*/, this.downloadFileContent(fileId, accessToken)];
                     case 4:
-                        error_3 = _a.sent();
-                        this.toastr.info('Error al descargar el archivo:' + JSON.stringify(error_3), 'Business Control!');
+                        error_6 = _a.sent();
+                        this.toastr.info('Error al descargar el archivo:' + JSON.stringify(error_6), 'Business Control!');
                         return [2 /*return*/, null];
                     case 5: return [2 /*return*/];
                 }
@@ -8110,7 +8215,7 @@ var GoogleService = /** @class */ (function () {
     GoogleService.prototype.getNewEmailsSince = function (date, senders) {
         if (senders === void 0) { senders = ['alertasynotificaciones@notificacionesbancolombia.com', 'alertasynotificaciones@bancolombia.com.co']; }
         return __awaiter(this, void 0, void 0, function () {
-            var accessToken, rfc3339Date, gmail, promises, responses, emailIds, error_4;
+            var accessToken, rfc3339Date, gmail, promises, responses, emailIds, error_7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8143,8 +8248,8 @@ var GoogleService = /** @class */ (function () {
                         return [2 /*return*/, []];
                     case 5: return [3 /*break*/, 7];
                     case 6:
-                        error_4 = _a.sent();
-                        this.toastr.info('Error al consultar los correos electrónicos:' + JSON.stringify(error_4), 'Business Control!');
+                        error_7 = _a.sent();
+                        this.toastr.info('Error al consultar los correos electrónicos:' + JSON.stringify(error_7), 'Business Control!');
                         return [2 /*return*/, []];
                     case 7: return [2 /*return*/];
                 }
@@ -8206,7 +8311,7 @@ var GoogleService = /** @class */ (function () {
     };
     GoogleService.prototype.getTransactionsSince = function (date) {
         return __awaiter(this, void 0, void 0, function () {
-            var emails, transactions, error_5;
+            var emails, transactions, error_8;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8226,9 +8331,9 @@ var GoogleService = /** @class */ (function () {
                         transactions = this.processEmailsForTransactions(emails);
                         return [2 /*return*/, transactions];
                     case 2:
-                        error_5 = _a.sent();
-                        console.error(error_5);
-                        this.toastr.error('Error al obtener transacciones: ' + JSON.stringify(error_5), 'Business Control!');
+                        error_8 = _a.sent();
+                        console.error(error_8);
+                        this.toastr.error('Error al obtener transacciones: ' + JSON.stringify(error_8), 'Business Control!');
                         return [2 /*return*/, []];
                     case 3: return [2 /*return*/];
                 }
