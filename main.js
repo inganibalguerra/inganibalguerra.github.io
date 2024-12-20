@@ -4143,12 +4143,13 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
         return this.generateResult(transactions, currentBalance);
     };
     AccountControlDashDailyByAccountComponent.prototype.generateResult = function (sortedTransactions, initialBalance) {
+        var _this = this;
         var _a, _b, _c, _d;
         var currentBalance = initialBalance;
         var result = [];
         // Agrupar las transacciones por fecha
         var transactionsByDate = sortedTransactions.reduce(function (acc, trx) {
-            var dateKey = trx.date.toISOString().split('T')[0]; // Obtener solo la fecha
+            var dateKey = _this.formatDate(trx.date); // Obtener solo la fecha
             if (!acc[dateKey]) {
                 acc[dateKey] = [];
             }
@@ -4157,14 +4158,8 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
         }, []);
         var firstDate = sortedTransactions[0].date;
         // Función para formatear una fecha a 'YYYY-MM-DD' 
-        function formatDate(date) {
-            var year = date.getFullYear();
-            var month = (date.getMonth() + 1).toString().padStart(2, '0');
-            var day = date.getDate().toString().padStart(2, '0');
-            return year + "-" + month + "-" + day;
-        }
         // Generar array de los 30 días anteriores 
-        var past30Days = Array.from({ length: 30 }, function (_, i) { var date = new Date(firstDate); date.setDate(date.getDate() - i); return formatDate(date); });
+        var past30Days = Array.from({ length: 30 }, function (_, i) { var date = new Date(firstDate); date.setDate(date.getDate() - i); return _this.formatDate(date); });
         var nextAmount = currentBalance;
         for (var _i = 0, past30Days_1 = past30Days; _i < past30Days_1.length; _i++) {
             var date = past30Days_1[_i];
@@ -4199,30 +4194,11 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
         return result.sort(function (a, b) { return a.date.getTime() - b.date.getTime(); });
         ;
     };
-    AccountControlDashDailyByAccountComponent.prototype.shouldDecrementDate = function (current, next) {
-        if (this.frequency === 'daily') {
-            return current.toISOString().slice(0, 10) !== next.toISOString().slice(0, 10);
-        }
-        else if (this.frequency === 'monthly') {
-            return current.getMonth() !== next.getMonth() || current.getFullYear() !== next.getFullYear();
-        }
-        else if (this.frequency === 'annual') {
-            return current.getFullYear() !== next.getFullYear();
-        }
-        return false;
-    };
-    AccountControlDashDailyByAccountComponent.prototype.decrementDate = function (date) {
-        var newDate = new Date(date);
-        if (this.frequency === 'daily') {
-            newDate.setDate(newDate.getDate() - 1);
-        }
-        else if (this.frequency === 'monthly') {
-            newDate.setMonth(newDate.getMonth() - 1);
-        }
-        else if (this.frequency === 'annual') {
-            newDate.setFullYear(newDate.getFullYear() - 1);
-        }
-        return newDate;
+    AccountControlDashDailyByAccountComponent.prototype.formatDate = function (date) {
+        var year = date.getFullYear();
+        var month = (date.getMonth() + 1).toString().padStart(2, '0');
+        var day = date.getDate().toString().padStart(2, '0');
+        return year + "-" + month + "-" + day;
     };
     AccountControlDashDailyByAccountComponent.prototype.createChartOption = function (data) {
         return {
