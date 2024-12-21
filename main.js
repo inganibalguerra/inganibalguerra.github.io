@@ -6738,7 +6738,7 @@ var AccountControlService = /** @class */ (function () {
         return true;
     };
     AccountControlService.prototype.getAccount = function (config, accountId) {
-        return config.accounts.find(function (acc) { return acc.id.toLowerCase().includes(accountId.toLowerCase()); });
+        return config.accounts.find(function (acc) { return acc.id.toLowerCase().includes(accountId.toLowerCase()) || accountId.toLowerCase().includes(acc.id.toLowerCase()); });
     };
     var AccountControlService_1;
     AccountControlService.isSync = false;
