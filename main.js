@@ -8599,6 +8599,7 @@ var TransactionOperation = /** @class */ (function () {
         var affiliatePurchasePatter3 = /[Cc]ompra\s+por\s+COP([\d,.]+)\s+en\s+([\w\s*]+)\s+(\d{2}:\d{2})\.\s+([\d/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
         var notificationPattern = /[Rr]ecibiras \$(\d{1,3}(?:\.\d{3})*,\d{2}) en (\d+) dias habiles en tu Tarjeta Credito \*\*(\d{4}) por parte de ([\w\s]+?)\. (\d{2}):(\d{2}) (\d{2})\/(\d{2})\/(\d{4})/;
         var paymentCreditCardPattern = /[Nn]otificación [Tt]ransaccional.*Pago\s+de\s+Tarjeta\s+de\s+Credito\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+la\s+tarjeta\s+\*(\d+).\s+([\d/]+)\s+(\d{2}:\d{2})/i;
+        var withdrawalNotificationPattern = /[Rr]etiro\s+en\s+[Cc]orresponsal\s+([\w\s]+)\s+en\s+([\w\s]+)\s+por\s+\$([\d.,]+)\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         // Patrón para las notificaciones de compras de Bancolombia
         var type = 'expense';
         var accountId = '';
@@ -8902,6 +8903,19 @@ var TransactionOperation = /** @class */ (function () {
                 date = this.parseDateTime(dateValue, time);
             }
         }
+        else if (withdrawalNotificationPattern.test(body)) {
+            var matches = body.match(withdrawalNotificationPattern);
+            if (matches) {
+                var correspondent = matches[1]; // Nombre del corresponsal
+                var location_1 = matches[2]; // Ubicación del retiro
+                var amountValue = matches[3]; // Monto retirado
+                var dateValue = matches[4]; // Fecha del retiro
+                var time = matches[5]; // Hora del retiro
+                description = "Retiro en corresponsal " + correspondent + " ubicado en " + location_1;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
+            }
+        }
         if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE && amount > 0) {
             amount = -amount;
         }
@@ -8947,6 +8961,9 @@ var TransactionOperation = /** @class */ (function () {
             else {
                 // dd/mm/yyyy format
                 _b = parts.map(Number), day = _b[0], month = _b[1], year = _b[2];
+            }
+            if (year < 100) {
+                year += 2000;
             }
         }
         else {
