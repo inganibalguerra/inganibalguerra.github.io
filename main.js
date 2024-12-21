@@ -8579,7 +8579,6 @@ var TransactionOperation = /** @class */ (function () {
         var transferPatter2 = /[Tt]ransferiste\s+\$([\d,.]+)\s+de\s+tu\s+cuenta\s+\*\*(\d+)\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
         var transferPatter3 = /[Tt]ransferencia\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+cta\s+(\d+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var updatedPurchasePattern = /[Cc]ompraste\s+COP([\d.,]+)\s+en\s+([\w\s\/\.]+)\s+con\s+tu\s+T\.Cred\s+\*{1,2}([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
-        // const purchaseNotificationPattern = /[Cc]ompraste\s+\$([\d,.]+)\s+en\s+([\w\s\/]+)\s+con\s+tu\s+T\.Deb\s+\*([\d]{4}),\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
         var purchaseNotificationPattern = /[Cc]ompraste\s+\$([\d.,]+)\s+en\s+([^\s,]+(?:\s[^\s,]+)*)\s+con\s+tu\s+T\.Deb\s+\*([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         var transferNotificationPattern = /[Tt]ransferiste\s+\$([\d.,]+)\s+por\s+([\w\s]+)\s+a\s+([\w\s]+)\s+desde\s+producto\s+\*([\d]{4})\.\s+([\d\/]+)\s+([\d:]+)/i;
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
@@ -8587,6 +8586,7 @@ var TransactionOperation = /** @class */ (function () {
         var paymentReceivedPattern = /[Rr]ecepcion de pago de ([\w\s]+) por \$([\d,.]+) en su cuenta AHORROS (\d{2}:\d{2}) ([\d\/]+)/i;
         var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+(\d+).\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
+        var receivedTransferPatter2 = /[Rr]ecibiste\s+una\s+transferencia\s+por\s+\$([\d.,]+)\s+de\s+([\w\s]+)\s+en\s+tu\s+cuenta\s+\*\*([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         var incomePattern = /[Pp]ago\s+de\s+Nomina\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+Cuenta\s+Ahorros.\s+([\d:]+)\s+([\d/]+)/i;
         var receivedPayrollPattern = /[Pp]ago de [Nn]omina de ([\w\s]+) por \$([\d,.]+) en tu cuenta \*([\w]+) el (\d{2}:\d{2}) a las ([\d\/]+)/i;
         var receivedPayrollPatter2 = /[Pp]ago de [Nn]omina de ([\w\s]+) por \$([\d,.]+) en tu cuenta(?: de)? Ahorros el ([\d/]+) a las (\d{2}:?)/i;
@@ -8693,6 +8693,20 @@ var TransactionOperation = /** @class */ (function () {
                 amount = this.parseAmount(matches[2], 1);
                 accountId = matches[3];
                 date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (receivedTransferPatter2.test(body)) {
+            var matches = body.match(receivedTransferPatter2);
+            if (matches) {
+                var amountValue = matches[1]; // Monto recibido
+                var sender = matches[2]; // Nombre del remitente
+                var account = matches[3]; // Últimos 4 dígitos de la cuenta
+                var dateValue = matches[4]; // Fecha de la transferencia
+                var time = matches[5]; // Hora de la transferencia
+                accountId = account;
+                description = "Transferencia recibida de " + sender + " a tu cuenta *" + account;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
             }
         }
         else if (incomePattern.test(body)) {
