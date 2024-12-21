@@ -8581,6 +8581,7 @@ var TransactionOperation = /** @class */ (function () {
         var updatedPurchasePattern = /[Cc]ompraste\s+COP([\d.,]+)\s+en\s+([\w\s\/\.]+)\s+con\s+tu\s+T\.Cred\s+\*{1,2}([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         // const purchaseNotificationPattern = /[Cc]ompraste\s+\$([\d,.]+)\s+en\s+([\w\s\/]+)\s+con\s+tu\s+T\.Deb\s+\*([\d]{4}),\s+el\s+([\d/]+)\s+a\s+las\s+([\d:]+)/i;
         var purchaseNotificationPattern = /[Cc]ompraste\s+\$([\d.,]+)\s+en\s+([^\s,]+(?:\s[^\s,]+)*)\s+con\s+tu\s+T\.Deb\s+\*([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
+        var transferNotificationPattern = /[Tt]ransferiste\s+\$([\d.,]+)\s+por\s+([\w\s]+)\s+a\s+([\w\s]+)\s+desde\s+producto\s+\*([\d]{4})\.\s+([\d\/]+)\s+([\d:]+)/i;
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
         var bancolombiaCreditCardPaymentPattern = /[Bb]ancolombia le informa que\s+([\w\s]+)\s+realizo\s+abono\s+a\s+su\s+T\.Cred\*(\d{4})\s+por\s+\$([\d,.]+)\.\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var paymentReceivedPattern = /[Rr]ecepcion de pago de ([\w\s]+) por \$([\d,.]+) en su cuenta AHORROS (\d{2}:\d{2}) ([\d\/]+)/i;
@@ -8868,6 +8869,21 @@ var TransactionOperation = /** @class */ (function () {
                 var time = matches[3]; // Hora de la transacción
                 var dateValue = matches[4]; // Fecha de la transacción
                 description = "Recepci\u00F3n de pago de " + sender;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
+            }
+        }
+        else if (transferNotificationPattern.test(body)) {
+            var matches = body.match(transferNotificationPattern);
+            if (matches) {
+                var amountValue = matches[1]; // Monto transferido
+                var method = matches[2]; // Método de transferencia (Botón Bancolombia)
+                var recipient = matches[3]; // Destinatario (nombre de la empresa o persona)
+                var product = matches[4]; // Producto (últimos 4 dígitos)
+                var dateValue = matches[5]; // Fecha de transferencia
+                var time = matches[6]; // Hora de transferencia
+                accountId = product;
+                description = "Transferencia por " + method + " a " + recipient + " desde *" + product;
                 amount = this.parseAmount(amountValue);
                 date = this.parseDateTime(dateValue, time);
             }
