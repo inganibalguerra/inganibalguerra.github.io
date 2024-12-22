@@ -580,7 +580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-2\">\n                <label for=\"yearSelector\">Año</label>\n                <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                    <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                        {{ availableYear }}\n                    </option>\n                </select>\n            </div>\n        </div>\n\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n\n\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-2\">\n                <label for=\"yearSelector\">Año</label>\n                <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                    <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                        {{ availableYear }}\n                    </option>\n                </select>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-category-by-months [monthlyBudget]=\"true\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n\n\n    </div>\n</div>");
 
 /***/ }),
 
@@ -3027,6 +3027,7 @@ var AccountControlComponent = /** @class */ (function (_super) {
     };
     AccountControlComponent.prototype.ngOnInit = function () {
         this.init();
+        this.openDashboards();
     };
     AccountControlComponent.prototype.ngOnDestroy = function () {
         this.detroy();
@@ -3751,6 +3752,7 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
         this.transactions = [];
         this.year = new Date().getFullYear();
         this.transactionType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+        this.monthlyBudget = false;
     }
     AccountControlDashCategoryByMonthsComponent.prototype.ngOnInit = function () {
         this.generateChartOptions();
@@ -3763,40 +3765,66 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
     AccountControlDashCategoryByMonthsComponent.prototype.generateChartOptions = function () {
         var _this = this;
         var _a;
-        // Filtrar las transacciones por año y tipo
         var filteredTransactions = this.transactions.filter(function (transaction) {
-            return new Date(transaction.date).getFullYear() === _this.year &&
-                transaction.type === _this.transactionType;
+            return new Date(transaction.date).getFullYear() === _this.year;
         });
-        // Obtener las categorías de las transacciones filtradas
-        var filteredCategoryIds = new Set(filteredTransactions.map(function (t) { return t.categoryId; }));
-        var relevantCategories = this.budgetSettings.categories.filter(function (category) {
-            return filteredCategoryIds.has(category.id);
-        });
+        var title = "Presupuesto mensual de " + this.year;
+        var relevantCategories = [{ id: 'Ingreso', name: 'Ingreso' }, { id: 'Gasto', name: 'Gasto' }, { id: 'Ahorro', name: 'Ahorro' }];
+        if (!this.monthlyBudget) {
+            title = (this.transactionType === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? 'Gastos' : 'Ingresos') + " de " + this.year;
+            // Filtrar las transacciones por año y tipo
+            filteredTransactions = filteredTransactions.filter(function (transaction) {
+                return transaction.type === _this.transactionType;
+            });
+            // Obtener las categorías de las transacciones filtradas
+            var filteredCategoryIds_1 = new Set(filteredTransactions.map(function (t) { return t.categoryId; }));
+            relevantCategories = this.budgetSettings.categories.filter(function (category) {
+                return filteredCategoryIds_1.has(category.id);
+            }).map(function (cat) { return { name: cat.name, id: cat.id }; });
+        }
         // Crear el objeto monthlyData
         var monthlyData = {};
-        // Inicializar monthlyData para cada categoría relevante con un array de 12 `null`
-        for (var _i = 0, relevantCategories_1 = relevantCategories; _i < relevantCategories_1.length; _i++) {
-            var category = relevantCategories_1[_i];
-            monthlyData[category.name] = Array(12).fill(null);
+        if (!this.monthlyBudget) {
+            // Inicializar monthlyData para cada categoría relevante con un array de 12 `null`
+            for (var _i = 0, relevantCategories_1 = relevantCategories; _i < relevantCategories_1.length; _i++) {
+                var category = relevantCategories_1[_i];
+                monthlyData[category.name] = Array(12).fill(null);
+            }
+        }
+        else {
+            monthlyData['Gasto'] = Array(12).fill(null);
+            monthlyData['Ingreso'] = Array(12).fill(null);
+            monthlyData['Ahorro'] = Array(12).fill(null);
         }
         var lastMonth = 1;
         var _loop_1 = function (transaction) {
             var month = new Date(transaction.date).getMonth();
-            var categoryName = (_a = relevantCategories.find(function (cat) { return cat.id === transaction.categoryId; })) === null || _a === void 0 ? void 0 : _a.name;
+            var categoryName = transaction.type == src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? 'Gasto' : 'Ingreso';
+            if (!this_1.monthlyBudget) {
+                categoryName = (_a = relevantCategories.find(function (cat) { return cat.id === transaction.categoryId; })) === null || _a === void 0 ? void 0 : _a.name;
+            }
             if (categoryName) {
                 if (lastMonth < month) {
                     lastMonth = month;
                 }
-                monthlyData[categoryName][month] = (monthlyData[categoryName][month] || 0) + Math.abs(transaction.amount);
+                monthlyData[categoryName][month] = (monthlyData[categoryName][month] || 0) + Math.round(Math.abs(transaction.amount));
+            }
+            if (this_1.monthlyBudget) {
+                monthlyData['Ahorro'][month] = (monthlyData['Ingreso'][month] || 0) - (monthlyData['Gasto'][month] || 0);
             }
         };
+        var this_1 = this;
         // Llenar monthlyData con los valores de las transacciones
         for (var _b = 0, filteredTransactions_1 = filteredTransactions; _b < filteredTransactions_1.length; _b++) {
             var transaction = filteredTransactions_1[_b];
             _loop_1(transaction);
         }
         // Formatear el dataset en un array, agregando el nombre de la categoría como primera columna
+        this.renderChart(monthlyData, relevantCategories, lastMonth, title, this.monthlyBudget);
+    };
+    AccountControlDashCategoryByMonthsComponent.prototype.renderChart = function (monthlyData, relevantCategories, lastMonth, title, showLegend) {
+        var _this = this;
+        if (showLegend === void 0) { showLegend = false; }
         var dataset = [__spreadArrays(['product'], Array.from({ length: 12 }, function (_, i) { return _this.getNameOfMonth(i); }))];
         for (var category in monthlyData) {
             var row = [category];
@@ -3808,15 +3836,16 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
         // Configuración del gráfico
         this.chartOptions = {
             title: {
-                text: (this.transactionType === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE ? 'Gastos' : 'Ingresos') + " de " + this.year,
+                text: title,
                 left: 'center',
+                top: showLegend ? '15' : undefined,
                 textStyle: {
                     fontSize: 18,
                     fontWeight: 'bold',
                 }
             },
             legend: {
-                show: false
+                show: showLegend
             },
             tooltip: {
                 trigger: 'axis',
@@ -3825,13 +3854,13 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
             dataset: { source: dataset },
             xAxis: { type: 'category' },
             yAxis: { gridIndex: 0 },
-            grid: { top: '55%', left: '80px' },
+            grid: { top: '45%', left: '80px' },
             series: __spreadArrays(this.getSeriesOfLines(relevantCategories), [
                 {
                     type: 'pie',
                     id: 'pie',
                     radius: '30%',
-                    center: ['50%', '25%'],
+                    center: ['50%', '27%'],
                     emphasis: {
                         focus: 'self'
                     },
@@ -3855,8 +3884,8 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
     AccountControlDashCategoryByMonthsComponent.prototype.getNameOfMonth = function (i) {
         return new Date(0, i).toLocaleString('default', { month: 'short' });
     };
-    AccountControlDashCategoryByMonthsComponent.prototype.getSeriesOfLines = function (filteredTransactions) {
-        var response = filteredTransactions.map(function (t) {
+    AccountControlDashCategoryByMonthsComponent.prototype.getSeriesOfLines = function (categories) {
+        var response = categories.map(function (t) {
             return {
                 type: 'line',
                 smooth: true,
@@ -3900,6 +3929,10 @@ var AccountControlDashCategoryByMonthsComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], AccountControlDashCategoryByMonthsComponent.prototype, "transactionType", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], AccountControlDashCategoryByMonthsComponent.prototype, "monthlyBudget", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
