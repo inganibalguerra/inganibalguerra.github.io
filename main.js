@@ -8742,6 +8742,7 @@ var TransactionOperation = /** @class */ (function () {
         }
         else if (receivedTransferPatter2.test(body)) {
             var matches = body.match(receivedTransferPatter2);
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
             if (matches) {
                 var amountValue = matches[1]; // Monto recibido
                 var sender = matches[2]; // Nombre del remitente
@@ -8958,6 +8959,7 @@ var TransactionOperation = /** @class */ (function () {
                 description = "Retiro en corresponsal " + correspondent + " ubicado en " + location_1;
                 amount = this.parseAmount(amountValue);
                 date = this.parseDateTime(dateValue, time);
+                targetAccountId = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].ACCOUNT_BILLETERA;
             }
         }
         if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE && amount > 0) {
