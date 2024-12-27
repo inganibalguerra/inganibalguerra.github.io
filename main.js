@@ -6672,7 +6672,7 @@ var AccountControlService = /** @class */ (function () {
     AccountControlService.prototype.getCategory = function (config, t, showToastr) {
         if (showToastr === void 0) { showToastr = false; }
         var _a, _b, _c;
-        var category = (_c = (_b = (_a = config) === null || _a === void 0 ? void 0 : _a.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.find(function (cat) { return cat.keyWords.some(function (key) { return t.description.toLowerCase().includes(key.toLowerCase()); }); });
+        var category = (_c = (_b = (_a = config) === null || _a === void 0 ? void 0 : _a.budgetSettings) === null || _b === void 0 ? void 0 : _b.categories) === null || _c === void 0 ? void 0 : _c.find(function (cat) { return cat.type == t.type && cat.keyWords.some(function (key) { return t.description.toLowerCase().includes(key.toLowerCase()); }); });
         if ((!category || (category && !category.accountId)) && !t.originalAccount) {
             if (showToastr && config.budgetSettings) {
                 this.toastr.warning("No se encontro categor\u00EDa para la transacci\u00F3n \"" + t.description + "\" por un monto de " + t.amount, 'Account Control!');
