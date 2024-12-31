@@ -398,7 +398,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    (changeCurrentMonth)=\"changeCurrentMonth($event)\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n            <div class=\"\">\n                <app-account-control-dash-radar-by-category [categoryType]=\"activeTab\" [currentDate]=\"lastSyncDate\"\n                    [budgetSettings]=\"budgetSettings\"></app-account-control-dash-radar-by-category>\n            </div>\n\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\" [month]=\"getMonth()\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center pt-0\">\n                <div class=\"p-0\">\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div class=\"p-0\">\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div class=\"p-0\">\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    (changeCurrentMonth)=\"changeCurrentMonth($event)\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n            <div class=\"\">\n                <app-account-control-dash-radar-by-category [categoryType]=\"activeTab\" [currentDate]=\"lastSyncDate\"\n                    [budgetSettings]=\"budgetSettings\"></app-account-control-dash-radar-by-category>\n            </div>\n\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\" [month]=\"getMonth()\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -571,6 +571,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.html":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.html ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div echarts [options]=\"chartOptions\" class=\"chart-container\"></div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-radar-by-category/account-control-dash-radar-by-category.component.html":
 /*!*************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-radar-by-category/account-control-dash-radar-by-category.component.html ***!
@@ -593,7 +606,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-2\">\n                <label for=\"yearSelector\">Año</label>\n                <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                    <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                        {{ availableYear }}\n                    </option>\n                </select>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-category-by-months [monthlyBudget]=\"true\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n\n\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-2\">\n                <label for=\"yearSelector\">Año</label>\n                <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                    <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                        {{ availableYear }}\n                    </option>\n                </select>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-category-by-months [monthlyBudget]=\"true\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-income-vs-expense-daily [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-income-vs-expense-daily>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n        <div class=\"row\">\n\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n\n\n    </div>\n</div>");
 
 /***/ }),
 
@@ -782,6 +795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component */ "./src/app/pages/account-control/dashboards/account-control-dash-daily-by-account/account-control-dash-daily-by-account.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_budget_by_category_account_control_dash_budget_by_category_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component */ "./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_radar_by_category_account_control_dash_radar_by_category_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-radar-by-category/account-control-dash-radar-by-category.component */ "./src/app/pages/account-control/dashboards/account-control-dash-radar-by-category/account-control-dash-radar-by-category.component.ts");
+/* harmony import */ var _pages_account_control_dashboards_account_control_dash_income_vs_expense_daily_account_control_dash_income_vs_expense_daily_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component */ "./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -791,6 +805,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -875,7 +890,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_account_control_migrate_transaction_account_control_migrate_transaction_component__WEBPACK_IMPORTED_MODULE_31__["AccountControlMigrateTransactionComponent"],
                 _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__["AccountControlDashDailyByAccountComponent"],
                 _pages_account_control_dashboards_account_control_dash_budget_by_category_account_control_dash_budget_by_category_component__WEBPACK_IMPORTED_MODULE_33__["AccountControlDashBudgetByCategoryComponent"],
-                _pages_account_control_dashboards_account_control_dash_radar_by_category_account_control_dash_radar_by_category_component__WEBPACK_IMPORTED_MODULE_34__["AccountControlDashRadarByCategoryComponent"]
+                _pages_account_control_dashboards_account_control_dash_radar_by_category_account_control_dash_radar_by_category_component__WEBPACK_IMPORTED_MODULE_34__["AccountControlDashRadarByCategoryComponent"],
+                _pages_account_control_dashboards_account_control_dash_income_vs_expense_daily_account_control_dash_income_vs_expense_daily_component__WEBPACK_IMPORTED_MODULE_35__["AccountControlDashIncomeVsExpenseDailyComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -4694,6 +4710,266 @@ var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
         })
     ], AccountControlDashDailyCategoriesComponent);
     return AccountControlDashDailyCategoriesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.css":
+/*!**********************************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.css ***!
+  \**********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9kYXNoYm9hcmRzL2FjY291bnQtY29udHJvbC1kYXNoLWluY29tZS12cy1leHBlbnNlLWRhaWx5L2FjY291bnQtY29udHJvbC1kYXNoLWluY29tZS12cy1leHBlbnNlLWRhaWx5LmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.ts":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.ts ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: AccountControlDashIncomeVsExpenseDailyComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashIncomeVsExpenseDailyComponent", function() { return AccountControlDashIncomeVsExpenseDailyComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/utils/common */ "./src/app/services/utils/common.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var AccountControlDashIncomeVsExpenseDailyComponent = /** @class */ (function () {
+    function AccountControlDashIncomeVsExpenseDailyComponent() {
+        this.transactions = []; // Lista de transacciones recibidas
+        this.budgetSettings = null; // Configuración de presupuesto
+        this.chartOptions = null; // Opciones del gráfico
+    }
+    AccountControlDashIncomeVsExpenseDailyComponent.prototype.ngOnChanges = function (changes) {
+        if (changes['transactions'] && this.transactions) {
+            this.generateChartOptions();
+        }
+    };
+    AccountControlDashIncomeVsExpenseDailyComponent.prototype.generateChartOptions = function () {
+        var _this = this;
+        // Agrupar transacciones por día
+        var groupedTransactions = {};
+        this.transactions.forEach(function (transaction) {
+            var _a, _b, _c;
+            transaction.date = new Date(transaction.date);
+            var date = transaction.date.toISOString().split('T')[0]; // Obtener fecha en formato YYYY-MM-DD
+            if (!groupedTransactions[date]) {
+                groupedTransactions[date] = { income: 0, expense: 0, incomeCategories: new Set(), expenseCategories: new Set() };
+            }
+            var category = ((_c = (_b = (_a = _this.budgetSettings) === null || _a === void 0 ? void 0 : _a.categories) === null || _b === void 0 ? void 0 : _b.find(function (cat) { return cat.id === transaction.categoryId; })) === null || _c === void 0 ? void 0 : _c.name) || 'Sin Categoría';
+            if (transaction.type === 'income') {
+                groupedTransactions[date].income += transaction.amount;
+                groupedTransactions[date].incomeCategories.add(category);
+            }
+            else if (transaction.type === 'expense') {
+                groupedTransactions[date].expense += transaction.amount;
+                groupedTransactions[date].expenseCategories.add(category);
+            }
+        });
+        // Extraer datos ordenados por fecha
+        var dates = Object.keys(groupedTransactions).sort();
+        var incomeData = dates.map(function (date) { return groupedTransactions[date].income; });
+        var expenseData = dates.map(function (date) { return groupedTransactions[date].expense; });
+        // Obtener la fecha de hace 6 meses
+        var twelveMonthsAgo = new Date();
+        twelveMonthsAgo.setMonth(twelveMonthsAgo.getMonth() - 6);
+        // Filtrar las fechas para los últimos 12 meses para establecer el rango de zoom
+        var last12MonthsIndex = dates.findIndex(function (date) { return new Date(date) >= twelveMonthsAgo; });
+        var startZoomin = 0;
+        if (dates.length > 100) {
+            startZoomin = last12MonthsIndex;
+        }
+        // Configurar opciones del gráfico
+        this.chartOptions = {
+            title: {
+                text: 'Ingresos vs Gastos Diarios',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    animation: true
+                },
+                formatter: function (params) {
+                    var tooltipContent = "<strong>" + params[0].name + "</strong><br>";
+                    var totalAmount = 0; // Variable para almacenar la suma total
+                    var incomeCategories = '';
+                    var expenseCategories = '';
+                    params.forEach(function (param) {
+                        var _a, _b;
+                        if (param.value !== 0) { // Mostrar solo si el valor es diferente de cero
+                            totalAmount += param.value;
+                            // Agregar las categorías de ingresos y gastos al contenido del tooltip
+                            if (param.seriesName === 'Ingresos') {
+                                incomeCategories = Array.from((_a = groupedTransactions[params[0].name]) === null || _a === void 0 ? void 0 : _a.incomeCategories).map(function (category) { return "<li>" + category + "</li>"; }).join('') || 'N/A';
+                                tooltipContent += " \n                  <span style=\"display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color:" + param.color + "; margin-right: 5px;\"></span>\n                  " + param.seriesName + ": " + _this.formatCurrency(param.value) + "<br>\n                  <ul>" + incomeCategories + "</ul>\n                ";
+                            }
+                            else if (param.seriesName === 'Gastos') {
+                                expenseCategories = Array.from((_b = groupedTransactions[params[0].name]) === null || _b === void 0 ? void 0 : _b.expenseCategories).map(function (category) { return "<li>" + category + "</li>"; }).join('') || 'N/A';
+                                tooltipContent += " \n                  <span style=\"display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color:" + param.color + "; margin-right: 5px;\"></span>\n                  " + param.seriesName + ": " + _this.formatCurrency(param.value) + "<br>\n                  <ul>" + expenseCategories + "</ul>\n                ";
+                            }
+                        }
+                    });
+                    tooltipContent += "<strong>Total: " + _this.formatCurrency(totalAmount) + "</strong>";
+                    return tooltipContent;
+                }
+            },
+            legend: {
+                data: ['Ingresos', 'Gastos'],
+                left: 10,
+                show: false,
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            axisPointer: {
+                link: [
+                    {
+                        xAxisIndex: 'all'
+                    }
+                ]
+            },
+            dataZoom: [
+                {
+                    show: true,
+                    realtime: true,
+                    start: (startZoomin / dates.length) * 100,
+                    end: 100,
+                    xAxisIndex: [0, 1]
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: (startZoomin / dates.length) * 100,
+                    end: 100,
+                    xAxisIndex: [0, 1]
+                }
+            ],
+            grid: [
+                {
+                    left: 60,
+                    right: 50,
+                    height: '35%'
+                },
+                {
+                    left: 60,
+                    right: 50,
+                    top: '65%',
+                    height: '35%'
+                }
+            ],
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    axisLine: { onZero: true },
+                    data: dates
+                },
+                {
+                    gridIndex: 1,
+                    type: 'category',
+                    boundaryGap: false,
+                    axisLine: { onZero: true },
+                    data: dates,
+                    position: 'top'
+                }
+            ],
+            yAxis: [
+                {
+                    name: 'Ingresos',
+                    type: 'value',
+                },
+                {
+                    gridIndex: 1,
+                    name: 'Gastos',
+                    type: 'value',
+                }
+            ],
+            visualMap: {
+                show: false,
+                pieces: [
+                    { lte: -3000000, color: '#fd0100' },
+                    { gt: -3000000, lte: -2000000, color: '#f5365c' },
+                    { gt: -2000000, lte: -500000, color: '#fb6340' },
+                    { gt: -500000, lte: 0, color: '#fb9f40' },
+                    { gt: 1, lte: 10000, color: '#ffd600' },
+                    { gt: 10000, lte: 300000, color: '#11cdef' },
+                    { gt: 300000, lte: 600000, color: '#04d39a' },
+                    { gt: 600000, lte: 1500000, color: '#2dce66' },
+                    { gt: 1500000, lte: 5000000, color: '#0fd731' },
+                    { gt: 5000000, lte: 10000000, color: '#5e72e4' },
+                    { gt: 10000000, lte: 30000000, color: '#8965e0' },
+                    { gt: 30000000, color: '#5603ad' }
+                ],
+                outOfRange: { color: '#999' }
+            },
+            series: [
+                {
+                    name: 'Ingresos',
+                    type: 'line',
+                    symbol: 'none',
+                    smooth: true,
+                    data: incomeData
+                },
+                {
+                    name: 'Gastos',
+                    type: 'line',
+                    symbol: 'none',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    smooth: true,
+                    data: expenseData
+                }
+            ]
+        };
+    };
+    // Formatear números como moneda
+    AccountControlDashIncomeVsExpenseDailyComponent.prototype.formatCurrency = function (value) {
+        return Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__["formatCurrencyAnibal"])(value);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AccountControlDashIncomeVsExpenseDailyComponent.prototype, "transactions", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccountControlDashIncomeVsExpenseDailyComponent.prototype, "budgetSettings", void 0);
+    AccountControlDashIncomeVsExpenseDailyComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-dash-income-vs-expense-daily',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-dash-income-vs-expense-daily.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-dash-income-vs-expense-daily.component.css */ "./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.css")).default]
+        })
+    ], AccountControlDashIncomeVsExpenseDailyComponent);
+    return AccountControlDashIncomeVsExpenseDailyComponent;
 }());
 
 
@@ -8789,12 +9065,13 @@ var SummaryResumeService = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/services/utils/common.ts ***!
   \******************************************/
-/*! exports provided: isMobileResolution */
+/*! exports provided: isMobileResolution, formatCurrencyAnibal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isMobileResolution", function() { return isMobileResolution; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatCurrencyAnibal", function() { return formatCurrencyAnibal; });
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -8802,6 +9079,15 @@ function isMobileResolution() {
     var anchoVentana = window.innerWidth;
     var anchoMaximoMobile = 768; // Puedes ajustar este valor según lo necesites
     return anchoVentana <= anchoMaximoMobile;
+}
+// Formatear números como moneda
+function formatCurrencyAnibal(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(value);
 }
 
 
