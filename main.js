@@ -398,7 +398,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    (changeCurrentMonth)=\"changeCurrentMonth($event)\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n            <div class=\"col\">\n                <app-account-control-dash-radar-by-category [categoryType]=\"activeTab\" [currentDate]=\"lastSyncDate\"\n                    [budgetSettings]=\"budgetSettings\"></app-account-control-dash-radar-by-category>\n            </div>\n\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\" [month]=\"getMonth()\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-body\">\n        <div class=\"\">\n            <div *ngIf=\"budgetSettings\" class=\"card-profile-stats d-flex justify-content-center\">\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ingresos actuales del mes\" class=\"heading text-success\">\n                        <i class=\"fas fa-arrow-circle-up\"></i>\n                        {{ currentTotalIncome | currency }}\n                    </span>\n                    <span class=\"description \">Total Ingresos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ingresos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalIncome | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Gastos actuales del mes\" class=\"heading text-danger\">\n                        <i class=\"fas fa-arrow-circle-down\"></i>\n                        {{ currentTotalExpense | currency }}\n                    </span>\n                    <span class=\"description\">Total Gastos</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de gastos del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.totalExpense | currency }})\n                    </span>\n                </div>\n                <div>\n                    <span placement=\"top\" ngbTooltip=\"Ahorro actual del mes\" class=\"heading \"\n                        [ngClass]=\"currentSavingsGoal>=0?'text-info':'text-warning'\">\n                        <i class=\"fas fa-piggy-bank\"></i>\n                        {{ currentSavingsGoal | currency }}\n                    </span>\n                    <span class=\"description\">Ahorro Mensual</span>\n                    <span placement=\"bottom\" ngbTooltip=\"Presupuesto de ahorro del mes\"\n                        class=\"heading  description text-sm\">\n                        ({{ budgetSettings.savingsGoal | currency }})\n                    </span>\n                </div>\n\n            </div>\n            <div class=\"\">\n\n\n                <app-account-control-dash-daily-categories [transactions]=\"settingsData.transactions\"\n                    (changeCurrentMonth)=\"changeCurrentMonth($event)\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-daily-categories>\n\n            </div>\n\n\n            <!-- Tabs para ingresos y gastos -->\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setActiveTab('income')\"\n                        [class.active]=\"activeTab === 'income'\">Ingresos <span\n                            class=\"badge badge-success\">{{getCategoriesByType(\"income\").length}}</span></a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setActiveTab('expense')\"\n                        [class.active]=\"activeTab === 'expense'\">Gastos <span\n                            class=\"badge badge-danger\">{{getCategoriesByType(\"expense\").length}}</span></a>\n                </li>\n            </ul>\n            <div class=\"\">\n                <app-account-control-dash-radar-by-category [categoryType]=\"activeTab\" [currentDate]=\"lastSyncDate\"\n                    [budgetSettings]=\"budgetSettings\"></app-account-control-dash-radar-by-category>\n            </div>\n\n\n            <div class=\"table-responsive table-container\">\n                <table class=\"table table-bordered\">\n                    <thead class=\"thead-light\">\n                        <tr>\n                            <th scope=\"col\">Categoría</th>\n                            <th scope=\"col\">Actual</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let category of getCategoriesByType(activeTab); let i = index\">\n                            <th scope=\"row\" class=\"p-2\">\n                                {{ category.name }}\n                                <br />\n                                <small>{{ category.budget | currency }}</small>\n                            </th>\n                            <td class=\"text-right p-2\">\n                                {{category.currentAmmount | currency }}\n                                <div *ngIf=\"getTransactions(category).length>0\">\n                                    <app-account-control-dash-budget-by-category [percentage]=\"calculatePercentage(category.currentAmmount,\n                                    category.budget)\" [month]=\"getMonth()\"\n                                        [transactions]=\"getTransactions(category)\"></app-account-control-dash-budget-by-category>\n                                </div>\n\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -4709,7 +4709,7 @@ var AccountControlDashDailyCategoriesComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2FjY291bnQtY29udHJvbC9kYXNoYm9hcmRzL2FjY291bnQtY29udHJvbC1kYXNoLXJhZGFyLWJ5LWNhdGVnb3J5L2FjY291bnQtY29udHJvbC1kYXNoLXJhZGFyLWJ5LWNhdGVnb3J5LmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".chart-container {\n    width: 100%;\n\n}\n\n@media (max-width: 768px) {\n    .chart-container {\n        width: 100%;\n        height: 270px;\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2Rhc2hib2FyZHMvYWNjb3VudC1jb250cm9sLWRhc2gtcmFkYXItYnktY2F0ZWdvcnkvYWNjb3VudC1jb250cm9sLWRhc2gtcmFkYXItYnktY2F0ZWdvcnkuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFdBQVc7O0FBRWY7O0FBRUE7SUFDSTtRQUNJLFdBQVc7UUFDWCxhQUFhO0lBQ2pCO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvZGFzaGJvYXJkcy9hY2NvdW50LWNvbnRyb2wtZGFzaC1yYWRhci1ieS1jYXRlZ29yeS9hY2NvdW50LWNvbnRyb2wtZGFzaC1yYWRhci1ieS1jYXRlZ29yeS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNoYXJ0LWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG5cbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDc2OHB4KSB7XG4gICAgLmNoYXJ0LWNvbnRhaW5lciB7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICBoZWlnaHQ6IDI3MHB4O1xuICAgIH1cbn0iXX0= */");
 
 /***/ }),
 
@@ -4724,6 +4724,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashRadarByCategoryComponent", function() { return AccountControlDashRadarByCategoryComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/utils/common */ "./src/app/services/utils/common.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4737,11 +4749,11 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
 var AccountControlDashRadarByCategoryComponent = /** @class */ (function () {
     function AccountControlDashRadarByCategoryComponent() {
     }
     AccountControlDashRadarByCategoryComponent.prototype.ngOnChanges = function (changes) {
-        console.log(this.budgetSettings);
         if ((changes['budgetSettings'] || changes['categoryType'] || changes['currentDate']) && this.budgetSettings) {
             this.generateChartOptions();
         }
@@ -4760,19 +4772,29 @@ var AccountControlDashRadarByCategoryComponent = /** @class */ (function () {
         var budgetData = categories.map(function (category) { return category.budget; });
         // Serie de datos para el valor actual
         var actualData = categories.map(function (category) { return category.currentAmmount || 0; });
+        var tempRadar = {};
+        if (Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__["isMobileResolution"])())
+            tempRadar = { radius: 80 };
+        var month = this.currentDate.getMonth();
+        // Formatear el nombre del mes
+        var monthNames = [
+            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+        ];
+        var monthName = monthNames[month];
         // Construcción de las opciones del gráfico
         this.chartOptions = {
             title: {
-                text: "Comparaci\u00F3n de " + (this.categoryType === 'income' ? 'Ingresos' : 'Gastos'),
+                text: (this.categoryType === 'income' ? 'Ingresos' : 'Gastos') + " de " + monthName + " de " + this.currentDate.getFullYear(),
                 left: 'center'
             },
             legend: {
                 top: 'bottom',
                 data: ['Presupuesto Asignado', 'Monto Actual']
             },
-            radar: {
-                indicator: indicators,
-                shape: 'polygon'
+            radar: __assign({ indicator: indicators, shape: 'polygon' }, tempRadar),
+            tooltip: {
+                trigger: 'item'
             },
             series: [
                 {
@@ -4792,6 +4814,14 @@ var AccountControlDashRadarByCategoryComponent = /** @class */ (function () {
                 }
             ]
         };
+    };
+    // Formatear como moneda
+    AccountControlDashRadarByCategoryComponent.prototype.formatCurrency = function (value) {
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        }).format(value);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -8751,6 +8781,28 @@ var SummaryResumeService = /** @class */ (function () {
     return SummaryResumeService;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/services/utils/common.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/utils/common.ts ***!
+  \******************************************/
+/*! exports provided: isMobileResolution */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isMobileResolution", function() { return isMobileResolution; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+function isMobileResolution() {
+    var anchoVentana = window.innerWidth;
+    var anchoMaximoMobile = 768; // Puedes ajustar este valor según lo necesites
+    return anchoVentana <= anchoMaximoMobile;
+}
 
 
 /***/ }),
