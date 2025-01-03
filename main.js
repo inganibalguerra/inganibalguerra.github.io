@@ -528,7 +528,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"outer-container\">\n    <!-- Contenedor del encabezado -->\n    <div class=\"header-container\">\n        <!-- Selector de tipo de transacción -->\n        <div class=\"year-selector\">\n            <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"transactionType\"\n                (change)=\"setTransactionType(transactionType)\">\n                <option value=\"income\">Ingresos</option>\n                <option value=\"expense\">Gastos</option>\n            </select>\n        </div>\n        <!-- Botones de navegación -->\n        <div class=\"button-container\">\n            <button (click)=\"goBack()\" class=\"nav-button left\">\n                <i class=\"fa fa-arrow-left\"></i>\n            </button>\n            <button (click)=\"goForward()\" class=\"nav-button right\">\n                <i class=\"fa fa-arrow-right\"></i>\n            </button>\n        </div>\n    </div>\n\n    <!-- Contenedor de la gráfica -->\n    <div echarts [options]=\"chartOptions\" class=\"chart-container\"></div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"outer-container\">\n    <!-- Contenedor del encabezado -->\n    <div class=\"header-container\">\n        <!-- Selector de tipo de transacción -->\n        <div class=\"year-selector\">\n            <ul class=\"nav nav-tabs\">\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" (click)=\"setTransactionType('income')\"\n                        [class.active]=\"transactionType === 'income'\">Ingresos</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link\" (click)=\"setTransactionType('expense')\"\n                        [class.active]=\"transactionType === 'expense'\">Gastos</a>\n                </li>\n            </ul>\n        </div>\n        <!-- Botones de navegación -->\n        <div class=\"button-container\">\n            <button (click)=\"goBack()\" class=\"nav-button left\">\n                <i class=\"fa fa-arrow-left\"></i>\n            </button>\n            <button (click)=\"goForward()\" class=\"nav-button right\">\n                <i class=\"fa fa-arrow-right\"></i>\n            </button>\n        </div>\n    </div>\n\n    <!-- Contenedor de la gráfica -->\n    <div echarts [options]=\"chartOptions\" class=\"chart-container\"></div>\n</div>");
 
 /***/ }),
 
@@ -3836,7 +3836,7 @@ var AccountControlDashCalendarComponent = /** @class */ (function () {
     function AccountControlDashCalendarComponent() {
         this.transactions = []; // Transacciones diarias
         this.budgetSettings = null; // Configuración de presupuesto
-        this.transactionType = 'income'; // Tipo de transacción
+        this.transactionType = 'expense'; // Tipo de transacción
         this.currentYear = new Date().getFullYear(); // Año inicial
     }
     AccountControlDashCalendarComponent.prototype.ngOnChanges = function (changes) {
