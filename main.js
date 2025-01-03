@@ -519,6 +519,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.html":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.html ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"outer-container\">\n    <!-- Contenedor del encabezado -->\n    <div class=\"header-container\">\n        <!-- Selector de tipo de transacción -->\n        <div class=\"year-selector\">\n            <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"transactionType\"\n                (change)=\"setTransactionType(transactionType)\">\n                <option value=\"income\">Ingresos</option>\n                <option value=\"expense\">Gastos</option>\n            </select>\n        </div>\n        <!-- Botones de navegación -->\n        <div class=\"button-container\">\n            <button (click)=\"goBack()\" class=\"nav-button left\">\n                <i class=\"fa fa-arrow-left\"></i>\n            </button>\n            <button (click)=\"goForward()\" class=\"nav-button right\">\n                <i class=\"fa fa-arrow-right\"></i>\n            </button>\n        </div>\n    </div>\n\n    <!-- Contenedor de la gráfica -->\n    <div echarts [options]=\"chartOptions\" class=\"chart-container\"></div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-category-by-months/account-control-dash-category-by-months.component.html ***!
@@ -606,7 +619,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <div class=\"col-lg-2\">\n                <label for=\"yearSelector\">Año</label>\n                <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                    <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                        {{ availableYear }}\n                    </option>\n                </select>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-category-by-months [monthlyBudget]=\"true\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [transactionType]=\"'income'\" [transactions]=\"transactions\"\n                    [year]=\"year\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-income-vs-expense-daily [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-income-vs-expense-daily>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n            <div class=\"col-lg-6\">\n                <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                    [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n            </div>\n        </div>\n        <div class=\"row\">\n\n            <div class=\"col-lg-12\">\n                <app-account-control-dash-daily-balance\n                    [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n            </div>\n        </div>\n\n\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card card-stats mb-4 mb-lg-0\">\n    <div class=\"card-header bg-white border-0\">\n        <div class=\"row align-items-center\">\n            <div class=\"col-8\">\n                <h6 class=\"text-uppercase text-muted ls-1 mb-1\">\n                    Dashboards\n                </h6>\n            </div>\n            <div class=\"col-4 text-right\">\n                <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class=\"card-body\">\n        <!-- Tabs para ingresos y gastos -->\n        <ul class=\"nav nav-tabs\">\n            <li class=\"nav-item\">\n                <a class=\"nav-link active\" (click)=\"setActiveTab('byYear')\" [class.active]=\"currentTab === 'byYear'\">Por\n                    Año</a>\n            </li>\n            <li class=\"nav-item\">\n                <a class=\"nav-link\" (click)=\"setActiveTab('historic')\"\n                    [class.active]=\"currentTab === 'historic'\">Historico <span\n                        class=\"badge badge-info\">{{availableYears.length}} Años</span></a>\n            </li>\n        </ul>\n        <div class=\"\" *ngIf=\"currentTab === 'byYear'\">\n            <div class=\"row\">\n                <div class=\"col-lg-2\">\n                    <label for=\"yearSelector\">Año</label>\n                    <select id=\"yearSelector\" class=\"form-control\" [(ngModel)]=\"year\" (change)=\"onYearChange($event)\">\n                        <option *ngFor=\"let availableYear of availableYears\" [value]=\"availableYear\">\n                            {{ availableYear }}\n                        </option>\n                    </select>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <app-account-control-dash-category-by-months [monthlyBudget]=\"true\" [transactions]=\"transactions\"\n                        [year]=\"year\"\n                        [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <app-account-control-dash-category-by-months [transactionType]=\"'income'\"\n                        [transactions]=\"transactions\" [year]=\"year\"\n                        [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n                </div>\n                <div class=\"col-lg-6\">\n                    <app-account-control-dash-category-by-months [year]=\"year\" [transactions]=\"transactions\"\n                        [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-category-by-months>\n                </div>\n            </div>\n        </div>\n        <div class=\"\" *ngIf=\"currentTab === 'historic'\">\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <app-account-control-dash-income-vs-expense-daily [transactions]=\"transactions\"\n                        [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-income-vs-expense-daily>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <app-account-control-dash-calendar [budgetSettings]=\"settingsData.budgetSettings\"\n                        [transactions]=\"transactions\"></app-account-control-dash-calendar>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-lg-6\">\n                    <app-account-control-dash-all-categories [transactions]=\"transactions\"\n                        [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n                </div>\n                <div class=\"col-lg-6\">\n                    <app-account-control-dash-all-categories [transactions]=\"transactions\" [transactionType]=\"'expense'\"\n                        [budgetSettings]=\"settingsData.budgetSettings\"></app-account-control-dash-all-categories>\n                </div>\n            </div>\n\n            <div class=\"row\">\n                <div class=\"col-lg-12\">\n                    <app-account-control-dash-daily-balance\n                        [transactions]=\"transactions\"></app-account-control-dash-daily-balance>\n                </div>\n            </div>\n        </div>\n\n\n\n    </div>\n</div>");
 
 /***/ }),
 
@@ -796,6 +809,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_budget_by_category_account_control_dash_budget_by_category_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component */ "./src/app/pages/account-control/dashboards/account-control-dash-budget-by-category/account-control-dash-budget-by-category.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_radar_by_category_account_control_dash_radar_by_category_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-radar-by-category/account-control-dash-radar-by-category.component */ "./src/app/pages/account-control/dashboards/account-control-dash-radar-by-category/account-control-dash-radar-by-category.component.ts");
 /* harmony import */ var _pages_account_control_dashboards_account_control_dash_income_vs_expense_daily_account_control_dash_income_vs_expense_daily_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component */ "./src/app/pages/account-control/dashboards/account-control-dash-income-vs-expense-daily/account-control-dash-income-vs-expense-daily.component.ts");
+/* harmony import */ var _pages_account_control_dashboards_account_control_dash_calendar_account_control_dash_calendar_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component */ "./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -805,6 +819,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -891,7 +906,8 @@ var AppModule = /** @class */ (function () {
                 _pages_account_control_dashboards_account_control_dash_daily_by_account_account_control_dash_daily_by_account_component__WEBPACK_IMPORTED_MODULE_32__["AccountControlDashDailyByAccountComponent"],
                 _pages_account_control_dashboards_account_control_dash_budget_by_category_account_control_dash_budget_by_category_component__WEBPACK_IMPORTED_MODULE_33__["AccountControlDashBudgetByCategoryComponent"],
                 _pages_account_control_dashboards_account_control_dash_radar_by_category_account_control_dash_radar_by_category_component__WEBPACK_IMPORTED_MODULE_34__["AccountControlDashRadarByCategoryComponent"],
-                _pages_account_control_dashboards_account_control_dash_income_vs_expense_daily_account_control_dash_income_vs_expense_daily_component__WEBPACK_IMPORTED_MODULE_35__["AccountControlDashIncomeVsExpenseDailyComponent"]
+                _pages_account_control_dashboards_account_control_dash_income_vs_expense_daily_account_control_dash_income_vs_expense_daily_component__WEBPACK_IMPORTED_MODULE_35__["AccountControlDashIncomeVsExpenseDailyComponent"],
+                _pages_account_control_dashboards_account_control_dash_calendar_account_control_dash_calendar_component__WEBPACK_IMPORTED_MODULE_36__["AccountControlDashCalendarComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -3087,7 +3103,7 @@ var AccountControlComponent = /** @class */ (function (_super) {
     };
     AccountControlComponent.prototype.ngOnInit = function () {
         this.init();
-        // this.openDashboards();
+        //this.openDashboards();
     };
     AccountControlComponent.prototype.ngOnDestroy = function () {
         this.detroy();
@@ -3760,6 +3776,199 @@ var AccountControlDashBudgetByCategoryComponent = /** @class */ (function () {
         })
     ], AccountControlDashBudgetByCategoryComponent);
     return AccountControlDashBudgetByCategoryComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.css":
+/*!****************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.css ***!
+  \****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".outer-container {\n    width: 100%;\n    overflow-x: auto;\n    /* Habilita el scroll horizontal */\n    padding-top: 20px;\n}\n\n.chart-container {\n    min-width: 1400px;\n    /* Asegura que el ancho mínimo sea suficiente para la gráfica */\n    height: 600px;\n    white-space: nowrap;\n    /* Asegura que el contenido no se envuelva */\n}\n\n.header-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n    /* Espacio entre selector y botones */\n    -webkit-box-align: center;\n            align-items: center;\n    /* Alineación vertical */\n    margin-bottom: 20px;\n}\n\n.header-container .year-selector {\n    margin-left: 10px;\n    /* Margen izquierdo opcional */\n}\n\n.header-container .button-container {\n    display: -webkit-box;\n    display: flex;\n    gap: 10px;\n    /* Espaciado entre botones */\n}\n\n.nav-button {\n    background: none;\n    border: none;\n    font-size: 18px;\n    color: #007bff;\n    /* Color azul de los botones */\n    cursor: pointer;\n}\n\n.nav-button i {\n    font-size: 20px;\n    /* Tamaño de las flechas */\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYWNjb3VudC1jb250cm9sL2Rhc2hib2FyZHMvYWNjb3VudC1jb250cm9sLWRhc2gtY2FsZW5kYXIvYWNjb3VudC1jb250cm9sLWRhc2gtY2FsZW5kYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFdBQVc7SUFDWCxnQkFBZ0I7SUFDaEIsa0NBQWtDO0lBQ2xDLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGlCQUFpQjtJQUNqQiwrREFBK0Q7SUFDL0QsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQiw0Q0FBNEM7QUFDaEQ7O0FBRUE7SUFDSSxvQkFBYTtJQUFiLGFBQWE7SUFDYix5QkFBOEI7WUFBOUIsOEJBQThCO0lBQzlCLHFDQUFxQztJQUNyQyx5QkFBbUI7WUFBbkIsbUJBQW1CO0lBQ25CLHdCQUF3QjtJQUN4QixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxpQkFBaUI7SUFDakIsOEJBQThCO0FBQ2xDOztBQUVBO0lBQ0ksb0JBQWE7SUFBYixhQUFhO0lBQ2IsU0FBUztJQUNULDRCQUE0QjtBQUNoQzs7QUFFQTtJQUNJLGdCQUFnQjtJQUNoQixZQUFZO0lBQ1osZUFBZTtJQUNmLGNBQWM7SUFDZCw4QkFBOEI7SUFDOUIsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGVBQWU7SUFDZiwwQkFBMEI7QUFDOUIiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9hY2NvdW50LWNvbnRyb2wvZGFzaGJvYXJkcy9hY2NvdW50LWNvbnRyb2wtZGFzaC1jYWxlbmRhci9hY2NvdW50LWNvbnRyb2wtZGFzaC1jYWxlbmRhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm91dGVyLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgb3ZlcmZsb3cteDogYXV0bztcbiAgICAvKiBIYWJpbGl0YSBlbCBzY3JvbGwgaG9yaXpvbnRhbCAqL1xuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xufVxuXG4uY2hhcnQtY29udGFpbmVyIHtcbiAgICBtaW4td2lkdGg6IDE0MDBweDtcbiAgICAvKiBBc2VndXJhIHF1ZSBlbCBhbmNobyBtw61uaW1vIHNlYSBzdWZpY2llbnRlIHBhcmEgbGEgZ3LDoWZpY2EgKi9cbiAgICBoZWlnaHQ6IDYwMHB4O1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgLyogQXNlZ3VyYSBxdWUgZWwgY29udGVuaWRvIG5vIHNlIGVudnVlbHZhICovXG59XG5cbi5oZWFkZXItY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICAvKiBFc3BhY2lvIGVudHJlIHNlbGVjdG9yIHkgYm90b25lcyAqL1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgLyogQWxpbmVhY2nDs24gdmVydGljYWwgKi9cbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xufVxuXG4uaGVhZGVyLWNvbnRhaW5lciAueWVhci1zZWxlY3RvciB7XG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gICAgLyogTWFyZ2VuIGl6cXVpZXJkbyBvcGNpb25hbCAqL1xufVxuXG4uaGVhZGVyLWNvbnRhaW5lciAuYnV0dG9uLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBnYXA6IDEwcHg7XG4gICAgLyogRXNwYWNpYWRvIGVudHJlIGJvdG9uZXMgKi9cbn1cblxuLm5hdi1idXR0b24ge1xuICAgIGJhY2tncm91bmQ6IG5vbmU7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICBjb2xvcjogIzAwN2JmZjtcbiAgICAvKiBDb2xvciBhenVsIGRlIGxvcyBib3RvbmVzICovXG4gICAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4ubmF2LWJ1dHRvbiBpIHtcbiAgICBmb250LXNpemU6IDIwcHg7XG4gICAgLyogVGFtYcOxbyBkZSBsYXMgZmxlY2hhcyAqL1xufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.ts":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.ts ***!
+  \***************************************************************************************************************************/
+/*! exports provided: AccountControlDashCalendarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountControlDashCalendarComponent", function() { return AccountControlDashCalendarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/utils/common */ "./src/app/services/utils/common.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var AccountControlDashCalendarComponent = /** @class */ (function () {
+    function AccountControlDashCalendarComponent() {
+        this.transactions = []; // Transacciones diarias
+        this.budgetSettings = null; // Configuración de presupuesto
+        this.transactionType = 'income'; // Tipo de transacción
+        this.currentYear = new Date().getFullYear(); // Año inicial
+    }
+    AccountControlDashCalendarComponent.prototype.ngOnChanges = function (changes) {
+        if (changes.transactions || changes.transactionType) {
+            this.createChartOption();
+        }
+    };
+    // Cambiar el tipo de transacción
+    AccountControlDashCalendarComponent.prototype.setTransactionType = function (type) {
+        this.transactionType = type;
+        this.createChartOption();
+    };
+    // Método para generar las opciones del gráfico
+    AccountControlDashCalendarComponent.prototype.createChartOption = function () {
+        var _this = this;
+        this.tooltipData = {};
+        this.maxAmount = 50000;
+        var totalTransactions = 0;
+        var totalAmount = 0;
+        var getTransactionData = function (year) {
+            var startOfYear = new Date(year, 0, 1).getTime();
+            var endOfYear = new Date(year + 1, 0, 1).getTime();
+            var dayTime = 3600 * 24 * 1000;
+            var data = {};
+            _this.transactions
+                .filter(function (t) { return t.type === _this.transactionType; })
+                .forEach(function (transaction) {
+                var _a, _b, _c;
+                totalTransactions++;
+                var transactionDate = new Date(transaction.date).getTime();
+                if (transactionDate >= startOfYear && transactionDate < endOfYear) {
+                    var dateStr = new Date(transactionDate).toISOString().split('T')[0];
+                    if (!data[dateStr]) {
+                        data[dateStr] = { total: 0, categories: [] };
+                    }
+                    var amount = Math.abs(transaction.amount);
+                    totalAmount += amount;
+                    data[dateStr].total += amount;
+                    var category = ((_c = (_b = (_a = _this.budgetSettings) === null || _a === void 0 ? void 0 : _a.categories) === null || _b === void 0 ? void 0 : _b.find(function (cat) { return cat.id === transaction.categoryId; })) === null || _c === void 0 ? void 0 : _c.name) || 'Sin Categoría';
+                    data[dateStr].categories.push({ category: category, amount: amount });
+                }
+            });
+            _this.tooltipData = __assign(__assign({}, _this.tooltipData), data); // Guardar datos adicionales para el tooltip
+            var result = [];
+            for (var time_1 = startOfYear; time_1 < endOfYear; time_1 += dayTime) {
+                var dateStr = new Date(time_1).toISOString().split('T')[0];
+                var entry = data[dateStr] || { total: 0 };
+                result.push([dateStr, entry.total]);
+            }
+            var temp = Math.ceil(totalAmount / totalTransactions) * 30;
+            if (temp > _this.maxAmount) {
+                _this.maxAmount = temp;
+            }
+            return result;
+        };
+        var getColorMap = function () {
+            if (_this.transactionType === 'income') {
+                return {
+                    min: 0,
+                    max: _this.maxAmount,
+                    inRange: {
+                        color: ['#ffff', '#04d39a']
+                    }
+                };
+            }
+            else {
+                return {
+                    min: 0,
+                    max: _this.maxAmount,
+                    inRange: {
+                        color: ['#ffff', '#f5365c']
+                    }
+                };
+            }
+        };
+        this.chartOptions = {
+            tooltip: {
+                trigger: 'item',
+                formatter: function (params) {
+                    var _a;
+                    var date = params.data[0];
+                    var amount = params.data[1];
+                    var categories = ((_a = _this.tooltipData[date]) === null || _a === void 0 ? void 0 : _a.categories) || [];
+                    return "\n            <strong>" + date + "</strong><br>\n            <strong>Monto:</strong> " + Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__["formatCurrencyAnibal"])(amount) + "<br>\n            <strong>Categor\u00EDas:</strong><ul>\n              " + categories.map(function (c) { return "<li><strong>" + c.category + "</strong>: " + Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__["formatCurrencyAnibal"])(c.amount) + "</li>"; }).join('') + "\n            </ul>\n          ";
+                }
+            },
+            series: Array.from({ length: 3 }, function (_, i) { return ({
+                type: 'heatmap',
+                coordinateSystem: 'calendar',
+                calendarIndex: i,
+                data: getTransactionData(_this.currentYear - i)
+            }); }),
+            visualMap: __assign(__assign({}, getColorMap()), { calculable: true, orient: 'horizontal', left: 'center', top: 'top' }),
+            calendar: Array.from({ length: 3 }, function (_, i) {
+                if (i == 0)
+                    return {
+                        range: "" + (_this.currentYear - i),
+                        cellSize: ['auto', 20]
+                    };
+                return {
+                    top: i * ((i % 2 == 0) ? 220 : 250),
+                    range: "" + (_this.currentYear - i),
+                    cellSize: ['auto', 20]
+                };
+            })
+        };
+    };
+    // Métodos para cambiar los años mostrados
+    AccountControlDashCalendarComponent.prototype.goBack = function () {
+        this.currentYear -= 3;
+        this.createChartOption();
+    };
+    AccountControlDashCalendarComponent.prototype.goForward = function () {
+        this.currentYear += 3;
+        this.createChartOption();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AccountControlDashCalendarComponent.prototype, "transactions", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccountControlDashCalendarComponent.prototype, "budgetSettings", void 0);
+    AccountControlDashCalendarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-account-control-dash-calendar',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./account-control-dash-calendar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./account-control-dash-calendar.component.css */ "./src/app/pages/account-control/dashboards/account-control-dash-calendar/account-control-dash-calendar.component.css")).default]
+        })
+    ], AccountControlDashCalendarComponent);
+    return AccountControlDashCalendarComponent;
 }());
 
 
@@ -5172,6 +5381,7 @@ var AccountControlDashboardsComponent = /** @class */ (function () {
         this.transactions = [];
         this.year = new Date().getFullYear();
         this.transactionType = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_2__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+        this.currentTab = 'historic';
         this.availableYears = [];
     }
     AccountControlDashboardsComponent.prototype.ngOnInit = function () {
@@ -5196,6 +5406,9 @@ var AccountControlDashboardsComponent = /** @class */ (function () {
     AccountControlDashboardsComponent.prototype.onYearChange = function (event) {
         var selectedYear = event.target.value;
         this.year = parseInt(selectedYear, 10);
+    };
+    AccountControlDashboardsComponent.prototype.setActiveTab = function (tab) {
+        this.currentTab = tab;
     };
     AccountControlDashboardsComponent.ctorParameters = function () { return [
         { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"] }
