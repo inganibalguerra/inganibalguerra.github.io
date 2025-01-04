@@ -3868,7 +3868,7 @@ var AccountControlDashCalendarComponent = /** @class */ (function () {
                 totalTransactions++;
                 var transactionDate = new Date(transaction.date).getTime();
                 if (transactionDate >= startOfYear && transactionDate < endOfYear) {
-                    var dateStr = new Date(transactionDate).toISOString().split('T')[0];
+                    var dateStr = Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__["formatDateSimpleAnibal"])(transaction.date);
                     if (!data[dateStr]) {
                         data[dateStr] = { total: 0, categories: [] };
                     }
@@ -3882,7 +3882,7 @@ var AccountControlDashCalendarComponent = /** @class */ (function () {
             _this.tooltipData = __assign(__assign({}, _this.tooltipData), data); // Guardar datos adicionales para el tooltip
             var result = [];
             for (var time_1 = startOfYear; time_1 < endOfYear; time_1 += dayTime) {
-                var dateStr = new Date(time_1).toISOString().split('T')[0];
+                var dateStr = Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_1__["formatDateSimpleAnibal"])(time_1);
                 var entry = data[dateStr] || { total: 0 };
                 result.push([dateStr, entry.total]);
             }
@@ -4273,6 +4273,17 @@ var AccountControlDashDailyBalanceComponent = /** @class */ (function () {
     };
     AccountControlDashDailyBalanceComponent.prototype.generateChartOptions = function () {
         var _a = this.calculateDailyBalance(), dates = _a.dates, balances = _a.balances;
+        // Determinar el color del área basado en el balance promedio
+        var averageBalance = balances.reduce(function (sum, value) { return sum + value; }, 0) / balances.length;
+        var areaColor = averageBalance >= 0
+            ? new echarts__WEBPACK_IMPORTED_MODULE_1__["graphic"].LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: 'rgba(173, 216, 230, 0.8)' },
+                { offset: 1, color: 'rgba(173, 216, 230, 0.2)' }
+            ])
+            : new echarts__WEBPACK_IMPORTED_MODULE_1__["graphic"].LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: 'rgba(255, 165, 0, 0.8)' },
+                { offset: 1, color: 'rgba(255, 165, 0, 0.2)' }
+            ]);
         this.chartOptions = {
             tooltip: {
                 trigger: 'axis',
@@ -4284,9 +4295,7 @@ var AccountControlDashDailyBalanceComponent = /** @class */ (function () {
             },
             toolbox: {
                 feature: {
-                    dataZoom: {
-                        yAxisIndex: 'none'
-                    },
+                    dataZoom: { yAxisIndex: 'none' },
                     restore: {},
                     saveAsImage: {}
                 }
@@ -4300,16 +4309,29 @@ var AccountControlDashDailyBalanceComponent = /** @class */ (function () {
                 type: 'value',
                 boundaryGap: [0, '100%']
             },
+            visualMap: {
+                top: 50,
+                show: false,
+                right: 10,
+                pieces: [
+                    { lte: -3000000, color: '#fd0100' },
+                    { gt: -3000000, lte: -2000000, color: '#f5365c' },
+                    { gt: -2000000, lte: -500000, color: '#fb6340' },
+                    { gt: -500000, lte: 0, color: '#fb9f40' },
+                    { gt: 1, lte: 10000, color: '#ffd600' },
+                    { gt: 10000, lte: 300000, color: '#11cdef' },
+                    { gt: 300000, lte: 600000, color: '#04d39a' },
+                    { gt: 600000, lte: 1500000, color: '#2dce66' },
+                    { gt: 1500000, lte: 5000000, color: '#0fd731' },
+                    { gt: 5000000, lte: 10000000, color: '#5e72e4' },
+                    { gt: 10000000, lte: 30000000, color: '#8965e0' },
+                    { gt: 30000000, color: '#5603ad' }
+                ],
+                outOfRange: { color: '#999' }
+            },
             dataZoom: [
-                {
-                    type: 'inside',
-                    start: 0,
-                    end: 100
-                },
-                {
-                    start: 0,
-                    end: 100
-                }
+                { type: 'inside', start: 0, end: 100 },
+                { start: 0, end: 100 }
             ],
             series: [
                 {
@@ -4317,14 +4339,9 @@ var AccountControlDashDailyBalanceComponent = /** @class */ (function () {
                     type: 'line',
                     symbol: 'none',
                     sampling: 'lttb',
-                    itemStyle: {
-                        color: 'rgb(255, 70, 131)'
-                    },
+                    itemStyle: { color: 'rgb(255, 70, 131)' },
                     areaStyle: {
-                        color: new echarts__WEBPACK_IMPORTED_MODULE_1__["graphic"].LinearGradient(0, 0, 0, 1, [
-                            { offset: 0, color: 'rgb(255, 158, 68)' },
-                            { offset: 1, color: 'rgb(255, 70, 131)' }
-                        ])
+                        color: areaColor
                     },
                     data: balances
                 }
@@ -9278,13 +9295,14 @@ var SummaryResumeService = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/services/utils/common.ts ***!
   \******************************************/
-/*! exports provided: isMobileResolution, formatCurrencyAnibal */
+/*! exports provided: isMobileResolution, formatCurrencyAnibal, formatDateSimpleAnibal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isMobileResolution", function() { return isMobileResolution; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatCurrencyAnibal", function() { return formatCurrencyAnibal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatDateSimpleAnibal", function() { return formatDateSimpleAnibal; });
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -9301,6 +9319,13 @@ function formatCurrencyAnibal(value) {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
     }).format(value);
+}
+function formatDateSimpleAnibal(transactionDate) {
+    var date = new Date(transactionDate);
+    var year = date.getFullYear();
+    var month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() devuelve el mes (0-11), por eso sumamos 1
+    var day = String(date.getDate()).padStart(2, '0');
+    return year + "-" + month + "-" + day;
 }
 
 
