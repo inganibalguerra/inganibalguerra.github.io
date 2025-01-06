@@ -4559,6 +4559,7 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
                     }).format(balance);
                     // Obtener el color del punto actual
                     var color = params[0].color; // Color calculado automáticamente por visualMap
+                    var totalAmount = categories.reduce(function (sum, category) { return sum + category.amount; }, 0);
                     // Generar lista de categorías si existen
                     var categoriesContent = categories.length
                         ? "\n              <div>\n                <b>Categorias:</b>\n                <ul style=\"padding-left: 15px; margin: 5px 0;\">\n                  " + categories.map(function (category) {
@@ -4569,7 +4570,12 @@ var AccountControlDashDailyByAccountComponent = /** @class */ (function () {
                                 minimumFractionDigits: 0,
                                 maximumFractionDigits: 0
                             }).format(category.amount) + "\n                            </li>";
-                        }).join('') + "\n                </ul>\n              </div>\n            "
+                        }).join('') + "\n                </ul>\n                Total:  <b>" + new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0
+                        }).format(totalAmount) + "</b>\n              </div>\n            "
                         : '';
                     // Retornar tooltip con balance coloreado
                     return "\n            " + date + "<br/>\n            <span style=\"display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:" + color + ";\"></span>\n            <span style=\"font-size:14px;color:#666;font-weight:400;margin-left:2px\">Balance</span>\n            <span style=\"float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900\">" + balanceFormatted + "</span><br/>\n            " + categoriesContent + "\n          ";
