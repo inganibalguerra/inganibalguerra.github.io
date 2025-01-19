@@ -9377,6 +9377,7 @@ var TransactionOperation = /** @class */ (function () {
         var transferPatter2 = /[Tt]ransferiste\s+\$([\d,.]+)\s+de\s+tu\s+cuenta\s+\*\*(\d+)\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
         var transferPatter3 = /[Tt]ransferencia\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+cta\s+(\d+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var updatedPurchasePattern = /[Cc]ompraste\s+COP([\d.,]+)\s+en\s+([\w\s\/\.]+)\s+con\s+tu\s+T\.Cred\s+\*{1,2}([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
+        var updatedPurchasePatter2 = /[Cc]ompraste\s+COP([\d.,]+)\s+en\s+([^\s,]+(?:\s[^\s,]+)*),\s+el\s+([\d:]+)\s+a\s+las\s+([\d\/]+)\.\s+Esta\s+compra\s+esta\s+asociada\s+a\s+T\.Cred\s+\*([\d]{4})\./i;
         var purchaseNotificationPattern = /[Cc]ompraste\s+\$([\d.,]+)\s+en\s+([^\s,]+(?:\s[^\s,]+)*)\s+con\s+tu\s+T\.Deb\s+\*([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         var transferNotificationPattern = /[Tt]ransferiste\s+\$([\d.,]+)\s+por\s+([\w\s]+)\s+a\s+([\w\s]+)\s+desde\s+producto\s+\*([\d]{4})\.\s+([\d\/]+)\s+([\d:]+)/i;
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
@@ -9672,6 +9673,20 @@ var TransactionOperation = /** @class */ (function () {
                 description = "Compra en " + matches[2];
                 accountId = "*" + matches[3];
                 date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (updatedPurchasePatter2.test(body)) {
+            var matches = body.match(updatedPurchasePatter2);
+            if (matches) {
+                type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+                var amountValue = matches[1]; // Monto de la compra
+                var store = matches[2]; // Nombre del comercio
+                var dateValue = matches[4]; // Fecha de la compra
+                var time = matches[3]; // Hora de la compra
+                accountId = matches[5]; // Últimos 4 dígitos de la tarjeta
+                description = "Compra en " + store;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
             }
         }
         else if (paymentReceivedPattern.test(body)) {
