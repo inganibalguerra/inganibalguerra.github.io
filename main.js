@@ -9384,6 +9384,7 @@ var TransactionOperation = /** @class */ (function () {
         var bancolombiaCreditCardPaymentPattern = /[Bb]ancolombia le informa que\s+([\w\s]+)\s+realizo\s+abono\s+a\s+su\s+T\.Cred\*(\d{4})\s+por\s+\$([\d,.]+)\.\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var paymentReceivedPattern = /[Rr]ecepcion de pago de ([\w\s]+) por \$([\d,.]+) en su cuenta AHORROS (\d{2}:\d{2}) ([\d\/]+)/i;
         var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+([\w\s]+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
+        var qrTransferPatter2 = /[Tt]ransferiste\s+\$([\d.,]+)\s+por\s+QR\s+desde\s+tu\s+cuenta\s+(\d+)\s+a\s+la\s+cuenta\s+(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)\./i;
         var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
         var receivedTransferPatter2 = /[Rr]ecibiste\s+una\s+transferencia\s+por\s+\$([\d.,]+)\s+de\s+([\w\s]+)\s+en\s+tu\s+cuenta\s+\*\*([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         var incomePattern = /[Pp]ago\s+de\s+Nomina\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+Cuenta\s+Ahorros.\s+([\d:]+)\s+([\d/]+)/i;
@@ -9477,6 +9478,17 @@ var TransactionOperation = /** @class */ (function () {
         else if (qrTransferPattern.test(body)) {
             type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
             var matches = body.match(qrTransferPattern);
+            if (matches) {
+                amount = this.parseAmount(matches[1]);
+                accountId = "*" + matches[2];
+                targetAccountId = matches[3];
+                description = "Transferencia con QR a la cuenta " + targetAccountId;
+                date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (qrTransferPatter2.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(qrTransferPatter2);
             if (matches) {
                 amount = this.parseAmount(matches[1]);
                 accountId = "*" + matches[2];
