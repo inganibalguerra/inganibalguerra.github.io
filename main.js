@@ -9415,6 +9415,7 @@ var TransactionOperation = /** @class */ (function () {
         var affiliatePurchasePatter3 = /[Cc]ompra\s+por\s+COP([\d,.]+)\s+en\s+([\w\s*]+)\s+(\d{2}:\d{2})\.\s+([\d/]+)\s+compra\s+afiliada\s+a\s+T\.Cred\s+\*([\d]{4})/i;
         var notificationPattern = /[Rr]ecibiras \$(\d{1,3}(?:\.\d{3})*,\d{2}) en (\d+) dias habiles en tu Tarjeta Credito \*\*(\d{4}) por parte de ([\w\s]+?)\. (\d{2}):(\d{2}) (\d{2})\/(\d{2})\/(\d{4})/;
         var paymentCreditCardPattern = /[Nn]otificación [Tt]ransaccional.*Pago\s+de\s+Tarjeta\s+de\s+Credito\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+la\s+tarjeta\s+\*(\d+).\s+([\d/]+)\s+(\d{2}:\d{2})/i;
+        var creditCardPaymentPattern = /[Pp]agaste\s+\$([\d.,]+)\s+en\s+la\s+tarjeta\s+de\s+credito\s+\*([\d]{4})\s+desde\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)\./i;
         var withdrawalNotificationPattern = /[Rr]etiro\s+en\s+[Cc]orresponsal\s+([\w\s]+)\s+en\s+([\w\s]+)\s+por\s+\$([\d.,]+)\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         // Patrón para las notificaciones de compras de Bancolombia
         var type = 'expense';
@@ -9649,6 +9650,20 @@ var TransactionOperation = /** @class */ (function () {
                 targetAccountId = "*" + matches[3];
                 description = "Pago de T.Cred Nro " + targetAccountId;
                 date = this.parseDateTime(matches[4], matches[5]);
+            }
+        }
+        else if (creditCardPaymentPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE;
+            var matches = body.match(creditCardPaymentPattern);
+            if (matches) {
+                var amountValue = matches[1]; // Monto del pago
+                var creditCardDigits = matches[2]; // Últimos 4 dígitos de la tarjeta
+                accountId = matches[3]; // Últimos dígitos de la cuenta de origen
+                var dateValue = matches[4]; // Fecha de la transacción
+                var time = matches[5]; // Hora de la transacción
+                description = "Pago de T.Cred Nro " + creditCardDigits;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
             }
         }
         else if (retiroPattern.test(body)) {
