@@ -9661,6 +9661,7 @@ var TransactionOperation = /** @class */ (function () {
                 accountId = matches[3]; // Últimos dígitos de la cuenta de origen
                 var dateValue = matches[4]; // Fecha de la transacción
                 var time = matches[5]; // Hora de la transacción
+                targetAccountId = creditCardDigits;
                 description = "Pago de T.Cred Nro " + creditCardDigits;
                 amount = this.parseAmount(amountValue);
                 date = this.parseDateTime(dateValue, time);
