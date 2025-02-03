@@ -1615,6 +1615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/entities/account-control */ "./src/app/entities/account-control.ts");
 /* harmony import */ var src_app_services_account_control_account_control_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/account-control/account-control.service */ "./src/app/services/account-control/account-control.service.ts");
+/* harmony import */ var src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/utils/common */ "./src/app/services/utils/common.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -1638,6 +1639,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -1712,8 +1714,7 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         var transactionsMap = new Map();
         // Itera sobre las transacciones del mes actual
         (_b = (_a = category) === null || _a === void 0 ? void 0 : _a.transactionCurrentMonth) === null || _b === void 0 ? void 0 : _b.forEach(function (t) {
-            t.date = new Date(t.date);
-            var day = t.date.toISOString().slice(0, 10);
+            var day = Object(src_app_services_utils_common__WEBPACK_IMPORTED_MODULE_3__["formatDateSimpleAnibal"])(t.date);
             var value = t.amount;
             var transaction = { description: t.description, type: t.type, amount: t.amount };
             // Si ya existen transacciones para el mismo día, acumula el valor y añade la transacción
