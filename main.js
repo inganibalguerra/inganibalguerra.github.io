@@ -9399,6 +9399,7 @@ var TransactionOperation = /** @class */ (function () {
         var providerPaymentPattern = /[Pp]ago\s+[Pp]ROVEEDOR\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+[Cc]uenta\s+[Aa]horros.\s+(\d{2}:\d{2})\s+([\d\/]+)/i;
         var bancolombiaCreditCardPaymentPattern = /[Bb]ancolombia le informa que\s+([\w\s]+)\s+realizo\s+abono\s+a\s+su\s+T\.Cred\*(\d{4})\s+por\s+\$([\d,.]+)\.\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var paymentReceivedPattern = /[Rr]ecepcion de pago de ([\w\s]+) por \$([\d,.]+) en su cuenta AHORROS (\d{2}:\d{2}) ([\d\/]+)/i;
+        var receivedPaymentPattern = /[Rr]ecibiste\s+un\s+pago\s+por\s+\$([\d.,]+)\s+de\s+([\w\s]+)\s+a\s+tu\s+cuenta\s+([A-Z]+),\s+el\s+([\d:]+)\s+a\s+las\s+([\d\/]+)/i;
         var qrTransferPattern = /[Rr]ealizaste\s+una\s+transferencia\s+con\s+QR\s+por\s+\$([\d,.]+),\s+desde\s+cta\s+(\d+)\s+a\s+cta\s+([\w\s]+)\.\s+([\d\/]+)\s+(\d{2}:\d{2})/i;
         var qrTransferPatter2 = /[Tt]ransferiste\s+\$([\d.,]+)\s+por\s+QR\s+desde\s+tu\s+cuenta\s+(\d+)\s+a\s+la\s+cuenta\s+(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)\./i;
         var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
@@ -9773,6 +9774,19 @@ var TransactionOperation = /** @class */ (function () {
                 amount = this.parseAmount(amountValue);
                 date = this.parseDateTime(dateValue, time);
                 targetAccountId = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].ACCOUNT_BILLETERA;
+            }
+        }
+        else if (receivedPaymentPattern.test(body)) {
+            var matches = body.match(receivedPaymentPattern);
+            if (matches) {
+                var amountValue = matches[1]; // Monto del pago
+                var sender = matches[2]; // Nombre del remitente
+                var accountType = matches[3]; // Tipo de cuenta (AHORROS)
+                var time = matches[4]; // Hora de la transacción
+                var dateValue = matches[5]; // Fecha de la transacción
+                description = "Pago de " + sender + " en cuenta " + accountType;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
             }
         }
         if (type === src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_EXPENSE && amount > 0) {
