@@ -9778,6 +9778,7 @@ var TransactionOperation = /** @class */ (function () {
             }
         }
         else if (receivedPaymentPattern.test(body)) {
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
             var matches = body.match(receivedPaymentPattern);
             if (matches) {
                 var amountValue = matches[1]; // Monto del pago
