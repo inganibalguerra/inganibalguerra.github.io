@@ -1,7 +1,7 @@
 {
   "name": "Ledgrify",
   "short_name": "Ledgrify",
-  "theme_color": "#1976d2",
+  "theme_color": "#1d72fc",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",

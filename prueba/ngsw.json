@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1739069752207,
+  "timestamp": 1739139462142,
   "index": "/prueba/index.html",
   "assetGroups": [
     {
@@ -11,14 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
-        "/prueba/chunk-DNVLSHBO.js",
-        "/prueba/chunk-XNFDNY73.js",
+        "/prueba/chunk-H6SN4DAK.js",
+        "/prueba/chunk-TKBO7Z67.js",
         "/prueba/favicon.ico",
         "/prueba/index.html",
-        "/prueba/main-QV46IJIK.js",
+        "/prueba/main-Y2WLKKNV.js",
         "/prueba/manifest.webmanifest",
         "/prueba/polyfills-FFHMD2TL.js",
-        "/prueba/styles-CG6KXUGQ.css"
+        "/prueba/styles-GEFNFIZQ.css"
       ],
       "patterns": []
     },
@@ -37,29 +37,39 @@
         "/prueba/icons/icon-384x384.png",
         "/prueba/icons/icon-512x512.png",
         "/prueba/icons/icon-72x72.png",
-        "/prueba/icons/icon-96x96.png"
+        "/prueba/icons/icon-96x96.png",
+        "/prueba/logo.svg",
+        "/prueba/media/primeicons-4GST5W3O.woff2",
+        "/prueba/media/primeicons-DHQU4SEP.svg",
+        "/prueba/media/primeicons-GEFHGEHP.ttf",
+        "/prueba/media/primeicons-P53SE5CV.woff"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/prueba/chunk-DNVLSHBO.js": "59fa443534e9996b3ffe2e7f8e524e7f1f8beb8f",
-    "/prueba/chunk-XNFDNY73.js": "449202fa238b2471bad38574e4feb3853f47272f",
-    "/prueba/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/prueba/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "/prueba/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "/prueba/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
-    "/prueba/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "/prueba/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
-    "/prueba/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "/prueba/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "/prueba/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/prueba/index.html": "03ea045c543d7c0eec1a56931e8e2eea3f14bc86",
-    "/prueba/main-QV46IJIK.js": "b508511b8bd30bb625c453ff6f2dec44c7ff760b",
-    "/prueba/manifest.webmanifest": "66d086f8565e6d61e65d0062328ea46703659870",
+    "/prueba/chunk-H6SN4DAK.js": "42e4518f660f8746144c4d2c99fbf1b75fa6a20a",
+    "/prueba/chunk-TKBO7Z67.js": "9a9ca0a2a2879135e152ec172c7b08a7820fe8a3",
+    "/prueba/favicon.ico": "9d6c83bd30e148e369557e6154987bb2b336bf0f",
+    "/prueba/icons/icon-128x128.png": "31b5112a3346e2bb34e42a3b5ccc880f6ce12e56",
+    "/prueba/icons/icon-144x144.png": "671d0a612d5d0ea81bf7ecc119fa7255804930e6",
+    "/prueba/icons/icon-152x152.png": "a67261ae9fdc9ac5ab96172746076c38d94ab8e4",
+    "/prueba/icons/icon-192x192.png": "d580373653d99bc814be4859e40e1b3bbedeebd6",
+    "/prueba/icons/icon-384x384.png": "06afd162c8a3caeae39d367e1537081bf14afa3a",
+    "/prueba/icons/icon-512x512.png": "8f530f6bae385b5ac71ebe9be4660cff39093762",
+    "/prueba/icons/icon-72x72.png": "81ef3b3caa7fff45cc0ec484d156a7ab5b549ab6",
+    "/prueba/icons/icon-96x96.png": "3f61b8d57e4e866de44da3ae8aebc80ba8ee26fc",
+    "/prueba/index.html": "e88ce0b436f8476a0effd9c34fea7641df738f14",
+    "/prueba/logo.svg": "f2214a68b050d5065fc31bac49a7150cb1a418b9",
+    "/prueba/main-Y2WLKKNV.js": "a786e76d47360721213f72a2516542e120b01c83",
+    "/prueba/manifest.webmanifest": "ec213c095d8a977f4093f4211cf88299e5c67297",
+    "/prueba/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
+    "/prueba/media/primeicons-DHQU4SEP.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
+    "/prueba/media/primeicons-GEFHGEHP.ttf": "3b878ca7e88945a8ec25814810b95367d8977ae6",
+    "/prueba/media/primeicons-P53SE5CV.woff": "361e3af71bb4e515feead2f787348a92a5527158",
     "/prueba/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/prueba/styles-CG6KXUGQ.css": "229c67029bcd46149d57391bb9c172151f6baa99"
+    "/prueba/styles-GEFNFIZQ.css": "ee19e99fe6ff5aca405d3aa0f902a55128a33205"
   },
   "navigationUrls": [
     {
