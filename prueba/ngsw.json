@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1739139462142,
+  "timestamp": 1739332476824,
   "index": "/prueba/index.html",
   "assetGroups": [
     {
@@ -11,14 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
-        "/prueba/chunk-H6SN4DAK.js",
-        "/prueba/chunk-TKBO7Z67.js",
+        "/prueba/chunk-CHDHLGVD.js",
+        "/prueba/chunk-YVVVHQ6N.js",
         "/prueba/favicon.ico",
         "/prueba/index.html",
-        "/prueba/main-Y2WLKKNV.js",
+        "/prueba/main-I444ISO7.js",
         "/prueba/manifest.webmanifest",
         "/prueba/polyfills-FFHMD2TL.js",
-        "/prueba/styles-GEFNFIZQ.css"
+        "/prueba/styles-RMIX34DU.css"
       ],
       "patterns": []
     },
@@ -49,8 +49,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/prueba/chunk-H6SN4DAK.js": "42e4518f660f8746144c4d2c99fbf1b75fa6a20a",
-    "/prueba/chunk-TKBO7Z67.js": "9a9ca0a2a2879135e152ec172c7b08a7820fe8a3",
+    "/prueba/chunk-CHDHLGVD.js": "7237e4d17f190faaf0f021689a1e748ec784bccd",
+    "/prueba/chunk-YVVVHQ6N.js": "07fc33469236ec4ea04f8756543b29da713c2b12",
     "/prueba/favicon.ico": "9d6c83bd30e148e369557e6154987bb2b336bf0f",
     "/prueba/icons/icon-128x128.png": "31b5112a3346e2bb34e42a3b5ccc880f6ce12e56",
     "/prueba/icons/icon-144x144.png": "671d0a612d5d0ea81bf7ecc119fa7255804930e6",
@@ -60,16 +60,16 @@
     "/prueba/icons/icon-512x512.png": "8f530f6bae385b5ac71ebe9be4660cff39093762",
     "/prueba/icons/icon-72x72.png": "81ef3b3caa7fff45cc0ec484d156a7ab5b549ab6",
     "/prueba/icons/icon-96x96.png": "3f61b8d57e4e866de44da3ae8aebc80ba8ee26fc",
-    "/prueba/index.html": "e88ce0b436f8476a0effd9c34fea7641df738f14",
+    "/prueba/index.html": "d833b7de8d161d639bb47d8293d00077f232810c",
     "/prueba/logo.svg": "f2214a68b050d5065fc31bac49a7150cb1a418b9",
-    "/prueba/main-Y2WLKKNV.js": "a786e76d47360721213f72a2516542e120b01c83",
+    "/prueba/main-I444ISO7.js": "1e732c52b66e91f91bbdd933e5d7b50931a914a5",
     "/prueba/manifest.webmanifest": "ec213c095d8a977f4093f4211cf88299e5c67297",
     "/prueba/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
     "/prueba/media/primeicons-DHQU4SEP.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
     "/prueba/media/primeicons-GEFHGEHP.ttf": "3b878ca7e88945a8ec25814810b95367d8977ae6",
     "/prueba/media/primeicons-P53SE5CV.woff": "361e3af71bb4e515feead2f787348a92a5527158",
     "/prueba/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/prueba/styles-GEFNFIZQ.css": "ee19e99fe6ff5aca405d3aa0f902a55128a33205"
+    "/prueba/styles-RMIX34DU.css": "f2c8c8bf5cf7489519ebac49a727947d33083c19"
   },
   "navigationUrls": [
     {
