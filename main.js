@@ -9419,6 +9419,7 @@ var TransactionOperation = /** @class */ (function () {
         var paymentCreditCardPattern = /[Nn]otificación [Tt]ransaccional.*Pago\s+de\s+Tarjeta\s+de\s+Credito\s+por\s+\$([\d,.]+)\s+desde\s+cta\s+\*(\d+)\s+a\s+la\s+tarjeta\s+\*(\d+).\s+([\d/]+)\s+(\d{2}:\d{2})/i;
         var creditCardPaymentPattern = /[Pp]agaste\s+\$([\d.,]+)\s+en\s+la\s+tarjeta\s+de\s+credito\s+\*([\d]{4})\s+desde\s+la\s+cuenta\s+\*(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)\./i;
         var withdrawalNotificationPattern = /[Rr]etiro\s+en\s+[Cc]orresponsal\s+([\w\s]+)\s+en\s+([\w\s]+)\s+por\s+\$([\d.,]+)\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
+        var cardDepositPattern = /([A-Z\s]+)\s+hizo\s+un\s+abono\s+por\s+\$([\d.,]+)\s+a\s+tu\s+tarjeta\s+de\s+credito\s+terminada\s+en\s+\*\*(\d{4}),\s+el\s+([\d\/]+)\s+([\d:]+)/i;
         // Patrón para las notificaciones de compras de Bancolombia
         var type = 'expense';
         var accountId = '';
@@ -9802,6 +9803,20 @@ var TransactionOperation = /** @class */ (function () {
                 var dateValue = matches[5]; // Fecha de la transacción
                 var time = matches[6]; // Hora de la transacción
                 description = "Pago de " + sender + " en cuenta " + accountType;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
+            }
+        }
+        else if (cardDepositPattern.test(body)) {
+            var matches = body.match(cardDepositPattern);
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            if (matches) {
+                var sender = matches[1]; // Nombre del remitente (KEVIN MENDOZA)
+                var amountValue = matches[2]; // Monto del abono (46000)
+                accountId = matches[3]; // Últimos 4 dígitos de la tarjeta (3944)
+                var dateValue = matches[4]; // Fecha de la transacción (15/02/2025)
+                var time = matches[5]; // Hora de la transacción (22:08)
+                description = "Abono realizado por " + sender;
                 amount = this.parseAmount(amountValue);
                 date = this.parseDateTime(dateValue, time);
             }
