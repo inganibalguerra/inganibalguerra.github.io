@@ -1699,11 +1699,10 @@ var AccountControlListBudgetsComponent = /** @class */ (function () {
         return Math.round((currentAmmount / budget) * 100);
     };
     AccountControlListBudgetsComponent.prototype.getCategoriesByType = function (type) {
-        var _this = this;
         return this.categories.filter(function (category) {
             return category.type === (type === 'income' ? src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_INCOME : src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_1__["AccountConstant"].TRANSACTION_TYPE_EXPENSE);
         })
-            .sort(function (a, b) { return _this.calculatePercentage(b.currentAmmount, b.budget) - _this.calculatePercentage(a.currentAmmount, a.budget); });
+            .sort(function (a, b) { return b.currentAmmount - a.currentAmmount; });
     };
     AccountControlListBudgetsComponent.prototype.setActiveTab = function (type) {
         this.activeTab = type;
@@ -9405,6 +9404,7 @@ var TransactionOperation = /** @class */ (function () {
         var qrTransferPatter2 = /[Tt]ransferiste\s+\$([\d.,]+)\s+por\s+QR\s+desde\s+tu\s+cuenta\s+(\d+)\s+a\s+la\s+cuenta\s+(\d+),\s+el\s+([\d\/]+)\s+([\d:]+)\./i;
         var receivedTransferPattern = /[Rr]ecepcion\s+transferencia\s+de\s+([\w\sÑñÁÉÍÓÚáéíóú]+)\s+por\s+\$([\d,.]+)\s+en\s+la\s+cuenta\s+(\*\d+)\.\s*(\d{2}\/\d{2}\/\d{4})\s+(\d{2}:\d{2})/i;
         var receivedTransferPatter2 = /[Rr]ecibiste\s+una\s+transferencia\s+por\s+\$([\d.,]+)\s+de\s+([\w\s]+)\s+en\s+tu\s+cuenta\s+\*\*([\d]{4}),\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
+        var receivedProviderPaymentPattern = /[Rr]ecibiste\s+un\s+pago\s+([A-Z]+)\s+de\s+([\w\s]+)\s+por\s+\$([\d.,]+)\s+en\s+tu\s+cuenta\s+de\s+([A-Z]+)\s+el\s+([\d\/]+)\s+a\s+las\s+([\d:]+)/i;
         var incomePattern = /[Pp]ago\s+de\s+Nomina\s+de\s+([\w\s]+)\s+por\s+\$([\d,.]+)\s+en\s+su\s+Cuenta\s+Ahorros.\s+([\d:]+)\s+([\d/]+)/i;
         var receivedPayrollPattern = /[Pp]ago de [Nn]omina de ([\w\s]+) por \$([\d,.]+) en tu cuenta \*([\w]+) el (\d{2}:\d{2}) a las ([\d\/]+)/i;
         var receivedPayrollPatter2 = /[Pp]ago de [Nn]omina de ([\w\s]+) por \$([\d,.]+) en tu cuenta(?: de)? Ahorros el ([\d/]+) a las (\d{2}:?)/i;
@@ -9786,6 +9786,21 @@ var TransactionOperation = /** @class */ (function () {
                 var accountType = matches[3]; // Tipo de cuenta (AHORROS)
                 var time = matches[4]; // Hora de la transacción
                 var dateValue = matches[5]; // Fecha de la transacción
+                description = "Pago de " + sender + " en cuenta " + accountType;
+                amount = this.parseAmount(amountValue);
+                date = this.parseDateTime(dateValue, time);
+            }
+        }
+        else if (receivedProviderPaymentPattern.test(body)) {
+            var matches = body.match(receivedProviderPaymentPattern);
+            type = src_app_entities_account_control__WEBPACK_IMPORTED_MODULE_0__["AccountConstant"].TRANSACTION_TYPE_INCOME;
+            if (matches) {
+                var paymentType = matches[1]; // Tipo de pago (PROVEEDOR)
+                var sender = matches[2]; // Nombre del remitente (FONDO NACIONAL)
+                var amountValue = matches[3]; // Monto del pago
+                var accountType = matches[4]; // Tipo de cuenta (Ahorros)
+                var dateValue = matches[5]; // Fecha de la transacción
+                var time = matches[6]; // Hora de la transacción
                 description = "Pago de " + sender + " en cuenta " + accountType;
                 amount = this.parseAmount(amountValue);
                 date = this.parseDateTime(dateValue, time);
