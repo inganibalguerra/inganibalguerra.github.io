@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1740721465238,
+  "timestamp": 1740721687782,
   "index": "/prueba/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/prueba/chunk-XESAQMX5.js",
         "/prueba/favicon.ico",
         "/prueba/index.html",
-        "/prueba/main-TVUESUZA.js",
+        "/prueba/main-OLUEA4CI.js",
         "/prueba/manifest.webmanifest",
         "/prueba/polyfills-FFHMD2TL.js",
         "/prueba/styles-JGR6UU4N.css"
@@ -60,9 +60,9 @@
     "/prueba/icons/icon-512x512.png": "8f530f6bae385b5ac71ebe9be4660cff39093762",
     "/prueba/icons/icon-72x72.png": "81ef3b3caa7fff45cc0ec484d156a7ab5b549ab6",
     "/prueba/icons/icon-96x96.png": "3f61b8d57e4e866de44da3ae8aebc80ba8ee26fc",
-    "/prueba/index.html": "baa109b7ae981377e88666aff766d9da595b6074",
+    "/prueba/index.html": "4551019a8319c39647aa9fc6e719e68f7c3c6a15",
     "/prueba/logo.svg": "56f17b2088e4d410b6dc0e0654b648b791889da6",
-    "/prueba/main-TVUESUZA.js": "42fb6af9060eff740081a780fa32a0faed327516",
+    "/prueba/main-OLUEA4CI.js": "887bf832962c512a42b6bc8d98265889b5368c1c",
     "/prueba/manifest.webmanifest": "ec213c095d8a977f4093f4211cf88299e5c67297",
     "/prueba/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
     "/prueba/media/primeicons-DHQU4SEP.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
